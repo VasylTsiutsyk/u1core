@@ -3,5 +3,45 @@
     "url": "/",
     "title": "Home",
     "status": "in progress"
+  },
+  {
+    "url": "/industries.html",
+    "title": "Industries",
+    "status": "in progress"
+  },
+  {
+    "url": "/service.html",
+    "title": "Service",
+    "status": "in progress"
+  },
+  {
+    "url": "/about-us.html",
+    "title": "About Us",
+    "status": "in progress"
+  },
+  {
+    "url": "/blog.html",
+    "title": "Blog",
+    "status": "in progress"
+  },
+  {
+    "url": "/blog-inner.html",
+    "title": "Blog Inner",
+    "status": "in progress"
+  },
+  {
+    "url": "/cases.html",
+    "title": "Cases",
+    "status": "in progress"
+  },
+  {
+    "url": "/privacy-policy.html",
+    "title": "Privacy Policy",
+    "status": "in progress"
+  },
+  {
+    "url": "/terms-and-conditions.html",
+    "title": "Terms and Conditions",
+    "status": "in progress"
   }
 ]

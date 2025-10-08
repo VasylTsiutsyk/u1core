@@ -44,10 +44,10 @@
   --container-lg: calc(var(--content-width-lg) + 2 * var(--container-padding));
 
   /* Fonts */
-  --font-family-poppins: 'Poppins', sans-serif;
-  --font-family-arial: 'Arial', 'Helvetica', sans-serif;
-  --font-family-primary: var(--font-family-poppins);
-  --font-family-secondary: var(--font-family-arial);
+  --font-family-inter: 'Inter', sans-serif;
+  --font-family-commissioner: 'Commissioner', 'sans-serif';
+  --font-family-primary: var(--font-family-inter);
+  --font-family-secondary: var(--font-family-commissioner);
   --font-icons: 'iconfont';
 
   /* Fonts Body */
@@ -64,8 +64,23 @@
   /* Colors */
   --color-black: #000;
   --color-black-500: #00000080;
+  --color-basic-black-100: #090909;
+  --color-basic-black-90: rgb(9 9 9 / 90%);
+
+  // White
   --color-white: #fff;
+  --color-basic-white-5: #ffffff0d;
+  --color-basic-white-100: #fff;
+
+  // Gray
   --color-gray: #c8c8c8;
+
+  // Yellow
+  --color-yellow-fried-egg: #ffe667;
+  --color-accent-yellow: #ffe667;
+  --color-accent-yellow-15: #fed50026;
+  --color-accent-yellow-8: #fed50014;
+  --color-accent-yellow-light: #ffe667;
 
   /* State Colors */
   --color-success: #28a745;
@@ -74,7 +89,7 @@
   --color-info: #17a2b8;
 
   /* Primary / Secondary */
-  --color-primary: var(--color-info);
+  --color-primary: var(--color-accent-yellow);
 
   /* Transitions */
   --transition-duration: 0.35s;
