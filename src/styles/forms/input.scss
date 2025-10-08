@@ -1,0 +1,56 @@
+/* ========== INPUTS ========== */
+@use '@styles/helpers' as *;
+
+.input {
+  input,
+  textarea {
+    appearance: none;
+    display: block;
+    outline: none;
+    border: var(--input-border-width) var(--input-border-style) var(--input-border-color);
+    border-radius: var(--input-border-radius);
+    width: 100%;
+    min-height: var(--input-height);
+    padding: var(--input-padding-y) var(--input-padding-x);
+    background: none;
+    background-color: var(--input-bg-color);
+    font-size: var(--input-font-size, 1rem);
+    font-weight: var(--input-font-weight, 400);
+    line-height: var(--input-line-height, 1);
+    color: var(--input-text-color);
+    resize: none;
+    transition: border-color var(--transition-duration);
+
+    @include input-placeholder {
+      color: inherit;
+    }
+
+    &:disabled,
+    &._disabled {
+      opacity: 0.8;
+      cursor: default;
+    }
+
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+      display: none;
+    }
+
+    &:not(:disabled, ._disabled) {
+      @include hover {
+        border-color: var(--color-primary);
+      }
+
+      &:focus {
+        outline: rem(2) dashed var(--color-primary);
+        outline-offset: rem(4);
+      }
+
+      &:active {
+        border-color: var(--color-primary);
+      }
+    }
+  }
+}

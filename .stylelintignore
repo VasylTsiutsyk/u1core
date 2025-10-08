@@ -1,0 +1,9 @@
+gulp
+node_modules
+src/styles/vendors
+src/styles/fonts
+src/styles/libs
+src/styles/base
+src/assets/svgicons/preview
+ui-kit
+dist

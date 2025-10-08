@@ -1,0 +1,39 @@
+/* stylelint-disable */
+
+@use 'sass:map';
+@use 'functions' as *;
+
+// ====== Breakpoints Map ===== //
+$breakpoints: (
+  2xs: 20rem,   // 320px
+  xs: 30rem,    // 480px
+  sm: 48rem,    // 768px
+  md: 62rem,    // 992px
+  lg: 80rem,    // 1280px
+  xl: 90rem,    // 1440px
+  2xl: 97.5rem  // 1560px
+);
+
+@mixin respond-below($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map.get($breakpoints, $breakpoint);
+
+    @media (max-width: ($breakpoint-value - 1)) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+@mixin respond-above($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map.get($breakpoints, $breakpoint);
+
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}

@@ -1,0 +1,179 @@
+/* Typography */
+@use '@styles/helpers' as *;
+
+.text-block {
+  --text-space-y: #{fluid(24, 12)};
+
+  ol,
+  ul {
+    --list-space-y: 0.75rem;
+
+    li {
+      &:not(:last-child) {
+        margin-bottom: var(--list-space-y);
+      }
+    }
+  }
+
+  ul {
+    --list-pl: #{rem(20)};
+
+    list-style: disc outside;
+    padding-left: var(--list-pl);
+  }
+
+  strong,
+  b {
+    font-weight: 700;
+  }
+
+  em,
+  i {
+    font-style: italic;
+  }
+
+  mark {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  del {
+    background-color: #fbb;
+    text-decoration: line-through;
+  }
+
+  ins {
+    background-color: #d4fcbc;
+    text-decoration: none;
+  }
+
+  blockquote {
+    border-left: rem(2) solid var(--color-primary);
+    padding-left: rem(16);
+  }
+
+  > *:not(:last-child) {
+    margin-bottom: var(--text-space-y);
+  }
+}
+
+a[x-apple-data-detectors] {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+// Щоб збільшити область кліку (мін. 44px)
+a,
+button {
+  &:not(.menu__btn) {
+    &[aria-label] {
+      position: relative;
+
+      &::after {
+        content: '';
+
+        @include abs-center;
+        @include square(rem(44));
+      }
+    }
+  }
+}
+
+picture {
+  display: inline-block;
+
+  img {
+    vertical-align: middle;
+  }
+}
+
+code {
+  border: 1px dashed #999;
+  border-radius: 0.2rem;
+  padding: 0.1rem 0.3rem 0.2rem;
+  background: #fff3f4;
+  box-decoration-break: clone;
+  word-wrap: break-word;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  --font-size: #{rem(24)};
+
+  font-family: var(--display-font-family);
+  font-size: var(--font-size);
+  font-weight: var(--display-font-weight);
+  line-height: var(--display-line-height);
+}
+
+h1,
+.h1 {
+  --font-size: #{rem(96)};
+
+  @include respond-below(xl) {
+    --font-size: #{rem(80)};
+  }
+
+  @include respond-below(md) {
+    --font-size: #{rem(42)};
+  }
+
+  @include respond-below(sm) {
+    --font-size: #{rem(36)};
+  }
+}
+
+h2,
+.h2 {
+  --font-size: #{rem(48)};
+
+  @include respond-below(md) {
+    --font-size: #{rem(42)};
+  }
+
+  @include respond-below(sm) {
+    --font-size: #{rem(32)};
+  }
+}
+
+h3,
+.h3 {
+  --font-size: #{rem(24)};
+
+  @include respond-below(md) {
+    --font-size: #{rem(20)};
+  }
+}
+
+h4,
+.h4 {
+  --font-size: #{rem(20)};
+
+  @include respond-below(md) {
+    --font-size: #{rem(18)};
+  }
+}
+
+h5,
+.h5 {
+  --font-size: #{rem(16)};
+}
+
+h6,
+.h6 {
+  --font-size: #{rem(12)};
+}

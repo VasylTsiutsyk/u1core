@@ -1,0 +1,93 @@
+/* ========== UTILS ========== */
+@use '@styles/helpers' as *;
+
+/* Avoid content moving on overflow: hidden */
+.disable-scroll {
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Wrapper to prevent horizontal scroll */
+/* if you want use position: sticky; - need to remove // overflow: hidden // !!! */
+.wrapper {
+  overflow: hidden;
+  min-height: 100vh;
+  padding-top: var(--header-height);
+
+  &--visible {
+    @include respond-above(md) {
+      overflow: visible;
+    }
+  }
+}
+
+/* Container */
+.container {
+  margin: 0 auto;
+  max-width: var(--container);
+  padding-inline: var(--container-padding);
+
+  &--sm {
+    max-width: var(--container-sm);
+  }
+
+  &--lg {
+    max-width: var(--container-lg);
+  }
+}
+
+/* Section offset, immit container */
+.offset-container {
+  padding-left: max(var(--container-padding), calc((100vw - var(--content-width)) / 2));
+
+  @include respond-below(md) {
+    padding: 0 var(--container-padding);
+  }
+}
+
+/* Focus State */
+:focus-visible {
+  outline: rem(2) dashed var(--color-primary);
+  outline-offset: rem(4);
+  transition-duration: 0s !important;
+}
+
+/* Hiding class, making content visible only to screen readers but not visually */
+/* "sr" meaning "screen-reader" */
+.sr-only:not(:focus, :active) {
+  @include sr-only;
+}
+
+// ========== Colors ==========
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-danger {
+  color: var(--color-danger);
+}
+
+.text-warning {
+  color: var(--color-warning);
+}
+
+.text-success {
+  color: var(--color-success);
+}
+
+// ========== PC/Mobile Visibility ==========
+.pc-only {
+  @include respond-below(md) {
+    display: none !important;
+  }
+}
+
+.mobile-only {
+  @include respond-above(md) {
+    display: none !important;
+  }
+}

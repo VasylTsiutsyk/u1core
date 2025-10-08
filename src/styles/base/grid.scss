@@ -1,0 +1,130 @@
+@use 'sass:map';
+@use '../variables' as *;
+
+/* ========== GRID ========== */
+$items: 12;
+
+@media (width <= 480px) {
+  :root {
+    --media-breakdown: 480 * 100vw;
+  }
+}
+
+@media (width >= 480px) {
+  :root {
+    --media-breakdown: 568 * 100vw;
+  }
+}
+
+@media (width >= 568px) {
+  :root {
+    --media-breakdown: 768 * 100vw;
+  }
+}
+
+@media (width >= 768px) {
+  :root {
+    --media-breakdown: 992 * 100vw;
+  }
+}
+
+@media (width >= 992px) {
+  :root {
+    --media-breakdown: 1200 * 100vw;
+  }
+}
+
+@media (width >= 1200px) {
+  :root {
+    --media-breakdown: 1580 * 100vw;
+  }
+}
+
+@media (width >= 1580px) {
+  :root {
+    --media-breakdown: 1920 * 100vw;
+  }
+}
+
+// media query mixin
+@mixin break($size) {
+  @media (min-width: map.get($breakpoints, $size)) {
+    @content;
+  }
+}
+
+// Grid Row
+.row {
+  --col-gap: 1rem;
+
+  display: flex;
+  flex-flow: row wrap;
+  margin-right: calc(var(--col-gap) / 2 * -1);
+  margin-left: calc(var(--col-gap) / 2 * -1);
+
+  &._no-gutters {
+    --col-gap: 0;
+  }
+}
+
+// Grid Column
+[class^='col-'],
+[class*=' col-'] {
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding-right: calc(var(--col-gap) / 2);
+  padding-left: calc(var(--col-gap) / 2);
+}
+
+// loop over the breakpoints
+@each $key, $value in $breakpoints {
+  @for $i from 1 through $items {
+    .col-#{$key}-#{$i} {
+      @include break($key) {
+        flex: 0 0 #{calc($i / $items) * 100%};
+        max-width: #{calc($i / $items) * 100%};
+      }
+    }
+  }
+}
+
+// grid helpers
+.flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-between {
+  justify-content: space-between;
+}

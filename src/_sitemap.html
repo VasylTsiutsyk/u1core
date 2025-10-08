@@ -1,0 +1,48 @@
+<template
+  src="html/templates/main/main.html"
+  locals='{
+		"title": "Sitemap", 
+		"lang": "en",
+		"preloader": {
+			"enable": "false",
+			"once": "false"
+		},
+		"keywords": "", 
+		"description": ""
+	}'
+>
+  <!-- Main Content -->
+  <block name="main">
+    <section class="section">
+      <div class="section__container container">
+        <div class="section__wrap">
+          <div class="section__header">
+            <h2 class="section-title">Pages</h2>
+          </div>
+
+          <div class="section__body">
+            <ol class="pages-list"></ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script type="module">
+      import pages from '/files/data/sitemap.json';
+
+      const container = document.querySelector('.pages-list');
+
+      pages.forEach(({ url, title, status }) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <a href="${url}"
+            class="${status === 'done' ? 'text-success' : 'text-warning'}">
+            ${title} (${status === 'done' ? 'done' : 'in progress'})
+          </a>
+        `;
+
+        container.append(li);
+      });
+    </script>
+  </block>
+</template>

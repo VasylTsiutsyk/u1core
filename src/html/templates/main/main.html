@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="[[lang]]">
+  <include
+    src="@html/layout/head/head.html"
+    locals='{
+      "title": "[[title]]", 
+      "preloader": {
+        "enable": "[[preloader.enable]]",
+        "once": "[[preloader.once]]"
+      },
+      "keywords": "[[keywords]]", 
+      "description": "[[description]]"
+	  }'
+  >
+  </include>
+
+  <body>
+    <div class="wrapper">
+      <block name="header"></block>
+
+      <main role="main">
+        <block name="main"></block>
+      </main>
+
+      <block name="footer"></block>
+    </div>
+
+    <block name="popup"></block>
+
+    <script type="module" src="@js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+/* stylelint-disable @stylistic/max-line-length */
+
+/* =========== SWITCH ========== */
+@use '@styles/helpers' as *;
+
+.switch {
+  --control-gap: 1rem;
+  --control-slider-border-width: #{rem(1)};
+  --control-slider-border-color: #aeaeae;
+  --control-slider-width: 2.75rem;
+  --control-slider-height: 1.5rem;
+  --control-slider-dot-size: 1rem;
+  --control-slider-dot-offset-x: #{rem(4)};
+
+  position: relative;
+  display: flex;
+  gap: var(--control-gap);
+  user-select: none;
+
+  &.switch--sm {
+    --control-slider-width: #{rem(40)};
+    --control-slider-height: #{rem(20)};
+    --control-slider-dot-size: #{rem(12)};
+  }
+
+  &.switch--lg {
+    --control-slider-width: #{rem(60)};
+    --control-slider-height: #{rem(32)};
+    --control-slider-dot-size: #{rem(20)};
+  }
+
+  input[type='checkbox'] {
+    @include sr-only;
+
+    &:disabled {
+      ~ .switch__slider,
+      ~ .switch__text {
+        opacity: 0.75;
+      }
+    }
+
+    &:not(:disabled) {
+      &:focus-visible + .switch__slider {
+        outline: rem(2) solid var(--color-primary);
+        outline-offset: rem(2);
+      }
+
+      ~ .switch__slider,
+      ~ .switch__text {
+        cursor: pointer;
+      }
+    }
+
+    &:checked {
+      + .switch__slider {
+        border-color: var(--color-primary);
+        background-color: var(--color-primary);
+
+        &::before {
+          background-color: var(--color-white);
+          transform: translate(calc(var(--control-slider-width) - var(--control-slider-dot-size) - var(--control-slider-dot-offset-x) * 2), -50%);
+        }
+      }
+    }
+  }
+
+  &__slider {
+    position: relative;
+    display: block;
+    flex: 0 0 var(--control-slider-width);
+    border: var(--control-slider-border-width) solid var(--control-slider-border-color);
+    border-radius: var(--control-slider-height);
+    width: var(--control-slider-width);
+    height: var(--control-slider-height);
+    min-width: var(--control-slider-width);
+    background-color: var(--color-white);
+    transition:
+      border-color var(--transition-duration),
+      background-color var(--transition-duration);
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: var(--control-slider-dot-offset-x);
+      top: 50%;
+      border-radius: var(--control-slider-dot-size);
+      width: var(--control-slider-dot-size);
+      height: var(--control-slider-dot-size);
+      background-color: #dcdcdc;
+      transform: translateY(-50%);
+      transition:
+        background-color var(--transition-duration),
+        transform var(--transition-duration);
+    }
+  }
+
+  &__text {
+    flex: 1 1 auto;
+    align-self: center;
+    min-width: 0;
+  }
+}

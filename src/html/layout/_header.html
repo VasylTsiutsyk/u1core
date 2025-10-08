@@ -1,0 +1,74 @@
+<header class="header [[classes]]">
+  <div class="header__container container">
+    <div class="header__wrap">
+      <a href="/" class="header__logo">
+        <!-- <img
+          src="assets/img/logo.svg"
+          alt="U1Core Logo"
+          width="100"
+          height="64"
+          fetchpriority="high"
+        /> -->
+        LOGO
+      </a>
+
+      <div class="header__menu menu" data-menu>
+        <span id="nav-label" class="sr-only">Navigation</span>
+
+        <button
+          class="menu__btn"
+          title="Menu"
+          aria-label="Open Menu"
+          aria-expanded="false"
+          aria-labelledby="nav-label"
+          data-menu-burger
+        >
+          <span aria-hidden></span>
+        </button>
+
+        <nav
+          class="menu__body"
+          role="navigation"
+          aria-label="Main Navigation"
+          data-menu-body
+        >
+          <ul class="menu__list">
+            <li>
+              <a href="#">Item</a>
+            </li>
+
+            <li>
+              <a href="#">Item</a>
+            </li>
+
+            <li>
+              <a href="#">Item</a>
+
+              <button
+                class="menu__arrow"
+                aria-label="Expand Submenu"
+                data-menu-arrow
+              ></button>
+
+              <div class="menu__sublist">
+                <ul class="menu__sublist-inner">
+                  <li>
+                    <a href="#">Item</a>
+                  </li>
+
+                  <li>
+                    <a href="#">Item</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+
+          <div class="menu__btn-box">
+            <a href="#" class="btn btn--primary">Button</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>

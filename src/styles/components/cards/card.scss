@@ -1,0 +1,53 @@
+/* ========== CARD ========== */
+@use '@styles/helpers' as *;
+
+// Card
+.card {
+  --card-border-width: #{rem(1)};
+  --card-border-color: var(--color-black);
+  --card-border-radius: var(--border-radius-8);
+  --card-px: #{rem(8)};
+  --card-py: #{rem(8)};
+  --card-bg-color: var(--color-white);
+  --card-text-color: var(--color-black);
+  --card-text-px: #{rem(8)};
+  --card-text-py: #{rem(12)};
+
+  display: block;
+  overflow: hidden;
+  border: var(--card-border-width) solid var(--card-border-color);
+  border-radius: var(--card-border-radius);
+  padding: var(--card-py) var(--card-px);
+  background-color: var(--card-bg-color);
+  color: var(--card-text-color);
+
+  &__img {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding-bottom: percent(56, 100);
+
+    picture {
+      display: contents;
+    }
+
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__text {
+    padding: var(--card-text-py) var(--card-text-px);
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+  }
+}

@@ -1,0 +1,107 @@
+/* Icons */
+@font-face {
+  font-family: 'iconfont';
+  src: url('../../assets/svgicons/preview/iconfont.woff2?a57526cd20a797861c2e230aca4bbede')
+    format('woff2');
+  font-display: swap;
+  font-weight: 400;
+}
+
+[class*='icon-'] {
+  display: inline-flex;
+  align-items: center;
+  font-style: normal;
+}
+
+[class*='icon-']::before {
+  font-family: iconfont;
+  font-style: normal;
+}
+
+[class*='icon-plus']::before {
+  content: '\f101';
+}
+
+[class*='icon-minus']::before {
+  content: '\f102';
+}
+
+[class*='icon-map-pin']::before {
+  content: '\f103';
+}
+
+[class*='icon-mail']::before {
+  content: '\f104';
+}
+
+[class*='icon-info']::before {
+  content: '\f105';
+}
+
+[class*='icon-eye']::before {
+  content: '\f106';
+}
+
+[class*='icon-eye-off']::before {
+  content: '\f107';
+}
+
+[class*='icon-chevrons-up']::before {
+  content: '\f108';
+}
+
+[class*='icon-chevrons-right']::before {
+  content: '\f109';
+}
+
+[class*='icon-chevrons-left']::before {
+  content: '\f10a';
+}
+
+[class*='icon-chevrons-down']::before {
+  content: '\f10b';
+}
+
+[class*='icon-chevron-up']::before {
+  content: '\f10c';
+}
+
+[class*='icon-chevron-right']::before {
+  content: '\f10d';
+}
+
+[class*='icon-chevron-left']::before {
+  content: '\f10e';
+}
+
+[class*='icon-chevron-down']::before {
+  content: '\f10f';
+}
+
+[class*='icon-check']::before {
+  content: '\f110';
+}
+
+[class*='icon-at-sign']::before {
+  content: '\f111';
+}
+
+[class*='icon-arrow-up']::before {
+  content: '\f112';
+}
+
+[class*='icon-arrow-right']::before {
+  content: '\f113';
+}
+
+[class*='icon-arrow-left']::before {
+  content: '\f114';
+}
+
+[class*='icon-arrow-down']::before {
+  content: '\f115';
+}
+
+[class*='icon-alert-circle']::before {
+  content: '\f116';
+}

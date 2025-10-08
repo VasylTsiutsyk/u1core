@@ -1,0 +1,73 @@
+/* ========== BUTTONS ========== */
+@use '@styles/helpers' as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: rem(8);
+  vertical-align: top;
+  overflow: hidden;
+  outline: none;
+  border: var(--button-border-width) var(--button-border-style) var(--button-border-color);
+  border-radius: var(--button-border-radius);
+  min-height: var(--button-height);
+  padding: var(--button-padding-y) var(--button-padding-x);
+  background: none;
+  background-color: var(--button-bg-color);
+  font-size: var(--button-font-size, 1rem);
+  font-weight: var(--button-font-weight, 400);
+  line-height: var(--button-line-height, 1);
+  white-space: nowrap;
+  text-align: center;
+  color: var(--button-text-color);
+  transition:
+    border-color var(--transition-duration),
+    background-color var(--transition-duration),
+    box-shadow var(--transition-duration),
+    color var(--transition-duration);
+
+  @include when-is(a) {
+    text-decoration: none;
+  }
+
+  @include qualify(button) {
+    -webkit-appearance: none;
+  }
+
+  &:disabled,
+  &._disabled {
+    opacity: 0.75;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &--primary {
+    @include hover {
+      --button-border-color: var(--color-primary);
+      --button-bg-color: transparent;
+      --button-text-color: var(--color-primary);
+    }
+
+    &:active {
+      --button-border-color: var(--color-primary);
+      --button-bg-color: transparent;
+      --button-text-color: var(--color-primary);
+    }
+  }
+
+  &:not(:disabled, ._disabled) {
+    cursor: pointer;
+
+    @include hover {
+    }
+
+    &:focus {
+      outline: rem(2) dashed var(--color-primary);
+      outline-offset: rem(4);
+    }
+
+    &:active {
+    }
+  }
+}

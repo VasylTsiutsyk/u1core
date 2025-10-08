@@ -1,0 +1,359 @@
+/* stylelint-disable */
+
+@use 'sass:math';
+@use 'sass:map';
+@use 'sass:list';
+
+// Font
+@mixin font($font_name, $file_name, $weight, $style) {
+  @font-face {
+    src:
+      url('../fonts/#{$file_name}.woff') format('woff'),
+      url('../fonts/#{$file_name}.woff2') format('woff2');
+    font-family: $font_name;
+    font-weight: #{$weight};
+    font-style: #{$style};
+    font-display: swap;
+  }
+}
+
+// DISABLED MOB HOVER
+@mixin hover($hasActiveEffectOnMobile: false) {
+  @media (any-hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+
+  @if ($hasActiveEffectOnMobile) {
+    @media (any-hover: none) {
+      &:active {
+        @content;
+      }
+    }
+  }
+}
+
+// ADAPTIVE VALUE
+$max-width: 0; // Ширина полотна (в случае, если контент не имеет ограничений)
+$max-width-container: var(--container); // Content max width
+
+@mixin adaptive-value($property, $startSize, $minSize, $type) {
+  $addSize: $startSize - $minSize;
+
+  @if $type == 1 {
+    // If less than container
+    #{$property}: $startSize + px;
+
+    @media (max-width: #{$max-width-container + px}) {
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$max-width-container - 320}));
+    }
+  } @else if $type == 2 {
+    // If more then container
+    #{$property}: $startSize + px;
+
+    @media (min-width: #{$max-width-container + px}) {
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$max-width - 320}));
+    }
+  } @else {
+    // Always
+    #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$max-width - 320}));
+  }
+}
+
+// Line Height
+@mixin line-height($height: 16, $base: 16) {
+  line-height: ($height / $base);
+}
+
+// Border Radius
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+}
+
+// Opacity
+@mixin opacity($opacity) {
+  $opacity-ie: $opacity * 100;
+
+  opacity: $opacity;
+  filter: alpha(opacity=$opacity-ie); // IE8
+}
+
+// Aspect Ratio
+@mixin responsive-ratio($x, $y) {
+  $padding: calc($y / $x) * 100%;
+
+  padding-bottom: $padding;
+}
+
+// Text Truncate
+@mixin text-truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// Text Shorten
+@mixin text-shorten($numLines: null) {
+  @if $numLines != null {
+    display:-webkit-box;
+    -webkit-line-clamp:$numLines;
+    -webkit-box-orient:vertical; 
+    overflow:hidden;
+  } @else {
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+// Placeholders
+@mixin input-placeholder {
+  &.placeholder {
+    @content;
+  }
+
+  &::placeholder {
+    @content;
+  }
+
+  &:placeholder {
+    @content;
+  }
+
+  &::placeholder {
+    @content;
+  }
+
+  &:input-placeholder {
+    @content;
+  }
+
+  &::input-placeholder {
+    @content;
+  }
+}
+
+// Scrollbars
+@mixin scrollbars($size, $foreground-color, $background-color: color.mix($foreground-color, white,  50%), $border-radius: 0) {
+  // For Google Chrome
+  &::-webkit-scrollbar {
+    border-radius: $border-radius;
+    width: $size;
+    height: $size; 
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    border-radius: $border-radius;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: $border-radius;
+    background: $background-color;
+  }
+
+  // For Internet Explorer
+  & {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+// Triangle
+@mixin triangle($color, $direction, $size: 6px, $position: absolute, $round: false) {
+  width: 0;
+  height: 0;
+
+  @include pseudo($pos: $position);
+
+  @if $round {
+    border-radius: 3px;
+  }
+
+  @if $direction == down {
+    margin-top: 0 - round($size / 2.5);
+    border-top: $size solid $color;
+    border-right: $size solid transparent;
+    border-left: $size solid transparent;
+  } @else if $direction == up {
+    margin-bottom: 0 - round($size / 2.5);
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+    border-left: $size solid transparent;
+  } @else if $direction == right {
+    margin-right: -$size;
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: $size solid $color;
+  } @else if  $direction == left {
+    margin-left: -$size;
+    border-top: $size solid transparent;
+    border-right: $size solid $color;
+    border-bottom: $size solid transparent;
+  }
+}
+
+// Fluid (Responsive) Font
+// @include fluid-font(320px, 1024px, 22px, 55px);
+@mixin fluid-font($min-width, $max-width, $min-font-size, $max-font-size) {
+  $unit1: math.unit($min-width);
+  $unit2: math.unit($max-width);
+  $unit3: math.unit($min-font-size);
+  $unit4: math.unit($max-font-size);
+
+  @if $unit1 == $unit2 and $unit1 == $unit3 and $unit1 == $unit4 {
+    & {
+      font-size: $min-font-size;
+      line-height: $min-font-size * 1.618;
+
+      @media screen and (min-width: $min-width) {
+        font-size:
+          calc(
+            #{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
+            ((100vw - #{$min-width}) / #{strip-unit($max-width - $min-width)})
+          );
+        line-height:
+          calc(
+            #{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
+            1.618 *
+            ((100vw - #{$min-width}) / #{strip-unit($max-width - $min-width)})
+          );
+      }
+
+      @media screen and (min-width: $max-width) {
+        font-size: $max-font-size;
+        line-height: $max-font-size * 1.618;
+      }
+    }
+  }
+}
+
+// Screen Reader Only
+@mixin sr-only {
+  position: absolute;
+  clip-path: inset(50%);
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  white-space: nowrap;
+  clip: rect(0 0 0 0);
+}
+
+// Since the current way to qualify a class from within its ruleset is quite
+// ugly, here is a mixin providing a friendly API to do so.
+// @param {String} $element-selector - Element selector
+@mixin qualify($element-selector) {
+  @at-root #{$element-selector + &} {
+    @content;
+  }
+}
+
+// @alias qualify
+@mixin when-is($args...) {
+  @include qualify($args...) {
+    @content;
+  }
+}
+
+/// Stripe Bg builder
+/// @param {Direction} $direction - Gradient direction
+/// @param {List} $colors - List of colors
+/// @output `background-image` if several colors, `background-color` if only one
+/// Ex: @include bg-stripes(to right, #ff0 #ff4345 #000);
+@mixin bg-stripes($direction, $colors) {
+  $length: length($colors);
+  
+  @if $length > 1 {
+    $stripes: ();
+    
+    @for $i from 1 through $length {
+      $stripe: (100% / $length) * ($i - 1);
+      
+      @if $i > 1 {
+        $stripes: append($stripes, nth($colors, $i - 1) $stripe, comma);
+      }
+      
+      $stripes: append($stripes, nth($colors, $i) $stripe, comma);
+    }
+    
+    background-image: linear-gradient($direction, $stripes);
+  } @else if $length == 1 {
+    background-color: $colors;
+  }
+}
+
+// Hide
+@mixin hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+// Show
+@mixin show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+// Position Absolute Center
+@mixin abs-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+// Draw Sqr
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
+// Text Gradient
+// Ex. @include text-gradient(right, orange red purple blue green);
+// Ex. @include text-gradient(
+//   $direction: top-left,
+//   $colors: red orange
+// );
+
+$map-for-directions: (
+  "top": to top,
+  "top-right": to top right,
+  "right": to right,
+  "bottom-right": to bottom right,
+  "bottom": to bottom,
+  "bottom-left": to bottom left,
+  "left": to left,
+  "top-left": to top left,
+) !default;
+
+@mixin text-gradient($direction, $colors) {
+  $list: ();
+
+  @for $i from 1 through list.length($colors) {
+    $list: list.append($list, list.nth($colors, $i), comma);
+  }
+
+  @if map.has-key($map-for-directions, $direction) {
+    background: linear-gradient(
+      map.get($map-for-directions, $direction),
+      $list
+    );
+  } @else if not map.has-key($map-for-directions, $direction) {
+    @if not index("deg", unit($direction)) {
+      @error "#{$direction} is a wrong value for the $direction parameter. The value must be eighter a number followed by the 'deg' unit or one of the followings: #{map-keys($map-for-directions)}.";
+    } @else {
+      background: linear-gradient($direction, $list);
+    }
+  }
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}

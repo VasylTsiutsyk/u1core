@@ -1,0 +1,88 @@
+/* ========== CHECKBOX ========== */
+@use '@styles/helpers' as *;
+
+.checkbox {
+  --control-gap: #{rem(16)};
+  --control-mark-border-width: #{rem(1)};
+  --control-mark-border-color: var(--color-black);
+  --control-mark-size: #{rem(24)};
+
+  position: relative;
+  display: flex;
+  gap: var(--control-gap);
+  user-select: none;
+
+  &.checkbox--sm {
+    --control-gap: #{rem(12)};
+    --control-mark-size: #{rem(20)};
+  }
+
+  &.checkbox--lg {
+    --control-gap: #{rem(20)};
+    --control-mark-size: #{rem(28)};
+  }
+
+  input[type='checkbox'] {
+    @include sr-only;
+
+    &:disabled {
+      ~ .checkbox__mark,
+      ~ .checkbox__text {
+        opacity: 0.75;
+      }
+    }
+
+    &:not(:disabled) {
+      &:focus-visible ~ .checkbox__mark {
+        outline: rem(2) solid var(--color-primary);
+        outline-offset: rem(2);
+      }
+
+      ~ .checkbox__mark,
+      ~ .checkbox__text {
+        cursor: pointer;
+      }
+    }
+
+    &:checked ~ .checkbox__mark {
+      &::after {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  &__mark {
+    position: relative;
+    display: block;
+    flex: 0 0 var(--control-mark-size);
+    border: var(--control-mark-border-width) solid var(--control-mark-border-color);
+    width: var(--control-mark-size);
+    height: var(--control-mark-size);
+    min-width: var(--control-mark-size);
+    transition: border-color var(--transition-duration);
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: calc(var(--control-mark-size) * 0.33);
+      top: calc(var(--control-mark-size) * 0.05);
+      border: solid var(--color-black);
+      border-width: 0 calc(var(--control-mark-size) * 0.083) calc(var(--control-mark-size) * 0.083) 0;
+      width: calc(var(--control-mark-size) * 0.33);
+      height: calc(var(--control-mark-size) * 0.625);
+      opacity: 0;
+      visibility: hidden;
+      transform: rotate(45deg);
+      transition:
+        visibility var(--transition-duration),
+        opacity var(--transition-duration);
+    }
+  }
+
+  &__text {
+    flex: 1 1 auto;
+    align-self: center;
+    min-width: 0;
+  }
+}

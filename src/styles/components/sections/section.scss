@@ -1,0 +1,36 @@
+// ========== Section General ========== //
+@use '@styles/helpers' as *;
+
+.section {
+  --section-py: #{rem(48)};
+
+  &__wrap {
+    padding-block: var(--section-py);
+  }
+
+  &__header {
+    --mb: #{rem(20)};
+
+    &:not(:last-child) {
+      margin-bottom: var(--mb);
+    }
+  }
+
+  &__body {
+    --mb: #{rem(32)};
+
+    &:not(:last-child) {
+      margin-bottom: var(--mb);
+    }
+
+    > *:not(:last-child) {
+      margin-bottom: rem(16);
+    }
+  }
+
+  &__btn-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(12);
+  }
+}

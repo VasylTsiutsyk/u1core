@@ -1,0 +1,32 @@
+/* ========== Section Hero ========== */
+@use '@styles/helpers' as *;
+
+.hero {
+  --hero-py: 3rem;
+
+  &__wrap {
+    padding-block: var(--hero-py);
+  }
+
+  &__header {
+    --mb: #{rem(16)};
+
+    &:not(:last-child) {
+      margin-bottom: var(--mb);
+    }
+  }
+
+  &__body {
+    --mb: #{rem(24)};
+
+    &:not(:last-child) {
+      margin-bottom: var(--mb);
+    }
+  }
+
+  &__btn-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}

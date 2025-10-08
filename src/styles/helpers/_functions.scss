@@ -1,0 +1,49 @@
+@use 'sass:math';
+
+$browser-context: 16;
+
+// ===== REM ===== //
+@function rem($pixels, $context: $browser-context) {
+  @return #{calc($pixels / $context)}rem;
+}
+
+// ===== EM ===== //
+@function em($pixels, $context: $browser-context) {
+  @return #{calc($pixels / $context)}em;
+}
+
+// ===== PERCENTAGE ===== //
+@function percent($value, $general: 100) {
+  $result: math.percentage(math.div($value, $general));
+
+  @return $result;
+}
+
+// ===== RELATIVE PX ===== //
+@function px($value) {
+  $result: calc(#{$value} / var(--media-breakdown));
+
+  @return $result;
+}
+
+// ===== Fluid Value ===== //
+@function fluid($max: 16, $min: 12) {
+  $maxViewportWidth: 1920;
+  $minViewportWidth: 320;
+
+  // maxSize ...
+  $maxSize: math.div($max, 16);
+  $minSize: math.div($min, 16);
+  $maxWidth: math.div($maxViewportWidth, 16);
+  $minWidth: math.div($minViewportWidth, 16);
+
+  // slope ...
+  $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
+  $yAxisIntersection: -$minWidth * $slope + $minSize;
+
+  @return clamp(
+    #{$minSize * 1rem},
+    #{$yAxisIntersection * 1rem} + #{$slope * 100vw},
+    #{$maxSize * 1rem}
+  );
+}
