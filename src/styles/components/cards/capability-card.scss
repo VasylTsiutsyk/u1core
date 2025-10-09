@@ -1,0 +1,56 @@
+@use '@styles/helpers' as *;
+
+/* Capability Card */
+.capability-card {
+  --card-border-radius: var(--border-radius-24);
+  --card-px: #{fluid(38, 24)};
+  --card-py: #{fluid(40, 24)};
+
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--card-border-radius);
+  padding: var(--card-py) var(--card-px) 0;
+  background-color: var(--color-basic-white-5);
+  transition: transform var(--transition-duration);
+
+  @include hover {
+    transform: translateY(-2%);
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-block-end: rem(16);
+    }
+  }
+
+  &__description {
+    flex: 1 1 auto;
+    color: var(--color-basic-white-60);
+    text-wrap: balance;
+
+    @include text-lg;
+
+    &:not(:last-child) {
+      margin-block-end: rem(32);
+    }
+  }
+
+  &__img {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 70.13%;
+
+    picture {
+      display: contents;
+    }
+
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}

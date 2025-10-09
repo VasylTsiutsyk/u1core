@@ -2,8 +2,8 @@
 
 /* Section Project Types */
 .section-project-types {
-  --section-pt: #{rem(100)};
-  --section-pb: #{rem(100)};
+  --section-pt: #{fluid(100, 32)};
+  --section-pb: #{fluid(100, 32)};
 
   &__wrap {
     padding-block: var(--section-pt) var(--section-pb);

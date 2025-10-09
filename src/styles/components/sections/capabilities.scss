@@ -1,0 +1,31 @@
+@use '@styles/helpers' as *;
+
+/* Section Capabilities */
+.section-capabilities {
+  --section-py: #{fluid(100, 32)};
+
+  &__wrap {
+    padding-block: var(--section-py);
+  }
+
+  &__cards {
+    display: grid;
+    gap: rem(28);
+    grid-template-columns: var(--grid-3);
+
+    @include respond-below(md) {
+      grid-template-columns: var(--grid-2);
+    }
+
+    @include respond-below(sm) {
+      grid-template-columns: var(--grid-1);
+      row-gap: rem(32);
+    }
+
+    > li {
+      > .capability-card {
+        min-height: 100%;
+      }
+    }
+  }
+}

@@ -397,7 +397,7 @@ $map-for-directions: (
 }
 
 @mixin text-lg {
-  font-size: 1.125rem;
+  font-size: var(--text-lg-font-size);
   font-weight: 500;
   line-height: 1.4;
   letter-spacing: -0.005em;

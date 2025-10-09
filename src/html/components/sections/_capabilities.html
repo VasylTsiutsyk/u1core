@@ -1,0 +1,48 @@
+<section
+  class="section-capabilities"
+  aria-labelledby="sectionServiceTypesTitle"
+>
+  <h2 class="sr-only" id="sectionServiceTypesTitle">Service types</h2>
+
+  <div class="section-capabilities__container container">
+    <div class="section-capabilities__wrap">
+      <ul class="section-capabilities__cards">
+        <li>
+          <include
+            src="@components/cards/_capability-card.html"
+            locals='{
+              "id": "01",
+              "title": "Design",
+              "description": "Human-centered. Business-aware. Impact-focused.",
+              "img": "@img/industries/capabilities/01.png"
+            }'
+          ></include>
+        </li>
+
+        <li>
+          <include
+            src="@components/cards/_capability-card.html"
+            locals='{
+              "id": "02",
+              "title": "Marketing",
+              "description": "Data-backed creativity. Full-cycle execution.",
+              "img": "@img/industries/capabilities/02.png"
+            }'
+          ></include>
+        </li>
+
+        <li>
+          <include
+            src="@components/cards/_capability-card.html"
+            locals='{
+              "id": "03",
+              "title": "Design",
+              "description": "Built to scale. Engineered to perform.",
+              "img": "@img/industries/capabilities/03.svg"
+            }'
+          ></include>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

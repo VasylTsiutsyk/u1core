@@ -80,6 +80,9 @@
   --h5-font-weight: var(--display-font-weight);
   --h5-line-height: var(--display-line-height);
 
+  // Text
+  --text-lg-font-size: 1.125rem;
+
   /* Colors */
   --color-black: #000;
   --color-black-cynical: #171717;
@@ -276,6 +279,9 @@
     --h2-font-size: #{rem(36)};
     --h3-font-size: #{rem(32)};
     --h4-font-size: #{rem(28)};
+
+    // Text
+    --text-lg-font-size: 1rem;
   }
 
   @include respond-below(sm) {
