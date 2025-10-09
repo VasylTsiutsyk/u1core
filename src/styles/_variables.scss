@@ -34,7 +34,7 @@
 
   /* Container Settings */
   --content-width: #{rem(1280)};
-  --content-width-xs: #{rem(760)};
+  --content-width-xs: #{rem(796)};
   --content-width-sm: #{rem(980)};
   --content-width-lg: #{rem(1580)};
   --container-padding: #{rem(24)};
@@ -54,12 +54,28 @@
   --body-font-family: var(--font-family-primary);
   --body-font-size: 1rem;
   --body-font-weight: 400;
-  --body-line-height: 1.42;
+  --body-line-height: 1.5;
+  --body-bg-color: var(--color-basic-black-100);
+  --body-text-color: var(--color-basic-white-100);
 
   /* Fonts Display (Heading) */
-  --display-font-family: var(--font-family-primary);
-  --display-font-weight: 700;
+  --display-font-family: var(--font-family-secondary);
+  --display-font-weight: 500;
   --display-line-height: 1.2;
+
+  // Headings
+  --h1-font-size: #{rem(58)};
+  --h1-font-weight: var(--display-font-weight);
+  --h1-line-height: var(--display-line-height);
+  --h2-font-size: #{rem(50)};
+  --h2-font-weight: var(--display-font-weight);
+  --h2-line-height: var(--display-line-height);
+  --h3-font-size: #{rem(42)};
+  --h3-font-weight: var(--display-font-weight);
+  --h3-line-height: 1.1;
+  --h4-font-size: #{rem(35)};
+  --h4-font-weight: var(--display-font-weight);
+  --h4-line-height: var(--display-line-height);
 
   /* Colors */
   --color-black: #000;
@@ -70,6 +86,8 @@
   // White
   --color-white: #fff;
   --color-basic-white-5: #ffffff0d;
+  --color-basic-white-10: rgb(255 255 255 / 10%);
+  --color-basic-white-50: #ffffff80;
   --color-basic-white-100: #fff;
 
   // Gray

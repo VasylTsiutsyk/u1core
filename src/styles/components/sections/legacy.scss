@@ -1,0 +1,41 @@
+@use '@styles/helpers' as *;
+
+/* Section Legacy */
+.section-legacy {
+  --section-py: #{fluid(120, 48)};
+  --section-group-space-y: #{fluid(60, 32)};
+
+  &__wrap {
+    padding-block: var(--section-py);
+  }
+
+  &__header {
+    &:not(:last-child) {
+      margin-block-end: fluid(60, 32);
+    }
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-block-end: rem(12);
+    }
+  }
+
+  &__date {
+    display: block;
+    font-size: rem(16);
+    font-weight: var(--body-font-weight);
+    font-style: italic;
+    line-height: var(--body-line-height);
+    letter-spacing: em(-0.32);
+    color: var(--color-basic-white-50);
+  }
+
+  &__group {
+    &:not(:last-child) {
+      border-block-end: rem(1) solid var(--color-basic-white-10);
+      margin-block-end: var(--section-group-space-y);
+      padding-block-end: var(--section-group-space-y);
+    }
+  }
+}

@@ -27,9 +27,13 @@
 
 /* Container */
 .container {
-  margin: 0 auto;
   max-width: var(--container);
+  margin-inline: auto;
   padding-inline: var(--container-padding);
+
+  &--xs {
+    max-width: var(--container-sm);
+  }
 
   &--sm {
     max-width: var(--container-sm);

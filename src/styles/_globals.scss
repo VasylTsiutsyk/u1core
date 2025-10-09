@@ -3,15 +3,14 @@
 /* ========== GLOBALS ========== */
 @use '@styles/helpers' as *;
 
-// just for example, need to remove
-@import 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap';
-
 /* Body */
 body {
+  background-color: var(--body-bg-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size);
   font-weight: var(--body-font-weight);
   line-height: var(--body-line-height);
+  color: var(--body-text-color);
 
   &:has(.preloader) {
     overflow: hidden;

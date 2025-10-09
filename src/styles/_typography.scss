@@ -3,6 +3,8 @@
 
 .text-block {
   --text-space-y: #{fluid(24, 12)};
+  --text-paragraph-spacing: 1em;
+  --text-list-indent: 1em;
 
   ol,
   ul {
@@ -53,7 +55,7 @@
   }
 
   > *:not(:last-child) {
-    margin-bottom: var(--text-space-y);
+    margin-block-end: var(--text-paragraph-spacing);
   }
 }
 
@@ -122,50 +124,22 @@ h6,
 
 h1,
 .h1 {
-  --font-size: #{rem(96)};
-
-  @include respond-below(xl) {
-    --font-size: #{rem(80)};
-  }
-
-  @include respond-below(md) {
-    --font-size: #{rem(42)};
-  }
-
-  @include respond-below(sm) {
-    --font-size: #{rem(36)};
-  }
+  @include title-h1;
 }
 
 h2,
 .h2 {
-  --font-size: #{rem(48)};
-
-  @include respond-below(md) {
-    --font-size: #{rem(42)};
-  }
-
-  @include respond-below(sm) {
-    --font-size: #{rem(32)};
-  }
+  @include title-h2;
 }
 
 h3,
 .h3 {
-  --font-size: #{rem(24)};
-
-  @include respond-below(md) {
-    --font-size: #{rem(20)};
-  }
+  @include title-h3;
 }
 
 h4,
 .h4 {
-  --font-size: #{rem(20)};
-
-  @include respond-below(md) {
-    --font-size: #{rem(18)};
-  }
+  @include title-h4;
 }
 
 h5,
