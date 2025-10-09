@@ -2,6 +2,15 @@
 @use '@styles/helpers' as *;
 
 .select {
+  &--rounded {
+    --select-border-radius: #{rem(50)};
+  }
+
+  &--sm {
+    --select-height: #{rem(50)};
+    --select-padding-x: #{rem(24)};
+  }
+
   select {
     display: block;
     outline: none;
@@ -55,19 +64,24 @@
         height: auto;
         font-family: var(--font-icons);
         transform: translateY(-50%);
+        transition: transform var(--transition-duration);
       }
 
       &.is-open {
         &::after {
           margin-top: 0;
           border: none;
+          transform: translateY(-50%) rotateX(180deg);
         }
       }
     }
 
     &.is-open {
+      --select-border-color: var(--color-basic-white-20);
+      --select-bg-color: var(--color-basic-white-10);
+      --select-placeholder-color: var(--color-basic-white-100);
+
       .choices__inner {
-        border-color: var(--color-primary);
         border-radius: var(--select-border-radius);
       }
 
@@ -78,8 +92,13 @@
       }
     }
 
+    &.is-focused {
+      --select-border-color: var(--color-basic-white-50);
+    }
+
     &__inner {
       border: var(--select-border-width) solid var(--select-border-color);
+      border-color: var(--select-border-color) !important;
       border-radius: var(--select-border-radius);
       min-height: var(--select-height);
       background-color: var(--select-bg-color);
@@ -87,36 +106,71 @@
       font-weight: var(--select-font-weight);
       line-height: var(--select-line-height);
       transition: border-color var(--transition-duration);
+      padding-inline-start: calc(var(--select-padding-x) - rem(5));
     }
 
     &__list {
+      padding-inline-end: rem(2);
+
+      @include scrollbars(rem(2), var(--color-basic-white-50), var(--scrollbar-bg-color), rem(2));
+
       &--dropdown,
       &[aria-expanded] {
-        border: var(--select-border-width) solid var(--select-border-color);
-        border-bottom-right-radius: var(--select-border-radius);
-        border-bottom-left-radius: var(--select-border-radius);
-        background-color: var(--select-bg-color);
-        transition: border-color var(--transition-duration);
+        margin-top: rem(6);
+        border: var(--select-border-width) solid var(--select-dropdown-border-color) !important;
+        border-radius: var(--select-dropdown-border-radius);
+        padding: rem(10);
+        background-color: var(--select-dropdown-bg-color);
+        transition:
+          border-color var(--transition-duration),
+          background-color var(--transition-duration);
+        backdrop-filter: var(--select-dropdown-bg-filter);
 
         .choices__item {
           display: flex;
-          flex-direction: column;
-          justify-content: center;
-
-          // min-height: var(--select-height);
-          padding: var(--select-padding-y) var(--select-padding-x);
-          font-size: var(--select-font-size);
-          font-weight: var(--select-font-weight);
-          line-height: var(--select-line-height);
+          flex-direction: row;
+          align-items: center;
+          gap: rem(10);
+          border-radius: var(--border-radius-12);
+          padding: rem(10);
+          font-size: rem(14);
+          font-weight: 500;
+          line-height: 1.4;
+          letter-spacing: rem(-0.07);
+          color: var(--color-basic-white-50);
           transition:
             color var(--transition-duration),
             background-color var(--transition-duration);
 
+          &::before {
+            content: '';
+            display: inline-block;
+            border: var(--select-checkmark-border-width) solid var(--select-checkmark-border-color);
+            border-radius: var(--select-checkmark-border-radius);
+            width: var(--select-checkmark-size);
+            height: var(--select-checkmark-size);
+            background-color: var(--select-checkmark-bg-color);
+            transition:
+              border-color var(--transition-duration),
+              background-color var(--transition-duration);
+          }
+
           &--selectable {
             &.is-highlighted {
-              background-color: var(--color-primary);
-              color: var(--color-white);
+              background-color: var(--color-basic-white-10);
+              color: var(--color-basis-white-100);
             }
+
+            &.is-selected {
+              --select-checkmark-border-color: var(--color-basic-white-100);
+              --select-checkmark-bg-color: var(--color-basic-white-100);
+
+              color: var(--color-basis-white-100);
+            }
+          }
+
+          &:not(:last-child) {
+            margin-block-end: rem(10);
           }
         }
       }
@@ -124,6 +178,11 @@
 
     &__input {
       background: none;
+    }
+
+    &__placeholder {
+      color: var(--select-placeholder-color);
+      transition: color var(--transition-duration);
     }
   }
 }

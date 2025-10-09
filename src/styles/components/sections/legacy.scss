@@ -5,13 +5,20 @@
   --section-py: #{fluid(120, 48)};
   --section-group-space-y: #{fluid(60, 32)};
 
+  background-color: var(--color-basic-black-100);
+  color: var(--color-basic-white-80);
+
+  :where(h1, h2, h3, h4, h5, h6, a) {
+    color: var(--color-basic-white-100);
+  }
+
   &__wrap {
     padding-block: var(--section-py);
   }
 
   &__header {
     &:not(:last-child) {
-      margin-block-end: fluid(60, 32);
+      margin-block-end: fluid(60, 36);
     }
   }
 
@@ -23,7 +30,7 @@
 
   &__date {
     display: block;
-    font-size: rem(16);
+    font-size: fluid(16, 14);
     font-weight: var(--body-font-weight);
     font-style: italic;
     line-height: var(--body-line-height);

@@ -81,6 +81,7 @@
     "@img/sharp-win32-x64": "latest"
   },
   "dependencies": {
-    "bowser": "^2.11.0"
+    "bowser": "^2.11.0",
+    "choices.js": "^11.1.0"
   }
 }

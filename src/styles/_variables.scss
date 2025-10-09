@@ -76,18 +76,26 @@
   --h4-font-size: #{rem(35)};
   --h4-font-weight: var(--display-font-weight);
   --h4-line-height: var(--display-line-height);
+  --h5-font-size: #{rem(24)};
+  --h5-font-weight: var(--display-font-weight);
+  --h5-line-height: var(--display-line-height);
 
   /* Colors */
   --color-black: #000;
   --color-black-500: #00000080;
   --color-basic-black-100: #090909;
+  --color-basic-black-40: rgb(9 9 9 / 40%);
   --color-basic-black-90: rgb(9 9 9 / 90%);
 
   // White
   --color-white: #fff;
   --color-basic-white-5: #ffffff0d;
   --color-basic-white-10: rgb(255 255 255 / 10%);
-  --color-basic-white-50: #ffffff80;
+  --color-basic-white-20: rgb(255 255 255 / 20%);
+  --color-basic-white-40: rgb(255 255 255 / 40%);
+  --color-basic-white-50: rgb(255 255 255 / 50%);
+  --color-basic-white-60: rgb(255 255 255 / 60%);
+  --color-basic-white-80: rgb(255 255 255 / 80%);
   --color-basic-white-100: #fff;
 
   // Gray
@@ -112,7 +120,7 @@
   /* Transitions */
   --transition-duration: 0.35s;
   --transition-duration-short: 0.25s;
-  --transition-duration-long: 0.5s;
+  --transition-duration-slow: 0.75s;
   --transition-primary: all var(--transition-duration) ease;
 
   /* Border Radius */
@@ -122,6 +130,7 @@
   --border-radius-16: 1rem;
   --border-radius-20: 1.25rem;
   --border-radius-24: 1.5rem;
+  --border-radius-28: 1.75rem;
   --border-radius-32: 2rem;
   --border-radius-36: 2.25rem;
 
@@ -129,8 +138,8 @@
   --scrollbar-border-radius: 0;
   --scrollbar-width: 0.5rem;
   --scrollbar-height: 0.5rem;
-  --scrollbar-bg-color: var(--color-gray);
-  --scrollbar-thumb-color: var(--color-primary);
+  --scrollbar-bg-color: var(--color-basic-white-5);
+  --scrollbar-thumb-color: var(--color-accent-yellow-15);
 
   /* Selection */
   --selection-bg-color: var(--color-primary);
@@ -167,17 +176,48 @@
   /* Select */
   --select-border-width: 1px;
   --select-border-style: solid;
-  --select-border-color: var(--color-black);
-  --select-border-radius: 0.25rem;
-  --select-height: 3rem;
-  --select-padding-x: 1rem;
+  --select-border-color: var(--color-basic-white-5);
+  --select-border-radius: #{rem(14)};
+  --select-height: #{rem(54)};
+  --select-padding-x: #{rem(20)};
   --select-padding-y: 0.5rem;
   --select-font-size: 1rem;
   --select-font-weight: 400;
-  --select-line-height: 1;
-  --select-bg-color: var(--color-white);
-  --select-text-color: var(--color-black);
+  --select-line-height: 1.4;
+  --select-letter-spacing: #{rem(-0.08)};
+  --select-bg-color: var(--color-basic-white-5);
+  --select-text-color: var(--color-white);
+  --select-placeholder-color: var(--color-basic-white-50);
+  --select-dropdown-border-radius: var(--border-radius-24);
+  --select-dropdown-border-color: var(--color-basic-white-10);
+  --select-dropdown-bg-color: var(--color-basic-black-40);
+  --select-dropdown-bg-filter: blur(3.75rem);
+  --select-checkmark-size: 1rem;
+  --select-checkmark-border-radius: var(--border-radius-4);
+  --select-checkmark-border-width: #{rem(1)};
+  --select-checkmark-border-color: var(--color-basic-white-50);
+  --select-checkmark-bg-color: transparent;
   --select-arrow-icon: var(--icon-chevron-down);
+
+  /* Grid */
+  --grid-1: repeat(1, minmax(0, 1fr));
+  --grid-2: repeat(2, minmax(0, 1fr));
+  --grid-3: repeat(3, minmax(0, 1fr));
+  --grid-4: repeat(4, minmax(0, 1fr));
+  --grid-5: repeat(5, minmax(0, 1fr));
+  --grid-6: repeat(6, minmax(0, 1fr));
+  --grid-7: repeat(7, minmax(0, 1fr));
+  --grid-8: repeat(8, minmax(0, 1fr));
+  --grid-9: repeat(9, minmax(0, 1fr));
+  --grid-10: repeat(10, minmax(0, 1fr));
+  --grid-11: repeat(11, minmax(0, 1fr));
+  --grid-12: repeat(12, minmax(0, 1fr));
+  --grid-1-2: minmax(0, 1fr) minmax(0, 2fr);
+  --grid-1-3: minmax(0, 1fr) minmax(0, 3fr);
+  --grid-2-1: minmax(0, 2fr) minmax(0, 1fr);
+  --grid-2-3: minmax(0, 2fr) minmax(0, 3fr);
+  --grid-3-1: minmax(0, 3fr) minmax(0, 1fr);
+  --grid-3-2: minmax(0, 3fr) minmax(0, 2fr);
 
   /* Icons */
   --icon-chevron-down: '\f10f';
@@ -185,10 +225,42 @@
   /* Header */
   --header-height: 3rem;
 
-  /* Tablet */
+  @include respond-below(lg) {
+    // Heading
+    --h1-font-size: #{rem(48)};
+    --h2-font-size: #{rem(42)};
+    --h3-font-size: #{rem(36)};
+    --h4-font-size: #{rem(32)};
+  }
+
   @include respond-below(md) {
     // Container
     --container-padding: #{rem(16)};
+
+    // Body
+    --body-font-size: 0.875rem;
+
+    // Heading
+    --h1-font-size: #{rem(42)};
+    --h2-font-size: #{rem(36)};
+    --h3-font-size: #{rem(32)};
+    --h4-font-size: #{rem(28)};
+  }
+
+  @include respond-below(sm) {
+    // Heading
+    --h1-font-size: #{rem(36)};
+    --h2-font-size: #{rem(32)};
+    --h3-font-size: #{rem(28)};
+    --h4-font-size: #{rem(24)};
+  }
+
+  @include respond-below(xs) {
+    // Heading
+    --h1-font-size: #{rem(30)};
+    --h2-font-size: #{rem(24)};
+    --h3-font-size: #{rem(24)};
+    --h4-font-size: #{rem(20)};
   }
 }
 

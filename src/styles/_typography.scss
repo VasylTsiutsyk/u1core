@@ -5,23 +5,20 @@
   --text-space-y: #{fluid(24, 12)};
   --text-paragraph-spacing: 1em;
   --text-list-indent: 1em;
+  --text-list-space-y: 0.5em;
 
   ol,
   ul {
-    --list-space-y: 0.75rem;
-
     li {
       &:not(:last-child) {
-        margin-bottom: var(--list-space-y);
+        margin-block-end: var(--text-list-space-y);
       }
     }
   }
 
   ul {
-    --list-pl: #{rem(20)};
-
     list-style: disc outside;
-    padding-left: var(--list-pl);
+    padding-inline-start: var(--text-list-indent);
   }
 
   strong,
@@ -52,6 +49,14 @@
   blockquote {
     border-left: rem(2) solid var(--color-primary);
     padding-left: rem(16);
+  }
+
+  a {
+    text-decoration: underline;
+
+    @include hover {
+      text-decoration: none;
+    }
   }
 
   > *:not(:last-child) {

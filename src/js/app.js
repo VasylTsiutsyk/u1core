@@ -4,6 +4,7 @@
 import { SELECTORS, CLASSES } from './modules/constants';
 import { isWebp, isMobile } from './modules/functions';
 import { initMenu, initHeader } from './modules/menu';
+import initSelects from './modules/selects';
 
 document.addEventListener('DOMContentLoaded', () => {
   // IS WEBP TEST
@@ -104,6 +105,9 @@ document.addEventListener('DOMContentLoaded', () => {
     isScrolled: true,
     isHidden: true,
   });
+
+  // Selects
+  initSelects();
 
   SELECTORS.BODY.classList.add(CLASSES.LOADED);
 });

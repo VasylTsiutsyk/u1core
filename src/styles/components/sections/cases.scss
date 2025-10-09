@@ -1,0 +1,67 @@
+@use '@styles/helpers' as *;
+
+/* Section Cases */
+.section-cases {
+  --section-pt: #{rem(100)};
+  --section-pb: #{rem(120)};
+
+  @include respond-below(md) {
+    --section-pt: #{rem(64)};
+    --section-pb: #{rem(80)};
+  }
+
+  @include respond-below(sm) {
+    --section-pt: #{rem(48)};
+    --section-pb: #{rem(60)};
+  }
+
+  &__wrap {
+    padding-block: var(--section-pt) var(--section-pb);
+  }
+
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: rem(32) rem(12);
+
+    &:not(:last-child) {
+      margin-block-end: fluid(60, 32);
+    }
+  }
+
+  &__title {
+    small {
+      color: var(--color-basic-white-50);
+
+      @include title-h4;
+    }
+  }
+
+  &__controls {
+    display: grid;
+    flex: 0 0 60%;
+    gap: fluid(24, 16);
+    grid-template-columns: var(--grid-3);
+
+    @include respond-below(md) {
+      flex: 0 0 100%;
+      grid-template-columns: var(--grid-2);
+    }
+
+    @include respond-below(sm) {
+      grid-template-columns: var(--grid-1);
+    }
+  }
+
+  &__cards {
+    display: grid;
+    gap: fluid(46, 20) fluid(24, 16);
+    grid-template-columns: var(--grid-2);
+
+    @include respond-below(sm) {
+      grid-template-columns: var(--grid-1);
+    }
+  }
+}
