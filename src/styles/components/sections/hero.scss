@@ -1,32 +1,100 @@
-/* ========== Section Hero ========== */
 @use '@styles/helpers' as *;
 
+/* Section Hero */
 .hero {
-  --hero-py: 3rem;
+  --hero-pt: 3rem;
+  --hero-pb: 3rem;
 
-  &__wrap {
-    padding-block: var(--hero-py);
+  @include respond-below(md) {
+    --hero-pt: 1.5rem;
+    --hero-pb: 2.25rem;
   }
 
-  &__header {
-    --mb: #{rem(16)};
+  &__wrap {
+    padding-block: var(--hero-pt) var(--hero-pb);
 
-    &:not(:last-child) {
-      margin-bottom: var(--mb);
+    @include respond-above(md) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100svh;
+    }
+
+    @include respond-below(md) {
+      text-align: center;
     }
   }
 
-  &__body {
-    --mb: #{rem(24)};
+  &__row {
+    --col-width: 100%;
+    --col-gap: 1.5rem;
+
+    display: flex;
+    flex-wrap: wrap-reverse;
+    align-items: center;
+    margin-inline: calc(var(--col-gap) / 2 * -1);
+    row-gap: var(--col-gap);
+
+    @include respond-above(md) {
+      --col-width: 50%;
+      --col-gap: 2rem;
+    }
+  }
+
+  &__col {
+    flex: 0 0 var(--col-width);
+    max-width: var(--col-width);
+    padding-inline: calc(var(--col-gap) / 2);
+
+    &--text {
+      @include respond-above(md) {
+        --col-width: 57%;
+      }
+    }
+
+    &--img {
+      @include respond-above(md) {
+        --col-width: 43%;
+      }
+    }
+  }
+
+  &__img {
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+
+      @include respond-below(sm) {
+        max-height: rem(220);
+      }
+    }
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-block-end: rem(18);
+    }
+  }
+
+  &__description {
+    max-width: rem(564);
+    color: var(--color-basic-white-60);
 
     &:not(:last-child) {
-      margin-bottom: var(--mb);
+      margin-block-end: rem(28);
     }
   }
 
   &__btn-box {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.5rem;
+
+    @include respond-below(md) {
+      flex-direction: column;
+      gap: 1rem;
+    }
   }
 }

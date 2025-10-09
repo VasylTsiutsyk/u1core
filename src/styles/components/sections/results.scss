@@ -1,0 +1,48 @@
+@use '@styles/helpers' as *;
+
+/* Section Results */
+.section-results {
+  --section-pt: #{rem(90)};
+  --section-pb: #{rem(100)};
+
+  &__wrap {
+    padding-block: var(--section-pt) var(--section-pb);
+  }
+
+  &__header {
+    &:not(:last-child) {
+      margin-block-end: fluid(72, 32);
+    }
+  }
+
+  &__badge {
+    &:not(:last-child) {
+      margin-block-end: rem(26);
+    }
+  }
+
+  &__cards {
+    display: grid;
+    gap: rem(28);
+    grid-template-columns: var(--grid-3);
+
+    @include respond-below(md) {
+      gap: rem(24);
+      grid-template-columns: var(--grid-2);
+    }
+
+    @include respond-below(sm) {
+      grid-template-columns: var(--grid-1);
+    }
+
+    > li {
+      > .stats-card {
+        min-height: 100%;
+      }
+    }
+  }
+}
+
+.ui-badge {
+  display: inline-flex;
+}

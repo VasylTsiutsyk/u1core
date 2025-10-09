@@ -7,6 +7,7 @@ import { initMenu, initHeader } from './modules/menu';
 import initSelects from './modules/selects';
 import initCopyright from './modules/copyright';
 import initScrollToTopBtns from './modules/scroll-to-top';
+import initProjectTypeCards from './modules/project-card';
 
 document.addEventListener('DOMContentLoaded', () => {
   // IS WEBP TEST
@@ -116,6 +117,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Scroll To Top
   initScrollToTopBtns();
+
+  initProjectTypeCards();
 
   SELECTORS.BODY.classList.add(CLASSES.LOADED);
 });

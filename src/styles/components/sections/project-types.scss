@@ -1,0 +1,33 @@
+@use '@styles/helpers' as *;
+
+/* Section Project Types */
+.section-project-types {
+  --section-pt: #{rem(100)};
+  --section-pb: #{rem(100)};
+
+  &__wrap {
+    padding-block: var(--section-pt) var(--section-pb);
+  }
+
+  &__header {
+    &:not(:last-child) {
+      margin-block-end: rem(28);
+    }
+  }
+
+  &__cards {
+    display: grid;
+    gap: rem(46) rem(28);
+    grid-template-columns: var(--grid-2);
+
+    @include respond-below(md) {
+      grid-template-columns: var(--grid-1);
+    }
+
+    > li {
+      > .project-type-card {
+        min-height: 100%;
+      }
+    }
+  }
+}

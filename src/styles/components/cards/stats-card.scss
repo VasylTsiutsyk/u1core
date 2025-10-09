@@ -1,0 +1,95 @@
+@use '@styles/helpers' as *;
+
+/* Stats Card */
+.stats-card {
+  --card-border-width: 0;
+  --card-border-color: transparent;
+  --card-border-radius: var(--border-radius-24);
+  --card-bg-color: var(--color-basic-white-5);
+
+  position: relative;
+  overflow: hidden;
+  border: var(--card-border-width) solid transparent;
+  border-radius: var(--card-border-radius);
+
+  &--highlight {
+    --card-border-width: #{rem(1)};
+    --card-bg-color: var(--color-basic-black-100);
+
+    @include hover {
+      &::after {
+        animation: gradient-border 1s linear alternate;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: var(--card-border-width) solid transparent;
+      border-radius: inherit;
+      background:
+        linear-gradient(to right, var(--card-bg-color), var(--card-bg-color)) content-box,
+        conic-gradient(
+          from var(--angle),
+          var(--color-primary) 0deg,
+          transparent 45deg,
+          transparent 90deg,
+          var(--color-white) 135deg,
+          transparent 180deg,
+          transparent 220deg,
+          var(--color-primary) 360deg
+        )
+        border-box;
+      pointer-events: none;
+    }
+
+    .stats-card__inner {
+      background: none;
+    }
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 9;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column-reverse;
+    gap: rem(8);
+    border-radius: inherit;
+    padding: fluid(54, 24) rem(38) fluid(44, 24);
+    background-color: var(--card-bg-color);
+  }
+
+  &__value {
+    display: flex;
+    font-family: var(--display-font-family);
+    font-size: fluid(56, 30);
+    font-weight: 500;
+    line-height: var(--display-line-height);
+  }
+
+  &__description {
+    font-size: fluid(20, 16);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: rem(-0.1);
+    color: var(--color-basic-white-60);
+  }
+}
+
+@keyframes gradient-border {
+  from {
+    --angle: 0turn;
+  }
+
+  to {
+    --angle: 1turn;
+  }
+}
+
+@property --angle {
+  inherits: true;
+  initial-value: 0turn;
+  syntax: '<angle>';
+}

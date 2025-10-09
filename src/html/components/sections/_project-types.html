@@ -1,0 +1,65 @@
+<section
+  class="section-project-types"
+  aria-labelledby="sectionProjectTypesTitle"
+>
+  <div class="section-project-types__container container">
+    <div class="section-project-types__wrap">
+      <div class="section-project-types__header">
+        <h2
+          class="section-project-types__title h3"
+          id="sectionProjectTypesTitle"
+        >
+          Types of projects we create for Web3
+        </h2>
+      </div>
+
+      <div class="section-project-types__body">
+        <ul class="section-project-types__cards">
+          <li>
+            <include
+              src="@components/cards/_project-type-card.html"
+              locals='{
+                "id": "01",
+                "title": "Decentralized apps (dApps)",
+                "img": "@img/industries/project-types/01.jpg"
+              }'
+            ></include>
+          </li>
+
+          <li>
+            <include
+              src="@components/cards/_project-type-card.html"
+              locals='{
+                "id": "02",
+                "title": "Blockchain platforms",
+                "img": "@img/industries/project-types/02.jpg"
+              }'
+            ></include>
+          </li>
+
+          <li>
+            <include
+              src="@components/cards/_project-type-card.html"
+              locals='{
+                "id": "03",
+                "title": "NFT marketplaces",
+                "img": "@img/industries/project-types/03.jpg"
+              }'
+            ></include>
+          </li>
+
+          <li>
+            <include
+              src="@components/cards/_project-type-card.html"
+              locals='{
+                "id": "04",
+                "title": "Web3 company websites",
+                "img": "@img/industries/project-types/01.jpg"
+              }'
+            ></include>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

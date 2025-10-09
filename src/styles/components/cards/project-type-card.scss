@@ -1,0 +1,222 @@
+@use '@styles/helpers' as *;
+
+/* Project Type Card */
+.project-type-card {
+  --card-border-radius: var(--border-radius-28);
+  --card-px: 2rem;
+  --card-py: 2rem;
+
+  display: block;
+  overflow: hidden;
+  border: rem(1) solid var(--color-basic-white-10);
+  border-radius: var(--card-border-radius);
+  background-color: var(--color-basic-white-5);
+
+  @include respond-below(md) {
+    --card-px: 1.5rem;
+    --card-py: 1.5rem;
+  }
+
+  &[data-state='content'] {
+    .project-type-card__img-wrap {
+      @include respond-above(md) {
+        opacity: 0;
+      }
+    }
+
+    .project-type-card__text {
+      @include respond-above(md) {
+        opacity: 1;
+        transform: translateY(0);
+
+        @include show;
+      }
+
+      @include respond-below(md) {
+        grid-template-rows: 1fr;
+      }
+    }
+
+    .project-type-card__toggle-btn {
+      background-color: var(--color-basic-white-20);
+
+      i {
+        transform: rotateX(180deg);
+      }
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: rem(12);
+    padding: var(--card-py) var(--card-px);
+  }
+
+  &__title {
+    flex: 1 1 auto;
+    min-width: 0;
+    font-size: fluid(20, 16);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: rem(-0.1);
+
+    @include text-truncate;
+  }
+
+  &__toggle-btn {
+    --btn-size: #{rem(40)};
+
+    display: flex;
+    flex: 0 0 var(--btn-size);
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: rem(1) solid var(--color-basic-white-10);
+    border-radius: var(--btn-size);
+    width: var(--btn-size);
+    height: var(--btn-size);
+    background-color: var(--color-basic-white-5);
+    color: var(--color-white);
+    transition: background-color var(--transition-duration);
+
+    &:not(:disabled) {
+      cursor: pointer;
+
+      @include hover {
+        background-color: var(--color-basic-white-20);
+      }
+    }
+
+    i {
+      transition: transform var(--transition-duration);
+    }
+  }
+
+  &__body {
+    position: relative;
+    padding-inline: var(--card-px);
+  }
+
+  &__img-wrap {
+    max-width: 88%;
+    opacity: 1;
+    transition: opacity var(--transition-duration);
+    margin-inline: auto;
+
+    @include respond-below(md) {
+      max-width: 100%;
+    }
+  }
+
+  &__text {
+    @include respond-above(md) {
+      position: absolute;
+      z-index: 19;
+      left: var(--card-px);
+      right: var(--card-px);
+      top: 0;
+      overflow: hidden auto;
+      height: calc(100% - var(--card-py));
+      transform: translateY(100%);
+      transition:
+        transform var(--transition-duration),
+        visibility var(--transition-duration),
+        opacity var(--transition-duration);
+
+      @include hide;
+      @include scrollbars(0.25rem, var(--scrollbar-thumb-color), var(--scrollbar-bg-color), 0.25rem);
+    }
+
+    @include respond-below(md) {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows var(--transition-duration);
+    }
+  }
+
+  &__text-inner {
+    overflow: hidden;
+  }
+
+  &__text-padding {
+    @include respond-below(md) {
+      padding-block: rem(24);
+    }
+  }
+
+  &__img {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-top-left-radius: var(--card-border-radius);
+    border-top-right-radius: var(--card-border-radius);
+    padding-bottom: 76.84%;
+
+    picture {
+      display: contents;
+    }
+
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(10);
+
+    @include respond-below(md) {
+      gap: rem(8);
+    }
+
+    &:not(:last-child) {
+      margin-block-end: fluid(28, 24);
+    }
+
+    > li {
+      > a {
+        display: flex;
+        align-items: center;
+        border: rem(1) solid var(--color-basic-white-10);
+        border-radius: rem(40);
+        min-height: rem(40);
+        padding: rem(8) rem(20);
+        background-color: var(--color-basic-white-10);
+        font-size: rem(14);
+        font-weight: 400;
+        line-height: 1.4;
+        letter-spacing: rem(-0.07);
+        transition: border-color var(--transition-duration);
+
+        @include respond-below(md) {
+          min-height: rem(36);
+          padding: rem(8) rem(18);
+        }
+
+        @include hover {
+          border-color: var(--color-basic-white-40);
+        }
+      }
+    }
+  }
+
+  &__description {
+    @include text-regular;
+    @include text-shorten(5);
+
+    &:not(:last-child) {
+      margin-block-end: fluid(28, 24);
+    }
+
+    > *:not(:last-child) {
+      margin-block-end: 1rem;
+    }
+  }
+}

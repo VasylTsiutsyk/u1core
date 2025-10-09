@@ -95,3 +95,10 @@
     display: none !important;
   }
 }
+
+.text-gradient-gray {
+  background: linear-gradient(90deg, rgb(255 255 255 / 70%) 0%, #fff 23.73%, #fff 47.46%, #fff 73.73%, rgb(255 255 255 / 70%) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
