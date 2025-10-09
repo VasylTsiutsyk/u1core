@@ -386,5 +386,19 @@ $map-for-directions: (
   font-size: var(--body-font-size);
   font-weight: var(--body-font-weight);
   line-height: 1.4;
-  letter-spacing: 0.005rem;
+  letter-spacing: -0.005em;
+}
+
+@mixin text-sm {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+}
+
+@mixin text-lg {
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.005em;
 }

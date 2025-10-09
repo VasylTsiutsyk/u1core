@@ -1,5 +1,167 @@
 <footer class="footer" role="contentinfo">
   <div class="footer__container container">
-    <div class="footer__wrap"></div>
+    <div class="footer__wrap">
+      <div class="footer__top footer-top">
+        <div class="footer-top__row">
+          <a href="/" class="footer-top__logo">
+            <img
+              src="@img/logo.svg"
+              alt="U1Core"
+              width="138"
+              height="28"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
+
+          <include
+            src="@components/general/_soc.html"
+            locals='{ "classes": "footer-top__soc" }'
+          ></include>
+        </div>
+      </div>
+
+      <div class="footer__middle footer-middle">
+        <div class="footer-middle__grid">
+          <div class="footer-middle__grid-item">
+            <div class="footer-middle__groups">
+              <div class="footer-middle__group footer-group">
+                <h3 class="footer-group__title">General</h3>
+
+                <nav class="footer-group__nav">
+                  <ul class="footer-group__menu">
+                    <li>
+                      <a href="/cases">Cases</a>
+                    </li>
+
+                    <li>
+                      <a href="/about-us">About Us</a>
+                    </li>
+
+                    <li>
+                      <a href="/faq">FAQ</a>
+                    </li>
+
+                    <li>
+                      <a href="/careers">Careers</a>
+                    </li>
+
+                    <li>
+                      <a href="/blog">Blog</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+
+              <div class="footer-middle__group footer-group">
+                <h3 class="footer-group__title">Service</h3>
+
+                <nav class="footer-group__nav">
+                  <ul class="footer-group__menu">
+                    <li>
+                      <a href="#">Product design</a>
+                    </li>
+
+                    <li>
+                      <a href="#">Web design</a>
+                    </li>
+
+                    <li>
+                      <a href="#">Mobile design</a>
+                    </li>
+
+                    <li>
+                      <a href="#">UI/UX design</a>
+                    </li>
+
+                    <li>
+                      <a href="#">Web development</a>
+                    </li>
+
+                    <li>
+                      <a href="#">3D & motion</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+
+              <div class="footer-middle__group footer-group">
+                <h3 class="footer-group__title">General</h3>
+
+                <nav class="footer-group__nav">
+                  <ul class="footer-group__menu">
+                    <li>
+                      <a href="/cases">Cases</a>
+                    </li>
+
+                    <li>
+                      <a href="/about-us">About Us</a>
+                    </li>
+
+                    <li>
+                      <a href="/faq">FAQ</a>
+                    </li>
+
+                    <li>
+                      <a href="/careers">Careers</a>
+                    </li>
+
+                    <li>
+                      <a href="/blog">Blog</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-middle__grid-item">
+            <include
+              src="@html/layout/_footer-locations.html"
+              locals='{ "classes": "footer-middle__locations" }'
+            ></include>
+          </div>
+
+          <div class="footer-middle__grid-item">
+            <a
+              href="mailto:hello@u1core.com"
+              class="footer-middle__mail footer-mail"
+            >
+              <span class="footer-mail__text">hello@u1core.com</span>
+              <div class="footer-mail__num">1</div>
+            </a>
+          </div>
+
+          <div class="footer-middle__grid-item">
+            <include
+              src="html/layout/_footer-awards.html"
+              locals='{
+                "classes": "footer-middle__awards"
+              }'
+            ></include>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom footer-bottom">
+        <div class="footer-bottom__row">
+          <small class="footer-bottom__copyright">
+            All rights reserved © U1CORE, <span data-copyright></span>
+          </small>
+
+          <ul class="footer-bottom__menu">
+            <li>
+              <a href="/privacy-policy">Privacy Policy</a>
+            </li>
+
+            <li>
+              <a href="/terms-and-conditions">Terms of use</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </footer>
+
+<include src="@components/forms/_scroll-to-top-btn.html" locals="{}"></include>

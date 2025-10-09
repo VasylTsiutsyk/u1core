@@ -5,6 +5,8 @@ import { SELECTORS, CLASSES } from './modules/constants';
 import { isWebp, isMobile } from './modules/functions';
 import { initMenu, initHeader } from './modules/menu';
 import initSelects from './modules/selects';
+import initCopyright from './modules/copyright';
+import initScrollToTopBtns from './modules/scroll-to-top';
 
 document.addEventListener('DOMContentLoaded', () => {
   // IS WEBP TEST
@@ -106,8 +108,14 @@ document.addEventListener('DOMContentLoaded', () => {
     isHidden: true,
   });
 
+  // Copyright
+  initCopyright();
+
   // Selects
   initSelects();
+
+  // Scroll To Top
+  initScrollToTopBtns();
 
   SELECTORS.BODY.classList.add(CLASSES.LOADED);
 });

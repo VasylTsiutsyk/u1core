@@ -1,0 +1,89 @@
+@use '@styles/helpers' as *;
+
+/* Scroll To Top Btn */
+.scroll-top-btn {
+  --btn-offset-x: 1rem;
+  --btn-offset-y: 1rem;
+  --btn-border-width: #{rem(1)};
+  --btn-border-color: var(--color-basic-white-10);
+  --btn-border-radius: #{rem(14)};
+  --btn-px: #{rem(14)};
+  --btn-py: #{rem(14)};
+  --btn-bg-color: var(--color-basic-black-100);
+  --btn-text-color: var(--color-basic-white-50);
+  --p: 0;
+
+  position: fixed;
+  z-index: 999;
+  right: var(--btn-offset-x);
+  bottom: var(--btn-offset-x);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  overflow: hidden;
+  border: none;
+  border-radius: var(--btn-border-radius);
+  padding: var(--btn-py) var(--btn-px);
+  background-color: var(--btn-bg-color);
+  color: var(--btn-text-color);
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition:
+    transform var(--transition-duration),
+    border-color var(--transition-duration),
+    color var(--transition-duration);
+
+  @include text-sm;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+  }
+
+  &::before {
+    z-index: 2;
+    inset: var(--btn-border-width);
+    border-radius: var(--btn-border-radius);
+    background-color: var(--btn-bg-color);
+  }
+
+  &::after {
+    inset: 0;
+    border: var(--btn-border-width) solid transparent;
+    border-radius: inherit;
+    background:
+      conic-gradient(
+        from 0deg,
+        var(--color-primary) calc(var(--p) * 1%),
+        var(--btn-border-color) 0 100%
+      ) border-box;
+  }
+
+  &[hidden] {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(1rem);
+  }
+
+  &:not(:disabled) {
+    cursor: pointer;
+
+    @include hover {
+      --btn-text-color: var(--color-basic-white-100);
+    }
+  }
+
+  &__label {
+    position: relative;
+    z-index: 9;
+  }
+
+  i {
+    position: relative;
+    z-index: 9;
+  }
+}

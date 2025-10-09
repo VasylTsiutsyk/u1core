@@ -1,0 +1,31 @@
+@use '@styles/helpers' as *;
+
+/* SOC */
+.soc {
+  --soc-gap: #{rem(8)};
+  --soc-link-size: #{rem(28)};
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--soc-gap);
+
+  > li {
+    > a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: var(--soc-link-size);
+      height: var(--soc-link-size);
+      font-size: calc(var(--soc-link-size) * 0.65);
+      font-weight: 400;
+      line-height: 1;
+      color: var(--color-basic-white-40);
+      transition: color var(--transition-duration);
+
+      @include hover {
+        color: var(--color-basic-white-100);
+      }
+    }
+  }
+}

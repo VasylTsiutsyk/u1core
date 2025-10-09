@@ -33,7 +33,7 @@
   --base-font-size: 16px;
 
   /* Container Settings */
-  --content-width: #{rem(1280)};
+  --content-width: #{rem(1208)};
   --content-width-xs: #{rem(796)};
   --content-width-sm: #{rem(980)};
   --content-width-lg: #{rem(1580)};
@@ -100,6 +100,9 @@
 
   // Gray
   --color-gray: #c8c8c8;
+
+  // Red
+  --color-red-fusion: #ff5e5e;
 
   // Yellow
   --color-yellow-fried-egg: #ffe667;
@@ -220,7 +223,34 @@
   --grid-3-2: minmax(0, 3fr) minmax(0, 2fr);
 
   /* Icons */
-  --icon-chevron-down: '\f10f';
+  --icon-youtube: '\f101';
+  --icon-tiktok: '\f102';
+  --icon-plus: '\f103';
+  --icon-minus: '\f104';
+  --icon-map-pin: '\f105';
+  --icon-mail: '\f106';
+  --icon-linkedin: '\f107';
+  --icon-instagram: '\f108';
+  --icon-info: '\f109';
+  --icon-eye: '\f10a';
+  --icon-eye-off: '\f10b';
+  --icon-dribble: '\f10c';
+  --icon-chevrons-up: '\f10d';
+  --icon-chevrons-right: '\f10e';
+  --icon-chevrons-left: '\f10f';
+  --icon-chevrons-down: '\f110';
+  --icon-chevron-up: '\f111';
+  --icon-chevron-right: '\f112';
+  --icon-chevron-left: '\f113';
+  --icon-chevron-down: '\f114';
+  --icon-check: '\f115';
+  --icon-behance: '\f116';
+  --icon-at-sign: '\f117';
+  --icon-arrow-up: '\f118';
+  --icon-arrow-right: '\f119';
+  --icon-arrow-left: '\f11a';
+  --icon-arrow-down: '\f11b';
+  --icon-alert-circle: '\f11c';
 
   /* Header */
   --header-height: 3rem;
