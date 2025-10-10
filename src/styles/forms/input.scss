@@ -22,7 +22,7 @@
     transition: border-color var(--transition-duration);
 
     @include input-placeholder {
-      color: inherit;
+      color: var(--input-placeholder-color);
     }
 
     &:disabled,
@@ -40,16 +40,16 @@
 
     &:not(:disabled, ._disabled) {
       @include hover {
-        border-color: var(--color-primary);
+        --input-border-color: var(--color-basic-white-20);
       }
 
-      &:focus {
+      &:focus-visible {
         outline: rem(2) dashed var(--color-primary);
         outline-offset: rem(4);
       }
 
       &:active {
-        border-color: var(--color-primary);
+        --input-border-color: var(--color-basic-white-20);
       }
     }
   }

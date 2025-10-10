@@ -85,11 +85,12 @@
 
   /* Colors */
   --color-black: #000;
-  --color-black-cynical: #171717;
   --color-black-500: #00000080;
-  --color-basic-black-100: #090909;
+  --color-black-cynical: #171717;
+  --color-basic-black-30: rgb(9 9 9 / 30%);
   --color-basic-black-40: rgb(9 9 9 / 40%);
   --color-basic-black-90: rgb(9 9 9 / 90%);
+  --color-basic-black-100: #090909;
 
   // White
   --color-white: #fff;
@@ -168,21 +169,23 @@
   --button-text-color: var(--color-primary);
 
   /* Input */
-  --input-border-width: 1px;
+  --input-border-width: #{rem(1)};
   --input-border-style: solid;
-  --input-border-color: var(--color-black);
-  --input-border-radius: 0.25rem;
-  --input-height: 3rem;
-  --input-padding-x: 1rem;
-  --input-padding-y: 0.5rem;
+  --input-border-color: var(--color-basic-white-5);
+  --input-border-radius: #{rem(14)};
+  --input-height: #{rem(54)};
+  --input-padding-x: #{rem(20)};
+  --input-padding-y: 0.875rem;
   --input-font-size: 1rem;
   --input-font-weight: 400;
   --input-line-height: 1;
-  --input-bg-color: var(--color-white);
-  --input-text-color: var(--color-black);
+  --input-letter-spacing: -0.005em;
+  --input-bg-color: var(--color-basic-white-5);
+  --input-text-color: var(--color-basic-white-100);
+  --input-placeholder-color: var(--color-basic-white-50);
 
   /* Select */
-  --select-border-width: 1px;
+  --select-border-width: #{rem(1)};
   --select-border-style: solid;
   --select-border-color: var(--color-basic-white-5);
   --select-border-radius: #{rem(14)};

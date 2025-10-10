@@ -107,6 +107,10 @@
       line-height: var(--select-line-height);
       transition: border-color var(--transition-duration);
       padding-inline-start: calc(var(--select-padding-x) - rem(5));
+
+      @include hover {
+        --select-border-color: var(--color-basic-white-20);
+      }
     }
 
     &__list {
@@ -182,6 +186,7 @@
 
     &__placeholder {
       color: var(--select-placeholder-color);
+      opacity: 1;
       transition: color var(--transition-duration);
     }
   }

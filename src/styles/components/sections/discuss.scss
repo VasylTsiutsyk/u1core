@@ -1,0 +1,57 @@
+@use '@styles/helpers' as *;
+
+/* Section Discuss */
+.section-discuss {
+  --section-py: #{fluid(100, 32)};
+
+  &__wrap {
+    padding-block: var(--section-py);
+  }
+
+  &__header {
+    &:not(:last-child) {
+      margin-block-end: fluid(64, 32);
+    }
+  }
+
+  &__row {
+    --col-width: 100%;
+    --col-gap: #{rem(24)};
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--col-gap);
+
+    @include respond-above(md) {
+      --col-gap: #{rem(28)};
+
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__col {
+    flex: 0 0 var(--col-width);
+    max-width: var(--col-width);
+
+    &--aside {
+      @include respond-above(md) {
+        --col-width: #{rem(356)};
+      }
+    }
+
+    &--main {
+      @include respond-above(md) {
+        flex: 1 1 auto;
+        max-width: 100%;
+      }
+    }
+  }
+
+  &__book-call-card {
+    min-height: 100%;
+  }
+
+  &__about-project-form {
+    min-height: 100%;
+  }
+}

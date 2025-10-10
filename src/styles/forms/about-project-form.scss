@@ -1,0 +1,66 @@
+@use '@styles/helpers' as *;
+
+/* About Project Form */
+.about-project-form {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: rem(1) solid var(--color-basic-white-10);
+  border-radius: var(--border-radius-28);
+  padding: rem(28);
+  background-color: var(--color-basic-black-100);
+
+  &__title {
+    font-size: rem(20);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.005em;
+
+    &:not(:last-child) {
+      margin-block-end: rem(6);
+    }
+  }
+
+  &__description {
+    font-size: rem(14);
+    color: var(--color-basic-white-60);
+
+    &:not(:last-child) {
+      margin-block-end: fluid(34, 32);
+    }
+  }
+
+  &__fields {
+    flex: 1 1 auto;
+
+    &:not(:last-child) {
+      margin-block-end: rem(28);
+    }
+  }
+
+  &__row {
+    --col-width: 100%;
+    --col-gap: #{rem(14)};
+
+    display: flex;
+    flex-wrap: wrap;
+    margin-inline: calc(var(--col-gap) / 2 * -1);
+    row-gap: var(--col-gap);
+
+    @include respond-above(md) {
+      --col-width: 50%;
+    }
+  }
+
+  &__col {
+    flex: 0 0 var(--col-width);
+    max-width: var(--col-width);
+    padding-inline: calc(var(--col-gap) / 2);
+
+    &--full {
+      @include respond-above(md) {
+        --col-width: 100%;
+      }
+    }
+  }
+}

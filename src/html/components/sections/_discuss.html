@@ -2,12 +2,28 @@
   <div class="section-discuss__container container">
     <div class="section-discuss__wrap">
       <div class="section-discuss__header">
-        <h2 class="section-discuss__title" id="sectionDiscussTitle">
+        <h2 class="section-discuss__title h3" id="sectionDiscussTitle">
           Let's discuss where you want to get
         </h2>
       </div>
 
-      <div class="section-discuss__body"></div>
+      <div class="section-discuss__body">
+        <div class="section-discuss__row">
+          <div class="section-discuss__col section-discuss__col--aside">
+            <include
+              src="@components/cards/_book-call-card.html"
+              locals='{ "classes": "section-discuss__book-call-card" }'
+            ></include>
+          </div>
+
+          <div class="section-discuss__col section-discuss__col--main">
+            <include
+              src="@components/forms/_about-project-form.html"
+              locals='{ "classes": "section-discuss__about-project-form" }'
+            ></include>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

@@ -1,0 +1,86 @@
+<form action="#" class="[[classes]] about-project-form">
+  <h3 class="about-project-form__title">Tell us more about your project</h3>
+
+  <div class="about-project-form__description">
+    <p>Share your project details with us, and we'll respond promptly.</p>
+  </div>
+
+  <div class="about-project-form__fields">
+    <div class="about-project-form__row">
+      <div class="about-project-form__col">
+        <div class="about-project-form__group">
+          <div class="about-project-form__input input">
+            <input
+              type="text"
+              name="projectName"
+              id="projectNameControl"
+              placeholder="Name*"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="about-project-form__col">
+        <div class="about-project-form__group">
+          <div class="about-project-form__input input">
+            <input
+              type="text"
+              name="projectCompanyName"
+              id="projectCompanyNameControl"
+              placeholder="Company name*"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="about-project-form__col">
+        <div class="about-project-form__group">
+          <div class="about-project-form__input input">
+            <input
+              type="email"
+              name="projectWorkEmail"
+              id="projectWorkEmailControl"
+              placeholder="Work email*"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="about-project-form__col">
+        <div class="about-project-form__group">
+          <div class="about-project-form__select select">
+            <select
+              name="projectBudget"
+              id="projectBudgetControl"
+              data-select
+              data-select-placeholder="Select budget"
+            >
+              <option value="0">Option 01</option>
+              <option value="1">Option 02</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-project-form__col about-project-form__col--full">
+        <div class="about-project-form__group">
+          <div class="about-project-form__input input">
+            <textarea
+              rows="8"
+              name="proejctDescription"
+              id="projectDescriptionControl"
+              placeholder="What is your project about?"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-project-form__btn-box">
+    <button type="submit" class="btn btn--primary">
+      <span class="btn__text">Submit</span>
+      <i class="icon-chevron-right" aria-hidden="true"></i>
+    </button>
+  </div>
+</form>
