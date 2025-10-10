@@ -1,0 +1,33 @@
+@use '@styles/helpers' as *;
+
+/* Section Youtube Videos */
+.section-yv {
+  --section-py: #{fluid(100, 32)};
+
+  &__wrap {
+    padding-block: var(--section-py);
+  }
+
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: rem(32) rem(24);
+
+    &:not(:last-child) {
+      margin-block-end: fluid(64, 32);
+    }
+  }
+
+  &__body {
+    &:not(:last-child) {
+      margin-block-end: fluid(64, 32);
+    }
+  }
+
+  &__slider-navigation {
+    max-width: fit-content;
+    margin-inline: auto;
+  }
+}

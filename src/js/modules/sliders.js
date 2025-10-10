@@ -6,11 +6,11 @@
 // npm i swiper
 
 import Swiper from 'swiper';
-// import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 
 import 'swiper/css';
-// import 'swiper/css/navigation';
-// import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 function initSwiper(selector, config) {
   const el = document.querySelector(selector);
@@ -41,6 +41,30 @@ function initSliders() {
       },
       1280: {
         slidesPerView: 5.75,
+      },
+    },
+  });
+
+  // Swiper Youtube Videos
+  // --------------------------------------------------------------------
+  initSwiper('#swiperYoutubeVideos', {
+    modules: [Navigation, Pagination],
+    direction: 'horizontal',
+    speed: 800,
+    slidesPerView: 1,
+    spaceBetween: 28,
+    navigation: {
+      prevEl: '#swiperYoutubeVideosPrev',
+      nextEl: '#swiperYoutubeVideosNext',
+    },
+    pagination: {
+      el: '#swiperYoutubeVideosPagination',
+      clickable: true,
+    },
+    breakpoints: {
+      992: {
+        slidesPerView: 2,
+        spaceBetween: 28,
       },
     },
   });
