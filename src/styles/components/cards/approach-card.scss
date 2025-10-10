@@ -10,6 +10,11 @@
   border-radius: var(--border-radius-24);
   padding: rem(24) fluid(38, 24);
   background-color: var(--color-basic-white-5);
+  transition: transform var(--transition-duration);
+
+  @include hover {
+    transform: translateY(-2%);
+  }
 
   &__header {
     display: flex;
