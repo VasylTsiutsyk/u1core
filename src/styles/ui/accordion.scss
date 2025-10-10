@@ -1,0 +1,153 @@
+// styles/ui/accordion.scss
+
+/* ========== Accordion ========== */
+@use '@styles/helpers' as *;
+
+.accordion {
+  --accordion-border-width: #{rem(1)};
+  --accordion-border-color: var(--color-basic-white-10);
+  --accordion-border-radius: var(--border-radius-20);
+  --accordion-bg-color: var(--color-basic-white-5);
+
+  // Btn
+  --accordion-btn-border-width: #{rem(1)};
+  --accordion-btn-border-color: var(--color-basic-white-10);
+  --accordion-btn-border-radius: #{rem(4)};
+  --accordion-btn-px: #{rem(28)};
+  --accordion-btn-py: #{rem(28)};
+  --accordion-btn-font-size: #{rem(24)};
+  --accordion-btn-font-weight: 500;
+  --accordion-btn-line-height: 1.2;
+  --accordion-btn-text-color: var(--color-white);
+
+  // Plus
+  --accordion-plus-border-radius: #{rem(28)};
+  --accordion-plus-width: #{rem(28)};
+
+  // Content
+  --accordion-content-px: #{rem(20)};
+  --accordion-content-py: #{rem(28)};
+  --accordion-content-font-size: #{rem(16)};
+  --accordion-content-font-weight: 400;
+  --accordion-content-line-height: 1.4;
+  --accordiong-content-letter-spacing: #{rem(-0.08)};
+
+  border: var(--accordion-border-width) solid var(--accordion-border-color);
+  border-radius: var(--accordion-border-radius);
+  background-color: var(--accordion-bg-color);
+  transition: background-color var(--transition-duration);
+
+  @include respond-below(md) {
+    --accordion-btn-font-size: #{rem(20)};
+  }
+
+  &._active {
+    --accordion-bg-color: var(--color-basic-white-10);
+  }
+
+  &__content {
+    display: grid;
+    grid-template-rows: 0fr;
+    font-size: var(--accordion-content-font-size);
+    font-weight: var(--accordion-content-font-weight);
+    line-height: var(--accordion-content-line-height);
+    color: var(--color-basic-white-60);
+    transition: grid-template-rows var(--transition-duration);
+
+    &._active {
+      grid-template-rows: 1fr;
+    }
+
+    > *:not(:last-child) {
+      margin-bottom: 1em;
+    }
+  }
+
+  &__content-inner {
+    overflow: hidden;
+  }
+
+  &__content-padding {
+    max-width: rem(800);
+    padding: 0 var(--accordion-content-py) var(--accordion-content-px);
+  }
+
+  &__btn {
+    position: relative;
+    outline: none;
+    border: none;
+    border-radius: inherit;
+    width: 100%;
+    min-height: var(--accordion-plus-width);
+    padding:
+      var(--accordion-btn-py)
+      calc(var(--accordion-plus-width) * 1.5 + var(--accordion-btn-px))
+      var(--accordion-btn-py)
+      var(--accordion-btn-px);
+    background: none;
+    font-size: var(--accordion-btn-font-size);
+    font-weight: var(--accordion-btn-font-weight);
+    line-height: var(--accordion-btn-line-height);
+    text-align: left;
+    color: var(--accordion-btn-text-color);
+    user-select: none;
+
+    &._active {
+      .accordion__plus {
+        background-color: var(--color-basic-white-20);
+
+        &::after {
+          opacity: 0;
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+      }
+    }
+
+    &:not(:disabled) {
+      cursor: pointer;
+
+      &:focus-visible {
+        outline: rem(2) dashed var(--color-basic-white-60);
+        outline-offset: rem(4);
+      }
+    }
+  }
+
+  &__plus {
+    position: absolute;
+    right: var(--accordion-btn-px);
+    top: 50%;
+    border: rem(1) solid var(--color-basic-white-10);
+    border-radius: var(--accordion-plus-border-radius);
+    width: var(--accordion-plus-width);
+    height: var(--accordion-plus-width);
+    background-color: var(--color-basic-white-10);
+    color: var(--color-white);
+    transform: translateY(-50%);
+    transition: background-color var(--transition-duration);
+
+    @include hover {
+      background-color: var(--color-basic-white-20);
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      border-radius: rem(2);
+      width: calc(var(--accordion-plus-width) * 0.4285);
+      height: rem(2);
+      background-color: var(--color-white);
+      transform: translate(-50%, -50%);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+      transition:
+        transform var(--transition-duration),
+        opacity var(--transition-duration);
+    }
+  }
+}

@@ -1,0 +1,41 @@
+@use '@styles/helpers' as *;
+
+/* Section FAQ */
+.section-faq {
+  --section-py: #{fluid(100, 32)};
+
+  &__wrap {
+    padding-block: var(--section-py);
+  }
+
+  &__header {
+    &:not(:last-child) {
+      margin-block-end: fluid(64, 32);
+    }
+  }
+
+  &__body {
+    &:not(:last-child) {
+      margin-block-end: fluid(40, 32);
+    }
+  }
+
+  &__list {
+    > li {
+      &:not(:last-child) {
+        margin-block-end: rem(10);
+
+        @include respond-below(sm) {
+          margin-block-end: rem(16);
+        }
+      }
+    }
+  }
+
+  &__btn-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: rem(16);
+  }
+}

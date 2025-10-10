@@ -1,0 +1,95 @@
+@use '@styles/helpers' as *;
+
+/* Share Card */
+.share-card {
+  display: block;
+  overflow: hidden;
+  border: rem(1) solid var(--color-basic-white-10);
+  border-radius: var(--border-radius-28);
+  background-color: var(--color-basic-white-5);
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: rem(32);
+    padding: fluid(32, 24);
+
+    @include respond-above(md) {
+      min-height: 50svh;
+    }
+  }
+
+  &__body {
+    @include respond-above(md) {
+      width: rem(690);
+      max-width: rem(690);
+      margin-inline: auto;
+    }
+  }
+
+  &__title {
+    font-size: fluid(24, 20);
+
+    &:not(:last-child) {
+      margin-block-end: rem(8);
+    }
+  }
+
+  &__description {
+    color: var(--color-basic-white-70);
+
+    &:not(:last-child) {
+      margin-block-end: rem(32);
+    }
+  }
+
+  &__input {
+    &:not(:last-child) {
+      margin-block-end: rem(32);
+    }
+
+    input {
+      display: block;
+      border: none;
+      width: 100%;
+      padding: rem(16) rem(8);
+      background: none;
+      font-size: fluid(30, 16);
+      font-weight: 500;
+      line-height: 1.2;
+      color: var(--color-white);
+      transition: border-color var(--transition-duration);
+      border-block-end: rem(1) solid var(--color-basic-white-20);
+
+      &:not(:disabled) {
+        @include hover {
+          border-block-end-color: var(--color-basic-white-70);
+        }
+      }
+    }
+  }
+
+  &__footer {
+    justify-self: flex-end;
+  }
+
+  &__btn-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: rem(12) rem(8);
+    min-width: 0;
+
+    &--start {
+      justify-content: flex-start;
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: flex-end;
+    gap: rem(6);
+    min-width: 0;
+  }
+}

@@ -1,0 +1,84 @@
+@use '@styles/helpers' as *;
+
+/* Service Card */
+.service-card {
+  --card-border-width: #{rem(1)};
+  --card-border-color: var(--color-basic-white-10);
+  --card-border-radius: var(--border-radius-28);
+  --card-px: #{rem(32)};
+  --card-py: #{rem(32)};
+  --card-bg-color: var(--color-basic-white-5);
+  --card-img-size: #{rem(74)};
+  --card-img-border-radius: #{rem(18)};
+  --card-img-border-width: #{rem(1)};
+  --card-img-border-color: var(--color-basic-white-5);
+
+  display: block;
+  overflow: hidden;
+  border: var(--card-border-width) solid var(--card-border-color);
+  border-radius: var(--card-border-radius);
+  padding: var(--card-py) var(--card-px);
+  background-color: var(--card-bg-color);
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: rem(24);
+  }
+
+  &__body {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  &__row {
+    display: flex;
+    align-items: flex-start;
+    gap: fluid(32, 24);
+
+    @include respond-below(md) {
+      flex-direction: column;
+    }
+  }
+
+  &__img {
+    display: flex;
+    flex: 0 0 var(--card-img-size);
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: var(--card-img-border-width) solid var(--card-img-border-color);
+    border-radius: var(--card-img-border-radius);
+    width: var(--card-img-size);
+    height: var(--card-img-size);
+
+    picture {
+      display: contents;
+    }
+
+    img {
+      width: 50%;
+      height: 50%;
+      max-width: 50%;
+      max-height: 50%;
+      object-fit: contain;
+    }
+  }
+
+  &__text {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  &__title {
+    flex: 1 1 auto;
+    font-size: fluid(30, 20);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: rem(-0.1);
+
+    &:not(:last-child) {
+      margin-block-end: rem(28);
+    }
+  }
+}

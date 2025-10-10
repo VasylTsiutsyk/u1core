@@ -8,6 +8,7 @@ import initSelects from './modules/selects';
 import initCopyright from './modules/copyright';
 import initScrollToTopBtns from './modules/scroll-to-top';
 import initProjectTypeCards from './modules/project-card';
+import initAccordions from './modules/accordion';
 
 document.addEventListener('DOMContentLoaded', () => {
   // IS WEBP TEST
@@ -59,11 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // initMaps();
 
   // ACCORDIONS
-  // import initAccordions from './modules/accordion';
-  // initAccordions('.accordion', {
-  //   showOnlyOne: true,
-  //   closeOnClickOutside: true,
-  // });
+  initAccordions('.accordion', {
+    showOnlyOne: true,
+    closeOnClickOutside: true,
+  });
 
   // TOGGLES
   // import initToggles from './modules/toggle';

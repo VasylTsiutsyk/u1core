@@ -1,0 +1,44 @@
+@use '@styles/helpers' as *;
+
+/* Money Back Guarantee */
+.mbg-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius-28);
+  padding: rem(206) rem(24) rem(42);
+  background: url('@img/industries/money-back-guarantee/bg.svg') no-repeat center / cover;
+  text-align: center;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('@img/industries/money-back-guarantee/deocr.svg') no-repeat center top 10% / 36% auto;
+    pointer-events: none;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 9;
+    max-width: rem(500);
+    margin-inline: auto;
+  }
+
+  &__badge {
+    &:not(:last-child) {
+      margin-block-end: rem(24);
+    }
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-block-end: rem(16);
+    }
+  }
+
+  &__description {
+    &:not(:last-child) {
+      margin-block-end: rem(24);
+    }
+  }
+}

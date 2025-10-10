@@ -44,6 +44,13 @@
     pointer-events: none;
   }
 
+  &--icon {
+    --button-border-radius: var(--button-height);
+    --button-padding-x: 0.25rem;
+
+    min-width: var(--button-height);
+  }
+
   &--primary {
     --button-border-color: transparent;
     --button-bg-color: #1c1908;
@@ -70,6 +77,11 @@
   }
 
   &__text {
+    position: relative;
+    z-index: 9;
+  }
+
+  i {
     position: relative;
     z-index: 9;
   }

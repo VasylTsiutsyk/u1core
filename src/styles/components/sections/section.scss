@@ -2,17 +2,15 @@
 @use '@styles/helpers' as *;
 
 .section {
-  --section-py: #{rem(48)};
+  --section-py: #{fluid(100, 32)};
 
   &__wrap {
     padding-block: var(--section-py);
   }
 
   &__header {
-    --mb: #{rem(20)};
-
     &:not(:last-child) {
-      margin-bottom: var(--mb);
+      margin-bottom: rem(28);
     }
   }
 
