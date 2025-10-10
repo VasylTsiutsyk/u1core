@@ -61,7 +61,7 @@
     "stylelint-order": "^7.0.0",
     "stylelint-scss": "^6.11.1",
     "svgo": "latest",
-    "swiper": "latest",
+    "swiper": "^12.0.2",
     "tippy.js": "latest",
     "vite": "latest",
     "vite-plugin-add-version": "latest",

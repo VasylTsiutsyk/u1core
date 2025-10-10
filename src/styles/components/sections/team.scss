@@ -1,0 +1,39 @@
+@use '@styles/helpers' as *;
+
+/* Section Team */
+.section-team {
+  &__header {
+    &:not(:last-child) {
+      margin-block-end: fluid(56, 40);
+    }
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__slider-wrap {
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 9;
+      top: 0;
+      width: 10%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    &::before {
+      left: 0;
+      background-image: linear-gradient(to right, rgb(0 0 0 / 85%), transparent 100%);
+    }
+
+    &::after {
+      right: 0;
+      background-image: linear-gradient(to left, rgb(0 0 0 / 85%), transparent 100%);
+    }
+  }
+}

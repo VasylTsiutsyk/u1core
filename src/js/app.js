@@ -9,6 +9,7 @@ import initCopyright from './modules/copyright';
 import initScrollToTopBtns from './modules/scroll-to-top';
 import initProjectTypeCards from './modules/project-card';
 import initAccordions from './modules/accordion';
+import initSliders from './modules/sliders';
 
 document.addEventListener('DOMContentLoaded', () => {
   // IS WEBP TEST
@@ -74,8 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // initSpoilers();
 
   // SLIDERS
-  // import initSliders from './modules/sliders';
-  // initSliders();
+  initSliders();
 
   // TOOLTIPS
   // import initTooltips from './modules/tooltip';
