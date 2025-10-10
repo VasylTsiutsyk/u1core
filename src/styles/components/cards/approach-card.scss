@@ -1,0 +1,78 @@
+@use '@styles/helpers' as *;
+
+/* Approach Card */
+.approach-card {
+  --card-img-size: #{rem(80)};
+
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--border-radius-24);
+  padding: rem(24) fluid(38, 24);
+  background-color: var(--color-basic-white-5);
+
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(24);
+
+    @include respond-below(md) {
+      flex-wrap: nowrap;
+      align-items: center;
+      gap: rem(14);
+    }
+
+    &:not(:last-child) {
+      margin-block-end: rem(14);
+    }
+  }
+
+  &__img {
+    flex: 0 0 var(--card-img-size);
+    width: var(--card-img-size);
+    height: var(--card-img-size);
+
+    @include respond-below(md) {
+      order: 3;
+      margin-inline-start: auto;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__title {
+    flex: 0 0 100%;
+    min-width: 0;
+    font-size: rem(24);
+
+    @include respond-below(md) {
+      flex: 0 1 auto;
+      order: 1;
+    }
+  }
+
+  &__num {
+    font-size: rem(14);
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -0.05em;
+    color: var(--color-primary);
+    margin-inline-start: auto;
+
+    @include respond-below(md) {
+      order: 2;
+      margin-inline-start: 0;
+    }
+  }
+
+  &__description {
+    color: var(--color-basic-white-60);
+  }
+}

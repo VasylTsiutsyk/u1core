@@ -1,0 +1,83 @@
+<section class="section-approach" aria-labelledby="sectionOurApproachTitle">
+  <div class="section-approach__container container">
+    <div class="section-approach__wrap">
+      <div class="section-approach__header">
+        <div class="section-approach__info">
+          <h2 class="section-approach__title" id="sectionOurApproachTitle">
+            Our approach
+          </h2>
+
+          <div class="section-approach__description">
+            <p>
+              Our approach to UI/UX design services is centered around four key
+              steps:
+            </p>
+          </div>
+        </div>
+
+        <div class="section-approach__btn-box">
+          <a href="#" class="btn btn--primary">
+            <span class="btn__text">Estimate cost</span>
+            <i class="icon-chevron-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="section-approach__body">
+        <ul class="section-approach__cards">
+          <li>
+            <include
+              src="@components/cards/_approach-card.html"
+              locals='{
+                "id": "01",
+                "num": "01",
+                "title": "Discovery",
+                "img": "@img/service/our-approach/01.png",
+                "description": "We listen, engage stakeholders, review existing user flows, and conduct UX audits if needed. We identify user pain points and priorities upfront to secure an informed foundation."
+              }'
+            ></include>
+          </li>
+
+          <li>
+            <include
+              src="@components/cards/_approach-card.html"
+              locals='{
+                "id": "02",
+                "num": "02",
+                "title": "Concept",
+                "img": "@img/service/our-approach/02.png",
+                "description": "With the groundwork laid, we propose a visual direction. We refine the Ul and the design system to meet world-class standards and focus on establishing a cohesive look and feel."
+              }'
+            ></include>
+          </li>
+
+          <li>
+            <include
+              src="@components/cards/_approach-card.html"
+              locals='{
+                "id": "03",
+                "num": "03",
+                "title": "Design",
+                "img": "@img/service/our-approach/03.png",
+                "description": "We create all user flows with a focus on UX. Our goal is to ensure pixel-perfect precision in our designs and make each interaction feel natural, seamless, and meaningful to end users."
+              }'
+            ></include>
+          </li>
+
+          <li>
+            <include
+              src="@components/cards/_approach-card.html"
+              locals='{
+                "id": "04",
+                "num": "04",
+                "title": "Validation",
+                "img": "@img/service/our-approach/04.png",
+                "description": "Before finalizing, we test, measure, and validate. We work to make sure that all the design outputs cater to the needs of both the business and end-users."
+              }'
+            ></include>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
