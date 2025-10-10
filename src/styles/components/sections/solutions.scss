@@ -1,0 +1,25 @@
+@use '@styles/helpers' as *;
+
+/* Section Solutions */
+.section-solutions {
+  --section-pt: #{fluid(100, 32)};
+  --section-pb: #{fluid(100, 32)};
+
+  &__wrap {
+    padding-block: var(--section-pt) var(--section-pb);
+  }
+
+  &__header {
+    &:not(:last-child) {
+      margin-block-end: rem(28);
+    }
+  }
+
+  &__cards {
+    > li {
+      &:not(:last-child) {
+        margin-block-end: fluid(64, 48);
+      }
+    }
+  }
+}

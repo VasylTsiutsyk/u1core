@@ -2,12 +2,14 @@
 @use '@styles/helpers' as *;
 
 .btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: rem(8);
   vertical-align: top;
-  overflow: hidden;
+
+  // overflow: hidden;
   outline: none;
   border: var(--button-border-width) var(--button-border-style) var(--button-border-color);
   border-radius: var(--button-border-radius);
@@ -43,17 +45,33 @@
   }
 
   &--primary {
+    --button-border-color: transparent;
+    --button-bg-color: #1c1908;
+    --button-text-color: var(--color-primary);
+
+    border: none;
+    background-image: linear-gradient(-90deg, #ffed91 0%, rgba(#ffed91, 0.15) 100%);
+    background-position: 200% 0%;
+    background-size: 200% 100%;
+    transition: background-position var(--transition-duration);
+
     @include hover {
-      --button-border-color: var(--color-primary);
-      --button-bg-color: transparent;
-      --button-text-color: var(--color-primary);
+      background-position: 100% 0%;
     }
 
-    &:active {
-      --button-border-color: var(--color-primary);
-      --button-bg-color: transparent;
-      --button-text-color: var(--color-primary);
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      inset: var(--button-border-width);
+      border-radius: inherit;
+      background-color: var(--button-bg-color);
     }
+  }
+
+  &__text {
+    position: relative;
+    z-index: 9;
   }
 
   &:not(:disabled, ._disabled) {

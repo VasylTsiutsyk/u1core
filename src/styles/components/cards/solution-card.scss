@@ -1,0 +1,71 @@
+@use '@styles/helpers' as *;
+
+/* Solution Card */
+.solution-card {
+  &__row {
+    --col-width: 100%;
+    --col-gap: 2rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-inline: calc(var(--col-gap) / 2 * -1);
+    row-gap: var(--col-gap);
+
+    @include respond-above(md) {
+      --col-width: 50%;
+    }
+
+    @include respond-above(2xl) {
+      --col-gap: 4rem;
+    }
+  }
+
+  &__col {
+    flex: 0 0 var(--col-width);
+    max-width: var(--col-width);
+    padding-inline: calc(var(--col-gap) / 2);
+
+    &--img {
+      @include respond-above(md) {
+        --col-width: 51.45%;
+      }
+    }
+
+    &--text {
+      @include respond-above(md) {
+        --col-width: 48.55%;
+      }
+    }
+  }
+
+  &__img {
+    overflow: hidden;
+    border: rem(1) solid var(--color-basic-white-10);
+    border-radius: var(--border-radius-28);
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  &__title {
+    font-size: fluid(30, 20);
+    line-height: var(--display-line-height);
+
+    &:not(:last-child) {
+      margin-block-end: fluid(32, 24);
+    }
+  }
+
+  &__description {
+    color: var(--color-basic-white-60);
+
+    &:not(:last-child) {
+      margin-block-end: fluid(48, 24);
+    }
+  }
+}
