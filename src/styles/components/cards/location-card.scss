@@ -1,0 +1,83 @@
+@use '@styles/helpers' as *;
+
+/* Location Card */
+.location-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--border-radius-24);
+  padding: fluid(40, 24) fluid(38, 24);
+  background-color: var(--color-basic-white-5);
+
+  &__header {
+    display: flex;
+    gap: rem(8);
+
+    &:not(:last-child) {
+      margin-block-end: fluid(32, 16);
+    }
+  }
+
+  &__info {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  &__flag {
+    --flag-size: #{rem(40)};
+
+    flex: 0 0 var(--flag-size);
+    overflow: hidden;
+    border-radius: var(--flag-size);
+    width: var(--flag-size);
+    height: var(--flag-size);
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__title {
+    font-size: rem(30);
+
+    &:not(:last-child) {
+      margin-block-end: rem(16);
+    }
+  }
+
+  &__subtitle {
+    font-size: fluid(18, 16);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.005em;
+    color: var(--color-basic-white-60);
+  }
+
+  &__body {
+    margin-block-start: auto;
+  }
+
+  &__img {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 94.375%;
+
+    picture {
+      display: contents;
+    }
+
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}

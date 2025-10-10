@@ -1,0 +1,69 @@
+@use '@styles/helpers' as *;
+
+/* Section Awards */
+.section-awards {
+  --section-py: #{fluid(100,32 )};
+
+  &__wrap {
+    padding-block: var(--section-py);
+  }
+
+  &__header {
+    &:not(:last-child) {
+      margin-block-end: fluid(72, 40);
+    }
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-block-end: fluid(24, 16);
+    }
+  }
+
+  &__description {
+    color: var(--color-basic-white-60);
+  }
+
+  &__cards {
+    position: relative;
+    display: grid;
+    gap: fluid(28, 24);
+    grid-template-columns: var(--grid-4);
+
+    @include respond-below(md) {
+      grid-template-columns: var(--grid-2);
+    }
+
+    @include respond-below(sm) {
+      grid-template-columns: var(--grid-1);
+    }
+
+    &::after {
+      @include respond-below(md) {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 20%;
+        background-image: linear-gradient(to top, var(--color-basic-black-100) 0%, transparent 100%);
+      }
+    }
+
+    > li {
+      > .award-card {
+        min-height: 100%;
+      }
+    }
+  }
+
+  &__footer {
+    @include respond-above(md) {
+      display: none;
+    }
+  }
+
+  &__btn-box {
+    text-align: center;
+  }
+}

@@ -2,6 +2,12 @@
 
 /* Section Team */
 .section-team {
+  --section-py: #{fluid(100, 32)};
+
+  &__wrap {
+    padding-block: var(--section-py);
+  }
+
   &__header {
     &:not(:last-child) {
       margin-block-end: fluid(56, 40);

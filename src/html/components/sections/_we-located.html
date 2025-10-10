@@ -1,0 +1,54 @@
+<section class="section-location" aria-labelledby="sectionWeLocatedTitle">
+  <div class="section-location__container container">
+    <div class="section-location__wrap">
+      <div class="section-location__header">
+        <h2 class="section-location__title" id="sectionWeLocatedTitle">
+          We located
+        </h2>
+      </div>
+
+      <div class="section-location__body">
+        <ul class="section-location__cards">
+          <li>
+            <include
+              src="@components/cards/_location-card.html"
+              locals='{
+                "id": "01",
+                "title": "Ukraine, Ternopil office",
+                "subtitle": "National Renaissance St., 6a, Velyka Berezovytsia",
+                "flag": "@img/flags/ua.svg",
+                "img": "@img/about-us/we-located/01.svg"
+              }'
+            ></include>
+          </li>
+
+          <li>
+            <include
+              src="@components/cards/_location-card.html"
+              locals='{
+                "id": "02",
+                "title": "Poland, Warsaw office",
+                "subtitle": "Przedpole, 8",
+                "flag": "@img/flags/pl.svg",
+                "img": "@img/about-us/we-located/02.svg"
+              }'
+            ></include>
+          </li>
+
+          <li>
+            <include
+              src="@components/cards/_location-card.html"
+              locals='{
+                "id": "03",
+                "title": "Estonia, Tallinn office",
+                "subtitle": "Lasnamäe linnaosa, Tuulemäe tn 5, 11411",
+                "flag": "@img/flags/est.svg",
+                "img": "@img/about-us/we-located/03.svg"
+              }'
+            ></include>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
