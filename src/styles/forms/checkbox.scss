@@ -4,12 +4,13 @@
 .checkbox {
   --control-gap: #{rem(16)};
   --control-mark-border-width: #{rem(1)};
-  --control-mark-border-color: var(--color-black);
+  --control-mark-border-color: var(--color-basic-white-10);
   --control-mark-size: #{rem(24)};
 
   position: relative;
   display: flex;
   gap: var(--control-gap);
+  color: var(--color-basic-white-60);
   user-select: none;
 
   &.checkbox--sm {
@@ -57,6 +58,7 @@
     display: block;
     flex: 0 0 var(--control-mark-size);
     border: var(--control-mark-border-width) solid var(--control-mark-border-color);
+    border-radius: rem(4);
     width: var(--control-mark-size);
     height: var(--control-mark-size);
     min-width: var(--control-mark-size);
@@ -67,7 +69,7 @@
       position: absolute;
       left: calc(var(--control-mark-size) * 0.33);
       top: calc(var(--control-mark-size) * 0.05);
-      border: solid var(--color-black);
+      border: solid var(--color-primary);
       border-width: 0 calc(var(--control-mark-size) * 0.083) calc(var(--control-mark-size) * 0.083) 0;
       width: calc(var(--control-mark-size) * 0.33);
       height: calc(var(--control-mark-size) * 0.625);
@@ -84,5 +86,13 @@
     flex: 1 1 auto;
     align-self: center;
     min-width: 0;
+
+    a {
+      text-decoration: underline;
+
+      @include hover {
+        text-decoration: none;
+      }
+    }
   }
 }

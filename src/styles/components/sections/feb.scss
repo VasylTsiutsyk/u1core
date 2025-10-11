@@ -1,0 +1,146 @@
+@use '@styles/helpers' as *;
+
+/* Section Free e-book */
+.section-feb {
+  &__wrap {
+    padding-block: var(--section-py);
+  }
+
+  &__row {
+    --col-width: 100%;
+    --col-gap: 1rem;
+    --col-gap-y: #{rem(40)};
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-inline: calc(var(--col-gap) / 2 * -1);
+    row-gap: var(--col-gap-y);
+
+    @include respond-above(md) {
+      --col-width: 50%;
+      --col-gap: 2rem;
+    }
+
+    @include respond-above(2xl) {
+      --col-gap: 4rem;
+    }
+  }
+
+  &__col {
+    flex: 0 0 var(--col-width);
+    max-width: var(--col-width);
+    padding-inline: calc(var(--col-gap) / 2);
+
+    &--img {
+      @include respond-above(md) {
+        --col-width: 51.5%;
+      }
+    }
+
+    &--text {
+      @include respond-above(md) {
+        --col-width: 48.5%;
+      }
+    }
+  }
+
+  &__img {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-28);
+
+    picture {
+      display: contents;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-block-end: rem(16);
+    }
+  }
+
+  &__subtitle {
+    font-size: rem(30);
+
+    &:not(:last-child) {
+      margin-block-end: rem(32);
+    }
+  }
+
+  &__description {
+    &:not(:last-child) {
+      margin-block-end: rem(48);
+    }
+  }
+
+  &__checklist {
+    --list-mark-size: 1.5rem;
+
+    color: var(--color-basic-white-80);
+
+    > li {
+      display: flex;
+      align-items: center;
+      gap: rem(8);
+
+      &::before {
+        content: '';
+        flex: 0 0 var(--list-mark-size);
+        width: var(--list-mark-size);
+        height: var(--list-mark-size);
+        background: url('@img/icons/magic-star.svg') no-repeat center / 38% auto;
+      }
+
+      &:not(:last-child) {
+        margin-block-end: rem(8);
+      }
+    }
+  }
+}
+
+// FEB Form
+.feb-form {
+  display: block;
+
+  &__body {
+    &:not(:last-child) {
+      margin-block-end: fluid(32, 24);
+    }
+  }
+
+  &__row {
+    --col-width: 100%;
+    --col-gap: 1rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    margin-inline: calc(var(--col-gap) / 2 * -1);
+    row-gap: var(--col-gap);
+
+    @include respond-above(md) {
+      --col-width: 50%;
+    }
+  }
+
+  &__col {
+    flex: 0 0 var(--col-width);
+    max-width: var(--col-width);
+    padding-inline: calc(var(--col-gap) / 2);
+  }
+
+  &__footer {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    align-items: center;
+    gap: rem(32) rem(24);
+  }
+}

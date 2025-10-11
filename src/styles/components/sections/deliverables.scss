@@ -1,0 +1,57 @@
+@use '@styles/helpers' as *;
+
+/* Section Deliverables */
+.section-deliverables {
+  &__wrap {
+    padding-block: var(--section-py);
+  }
+
+  &__title {
+    max-width: rem(444);
+    text-align: center;
+    color: var(--color-basic-white-50);
+    margin-inline: auto;
+
+    &:not(:last-child) {
+      margin-block-end: fluid(24, 16);
+    }
+
+    strong {
+      background: linear-gradient(90deg, rgb(255 255 255 / 50%) 0%, #fff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      font-weight: inherit;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  &__description {
+    max-width: rem(500);
+    text-align: center;
+    color: var(--color-basic-white-60);
+    margin-inline: auto;
+
+    &:not(:last-child) {
+      margin-block-end: fluid(56, 40);
+    }
+  }
+
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: rem(8);
+
+    @include respond-below(sm) {
+      display: grid;
+      gap: rem(56);
+      grid-template-columns: var(--grid-2);
+    }
+
+    > li {
+      @include respond-above(sm) {
+        min-width: rem(140);
+      }
+    }
+  }
+}

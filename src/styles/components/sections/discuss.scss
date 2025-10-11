@@ -2,8 +2,6 @@
 
 /* Section Discuss */
 .section-discuss {
-  --section-py: #{fluid(100, 32)};
-
   &__wrap {
     padding-block: var(--section-py);
   }

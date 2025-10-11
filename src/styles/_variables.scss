@@ -210,6 +210,9 @@
   --select-checkmark-bg-color: transparent;
   --select-arrow-icon: var(--icon-chevron-down);
 
+  /* Section */
+  --section-py: #{fluid(100, 32)};
+
   /* Grid */
   --grid-1: repeat(1, minmax(0, 1fr));
   --grid-2: repeat(2, minmax(0, 1fr));
@@ -274,9 +277,6 @@
   @include respond-below(md) {
     // Container
     --container-padding: #{rem(16)};
-
-    // Body
-    --body-font-size: 0.875rem;
 
     // Heading
     --h1-font-size: #{rem(42)};

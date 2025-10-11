@@ -1,0 +1,46 @@
+@use '@styles/helpers' as *;
+
+/* Deliverable Chip */
+.deliverable-chip {
+  --chip-img-size: #{rem(74)};
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: rem(16);
+  text-align: center;
+
+  &__img {
+    display: flex;
+    flex: 0 0 var(--chip-img-size);
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: rem(1) solid var(--color-basic-white-5);
+    border-radius: rem(18);
+    width: var(--chip-img-size);
+    height: var(--chip-img-size);
+    background-color: var(--color-basic-white-5);
+
+    picture {
+      display: contents;
+    }
+
+    img {
+      width: 45%;
+      height: 45%;
+      max-width: 45%;
+      max-height: 45%;
+      object-fit: contain;
+    }
+  }
+
+  &__title {
+    font-family: var(--body-font-family);
+    font-size: rem(16);
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: -0.005em;
+    color: var(--color-basic-white-70);
+  }
+}

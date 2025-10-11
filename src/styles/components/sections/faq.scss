@@ -2,8 +2,6 @@
 
 /* Section FAQ */
 .section-faq {
-  --section-py: #{fluid(100, 32)};
-
   &__wrap {
     padding-block: var(--section-py);
   }

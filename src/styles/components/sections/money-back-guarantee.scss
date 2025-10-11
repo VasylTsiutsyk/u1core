@@ -2,8 +2,6 @@
 
 /* Section Money Back Guarantee */
 .section-mbg {
-  --section-py: #{fluid(100, 32)};
-
   &__wrap {
     padding-block: var(--section-py);
   }
