@@ -2,7 +2,37 @@
 
 /* Section General */
 .section {
+  position: relative;
+
+  &--appointment {
+    &::after {
+      --size: 16.875vw;
+
+      content: '';
+      position: absolute;
+      left: 15%;
+      bottom: 5%;
+      border-radius: var(--size);
+      width: var(--size);
+      height: var(--size);
+      background-color: var(--color-primary);
+      opacity: 0.5;
+      filter: blur(9.375rem);
+      pointer-events: none;
+
+      @include respond-below(md) {
+        --size: 70vw;
+
+        left: 10%;
+        top: 40%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
   &__wrap {
+    position: relative;
+    z-index: 9;
     padding-block: var(--section-py);
   }
 

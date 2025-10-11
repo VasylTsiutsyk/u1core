@@ -11,6 +11,7 @@ import initProjectTypeCards from './modules/project-card';
 import initAccordions from './modules/accordion';
 import initSliders from './modules/sliders';
 import { showMore } from './modules/show-more';
+import initCalendars from './modules/calendar';
 
 document.addEventListener('DOMContentLoaded', () => {
   // IS WEBP TEST
@@ -123,6 +124,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Show More
   showMore();
+
+  // Calendars
+  initCalendars();
 
   SELECTORS.BODY.classList.add(CLASSES.LOADED);
 });

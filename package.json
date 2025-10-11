@@ -82,6 +82,9 @@
   },
   "dependencies": {
     "bowser": "^2.11.0",
-    "choices.js": "^11.1.0"
+    "choices.js": "^11.1.0",
+    "fullcalendar": "^6.1.19",
+    "install": "^0.13.0",
+    "npm": "^11.6.2"
   }
 }

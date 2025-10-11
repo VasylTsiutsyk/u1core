@@ -90,6 +90,7 @@
   --color-black-cynical: #171717;
   --color-basic-black-30: rgb(9 9 9 / 30%);
   --color-basic-black-40: rgb(9 9 9 / 40%);
+  --color-basic-black-50: rgb(9 9 9 / 50%);
   --color-basic-black-90: rgb(9 9 9 / 90%);
   --color-basic-black-100: #090909;
 
@@ -266,6 +267,15 @@
 
   /* Header */
   --header-height: 3rem;
+
+  /* Full Calendar */
+  --fc-button-border-color: var(--color-primary);
+  --fc-button-hover-border-color: var(--color-primary);
+  --fc-button-active-border-color: var(--color-primary);
+  --fc-button-bg-color: var(--color-primary);
+  --fc-button-hover-bg-color: var(--color-primary);
+  --fc-button-active-bg-color: var(--color-primary);
+  --fc-button-text-color: var(--color-basic-black-100);
 
   @include respond-below(lg) {
     // Heading

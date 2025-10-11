@@ -1,0 +1,130 @@
+@use '@styles/helpers' as *;
+
+/* Appointment Card */
+.appointment-card {
+  --card-border-width: #{rem(1)};
+  --card-border-color: rgb(255 230 103 / 0%);
+  --card-border-radius: #{rem(42)};
+  --card-px: #{fluid(64, 24)};
+  --card-py: #{fluid(80, 40)};
+  --card-bg-color: var(--color-basic-black-50);
+  --card-img-size: #{rem(120)};
+
+  display: block;
+  overflow: hidden;
+
+  @include respond-above(md) {
+    border: var(--card-border-width) solid var(--card-border-color);
+    border-radius: var(--card-border-radius);
+    background-color: var(--card-bg-color);
+    backdrop-filter: blur(4.5rem);
+  }
+
+  @include respond-below(md) {
+    --card-img-size: #{rem(80)};
+  }
+
+  &__row {
+    --col-width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    @include respond-above(md) {
+      --col-width: 50%;
+    }
+
+    @include respond-below(md) {
+      row-gap: rem(24);
+    }
+  }
+
+  &__col {
+    flex: 0 0 var(--col-width);
+    max-width: var(--col-width);
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 100%;
+    padding: var(--card-py) var(--card-px);
+
+    @include respond-below(md) {
+      border: var(--card-border-width) solid var(--card-border-color);
+      border-radius: var(--card-border-radius);
+      background-color: var(--card-bg-color);
+      backdrop-filter: blur(4.5rem);
+    }
+  }
+
+  &__img {
+    display: block;
+    width: var(--card-img-size);
+    height: var(--card-img-size);
+
+    &:not(:last-child) {
+      margin-block-end: rem(24);
+    }
+
+    picture {
+      display: contents;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__title {
+    font-size: fluid(42, 24);
+    font-weight: 500;
+    line-height: 1.1;
+
+    @include respond-below(md) {
+      line-height: 1.2;
+    }
+
+    &:not(:last-child) {
+      margin-block-end: rem(24);
+    }
+  }
+
+  &__description {
+    color: var(--color-basic-white-60);
+
+    @include respond-below(md) {
+      font-size: rem(14);
+      font-weight: 400;
+    }
+
+    &:not(:last-child) {
+      margin-block-end: rem(26);
+    }
+  }
+
+  &__mail {
+    display: inline-flex;
+    align-items: center;
+    gap: rem(8);
+    color: var(--color-primary);
+
+    &:not(:first-child) {
+      margin-block-start: auto;
+    }
+  }
+
+  &__calendar {
+    overflow: hidden;
+    border-radius: var(--card-border-radius);
+    min-height: 100%;
+    padding: var(--card-py) var(--card-px);
+    background-color: var(--color-basic-white-100);
+    color: var(--color-basic-black-100);
+  }
+}
