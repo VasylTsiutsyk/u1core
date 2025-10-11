@@ -1,0 +1,40 @@
+@use '@styles/helpers' as *;
+
+/* Brief Questions Card */
+.brief-questions-card {
+  display: flex;
+  flex-direction: column;
+  gap: rem(24);
+  overflow: hidden;
+  border: rem(1) solid var(--color-basic-white-10);
+  border-radius: var(--border-radius-28);
+  padding: rem(28);
+  background-color: var(--color-basic-black-100);
+
+  &__title {
+    font-size: rem(18);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: var(--body-letter-spacing);
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: rem(8);
+      color: var(--color-primary);
+    }
+  }
+
+  &__img {
+    picture {
+      display: contents;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+}

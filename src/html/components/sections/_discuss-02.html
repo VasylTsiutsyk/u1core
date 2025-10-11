@@ -1,0 +1,29 @@
+<section class="section-discuss" aria-labelledby="sectionDiscussTitle">
+  <div class="section-discuss__container container">
+    <div class="section-discuss__wrap">
+      <div class="section-discuss__header">
+        <h2 class="section-discuss__title h3" id="sectionDiscussTitle">
+          Let's discuss where you want to get
+        </h2>
+      </div>
+
+      <div class="section-discuss__body">
+        <div class="section-discuss__row">
+          <div class="section-discuss__col section-discuss__col--aside">
+            <include
+              src="@components/forms/_brief-questions-card.html"
+              locals='{ "bemClasses": "section-discuss__brief-questions-card" }'
+            ></include>
+          </div>
+
+          <div class="section-discuss__col section-discuss__col--main">
+            <include
+              src="@components/forms/_about-project-form.html"
+              locals='{ "classes": "section-discuss__about-project-form" }'
+            ></include>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
