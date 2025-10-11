@@ -68,6 +68,23 @@ function initSliders() {
       },
     },
   });
+
+  // Swiper Social Proofs
+  initSwiper('#swiperSocProof', {
+    modules: [Navigation, Pagination],
+    direction: 'horizontal',
+    speed: 800,
+    slidesPerView: 1,
+    spaceBetween: 28,
+    navigation: {
+      prevEl: '#swiperSocProofPrev',
+      nextEl: '#swiperSocProofNext',
+    },
+    pagination: {
+      el: '#swiperSocProofPagination',
+      clickable: true,
+    },
+  });
 }
 
 export default initSliders;

@@ -1,0 +1,67 @@
+@use '@styles/helpers' as *;
+
+/* Review Badge */
+.review-badge {
+  --badge-arrow-size: #{rem(30)};
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: top;
+    border: rem(1) solid var(--color-basic-white-10);
+    border-radius: rem(50);
+    min-height: rem(54);
+    padding: rem(8) rem(13) rem(8) rem(21);
+    background-color: var(--color-basic-white-5);
+    color: var(--color-basic-white-100);
+    transition: border-color var(--transition-duration);
+
+    &:not(:disabled) {
+      cursor: pointer;
+
+      @include hover {
+        border-color: var(--color-basic-white-20);
+      }
+    }
+  }
+
+  &__arrow {
+    display: flex;
+    flex: 0 0 var(--badge-arrow-size);
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--badge-arrow-size);
+    width: var(--badge-arrow-size);
+    height: var(--badge-arrow-size);
+    background-color: var(--color-basic-white-10);
+    color: var(--color-basic-white-100);
+  }
+
+  &__logo {
+    &:not(:last-child) {
+      margin-inline-end: rem(10);
+    }
+
+    picture {
+      display: contents;
+    }
+
+    img {
+      vertical-align: top;
+      object-fit: contain;
+    }
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    font-size: rem(20);
+    font-weight: 600;
+    line-height: 1.55;
+    letter-spacing: -0.005em;
+
+    &:not(:last-child) {
+      margin-inline-end: rem(18);
+    }
+  }
+}

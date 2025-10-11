@@ -1,0 +1,80 @@
+@use '@styles/helpers' as *;
+
+/* Section metrics */
+.section-metrics {
+  &__wrap {
+    padding-block: var(--section-py);
+  }
+
+  &__header {
+    &:not(:last-child) {
+      margin-block-end: fluid(64, 32);
+    }
+  }
+
+  &__grid {
+    display: grid;
+    gap: fluid(28, 24);
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+
+    @include respond-below(md) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    > li {
+      &:nth-child(1) {
+        grid-column: 1 / span 6;
+        grid-row: 1 / span 2;
+
+        @include respond-below(md) {
+          grid-column: 1 / -1;
+        }
+      }
+
+      &:nth-child(2) {
+        grid-column: 7 / span 3;
+
+        @include respond-below(md) {
+          grid-column: span 3;
+        }
+
+        @include respond-below(sm) {
+          grid-column: span 6;
+        }
+      }
+
+      &:nth-child(3) {
+        grid-column: 10 / span 3;
+
+        @include respond-below(md) {
+          grid-column: span 3;
+        }
+
+        @include respond-below(sm) {
+          grid-column: span 6;
+        }
+      }
+
+      &:nth-child(4) {
+        grid-column: 7 / span 6;
+
+        @include respond-below(md) {
+          grid-column: 1 / -1;
+        }
+      }
+    }
+  }
+
+  &__metric-card {
+    min-height: 100%;
+  }
+
+  &__stat-card {
+    min-height: 100%;
+  }
+
+  &__ratings-strip {
+    min-height: 100%;
+  }
+}

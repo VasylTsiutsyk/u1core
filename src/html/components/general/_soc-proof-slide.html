@@ -1,0 +1,71 @@
+<div class="soc-proof-slide">
+  <div class="soc-proof-slide__row">
+    <div class="soc-proof-slide__col soc-proof-slide__col--left">
+      <include
+        src="@components/cards/_case-card.html"
+        locals='{
+          "id": "01",
+          "img": "@img/cases/01.jpg",
+          "title": "OROSWAP",
+          "type": "Website design, Development"
+        }'
+      ></include>
+    </div>
+
+    <div class="soc-proof-slide__col soc-proof-slide__col--right">
+      <div class="soc-proof-slide__text" data-show-more>
+        <include
+          src="@components/general/_review-badge.html"
+          locals='{
+            "bemClasses": "soc-proof-slide__review-badge",
+            "modeClasses": "review-badge--clutch",
+            "logo": "@img/logos/clutch.svg",
+            "rating": "5.0"
+          }'
+        ></include>
+
+        <div
+          class="soc-proof-slide__description"
+          data-show-more-content
+          data-show-more-lines="8"
+        >
+          <p>
+            We hired U1CORE to create a new brand identity and design & develop
+            a Web3 platform. Their team impressed us with a deep understanding
+            of blockchain user flows, a refined sense of style, and excellent
+            communication throughout the process. Every request was considered,
+            and every detail well-crafted.The result — a polished product that
+            combines intuitive UX with seamless Web3 integrations.
+          </p>
+
+          <p>
+            Their team impressed us with a deep understanding of blockchain user
+            flows, a refined sense of style, and excellent communication
+            throughout the process. Every request was considered, and every
+            detail well-crafte
+          </p>
+        </div>
+
+        <button
+          type="button"
+          class="soc-proof-slide__show-more"
+          data-show-more-btn
+        >
+          Show More
+        </button>
+
+        <div class="soc-proof-slide__author-btn-wrap">
+          <include
+            src="@components/general/_review-author.html"
+            locals="{}"
+          ></include>
+
+          <a href="#" class="btn btn--primary">
+            <span class="btn__text">Read on Clutch.co</span>
+            <i class="icon-chevron-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

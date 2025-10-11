@@ -1,0 +1,53 @@
+@use '@styles/helpers' as *;
+
+/* Metric Stat Card */
+.metric-stat-card {
+  --card-img-size: #{rem(32)};
+
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: rem(16);
+  overflow: hidden;
+  border-radius: var(--border-radius-24);
+  padding: fluid(48, 24) fluid(38, 24);
+  background-color: var(--color-basic-white-5);
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: rem(12);
+  }
+
+  &__img {
+    flex: 0 0 var(--card-img-size);
+    width: var(--card-img-size);
+    height: var(--card-img-size);
+
+    picture {
+      display: contents;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__value {
+    font-family: var(--display-font-family);
+    font-size: fluid(56, 30);
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  &__title {
+    font-family: var(--body-font-family);
+    font-size: fluid(20, 16);
+    color: var(--color-basic-white-60);
+  }
+}

@@ -10,6 +10,7 @@ import initScrollToTopBtns from './modules/scroll-to-top';
 import initProjectTypeCards from './modules/project-card';
 import initAccordions from './modules/accordion';
 import initSliders from './modules/sliders';
+import { showMore } from './modules/show-more';
 
 document.addEventListener('DOMContentLoaded', () => {
   // IS WEBP TEST
@@ -119,6 +120,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollToTopBtns();
 
   initProjectTypeCards();
+
+  // Show More
+  showMore();
 
   SELECTORS.BODY.classList.add(CLASSES.LOADED);
 });
