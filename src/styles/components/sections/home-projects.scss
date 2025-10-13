@@ -1,0 +1,43 @@
+@use '@styles/helpers' as *;
+
+/* Section Home Projects */
+.section-hp {
+  &__container {
+    @include respond-below(md) {
+      padding-inline: var(--container-padding);
+    }
+  }
+
+  &__wrap {
+    padding-block: var(--section-py);
+  }
+
+  &__body {
+    &:not(:last-child) {
+      margin-block-end: fluid(108, 24);
+    }
+  }
+
+  &__cards {
+    display: grid;
+    gap: fluid(108, 32) 0;
+    grid-template-columns: var(--grid-2);
+
+    @include respond-below(md) {
+      grid-template-columns: var(--grid-1);
+    }
+
+    > li {
+      &._fluid {
+        grid-column: 1 / -1;
+        min-width: 0;
+      }
+    }
+  }
+
+  &__btn-box {
+    display: flex;
+    justify-content: center;
+    gap: rem(12);
+  }
+}

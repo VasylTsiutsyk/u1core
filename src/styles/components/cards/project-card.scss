@@ -1,0 +1,95 @@
+@use '@styles/helpers' as *;
+
+/* Project Card */
+.project-card {
+  --card-img-border-width: #{rem(1)};
+  --card-img-border-color: var(--color-basic-white-10);
+  --card-img-border-radius: var(--border-radius-28);
+  --card-metas-gap: 0.5rem;
+  --card-metas-dot-size: #{rem(3)};
+
+  @include respond-below(md) {
+    --card-img-border-radius: var(--border-radius-20);
+  }
+
+  @include hover {
+    --card-img-border-color: var(--color-basic-white-40);
+
+    .case-card__img {
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__img {
+    position: relative;
+    display: block;
+    overflow: hidden;
+
+    picture {
+      display: contents;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  &__text {
+    padding: rem(20) rem(48);
+
+    @include respond-below(md) {
+      padding: rem(16) 0;
+    }
+  }
+
+  &__metas {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: calc(var(--card-metas-gap) / 2) var(--card-metas-gap);
+    color: var(--color-basic-white-60);
+
+    &:not(:last-child) {
+      margin-block-end: rem(16);
+    }
+
+    > li {
+      &:not(:last-child) {
+        display: flex;
+        align-items: center;
+        gap: var(--card-metas-gap);
+
+        &::after {
+          content: '';
+          display: inline-block;
+          border-radius: var(--card-metas-dot-size);
+          width: var(--card-metas-dot-size);
+          height: var(--card-metas-dot-size);
+          background-color: currentcolor;
+        }
+      }
+    }
+  }
+
+  &__title {
+    font-size: fluid(30, 16);
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--color-basic-white-100);
+  }
+
+  &__type {
+    font-size: fluid(20, 16);
+  }
+
+  &__description {
+    max-width: rem(768);
+    font-size: fluid(16, 14);
+    color: var(--color-basic-white-60);
+  }
+}

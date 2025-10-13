@@ -1,0 +1,65 @@
+<section class="section-hp" aria-labelledby="sectionProjectsTitle">
+  <h2 class="sr-only" id="sectionProjectsTitle">Projects</h2>
+
+  <div class="section-hp__container">
+    <div class="section-hp__wrap">
+      <div class="section-hp__body">
+        <ul class="section-hp__cards">
+          <li>
+            <include
+              src="@components/cards/_project-card.html"
+              locals='{
+                "id": "01",
+                "img": "@img/home/projects/01.jpg",
+                "width": "864",
+                "height": "660",
+                "title": "HamsterHub",
+                "type": "Product design",
+                "description": "Every business begins with a strong online presence. U1CORE helps you launch with impact, delivering high-quality, market-ready designs that drive growth and long-term success."
+              }'
+            ></include>
+          </li>
+
+          <li>
+            <include
+              src="@components/cards/_project-card.html"
+              locals='{
+                "id": "02",
+                "img": "@img/home/projects/02.jpg",
+                "width": "864",
+                "height": "860",
+                "title": "OROSWAP",
+                "type": "Website design, Development",
+                "description": "Every business begins with a strong online presence. U1CORE helps you launch with impact, delivering high-quality, market-ready designs that drive growth and long-term success."
+              }'
+            ></include>
+          </li>
+
+          <li class="_fluid">
+            <include
+              src="@components/cards/_project-card.html"
+              locals='{
+                "id": "03",
+                "img": "@img/home/projects/03.jpg",
+                "width": "1728",
+                "height": "860",
+                "title": "FORNIX",
+                "type": "Website design, Development",
+                "description": "Every business begins with a strong online presence. U1CORE helps you launch with impact, delivering high-quality, market-ready designs that drive growth and long-term success."
+              }'
+            ></include>
+          </li>
+        </ul>
+      </div>
+
+      <div class="section-hp__footer">
+        <div class="section-hp__btn-box">
+          <a href="#" class="btn btn--primary">
+            <span class="btn__text">View all projects</span>
+            <i class="icon-chevron-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

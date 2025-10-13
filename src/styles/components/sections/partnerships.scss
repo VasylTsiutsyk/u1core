@@ -1,0 +1,42 @@
+@use '@styles/helpers' as *;
+
+/* Section Partnerships */
+.section-partnerships {
+  &__wrap {
+    padding-block: var(--section-py);
+  }
+
+  &__title {
+    max-width: rem(590);
+    text-align: center;
+    margin-inline: auto;
+
+    &:not(:last-child) {
+      margin-block-end: rem(16);
+    }
+  }
+
+  &__description {
+    max-width: rem(590);
+    text-align: center;
+    color: var(--color-basic-white-60);
+    margin-inline: auto;
+
+    &:not(:last-child) {
+      margin-block-end: fluid(64, 32);
+    }
+  }
+}
+
+.partnerships-map {
+  &__img {
+    display: block;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+}
