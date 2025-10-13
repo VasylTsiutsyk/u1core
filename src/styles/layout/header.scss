@@ -259,8 +259,9 @@ body.pc {
       z-index: 99;
       left: 0;
       padding: rem(8) 0;
-      background-color: var(--color-white);
+      background-color: var(--color-basic-black-100);
       box-shadow: 0 0 1rem rgb(0 0 0 / 15%);
+      color: var(--color-basic-white-100);
       opacity: 0;
       visibility: hidden;
       transform: translateY(10%);
