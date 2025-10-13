@@ -14,7 +14,8 @@
   width: var(--icon-size);
   height: var(--icon-size);
   background-color: var(--color-black-cynical);
-  font-size: calc(var(--icon-size) * 0.5);
+  font-size: calc(var(--icon-size) * 0.45);
   font-weight: 400;
   line-height: 1;
+  color: var(--color-primary);
 }

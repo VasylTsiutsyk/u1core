@@ -55,6 +55,7 @@
   &__rating {
     display: flex;
     align-items: center;
+    gap: rem(6);
     font-size: rem(20);
     font-weight: 600;
     line-height: 1.55;
@@ -62,6 +63,13 @@
 
     &:not(:last-child) {
       margin-inline-end: rem(18);
+    }
+
+    i {
+      font-size: 70%;
+      line-height: 1;
+      color: var(--color-primary);
+      margin-block-start: -5%;
     }
   }
 }
