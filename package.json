@@ -81,10 +81,9 @@
     "@img/sharp-win32-x64": "latest"
   },
   "dependencies": {
+    "aos": "^3.0.0-beta.1",
     "bowser": "^2.11.0",
     "choices.js": "^11.1.0",
-    "fullcalendar": "^6.1.19",
-    "install": "^0.13.0",
-    "npm": "^11.6.2"
+    "fullcalendar": "^6.1.19"
   }
 }

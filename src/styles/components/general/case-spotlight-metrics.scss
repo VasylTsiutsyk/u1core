@@ -1,0 +1,31 @@
+@use '@styles/helpers' as *;
+
+/* Case Spotlight Metrics */
+.cs-metrics {
+  &__header {
+    &:not(:last-child) {
+      margin-block-end: fluid(24, 16);
+    }
+  }
+
+  &__title {
+    @include text-regular;
+  }
+
+  &__body {
+    &:not(:last-child) {
+      margin-block-end: fluid(24, 16);
+    }
+  }
+
+  &__list {
+    display: grid;
+    gap: rem(24);
+    grid-template-columns: var(--grid-3);
+
+    @include respond-below(sm) {
+      gap: rem(16);
+      grid-template-columns: var(--grid-1);
+    }
+  }
+}

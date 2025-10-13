@@ -85,6 +85,23 @@ function initSliders() {
       clickable: true,
     },
   });
+
+  // Case Spotlight
+  initSwiper('#swiperCaseSpotlight', {
+    modules: [Navigation, Pagination],
+    direction: 'horizontal',
+    speed: 800,
+    slidesPerView: 'auto',
+    spaceBetween: 24,
+    navigation: {
+      prevEl: '#swiperCaseSpotlightPrev',
+      nextEl: '#swiperCaseSpotlightNext',
+    },
+    pagination: {
+      el: '#swiperCaseSpotlightPagination',
+      clickable: true,
+    },
+  });
 }
 
 export default initSliders;

@@ -1,0 +1,139 @@
+@use '@styles/helpers' as *;
+
+/* Section Case Spotlight */
+.section-cs {
+  &__wrap {
+    padding-block: var(--section-py);
+  }
+
+  &__header {
+    display: grid;
+    grid-template-columns: var(--grid-2);
+    row-gap: rem(32);
+
+    @include respond-below(md) {
+      grid-template-columns: var(--grid-1);
+    }
+
+    &:not(:last-child) {
+      margin-block-end: fluid(64, 32);
+    }
+  }
+
+  &__info {
+    @include respond-above(md) {
+      border-inline-end: rem(1) solid var(--color-basic-white-10);
+      padding-inline-end: rem(64);
+    }
+  }
+
+  &__subtitle {
+    @include text-regular;
+
+    &:not(:last-child) {
+      margin-block-end: fluid(24, 16);
+    }
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-block-end: fluid(24, 16);
+    }
+  }
+
+  &__metrics {
+    @include respond-above(md) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-inline-start: rem(64);
+    }
+  }
+
+  &__body {
+    &:not(:last-child) {
+      margin-block-end: fluid(64, 32);
+    }
+  }
+
+  &__slider-wrap {
+    --slider-height: 36svh;
+
+    position: relative;
+
+    &::after {
+      @include respond-above(md) {
+        content: '';
+        position: absolute;
+        z-index: 9;
+        right: 0;
+        top: 0;
+        width: 15%;
+        height: 100%;
+        background-image: linear-gradient(-90deg, var(--color-basic-black-100) 0%, transparent 100%);
+        pointer-events: none;
+      }
+    }
+
+    .swiper-slide {
+      width: auto;
+    }
+
+    .cs-img {
+      height: var(--slider-height);
+    }
+  }
+
+  &__slider-navigation {
+    max-width: fit-content;
+    margin-inline: auto;
+  }
+}
+
+/* UI Metas */
+.ui-metas {
+  --metas-gap-x: 0.5rem;
+  --metas-gap-y: 0.25rem;
+  --metas-dot-size: 0.25em;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--metas-gap-y) var(--metas-gap-x);
+  color: var(--color-basic-white-60);
+
+  @include text-regular;
+
+  > li {
+    &:not(:last-child) {
+      display: flex;
+      align-items: center;
+      gap: var(--metas-gap-y) var(--metas-gap-x);
+
+      &::after {
+        content: '';
+        display: inline-block;
+        border-radius: var(--metas-dot-size);
+        width: var(--metas-dot-size);
+        height: var(--metas-dot-size);
+        background-color: currentcolor;
+      }
+    }
+  }
+}
+
+/* Case Spotlight Img */
+.cs-img {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border: rem(1) solid var(--color-basic-white-10);
+  border-radius: var(--border-radius-28);
+
+  img {
+    display: block;
+    width: auto;
+    height: 100%;
+    max-height: 100%;
+  }
+}
