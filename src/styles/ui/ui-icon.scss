@@ -2,8 +2,8 @@
 
 /* UI Icon */
 .ui-icon {
-  --icon-size: #{rem(74)};
-  --icon-border-radius: 1.125rem;
+  --icon-size: #{fluid(74, 32)};
+  --icon-border-radius: #{fluid(18, 8)};
 
   display: inline-flex;
   align-items: center;

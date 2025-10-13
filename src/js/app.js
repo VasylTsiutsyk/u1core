@@ -12,7 +12,7 @@ import initAccordions from './modules/accordion';
 import initSliders from './modules/sliders';
 import { showMore } from './modules/show-more';
 import initCalendars from './modules/calendar';
-import { initAosAnimations } from './modules/animations';
+import { initAosAnimations, initGSAPAnimations } from './modules/animations';
 
 document.addEventListener('DOMContentLoaded', () => {
   // IS WEBP TEST
@@ -94,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ANIMATIONS
   initAosAnimations();
+  initGSAPAnimations();
 
   // IMG PARALLAX
   // import initImgParallax from './modules/img-parallax';

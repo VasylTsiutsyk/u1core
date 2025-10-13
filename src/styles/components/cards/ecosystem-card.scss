@@ -1,0 +1,76 @@
+@use '@styles/helpers' as *;
+
+/* Ecosystem Card */
+.ecosystem-card {
+  --card-img-size: #{rem(74)};
+
+  display: block;
+  overflow: hidden;
+  border: rem(1) solid var(--color-basic-white-10);
+  border-radius: var(--border-radius-28);
+  padding: rem(32);
+  background-color: var(--color-basic-white-5);
+
+  &__row {
+    display: flex;
+    gap: rem(32);
+
+    @include respond-below(md) {
+      flex-direction: column;
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+    align-items: center;
+    align-self: flex-start;
+    gap: rem(24);
+  }
+
+  &__img {
+    display: flex;
+    flex: 0 0 var(--card-img-size);
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: rem(1) solid var(--color-basic-white-5);
+    border-radius: rem(18);
+    width: var(--card-img-size);
+    height: var(--card-img-size);
+
+    img {
+      width: 43.25%;
+      height: 43.25%;
+      max-width: 43.25%;
+      max-height: 43.25%;
+      object-fit: contain;
+    }
+  }
+
+  &__title {
+    font-size: fluid(30, 20);
+    font-weight: var(--display-font-weight);
+    line-height: 1.2;
+
+    @include respond-below(md) {
+      line-height: 1.4;
+    }
+
+    &:not(:last-child) {
+      margin-block-end: rem(28);
+    }
+  }
+
+  &__body {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  &__description {
+    > *:not(:last-child) {
+      margin-block-end: 1em;
+    }
+  }
+}

@@ -2,22 +2,27 @@
 
 /* Section Results */
 .section-results {
-  --section-pt: #{rem(90)};
-  --section-pb: #{rem(100)};
-
   &__wrap {
-    padding-block: var(--section-pt) var(--section-pb);
+    padding-block: var(--section-py);
   }
 
   &__header {
     &:not(:last-child) {
       margin-block-end: fluid(72, 32);
+
+      @include respond-below(md) {
+        margin-block-end: rem(40);
+      }
     }
   }
 
-  &__badge {
+  &__review-badge {
     &:not(:last-child) {
       margin-block-end: rem(26);
+
+      @include respond-below(md) {
+        margin-block-end: rem(40);
+      }
     }
   }
 
@@ -41,8 +46,4 @@
       }
     }
   }
-}
-
-.ui-badge {
-  display: inline-flex;
 }

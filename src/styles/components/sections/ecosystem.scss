@@ -1,0 +1,36 @@
+@use '@styles/helpers' as *;
+
+/* Section Ecosystem */
+.section-ecosystem {
+  &__wrap {
+    padding-block: var(--section-py);
+  }
+
+  &__grid {
+    display: grid;
+    gap: fluid(64, 32);
+    grid-template-columns: var(--grid-2);
+
+    @include respond-below(md) {
+      grid-template-columns: var(--grid-1);
+    }
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-block-end: rem(24);
+    }
+  }
+
+  &__description {
+    color: var(--color-basic-white-60);
+  }
+
+  &__list {
+    > li {
+      &:not(:last-child) {
+        margin-block-end: fluid(64, 32);
+      }
+    }
+  }
+}

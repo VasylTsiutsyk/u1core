@@ -1,0 +1,71 @@
+<section
+  class="section-ecosystem"
+  id="ecosystem"
+  aria-labelledby="sectionEcosystemTitle"
+>
+  <div class="section-ecosystem__container container">
+    <div class="section-ecosystem__wrap">
+      <div class="section-ecosystem__grid">
+        <div class="section-ecosystem__col">
+          <div class="section-ecosystem__text">
+            <h2
+              class="section-ecosystem__title title-h3"
+              id="sectionEcosystemTitle"
+            >
+              Our approach to building Web3 products and ecosystems
+            </h2>
+
+            <div class="section-ecosystem__description">
+              <p>
+                Empowering decentralized innovation through user-centricdesign
+                and scalable solutions.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-ecostystem__col">
+          <div class="section-ecosystem__stack">
+            <ul class="section-ecosystem__list">
+              <li>
+                <include
+                  src="@components/cards/_ecosystem-card.html"
+                  locals='{
+                  "id": "01",
+                  "img": "@img/industries/ecosystem/01.svg",
+                  "title": "Niche Web3 knowledge",
+                  "parallax": "60"
+                }'
+                ></include>
+              </li>
+
+              <li>
+                <include
+                  src="@components/cards/_ecosystem-card.html"
+                  locals='{
+                  "id": "02",
+                  "img": "@img/industries/ecosystem/02.svg",
+                  "title": "Aligning strategy and execution in Web3",
+                  "parallax": "120"
+                }'
+                ></include>
+              </li>
+
+              <li>
+                <include
+                  src="@components/cards/_ecosystem-card.html"
+                  locals='{
+                  "id": "03",
+                  "img": "@img/industries/ecosystem/03.svg",
+                  "title": "Scaling, not replacing",
+                  "parallax": "180"
+                }'
+                ></include>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

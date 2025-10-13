@@ -6,13 +6,15 @@
   <div class="section-results__container container">
     <div class="section-results__wrap">
       <div class="section-results__header">
-        <span
-          class="section-results__badge ui-badge ui-badge--pill ui-badge--muted"
-          role="note"
-        >
-          <span class="ui-badge__text">Clutch <strong>5.0</strong></span>
-          <span class="ui-badge__star" aria-hidden="true">★</span>
-        </span>
+        <include
+          src="@components/general/_review-badge.html"
+          locals='{
+            "bemClasses": "section-results__review-badge",
+            "modeClasses": "review-badge--clutch",
+            "logo": "@img/logos/clutch.svg",
+            "rating": "5.0"
+          }'
+        ></include>
 
         <h2 class="section-results__title" id="sectionResultsTitle">
           From decentralized apps to complex blockchain-based platforms, our
