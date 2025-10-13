@@ -2,6 +2,8 @@
 @use '@styles/helpers' as *;
 
 .header {
+  --header-promo-height: #{rem(33)};
+
   position: fixed;
   z-index: 99;
   left: 0;
@@ -13,49 +15,132 @@
     background-color var(--transition-duration),
     transform var(--transition-duration);
 
-  &._scrolled {
-    background-color: var(--color-white);
+  &::after {
+    --size: 35.42vw;
 
-    .header__wrap {
-      @include respond-above(md) {
-        padding: rem(16) 0;
-      }
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    top: 0;
+    border-radius: var(--size);
+    width: var(--size);
+    height: var(--size);
+    background-color: var(--color-primary);
+    opacity: 0.25;
+    filter: blur(175px);
+    transform: translate(-50%, -40%);
+    pointer-events: none;
+    transition:
+      visibility var(--transition-duration),
+      opacity var(--transition-duration);
+
+    @include respond-below(md) {
+      // --size: 128.2vw;
+
+      --size: 50vw;
+
+      opacity: 0.5;
+      transform: translate(-50%, -20%);
     }
+  }
+
+  &._scrolled {
   }
 
   &._hidden {
     box-shadow: none;
-    transform: translateY(-100%);
+    transform: translateY(calc(var(--header-promo-height) * -1));
+
+    &::after {
+      @include hide;
+    }
+  }
+
+  &__bottom {
+    position: relative;
+    z-index: 9;
+    background-color: var(--color-basic-black-100);
+    backdrop-filter: blur(0.9375rem);
+    border-block: rem(1) solid var(--color-basic-white-5);
   }
 
   &__wrap {
     position: relative;
-    z-index: 10;
+    z-index: 9;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: rem(20) 0;
-    transition: padding var(--transition-duration);
+    gap: rem(16);
+    padding-block: rem(10);
 
     @include respond-below(md) {
-      padding: rem(16) 0;
+      gap: rem(8);
     }
   }
 
   &__logo {
+    position: relative;
+    z-index: 199;
     transition: opacity var(--transition-duration);
+
+    @include respond-below(md) {
+      order: 1;
+      max-width: rem(90);
+    }
 
     @include hover {
       opacity: 0.75;
     }
 
-    &:focus,
     &:active {
       opacity: 0.75;
     }
 
     img {
-      display: block;
+      vertical-align: top;
+      object-fit: contain;
+    }
+  }
+
+  &__menu {
+    @include respond-below(md) {
+      order: 3;
+    }
+  }
+
+  &__btn-box {
+    @include respond-below(md) {
+      order: 2;
+      margin-inline-start: auto;
+    }
+  }
+}
+
+.header-top {
+  &__wrap {
+    position: relative;
+    z-index: 9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: var(--header-promo-height);
+    max-height: var(--header-promo-height);
+    padding-block: rem(2);
+  }
+
+  &__promo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: rem(6);
+    font-size: rem(12);
+    font-weight: 500;
+    line-height: 1.55;
+    letter-spacing: -0.005em;
+
+    i {
+      color: var(--color-primary);
     }
   }
 }
@@ -115,7 +200,7 @@ body.pc {
     &__body {
       display: flex;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: center;
       gap: rem(12) rem(36);
     }
 
@@ -217,8 +302,9 @@ body.touch {
 
     &__btn {
       --btn-size: #{rem(44)};
-      --btn-height: calc(var(--btn-size) * 0.6);
-      --btn-line-height: calc(var(--btn-size) * 0.05);
+      --btn-height: var(--btn-size);
+      --btn-line-height: #{rem(2)};
+      --btn-line-width: #{rem(20)};
 
       position: relative;
       z-index: 99;
@@ -232,10 +318,11 @@ body.touch {
       &::before,
       &::after {
         position: absolute;
-        left: 0;
-        width: 100%;
+        left: calc(50% - var(--btn-line-width) / 2);
+        border-radius: var(--btn-line-height);
+        width: var(--btn-line-width);
         height: var(--btn-line-height);
-        background-color: var(--color-black);
+        background-color: var(--color-basic-white-100);
         transform-origin: center;
         transition: var(--transition-duration);
       }
@@ -246,12 +333,12 @@ body.touch {
       }
 
       &::before {
-        top: 0;
+        top: 32%;
       }
 
       &::after {
         top: auto;
-        bottom: 0;
+        bottom: 32%;
         translate: none;
       }
 
@@ -305,21 +392,11 @@ body.touch {
       justify-content: start;
       overflow: hidden auto;
       width: 100%;
-      height: 100%;
+      height: 100svh;
       padding: calc(var(--header-height, rem(80)) + rem(20)) var(--container-padding) rem(24);
-      background-color: var(--color-white);
-      color: var(--color-black);
+      background-color: var(--color-basic-black-100);
+      color: var(--color-basic-white-100);
       transition: left 0.5s;
-
-      &::after {
-        content: '';
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: var(--header-height);
-        background-color: inherit;
-      }
 
       &._active {
         left: 0;
