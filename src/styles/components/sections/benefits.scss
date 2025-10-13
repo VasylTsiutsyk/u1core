@@ -1,0 +1,22 @@
+@use '@styles/helpers' as *;
+
+/* Section Benefits */
+.section-benefits {
+  &__wrap {
+    padding-block: var(--section-py);
+  }
+
+  &__header {
+    &:not(:last-child) {
+      margin-block-end: fluid(48, 12);
+    }
+  }
+
+  &__list {
+    > li {
+      &:not(:last-child) {
+        border-block-end: rem(1) solid var(--color-basic-white-10);
+      }
+    }
+  }
+}

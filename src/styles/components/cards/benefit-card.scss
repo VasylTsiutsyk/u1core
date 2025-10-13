@@ -1,0 +1,124 @@
+@use '@styles/helpers' as *;
+
+/* Benefit Card */
+.benefit-card {
+  --card-img-size: #{fluid(82, 56)};
+
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: rem(24);
+  padding: rem(32);
+  transition: box-shadow var(--transition-duration);
+
+  @include respond-below(md) {
+    border-radius: 0;
+    padding: rem(24) 0;
+  }
+
+  @include hover {
+    box-shadow: 0 0 0 rem(8) rgba(#eebc3f, 0.5);
+
+    &::after {
+      @include show;
+    }
+
+    .benefit-card__img {
+      background-color: var(--color-basic-black-100);
+    }
+
+    .benefit-card__description {
+      color: inherit;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(390.23% 782.38% at 42.77% 220.89%, #d79a00 0%, #ffe149 100%);
+    transition:
+      visibility var(--transition-duration),
+      opacity var(--transition-duration);
+
+    @include hide;
+  }
+
+  &__row {
+    position: relative;
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    gap: rem(18);
+
+    @include respond-below(md) {
+      align-items: flex-start;
+    }
+  }
+
+  &__img {
+    display: flex;
+    flex: 0 0 var(--card-img-size);
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: rem(5) solid var(--color-basic-white-5);
+    border-radius: fluid(22, 18);
+    width: var(--card-img-size);
+    height: var(--card-img-size);
+    background-color: var(--color-basic-white-5);
+    transition: background-color var(--transition-duration);
+
+    picture {
+      display: contents;
+    }
+
+    img {
+      width: 50%;
+      height: 50%;
+      max-width: 50%;
+      max-height: 50%;
+      object-fit: contain;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    gap: fluid(16, 12);
+    min-width: 0;
+
+    @include respond-below(md) {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
+  &__title {
+    flex: 1 1 auto;
+    min-width: 0;
+    font-size: fluid(30, 16);
+    font-weight: 500;
+    line-height: 1.2;
+
+    @include respond-below(md) {
+      line-height: 1.4;
+    }
+  }
+
+  &__description {
+    max-width: 44%;
+    color: var(--color-basic-white-60);
+    transition: color var(--transition-duration);
+
+    @include respond-below(md) {
+      max-width: 100%;
+    }
+
+    @include text-regular;
+  }
+}

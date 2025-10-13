@@ -1,0 +1,51 @@
+@use '@styles/helpers' as *;
+
+/* Partnerships Map Location */
+.partnerships-map-location {
+  --location-size: #{fluid(48, 16)};
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--location-size);
+  width: var(--location-size);
+  height: var(--location-size);
+  padding: fluid(4, 2);
+  background-color: var(--color-basic-white-10);
+  backdrop-filter: blur(3.5px);
+
+  &--lb {
+    border-bottom-left-radius: 0;
+  }
+
+  &--lt {
+    border-top-left-radius: 0;
+  }
+
+  &--rt {
+    border-top-right-radius: 0;
+  }
+
+  &--rb {
+    border-bottom-right-radius: 0;
+  }
+
+  &__img {
+    flex: 1 1 auto;
+    overflow: hidden;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+
+    picture {
+      display: contents;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}
