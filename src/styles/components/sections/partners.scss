@@ -1,0 +1,51 @@
+@use '@styles/helpers' as *;
+
+/* Section Partners */
+.section-partners {
+  --section-slider-height: #{rem(36)};
+
+  @include respond-below(md) {
+    --section-slider-height: #{rem(28)};
+  }
+
+  &__wrap {
+    padding-block: fluid(71, 24) fluid(60, 30);
+  }
+
+  &__header {
+    &:not(:last-child) {
+      margin-block-end: rem(28);
+    }
+  }
+
+  &__title {
+    font-family: var(--body-font-family);
+    text-align: center;
+
+    @include text-sm;
+  }
+
+  &__slider-wrap {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 9;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--color-basic-black-100) 0%, transparent 20%, transparent 80%, var(--color-basic-black-100) 100%);
+      pointer-events: none;
+    }
+
+    .swiper-slide {
+      width: auto;
+
+      .partner-card {
+        height: var(--section-slider-height);
+      }
+    }
+  }
+}

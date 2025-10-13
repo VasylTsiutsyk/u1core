@@ -1,0 +1,32 @@
+@use '@styles/helpers' as *;
+
+/* Partner Card */
+.partner-card {
+  --card-height: #{rem(36)};
+
+  display: block;
+
+  &__inner {
+    display: block;
+    opacity: 0.5;
+    transition: opacity var(--transition-duration);
+
+    @include hover {
+      opacity: 1;
+    }
+  }
+
+  &__img {
+    height: var(--card-height);
+
+    img {
+      display: block;
+      width: auto;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+  }
+}

@@ -102,6 +102,17 @@ function initSliders() {
       clickable: true,
     },
   });
+
+  // Case Spotlight
+  initSwiper('#swiperPartners', {
+    modules: [Navigation, Pagination],
+    direction: 'horizontal',
+    speed: 800,
+    slidesPerView: 'auto',
+    spaceBetween: 60,
+    centeredSlides: true,
+    loop: true,
+  });
 }
 
 export default initSliders;
