@@ -1,0 +1,92 @@
+@use '@styles/helpers' as *;
+
+/* Industry Card */
+.industry-card {
+  position: relative;
+  padding-block: fluid(24, 16);
+
+  &._active {
+    .industry-card__img {
+      @include show;
+    }
+  }
+
+  &__row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: rem(24);
+  }
+
+  &__img {
+    --img-width: 30vw;
+    --px: 0;
+    --py: 0;
+    --scale: 0.96;
+
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-20);
+    width: var(--img-width);
+    height: calc(var(--img-width) * 0.6125);
+    pointer-events: none;
+    transition:
+      visibility var(--transition-duration),
+      opacity var(--transition-duration);
+
+    @include respond-above(md) {
+      position: absolute;
+      z-index: 19;
+      left: 0;
+      top: 0;
+      transform: translate3d(var(--px, 0), var(--py, 0), 0);
+      will-change: transform, opacity;
+
+      @include hide;
+    }
+
+    @include respond-below(md) {
+      --img-width: #{rem(104)};
+
+      flex: 0 0 var(--img-width);
+      border-radius: rem(3.2);
+      max-width: var(--img-width);
+    }
+
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    gap: fluid(12, 8);
+    min-width: 0;
+
+    @include respond-below(md) {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
+  &__title {
+    font-family: var(--body-font-family);
+    font-size: fluid(30, 18);
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  &__count {
+    font-size: fluid(20, 14);
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--color-basic-white-60);
+  }
+}

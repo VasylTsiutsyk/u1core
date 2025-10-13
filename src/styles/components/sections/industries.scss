@@ -1,0 +1,29 @@
+@use '@styles/helpers' as *;
+
+/* Section Industries */
+.section-industries {
+  position: relative;
+  overflow: hidden;
+
+  &__wrap {
+    padding-block: var(--section-py);
+  }
+
+  &__header {
+    &:not(:last-child) {
+      margin-block-end: fluid(30, 16);
+    }
+  }
+
+  &__title {
+    color: var(--color-basic-white-50);
+  }
+
+  &__list {
+    > li {
+      &:not(:last-child) {
+        border-block-end: rem(1) solid var(--color-basic-white-10);
+      }
+    }
+  }
+}

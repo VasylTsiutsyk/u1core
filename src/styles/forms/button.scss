@@ -94,6 +94,10 @@
     }
   }
 
+  &--sm {
+    --button-height: #{rem(40)};
+  }
+
   &__text {
     position: relative;
     z-index: 9;

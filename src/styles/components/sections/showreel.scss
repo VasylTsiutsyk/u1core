@@ -1,0 +1,27 @@
+@use '@styles/helpers' as *;
+
+/* Section Showreel */
+.section-showreel {
+  position: relative;
+  overflow: hidden;
+
+  &__wrap {
+    padding-block: fluid(60, 30) fluid(100, 32);
+  }
+
+  &__video {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-24);
+    padding-bottom: 58.6735%;
+
+    video {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

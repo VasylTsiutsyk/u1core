@@ -1,0 +1,124 @@
+<section
+  class="section-results"
+  id="sectionResults"
+  aria-labelledby="sectionResultsTitle"
+>
+  <div class="section-results__container container">
+    <div class="section-results__wrap">
+      <div class="section-results__header">
+        <include
+          src="@components/general/_review-badge.html"
+          locals='{
+            "bemClasses": "section-results__review-badge",
+            "modeClasses": "review-badge--clutch",
+            "logo": "@img/logos/clutch.svg",
+            "rating": "5.0"
+          }'
+        ></include>
+
+        <h2 class="section-results__title" id="sectionResultsTitle">
+          <span>We’re a team</span>
+          <ul class="img-set">
+            <li data-aos="fade-right" data-aos-delay="200">
+              <figure class="img-set__img">
+                <img
+                  src="@img/about-us/team/02.jpg"
+                  alt=""
+                  width="64"
+                  height="64"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            </li>
+
+            <li data-aos="fade-right" data-aos-delay="100">
+              <figure class="img-set__img">
+                <img
+                  src="@img/about-us/team/01.jpg"
+                  alt=""
+                  width="64"
+                  height="64"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            </li>
+
+            <li data-aos="fade-right" data-aos-delay="0">
+              <figure class="img-set__img">
+                <img
+                  src="@img/about-us/team/03.jpg"
+                  alt=""
+                  width="64"
+                  height="64"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            </li>
+          </ul>
+          <span>of passionate UI/UX experts</span>
+          <span>creating products that drive</span>
+          <span class="ui-icon" data-aos="zoom-in">
+            <i class="icon-rocket" aria-hidden="true"></i>
+          </span>
+          <span>real results.</span>
+          <br />
+          <span>Partner with us for seamless design support, handled</span>
+          <span>with care, creativity</span>
+          <span class="ui-icon" data-aos="zoom-in">
+            <i class="icon-pencil-meter" aria-hidden="true"></i>
+          </span>
+          <span>and a focus on your <u data-aos>success</u>.</span>
+        </h2>
+      </div>
+
+      <div class="section-results__body">
+        <ul class="section-results__cards">
+          <li>
+            <include
+              src="@components/cards/_stats-card.html"
+              locals='{
+                "id": "01",
+                "valuePrefix": "$",
+                "value": "25",
+                "valuePostfix": "M",
+                "description": "Revenue of our projects",
+                "modeClasses": ""
+              }'
+            ></include>
+          </li>
+
+          <li>
+            <include
+              src="@components/cards/_stats-card.html"
+              locals='{
+                "id": "02",
+                "valuePrefix": "",
+                "value": "350",
+                "valuePostfix": "+",
+                "description": "Completed projects",
+                "modeClasses": ""
+              }'
+            ></include>
+          </li>
+
+          <li>
+            <include
+              src="@components/cards/_stats-card.html"
+              locals='{
+                "id": "03",
+                "valuePrefix": "",
+                "value": "500",
+                "valuePostfix": "k",
+                "description": "Users of our projects",
+                "modeClasses": ""
+              }'
+            ></include>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

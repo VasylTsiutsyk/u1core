@@ -13,6 +13,7 @@ import initSliders from './modules/sliders';
 import { showMore } from './modules/show-more';
 import initCalendars from './modules/calendar';
 import { initAosAnimations, initGSAPAnimations } from './modules/animations';
+import { initIndustryCardsFollowPreview } from './modules/industries-preview';
 
 document.addEventListener('DOMContentLoaded', () => {
   // IS WEBP TEST
@@ -127,6 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Calendars
   initCalendars();
+
+  initIndustryCardsFollowPreview();
 
   SELECTORS.BODY.classList.add(CLASSES.LOADED);
 });
