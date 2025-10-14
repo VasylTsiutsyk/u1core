@@ -1,0 +1,223 @@
+@use '@styles/helpers' as *;
+
+/* Section Result Facts */
+.section-result-facts {
+  position: relative;
+  overflow: hidden;
+
+  &__wrap {
+    position: relative;
+    z-index: 9;
+    padding-block: var(--section-py);
+  }
+
+  &__row {
+    --col-width: 100%;
+    --col-gap: 2rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    margin-inline: calc(var(--col-gap) / 2 * -1);
+    row-gap: var(--col-gap);
+
+    @include respond-above(md) {
+      --col-width: 50%;
+    }
+  }
+
+  &__col {
+    flex: 0 0 var(--col-width);
+    min-width: 0;
+    max-width: var(--col-width);
+    padding-inline: calc(var(--col-gap) / 2);
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: rem(24);
+    min-height: 100%;
+  }
+
+  &__title {
+    max-width: rem(384);
+  }
+
+  &__slider-wrap {
+    position: relative;
+
+    @include respond-below(md) {
+      padding-bottom: rem(80);
+    }
+  }
+
+  &__slider-navigation {
+    max-width: fit-content;
+
+    @include respond-below(md) {
+      display: none !important;
+    }
+  }
+}
+
+.result-fact-slide {
+  &__row {
+    --col-width: 100%;
+    --col-gap: 1rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    margin-inline: calc(var(--col-gap) / 2 * -1);
+    row-gap: var(--col-gap);
+
+    @include respond-above(md) {
+      --col-width: 50%;
+      --col-gap: 2rem;
+    }
+  }
+
+  &__col {
+    flex: 0 0 var(--col-width);
+    max-width: var(--col-width);
+    padding-inline: calc(var(--col-gap) / 2);
+  }
+
+  &__info {
+    &:not(:last-child) {
+      margin-block-end: rem(48);
+    }
+  }
+}
+
+.result-fact-info {
+  &__grid {
+    display: grid;
+    gap: rem(24) rem(60);
+    grid-template-columns: var(--grid-2);
+
+    @include respond-below(sm) {
+      grid-template-columns: var(--grid-1);
+    }
+  }
+
+  &__title {
+    font-size: rem(20);
+
+    strong {
+      font-size: rem(30);
+      font-weight: inherit;
+    }
+  }
+
+  &__description {
+
+  }
+
+  &__chart-legend {
+    color: var(--color-basic-white-60);
+
+    @include text-sm;
+
+    > li {
+      display: flex;
+      align-items: center;
+      gap: rem(8);
+
+      &::before {
+        content: '';
+        display: inline-block;
+        flex-shrink: 0;
+        border-radius: rem(3);
+        width: rem(10);
+        height: rem(10);
+        background-color: var(--color);
+      }
+
+      &:not(:last-child) {
+        margin-block-end: rem(8);
+      }
+    }
+  }
+}
+
+.result-graph {
+  position: relative;
+  overflow: hidden;
+  padding: rem(12);
+  background-color: var(--color-basic-black-100);
+  color: var(--color-basic-white-100);
+
+  &__row {
+    display: flex;
+    gap: rem(24);
+  }
+
+  &__label {
+    text-align: center;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+
+    @include text-regular;
+  }
+
+  &__grid {
+    display: flex;
+    flex: 0 0 rem(12);
+    flex-direction: column;
+    justify-content: space-between;
+    width: rem(12);
+    height: fluid(400, 240);
+    object-fit: contain;
+
+    &:not(:last-child) {
+      margin-inline-end: rem(24);
+    }
+
+    span {
+      border-radius: rem(4);
+      width: 100%;
+      height: rem(1);
+      background-color: var(--color-basic-white-20);
+    }
+  }
+
+  &__field {
+    position: relative;
+    flex: 1 1 auto;
+    align-self: stretch;
+  }
+
+  &__bars {
+    display: flex;
+    align-items: flex-end;
+    gap: rem(16);
+    height: 100%;
+    min-height: 100%;
+  }
+
+  &__bar {
+    width: 100%;
+  }
+}
+
+.result-graph-bar {
+  position: relative;
+  background-image: linear-gradient(180deg, rgb(188 188 188 / 12%) 0%, rgb(188 188 188 / 0%) 100%);
+  transition: height var(--transition-duration-slow);
+  border-block-start: rem(2) solid #bcbcbc;
+
+  &--primary {
+    background-image: linear-gradient(180deg, rgb(254 213 0 / 15%) 0%, rgb(254 213 0 / 0%) 100%);
+    border-block-start-color: var(--color-primary);
+  }
+
+  &__value {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    transform: translateY(-120%);
+  }
+}

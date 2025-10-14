@@ -1,0 +1,132 @@
+@use '@styles/helpers' as *;
+
+/* Section Reviews */
+.section-reviews {
+  --section-space-y: #{fluid(30, 24)};
+
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-basic-black-100);
+  color: var(--color-basic-white-100);
+
+  &__wrap {
+    padding-block: var(--section-py);
+  }
+
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: rem(24);
+
+    &:not(:last-child) {
+      margin-block-end: var(--section-space-y);
+    }
+  }
+
+  &__title {
+    max-width: rem(480);
+  }
+
+  &__body {
+    &:not(:last-child) {
+      margin-block-end: var(--section-space-y);
+    }
+  }
+
+  &__btn-box {
+    text-align: center;
+  }
+
+  &__cards-wrap {
+    position: relative;
+    overflow: hidden;
+    max-height: 75svh;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 25%;
+      background: linear-gradient(0deg, #090909 5%, rgb(9 9 9 / 0%) 100%);
+      transition:
+        visibility var(--transition-duration),
+        opacity var(--transition-duration);
+    }
+
+    &._expanded {
+      max-height: fit-content;
+
+      &::after {
+        @include hide;
+      }
+    }
+  }
+
+  &__cards {
+    --cards-gap: 1.75rem;
+    --cards-count: 3;
+
+    column-count: var(--cards-count);
+    column-gap: var(--cards-gap);
+
+    @include respond-below(md) {
+      --cards-count: 2;
+    }
+
+    @include respond-below(sm) {
+      --cards-count: 1;
+    }
+
+    > li {
+      &:not(:last-child) {
+        margin-block-end: var(--cards-gap);
+      }
+    }
+  }
+}
+
+/* Reviews Rating */
+.reviews-rating {
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: rem(16);
+
+    &:not(:last-child) {
+      margin-block-end: rem(16);
+    }
+  }
+
+  &__brand {
+    img {
+      vertical-align: top;
+      object-fit: contain;
+    }
+  }
+
+  &__value {
+    font-family: var(--display-font-family);
+    font-size: rem(42);
+    font-weight: var(--display-font-weight);
+    line-height: 1.1;
+  }
+
+  &__stars {
+    &:not(:first-child) {
+      margin-inline-start: rem(8);
+    }
+
+    img {
+      vertical-align: top;
+      object-fit: contain;
+    }
+  }
+
+  &__label {
+    color: var(--color-basic-white-60);
+  }
+}

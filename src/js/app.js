@@ -14,6 +14,8 @@ import { showMore } from './modules/show-more';
 import initCalendars from './modules/calendar';
 import { initAosAnimations, initGSAPAnimations } from './modules/animations';
 import { initIndustryCardsFollowPreview } from './modules/industries-preview';
+import { initReviewsExpand } from './modules/reviews';
+import { initLenisInstances } from './modules/lenis';
 
 document.addEventListener('DOMContentLoaded', () => {
   // IS WEBP TEST
@@ -86,8 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // initTooltips();
 
   // LENIS (Smooth Scrolling)
-  // import { initLenisInstances } './modules/lenis';
-  // initLenisInstances();
+  initLenisInstances();
 
   // FancyBox
   // import { initFancyboxes } './modules/fancybox';
@@ -129,7 +130,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Calendars
   initCalendars();
 
+  // Section Industries
   initIndustryCardsFollowPreview();
+
+  // Section Reviews (Expand)
+  initReviewsExpand();
 
   SELECTORS.BODY.classList.add(CLASSES.LOADED);
 });

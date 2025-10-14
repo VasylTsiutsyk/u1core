@@ -5,7 +5,7 @@
   display: block;
   overflow: hidden;
   border-radius: rem(18);
-  padding: rem(26) rem(24);
+  padding: fluid(26, 16) fluid(24, 16);
   background-color: var(--color-basic-white-5);
   color: var(--color-basic-white-50);
   transition: background-color var(--transition-duration);
@@ -54,5 +54,7 @@
     font-weight: 500;
     line-height: 1.4;
     letter-spacing: var(--body-letter-spacing);
+
+    @include text-truncate;
   }
 }

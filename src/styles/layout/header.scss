@@ -46,6 +46,8 @@
   }
 
   &._scrolled {
+    background-color: var(--color-basic-black-100);
+
     &::after {
       @include hide;
     }

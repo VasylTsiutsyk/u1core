@@ -36,12 +36,14 @@
   --content-width: #{rem(1208)};
   --content-width-xs: #{rem(796)};
   --content-width-sm: #{rem(980)};
-  --content-width-lg: #{rem(1580)};
+  --content-width-lg: #{rem(1480)};
+  --content-width-xl: #{rem(1568)};
   --container-padding: #{rem(24)};
   --container: calc(var(--content-width) + 2 * var(--container-padding));
   --container-xs: calc(var(--content-width-xs) + 2 * var(--container-padding));
   --container-sm: calc(var(--content-width-sm) + 2 * var(--container-padding));
   --container-lg: calc(var(--content-width-lg) + 2 * var(--container-padding));
+  --container-xl: calc(var(--content-width-xl) + 2 * var(--container-padding));
 
   /* Fonts */
   --font-family-inter: 'Inter', sans-serif;

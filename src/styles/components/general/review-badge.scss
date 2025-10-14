@@ -35,9 +35,18 @@
     height: var(--badge-arrow-size);
     background-color: var(--color-basic-white-10);
     color: var(--color-basic-white-100);
+    transition: background-color var(--transition-duration);
+
+    @include hover {
+      background-color: var(--color-basic-white-20);
+    }
   }
 
   &__logo {
+    display: flex;
+    align-self: stretch;
+    max-width: rem(124);
+
     &:not(:last-child) {
       margin-inline-end: rem(10);
     }
@@ -48,6 +57,7 @@
 
     img {
       vertical-align: top;
+      min-height: 100%;
       object-fit: contain;
     }
   }

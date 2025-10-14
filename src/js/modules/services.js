@@ -1,4 +1,8 @@
 import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger.js';
+
+gsap.registerPlugin(ScrollTrigger);
+
 import { CLASSES } from './constants';
 
 export function initServices() {

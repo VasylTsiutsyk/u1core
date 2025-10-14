@@ -113,6 +113,80 @@ function initSliders() {
     centeredSlides: true,
     loop: true,
   });
+
+  // Result Facts
+  initSwiper('#swiperResultFacts', {
+    modules: [Navigation, Pagination],
+    direction: 'horizontal',
+    speed: 800,
+    slidesPerView: 1,
+    spaceBetween: 28,
+    navigation: {
+      prevEl: '#swiperResultFactsPrev',
+      nextEl: '#swiperResultFactsNext',
+    },
+    pagination: {
+      el: '#swiperResultFactsPagination',
+      clickable: true,
+    },
+    on: {
+      init(sw) {
+        const active = sw.slides[sw.activeIndex];
+        const chart = active.querySelector('[data-chart]');
+        if (chart) playChart(chart);
+      },
+      slideChangeTransitionStart(sw) {
+        sw.slides.forEach(sl => {
+          const c = sl.querySelector('[data-chart]');
+          if (c) resetChart(c);
+        });
+      },
+      slideChangeTransitionEnd(sw) {
+        const active = sw.slides[sw.activeIndex];
+        const chart = active.querySelector('[data-chart]');
+        if (chart) playChart(chart);
+      },
+    },
+  });
 }
 
 export default initSliders;
+
+function animateNumber(el, to, duration = 800) {
+  const from = 0;
+  const start = performance.now();
+
+  function frame(t) {
+    const p = Math.min(1, (t - start) / duration);
+    const val = Math.round(from + (to - from) * p);
+    el.textContent = `${val}%`;
+    if (p < 1) requestAnimationFrame(frame);
+  }
+
+  requestAnimationFrame(frame);
+}
+
+function resetChart(chart) {
+  chart.querySelectorAll('[data-chart-bar]').forEach(bar => {
+    bar.style.height = '0%';
+  });
+
+  chart
+    .querySelectorAll('[data-chart-label]')
+    .forEach(lbl => (lbl.textContent = '0%'));
+}
+
+function playChart(chart) {
+  const bars = chart.querySelectorAll('[data-chart-bar]');
+  bars.forEach(bar => {
+    const percent = parseFloat(bar.dataset.percent || '0');
+    bar.style.height = '0%';
+
+    requestAnimationFrame(() => {
+      bar.style.height = percent + '%';
+    });
+
+    const label = bar.querySelector('[data-chart-label]');
+    if (label) animateNumber(label, percent, 900);
+  });
+}

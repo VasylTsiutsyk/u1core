@@ -19,4 +19,5 @@ export const CLASSES = {
   SHOW: '_show',
   LOADED: '_loaded',
   COLLAPSED: '_collapsed',
+  EXPANDED: '_expanded',
 };

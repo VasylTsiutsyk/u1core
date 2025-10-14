@@ -42,6 +42,10 @@
   &--lg {
     max-width: var(--container-lg);
   }
+
+  &--xl {
+    max-width: var(--container-xl);
+  }
 }
 
 /* Section offset, immit container */

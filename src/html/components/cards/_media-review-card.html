@@ -1,0 +1,62 @@
+<article class="[[bemClasses]] review-card [[modeClasses]]">
+  <if condition="'[[imgAuthor]]' !== ''">
+    <div class="review-card__text review-card-text">
+      <div class="review-card-text__header">
+        <include
+          src="@components/general/_review-author.html"
+          locals='{ "bemClasses": "review-author--round" }'
+        ></include>
+      </div>
+
+      <div class="review-card-text__body">
+        <div class="review-card-text__description">
+          <p>[[description]]</p>
+        </div>
+      </div>
+
+      <div class="review-card-text__footer">
+        <include
+          src="@components/general/_review-badge.html"
+          locals='{ 
+          "id": "01", 
+          "bemClasses": "",
+          "modeClasses": "",
+          "rating": "5.0",
+          "logo": "@img/home/reviews/good-films.svg"
+        }'
+        ></include>
+      </div>
+    </div>
+  </if>
+
+  <if condition="'[[img]]' !== ''">
+    <div class="review-card__media review-card-media">
+      <figure class="review-card-media__img">
+        <img
+          src="[[img]]"
+          alt=""
+          width="360"
+          height="460"
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+
+      <figure class="review-card-media__company">
+        <img src="[[companyImg]]" alt="" loading="lazy" decoding="async" />
+      </figure>
+
+      <div class="review-card-media__text">
+        <div class="review-card-media__info">
+          <div class="review-card-media__name">[[name]]</div>
+
+          <div class="review-card-media__role">[[role]]</div>
+        </div>
+
+        <button class="review-card-media__btn-play">
+          <i class="icon-play" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </if>
+</article>

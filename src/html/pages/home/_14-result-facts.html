@@ -1,0 +1,62 @@
+<section
+  class="section-result-facts"
+  aria-labelledby="sectionResutFactsTitle"
+  data-facts-slider
+>
+  <div class="section-result-facts__container container">
+    <div class="section-result-facts__wrap">
+      <div class="section-result-facts__row">
+        <div class="section-result-facts__col section-result-facts__col--text">
+          <div class="section-result-facts__text">
+            <h2
+              class="section-result-facts__title title-h3"
+              id="sectionResutFactsTitle"
+            >
+              Facts that speak through results
+            </h2>
+
+            <include
+              src="@components/general/_slider-navigation.html"
+              locals='{ 
+                "id": "swiperResultFacts",
+                "bemClasses": "section-result-facts__slider-navigation",
+                "modeClasses": ""
+              }'
+            ></include>
+          </div>
+        </div>
+
+        <div
+          class="section-result-facts__col section-result-facts__col--slider"
+        >
+          <div class="section-result-facts__slider-wrap">
+            <div id="swiperResultFacts" class="swiper" data-slider>
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <include
+                    src="@components/general/_result-fact-slide.html"
+                    locals="{}"
+                  ></include>
+                </div>
+
+                <div class="swiper-slide">
+                  <include
+                    src="@components/general/_result-fact-slide.html"
+                    locals="{}"
+                  ></include>
+                </div>
+
+                <div class="swiper-slide">
+                  <include
+                    src="@components/general/_result-fact-slide.html"
+                    locals="{}"
+                  ></include>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
