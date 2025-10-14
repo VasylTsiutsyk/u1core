@@ -1,0 +1,91 @@
+@use '@styles/helpers' as *;
+
+/* Promo Card */
+.promo-card {
+  --card-border-width: #{rem(1)};
+  --card-px: #{fluid(80, 24)};
+  --card-py: #{fluid(72, 40)};
+  --card-bg-color: var(--color-basic-black-100);
+
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: rem(42);
+  backdrop-filter: blur(4.75rem);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: var(--card-border-width) solid transparent;
+    border-radius: inherit;
+    background:
+      linear-gradient(to right, var(--card-bg-color), var(--card-bg-color)) content-box,
+      conic-gradient(
+        from var(--angle),
+        var(--color-primary) 0deg,
+        var(--color-basic-white-5) 45deg,
+        var(--color-basic-white-5) 90deg,
+        var(--color-white) 135deg,
+        var(--color-basic-white-5) 180deg,
+        var(--color-basic-white-5) 220deg,
+        var(--color-primary) 360deg
+      )
+      border-box;
+    pointer-events: none;
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 9;
+    padding: var(--card-py) var(--card-px);
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    align-items: center;
+    justify-content: space-between;
+    gap: rem(40) rem(64);
+  }
+
+  &__col {
+    &--text {
+      @include respond-above(md) {
+        max-width: 45%;
+      }
+    }
+
+    &--img {
+      flex: 1 1 auto;
+    }
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-block-end: rem(20);
+    }
+  }
+
+  &__description {
+    font-size: fluid(16, 14);
+    color: var(--color-basic-white-60);
+
+    &:not(:last-child) {
+      margin-block-end: rem(26);
+    }
+  }
+
+  &__img {
+    text-align: center;
+
+    @include respond-below(md) {
+      max-width: rem(120);
+    }
+
+    img {
+      vertical-align: top;
+      object-fit: contain;
+    }
+  }
+}
