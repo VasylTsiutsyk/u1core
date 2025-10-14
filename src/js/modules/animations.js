@@ -1,6 +1,7 @@
 // js/modules/animations.js
 
 import animateValue from './animate-value';
+import { initServices } from './services';
 
 // ==================== ANIMATIONS ==================== //
 // AOS: https://michalsnik.github.io/aos/
@@ -37,6 +38,8 @@ function initGSAPAnimations() {
   gsap.registerPlugin(ScrollTrigger);
 
   initEcosystem();
+
+  initServices();
 }
 
 export { initAosAnimations, initGSAPAnimations };

@@ -1,0 +1,59 @@
+@use '@styles/helpers' as *;
+
+/* Section Home Services */
+.section-hs {
+  --section-space-y: #{fluid(56, 32)};
+
+  &__wrap {
+    padding-block: var(--section-py);
+  }
+
+  &__header {
+    &:not(:last-child) {
+      margin-block-end: var(--section-space-y);
+    }
+  }
+
+  &__title {
+    color: var(--color-basic-white-50);
+  }
+
+  &__body {
+    &:not(:last-child) {
+      margin-block-end: var(--section-space-y);
+    }
+  }
+
+  &__cards {
+    display: flex;
+    gap: rem(24) rem(16);
+
+    @include respond-below(md) {
+      flex-direction: column;
+    }
+
+    > li {
+      flex: 0 1 auto;
+
+      > .ext-service-card {
+        min-height: 100%;
+      }
+
+      &:has(.ext-service-card._active) {
+        flex: 1 1 auto;
+      }
+    }
+  }
+
+  &__review-cards {
+    display: flex;
+    justify-content: center;
+    gap: rem(10);
+
+    @include respond-below(sm) {
+      display: grid;
+      gap: rem(24);
+      grid-template-columns: var(--grid-2);
+    }
+  }
+}

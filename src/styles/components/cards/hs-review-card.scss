@@ -1,0 +1,58 @@
+@use '@styles/helpers' as *;
+
+/* Home Services Review Card */
+.hs-review-card {
+  display: block;
+  overflow: hidden;
+  border-radius: rem(18);
+  padding: rem(26) rem(24);
+  background-color: var(--color-basic-white-5);
+  color: var(--color-basic-white-50);
+  transition: background-color var(--transition-duration);
+
+  @include hover {
+    background-color: var(--color-basic-white-10);
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: rem(14);
+  }
+
+  &__img {
+    max-width: rem(40);
+    max-height: rem(40);
+
+    img {
+      object-fit: contain;
+    }
+  }
+
+  &__text {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  &__rating {
+    &:not(:last-child) {
+      margin-block-end: rem(4);
+    }
+
+    img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: fluid(12, 8);
+      object-fit: contain;
+    }
+  }
+
+  &__label {
+    font-size: rem(14);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: var(--body-letter-spacing);
+  }
+}

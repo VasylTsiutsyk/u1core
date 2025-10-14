@@ -1,0 +1,108 @@
+<section
+  class="section-hs"
+  aria-labelledby="sectionServicesTitle"
+  data-services
+>
+  <div class="section-hs__container container">
+    <div class="section-hs__wrap">
+      <div class="section-hs__header">
+        <h2 class="section-hs__title title-h3" id="sectionServicesTitle">
+          Services
+        </h2>
+      </div>
+
+      <div class="section-hs__body">
+        <ul class="section-hs__cards">
+          <li>
+            <include
+              src="@components/cards/_ext-service-card.html"
+              locals='{
+                "id": "01",
+                "title": "Design",
+                "img": "@img/home/services/01.jpg"
+              }'
+            ></include>
+          </li>
+
+          <li>
+            <include
+              src="@components/cards/_ext-service-card.html"
+              locals='{
+                "id": "02",
+                "title": "Design strategy",
+                "img": "@img/home/services/01.jpg"
+              }'
+            ></include>
+          </li>
+
+          <li>
+            <include
+              src="@components/cards/_ext-service-card.html"
+              locals='{
+                "id": "03",
+                "title": "Development",
+                "img": "@img/home/services/01.jpg"
+              }'
+            ></include>
+          </li>
+        </ul>
+      </div>
+
+      <div class="section-hs__footer">
+        <ul class="section-hs__review-cards">
+          <li>
+            <include
+              src="@components/cards/_hs-review-card.html"
+              locals='{ 
+                "id": "01", 
+                "img": "@img/home/services/review-01.svg",
+                "width": "32",
+                "height": "35",
+                "label": "30 reviews"
+              }'
+            ></include>
+          </li>
+
+          <li>
+            <include
+              src="@components/cards/_hs-review-card.html"
+              locals='{ 
+                "id": "02", 
+                "img": "@img/home/services/review-02.svg",
+                "width": "26",
+                "height": "39",
+                "label": "30 reviews"
+              }'
+            ></include>
+          </li>
+
+          <li>
+            <include
+              src="@components/cards/_hs-review-card.html"
+              locals='{ 
+                "id": "03", 
+                "img": "@img/home/services/review-03.svg",
+                "width": "26",
+                "height": "26",
+                "label": "30 reviews"
+              }'
+            ></include>
+          </li>
+
+          <li>
+            <include
+              src="@components/cards/_hs-review-card.html"
+              locals='{ 
+                "id": "04", 
+                "img": "@img/home/services/review-04.svg",
+                "width": "38",
+                "height": "26",
+                "label": "30 reviews"
+              }'
+            ></include>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
