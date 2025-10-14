@@ -27,29 +27,6 @@
   }
 
   &__title {
-    u {
-      position: relative;
-      text-decoration: none;
-
-      &::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        border-radius: rem(2);
-        width: 0;
-        height: rem(2);
-        background-color: var(--color-primary);
-        transition: width var(--transition-duration);
-      }
-
-      &.aos-animate {
-        &::after {
-          width: 100%;
-        }
-      }
-    }
-
     br {
       + span {
         display: inline-block;

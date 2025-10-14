@@ -1,0 +1,55 @@
+<section class="section-milestone" aria-labelledby="sectionMilestoneTitle">
+  <div class="section-milestone__container container">
+    <div class="section-milestone__wrap">
+      <div class="section-milestone__row">
+        <div class="section-milestone__col section-milestone__col--text">
+          <div class="section-milestone__text">
+            <h2 class="section-milestone__title" id="sectionMilestoneTitle">
+              <small>Designing amazing products isn't easy.</small>
+              <span>
+                But we've launched over 299 potential
+                <u class="text-underline" data-aos>unicorns!</u>
+              </span>
+            </h2>
+
+            <include
+              src="@components/cards/_milestone-card.html"
+              locals='{
+                "id": "01",
+                "bemClasses": "section-milestone__card",
+                "modeClasses": ""
+              }'
+            ></include>
+          </div>
+        </div>
+
+        <div class="section-milestone__col section-milestone__col--num">
+          <figure class="section-milestone__decor" aria-hidden="true">
+            <img
+              src="@img/home/milestone/curve.svg"
+              alt=""
+              width="413"
+              height="240"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+
+          <figure
+            class="section-milestone__num"
+            aria-label="299 potential unicorns"
+          >
+            <img
+              src="@img/home/milestone/299.svg"
+              alt=""
+              width="386"
+              height="232"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

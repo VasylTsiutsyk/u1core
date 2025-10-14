@@ -1,0 +1,67 @@
+@use '@styles/helpers' as *;
+
+/* Section Milestone */
+.section-milestone {
+  position: relative;
+  overflow: hidden;
+
+  &__wrap {
+    padding-block: var(--section-py);
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-block-end: rem(32);
+    }
+
+    small {
+      display: block;
+      font-size: 100%;
+      color: var(--color-basic-white-30);
+
+      &:not(:last-child) {
+        margin-block-end: fluid(24, 12);
+      }
+    }
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: rem(32);
+  }
+
+  &__col {
+    &--text {
+      max-width: rem(434);
+    }
+
+    &--num {
+      max-width: rem(386);
+    }
+  }
+
+  &__decor {
+    &:not(:last-child) {
+      margin-block-end: fluid(42, 32);
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  &__num {
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+}
