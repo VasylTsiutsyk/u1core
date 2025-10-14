@@ -46,6 +46,9 @@
   }
 
   &._scrolled {
+    &::after {
+      @include hide;
+    }
   }
 
   &._hidden {

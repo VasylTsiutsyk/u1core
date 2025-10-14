@@ -1,0 +1,116 @@
+@use '@styles/helpers' as *;
+
+/* CTA Hero Card */
+.cta-hero-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+
+  // border: rem(1) solid var(--color-basic-white-5);
+  border-radius: rem(28);
+  padding: fluid(60, 40) fluid(60, 24);
+  background-color: var(--color-basic-black-20);
+  text-align: center;
+  padding-block-start: 0;
+
+  @include hover {
+    .cta-hero-card__blur {
+      &::before,
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__blur {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+
+    &::before,
+    &::after {
+      --size: 54.4vw;
+
+      content: '';
+      position: absolute;
+      bottom: 0;
+      border-radius: var(--size);
+      width: var(--size);
+      height: calc(var(--size) * 0.7872);
+      background-color: var(--color-primary);
+      opacity: 0.7;
+      filter: blur(9.375rem);
+      transition: opacity var(--transition-duration);
+    }
+
+    &::before {
+      left: 0;
+      transform: translateX(-50%) translateY(100%);
+    }
+
+    &::after {
+      right: 0;
+      transform: translateX(50%) translateY(100%);
+    }
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 9;
+  }
+
+  &__img {
+    position: relative;
+    max-width: rem(350);
+    margin-inline: auto;
+
+    @include respond-below(md) {
+      max-width: rem(214);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 50%;
+      background-image: linear-gradient(to top, var(--color-basic-black-100) 10%, transparent  100%);
+    }
+
+    picture {
+      display: contents;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      opacity: 0.2;
+    }
+  }
+
+  &__title {
+    position: relative;
+    z-index: 9;
+
+    &:not(:first-child) {
+      margin-block-start: rem(-32);
+    }
+
+    &:not(:last-child) {
+      margin-block-end: rem(14);
+    }
+  }
+
+  &__description {
+    max-width: rem(590);
+    margin-inline: auto;
+
+    &:not(:last-child) {
+      margin-block-end: rem(24);
+    }
+  }
+}
