@@ -1,0 +1,78 @@
+@use '@styles/helpers' as *;
+
+/* Section Recognition */
+.section-recognition {
+  &__wrap {
+    padding-block: var(--section-py);
+
+    @include respond-above(lg) {
+      padding-inline: rem(80);
+    }
+  }
+
+  &__row {
+    --col-width: 100%;
+    --col-gap: 2rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-inline: calc(var(--col-gap) / 2 * -1);
+    row-gap: var(--col-gap);
+
+    @include respond-above(md) {
+      --col-width: 50%;
+    }
+  }
+
+  &__col {
+    flex: 0 0 var(--col-width);
+    max-width: var(--col-width);
+    padding-inline: calc(var(--col-gap) / 2);
+
+    &--media {
+      @include respond-above(md) {
+        --col-width: 40%;
+      }
+    }
+  }
+
+  &__text {
+    max-width: rem(484);
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-block-end: rem(20);
+    }
+
+    img {
+      vertical-align: middle;
+      width: auto;
+      max-width: 100%;
+      max-height: var(--h2-font-size);
+      object-fit: contain;
+    }
+  }
+
+  &__description {
+    color: var(--color-basic-white-60);
+
+    &:not(:last-child) {
+      margin-block-end: rem(26);
+    }
+  }
+
+  &__media {
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+
+      &:not(:last-child) {
+        margin-block-end: rem(28);
+      }
+    }
+  }
+}

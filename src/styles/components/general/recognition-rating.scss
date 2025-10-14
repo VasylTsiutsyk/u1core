@@ -1,0 +1,36 @@
+@use '@styles/helpers' as *;
+
+/* Recognition Rating */
+.recognition-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: fluid(18, 12);
+  padding: fluid(24, 16);
+  background-color: var(--color-basic-white-5);
+
+  &__value {
+    font-size: rem(20);
+    font-weight: 600;
+    line-height: 1.55;
+    letter-spacing: var(--body-letter-spacing);
+
+    &:not(:last-child) {
+      margin-inline-end: rem(8);
+    }
+  }
+
+  &__icon {
+    margin-bottom: 0.75%;
+    color: var(--color-primary);
+
+    &:not(:last-child) {
+      margin-inline-end: rem(24);
+    }
+  }
+
+  &__label {
+    color: var(--color-basic-white-60);
+  }
+}
