@@ -59,13 +59,13 @@
     <!-- Section 10: Recognition (done) -->
     <include src="html/pages/home/_10-recognition.html" locals="{}"></include>
 
-    <!-- Section 0: Our Global Partnerships (done) -->
+    <!-- Section 11: Our Global Partnerships (done) -->
     <include
       src="html/components/sections/_global-partnerships.html"
       locals="{}"
     ></include>
 
-    <!-- Section 0: Why choose ... (done) -->
+    <!-- Section 12: Why choose ... (done) -->
     <include
       src="html/components/sections/_benefits.html"
       locals="{}"
@@ -73,11 +73,20 @@
 
     <!-- Section 15: CTA Hero (done) -->
     <include src="html/pages/home/_15-cta-hero.html" locals="{}"></include>
+
+    <!-- Section 16: Let's discuss where you want to get (done) -->
+    <include
+      src="html/components/sections/_discuss.html"
+      locals='{ "title": "" }'
+    ></include>
   </block>
 
   <!-- Footer -->
   <block name="footer">
-    <include src="html/layout/_footer.html" locals="{}"></include>
+    <include
+      src="html/layout/_footer.html"
+      locals='{ "modeClasses": "footer--shine" }'
+    ></include>
   </block>
 
   <block name="popup"></block>

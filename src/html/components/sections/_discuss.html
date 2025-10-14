@@ -1,11 +1,13 @@
 <section class="section-discuss" aria-labelledby="sectionDiscussTitle">
   <div class="section-discuss__container container">
     <div class="section-discuss__wrap">
-      <div class="section-discuss__header">
-        <h2 class="section-discuss__title h3" id="sectionDiscussTitle">
-          Let's discuss where you want to get
-        </h2>
-      </div>
+      <if condition="'[[title]]' !== ''">
+        <div class="section-discuss__header">
+          <h2 class="section-discuss__title h3" id="sectionDiscussTitle">
+            [[title]]
+          </h2>
+        </div>
+      </if>
 
       <div class="section-discuss__body">
         <div class="section-discuss__row">

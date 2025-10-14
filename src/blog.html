@@ -28,7 +28,10 @@
     <include src="html/pages/blog/_02-all-articles.html" locals="{}"></include>
 
     <!-- Section 03: Let's discuss where you want to get (done) -->
-    <include src="html/components/sections/_discuss.html" locals="{}"></include>
+    <include
+      src="html/components/sections/_discuss.html"
+      locals='{ "title": "Let`s discuss where you want to get" }'
+    ></include>
 
     <!-- Section 04: Let's talk about your Web3 project (done) -->
     <include
@@ -39,7 +42,10 @@
 
   <!-- Footer -->
   <block name="footer">
-    <include src="html/layout/_footer.html" locals="{}"></include>
+    <include
+      src="html/layout/_footer.html"
+      locals='{ "modeClasses": "" }'
+    ></include>
   </block>
 
   <block name="popup"></block>

@@ -5,6 +5,8 @@
 .footer {
   --footer-py: #{rem(60)};
   --footer-group-py: #{rem(40)};
+  --footer-bg-color: var(--color-basic-black-100);
+  --footer-text-color: var(--color-basic-white-100);
 
   position: relative;
   display: block;
@@ -14,6 +16,27 @@
 
   @include respond-below(md) {
     --footer-py: #{rem(40)};
+  }
+
+  &--shine {
+    overflow: visible;
+
+    &::after {
+      --size: 54.4vw;
+
+      content: '';
+      position: absolute;
+      z-index: -1;
+      left: 50%;
+      top: 0;
+      border-radius: var(--size);
+      width: var(--size);
+      height: calc(var(--size) * 0.72);
+      background-color: var(--color-primary);
+      filter: blur(9.375rem);
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
   }
 
   &__wrap {

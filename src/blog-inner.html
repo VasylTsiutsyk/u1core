@@ -31,12 +31,18 @@
     ></include>
 
     <!-- Section 03: Let's discuss where you want to get (done) -->
-    <include src="html/components/sections/_discuss.html" locals="{}"></include>
+    <include
+      src="html/components/sections/_discuss.html"
+      locals='{ "title": "Let`s discuss where you want to get" }'
+    ></include>
   </block>
 
   <!-- Footer -->
   <block name="footer">
-    <include src="html/layout/_footer.html" locals="{}"></include>
+    <include
+      src="html/layout/_footer.html"
+      locals='{ "modeClasses": "" }'
+    ></include>
   </block>
 
   <block name="popup"></block>
