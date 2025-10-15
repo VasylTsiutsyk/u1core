@@ -1,0 +1,67 @@
+<section class="section-ecosystem" aria-labelledby="sectionWeWorkWithTitle">
+  <div class="section-ecosystem__container container">
+    <div class="section-ecosystem__wrap">
+      <div class="section-ecosystem__grid">
+        <div class="section-ecosystem__col">
+          <div class="section-ecosystem__text">
+            <h2
+              class="section-ecosystem__title title-h3"
+              id="sectionWeWorkWithTitle"
+            >
+              We work with:
+            </h2>
+
+            <div class="section-ecosystem__description desc-text">
+              <p>
+                Empowering growth, innovation, and success through tailored
+                design and development solutions.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-ecostystem__col">
+          <div class="section-ecosystem__stack">
+            <ul class="section-ecosystem__list">
+              <li>
+                <include
+                  src="@components/cards/_ecosystem-card.html"
+                  locals='{
+                  "id": "01",
+                  "img": "@img/about-us/we-work-with/01.svg",
+                  "title": "Startups",
+                  "parallax": "60"
+                }'
+                ></include>
+              </li>
+
+              <li>
+                <include
+                  src="@components/cards/_ecosystem-card.html"
+                  locals='{
+                  "id": "02",
+                  "img": "@img/about-us/we-work-with/02.svg",
+                  "title": "Businesses",
+                  "parallax": "120"
+                }'
+                ></include>
+              </li>
+
+              <li>
+                <include
+                  src="@components/cards/_ecosystem-card.html"
+                  locals='{
+                  "id": "03",
+                  "img": "@img/about-us/we-work-with/03.svg",
+                  "title": "Entrepreneurs",
+                  "parallax": "180"
+                }'
+                ></include>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -103,7 +103,7 @@ body {
 /* Img Set */
 .img-set {
   --set-img-size: #{fluid(64, 32)};
-  --set-img-border-width: #{fludi(5, 3)};
+  --set-img-border-width: #{fluid(5, 3)};
 
   display: inline-flex;
 
@@ -125,7 +125,7 @@ body {
     }
 
     &:not(:last-child) {
-      margin-inline-end: rem(-12);
+      margin-inline-end: rem(-14);
     }
   }
 

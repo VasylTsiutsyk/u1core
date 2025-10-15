@@ -1,0 +1,75 @@
+<section
+  class="section-metrics"
+  id="agency-metrics"
+  aria-labelledby="sectionMetricsTitle"
+>
+  <div class="section-metrics__container container">
+    <div class="section-metrics__wrap">
+      <div class="section-metrics__header">
+        <h2 class="section-metrics__title" id="sectionMetricsTitle">
+          <span>We are your design and development</span>
+          <include
+            src="@components/general/_img-set.html"
+            locals='{ "bemClasses": "", "modeClasses": "" }'
+          ></include>
+          <span>team,</span>
+          <span>even though we’re an outsourced partner.</span>
+        </h2>
+      </div>
+
+      <div class="section-metrics__body">
+        <ul class="section-metrics__grid">
+          <li>
+            <include
+              src="@components/cards/_metric-card.html"
+              locals='{
+                "id": "01",
+                "bemClasses": "section-metrics__metric-card",
+                "modeClasses": ""
+              }'
+            ></include>
+          </li>
+
+          <li>
+            <include
+              src="@components/cards/_metric-stat-card.html"
+              locals='{
+                "id": "01",
+                "bemClasses": "section-metrics__stat-card",
+                "modeClasses": "",
+                "title": "the CSS Design Awards",
+                "value": "10x",
+                "img": "@img/industries/important-numbers/trophy.svg"
+              }'
+            ></include>
+          </li>
+
+          <li>
+            <include
+              src="@components/cards/_metric-stat-card.html"
+              locals='{
+                "id": "02",
+                "bemClasses": "section-metrics__stat-card",
+                "modeClasses": "",
+                "title": "clients come by recommendation",
+                "value": "8/10",
+                "img": "@img/industries/important-numbers/users-plus.svg"
+              }'
+            ></include>
+          </li>
+
+          <li>
+            <include
+              src="@components/general/_rating-strip.html"
+              locals='{
+                "id": "01",
+                "bemClasses": "section-metrics__ratings-strip",
+                "modeClasses": ""
+              }'
+            ></include>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

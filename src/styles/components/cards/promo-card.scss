@@ -76,6 +76,12 @@
     }
   }
 
+  &__btn-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(16);
+  }
+
   &__img {
     text-align: center;
 

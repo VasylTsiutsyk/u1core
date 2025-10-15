@@ -2,7 +2,27 @@
 
 /* Section Deliverables */
 .section-deliverables {
+  position: relative;
+
+  &::after {
+    --size: 18.5vw;
+
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    width: var(--size);
+    height: calc(var(--size) * 0.4843);
+    background-color: var(--color-primary);
+    opacity: 0.2;
+    filter: blur(9.375rem);
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+
   &__wrap {
+    position: relative;
+    z-index: 9;
     padding-block: var(--section-py);
   }
 
@@ -11,6 +31,14 @@
     text-align: center;
     color: var(--color-basic-white-50);
     margin-inline: auto;
+
+    &--wide {
+      max-width: rem(800);
+    }
+
+    &--white {
+      color: var(--color-basic-white-100);
+    }
 
     &:not(:last-child) {
       margin-block-end: fluid(24, 16);
@@ -31,6 +59,10 @@
     color: var(--color-basic-white-60);
     margin-inline: auto;
 
+    &--wide {
+      max-width: rem(800);
+    }
+
     &:not(:last-child) {
       margin-block-end: fluid(56, 40);
     }
@@ -46,6 +78,16 @@
       display: grid;
       gap: rem(56);
       grid-template-columns: var(--grid-2);
+    }
+
+    &--gutter {
+      @include respond-above(md) {
+        gap: rem(12) rem(48);
+      }
+
+      > li {
+        max-width: rem(140);
+      }
     }
 
     > li {

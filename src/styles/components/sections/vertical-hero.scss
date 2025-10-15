@@ -1,0 +1,50 @@
+@use '@styles/helpers' as *;
+
+/* Section Vertical Hero */
+.vertical-hero {
+  &__wrap {
+    padding-block: fluid(128, 48) fluid(50, 32);
+  }
+
+  &__text {
+    max-width: rem(796);
+    text-align: center;
+    margin-inline: auto;
+
+    &:not(:last-child) {
+      margin-block-end: fluid(128, 64);
+    }
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-block-end: rem(18);
+    }
+  }
+
+  &__description {
+    max-width: rem(580);
+    margin-inline: auto;
+
+    &:not(:last-child) {
+      margin-block-end: rem(18);
+    }
+  }
+
+  &__img {
+    position: relative;
+    overflow: hidden;
+    border-radius: fluid(32, 24);
+
+    picture {
+      display: contents;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+}

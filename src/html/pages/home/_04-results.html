@@ -18,46 +18,10 @@
 
         <h2 class="section-results__title" id="sectionResultsTitle">
           <span>We’re a team</span>
-          <ul class="img-set">
-            <li data-aos="fade-right" data-aos-delay="200">
-              <figure class="img-set__img">
-                <img
-                  src="@img/about-us/team/02.jpg"
-                  alt=""
-                  width="64"
-                  height="64"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </figure>
-            </li>
-
-            <li data-aos="fade-right" data-aos-delay="100">
-              <figure class="img-set__img">
-                <img
-                  src="@img/about-us/team/01.jpg"
-                  alt=""
-                  width="64"
-                  height="64"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </figure>
-            </li>
-
-            <li data-aos="fade-right" data-aos-delay="0">
-              <figure class="img-set__img">
-                <img
-                  src="@img/about-us/team/03.jpg"
-                  alt=""
-                  width="64"
-                  height="64"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </figure>
-            </li>
-          </ul>
+          <include
+            src="@components/general/_img-set.html"
+            locals='{ "bemClasses": "", "modeClasses": "" }'
+          ></include>
           <span>of passionate UI/UX experts</span>
           <span>creating products that drive</span>
           <span class="ui-icon" data-aos="zoom-in">
