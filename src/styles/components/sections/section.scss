@@ -76,4 +76,133 @@
       }
     }
   }
+
+  &__slider-wrap {
+    position: relative;
+
+    &--vertical {
+      @include respond-above(md) {
+        padding-left: rem(56);
+      }
+
+      @include respond-below(md) {
+        padding-top: rem(40);
+      }
+
+      .swiper-pagination-vertical {
+        left: 0 !important;
+        right: auto !important;
+        height: 100%;
+
+        &.swiper-pagination-bullets {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          height: 100%;
+        }
+
+        .swiper-pagination-bullet {
+          flex-direction: column;
+
+          span {
+            width: rem(1);
+            height: auto;
+
+            &::after {
+              width: 100%;
+              height: 0;
+            }
+          }
+
+          &-active {
+            span {
+              &::after {
+                animation: anim-height 1s forwards linear;
+              }
+            }
+          }
+        }
+      }
+
+      .swiper-pagination-horizontal {
+        top: 0 !important;
+        bottom: auto !important;
+        display: flex;
+
+        .swiper-pagination-bullet {
+          &.swiper-pagination-bullet-active {
+            span {
+              &::after {
+                animation: anim-width 1s forwards linear;
+              }
+            }
+          }
+
+          span {
+            width: auto;
+            height: rem(1);
+
+            &::after {
+              width: 0;
+              height: 100%;
+            }
+          }
+        }
+      }
+
+      .swiper-pagination-bullet {
+        display: flex !important;
+        flex: 1 1 auto;
+        align-items: center;
+        gap: rem(8);
+        width: auto;
+        height: auto;
+        background: none;
+        font-size: rem(10);
+        font-weight: 700;
+        line-height: 1.4;
+        color: var(--color-primary);
+        opacity: 0.4;
+        transition: opacity var(--transition-duration);
+
+        &-active {
+          opacity: 1;
+        }
+
+        span {
+          position: relative;
+          display: block;
+          flex: 1 1 auto;
+          background-color: var(--color-accent-yellow-15);
+
+          &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            background-color: var(--color-primary);
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes anim-height {
+  from {
+    height: 0%;
+  }
+
+  to {
+    height: 100%;
+  }
+}
+
+@keyframes anim-width {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
 }

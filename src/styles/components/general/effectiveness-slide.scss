@@ -1,0 +1,62 @@
+@use '@styles/helpers' as *;
+
+/* Effectiveness Slide */
+.effectiveness-slide {
+  &__row {
+    --col-width: 100%;
+    --col-gap: 1rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-inline: calc(var(--col-gap) / 2 * -1);
+    row-gap: var(--col-gap);
+
+    @include respond-above(md) {
+      --col-width: 50%;
+      --col-gap: 2rem;
+    }
+
+    @include respond-above(2xl) {
+      --col-gap: 4rem;
+    }
+  }
+
+  &__col {
+    flex: 0 0 var(--col-width);
+    max-width: var(--col-width);
+    padding-inline: calc(var(--col-gap) / 2);
+
+    &--text {
+      @include respond-above(md) {
+        --col-width: 46.5%;
+      }
+    }
+
+    &--img {
+      @include respond-above(md) {
+        --col-width: 53.5%;
+      }
+    }
+  }
+
+  &__accent-title {
+    &:not(:last-child) {
+      margin-block-end: rem(16);
+    }
+  }
+
+  &__title {
+    font-size: rem(30);
+
+    &:not(:last-child) {
+      margin-block-end: fluid(32, 16);
+    }
+  }
+}
+
+#swiper-effectiveness {
+  .swiper-slide {
+    height: auto;
+  }
+}

@@ -1,0 +1,95 @@
+@use '@styles/helpers' as *;
+
+/* Section Tiles */
+.section-tiles {
+  &__wrap {
+    padding-block: var(--section-py);
+  }
+
+  &__title {
+    text-align: center;
+
+    &:not(:last-child) {
+      margin-block-end: rem(24);
+    }
+  }
+
+  &__description {
+    max-width: rem(600);
+    text-align: center;
+    margin-inline: auto;
+
+    &:not(:last-child) {
+      margin-block-end: fluid(64, 48);
+    }
+  }
+}
+
+.spotlight {
+  --x: 50%;
+  --y: 50%;
+  --r: 140px;
+
+  position: relative;
+  overflow: hidden;
+  border-radius: rem(20);
+
+  &__cards-wrap {
+    display: flex;
+    justify-content: center;
+    overflow: auto hidden;
+  }
+
+  &__cards {
+    --cards-cols: var(--grid-5);
+    --cards-gap: #{rem(32)};
+    --cards-offset: 2rem;
+
+    display: grid;
+    gap: var(--cards-gap);
+    grid-template-columns: var(--cards-cols);
+    min-width: rem(1140);
+    padding-block-end: var(--cards-offset);
+
+    > li {
+      &:nth-child(5n - 5),
+      &:nth-child(5n - 2),
+      &:nth-child(5n - 4) {
+        transform: translateY(var(--cards-offset));
+      }
+    }
+  }
+
+  &__veil {
+    position: absolute;
+    z-index: 9;
+    inset: 0;
+    border-radius: inherit;
+    background:
+      radial-gradient(
+        circle at var(--x) var(--y),
+        transparent 0,
+        transparent var(--r),
+        var(--color-basic-black-100) 60%
+      ),
+      radial-gradient(
+        180px 180px at var(--x) var(--y),
+        rgb(255 216 79 / 18%),
+        rgb(255 216 79 / 0%) 100%
+      );
+
+    /* додаткове “гасіння” усього поля, щоб у центрі реально було світліше */
+    mix-blend-mode: normal;
+    will-change: background;
+    pointer-events: none;
+    transition: background-position 0.1s linear;
+  }
+}
+
+@media (pointer: coarse) {
+  .spotlight {
+    --x: 50%;
+    --y: 50%;
+    --r: 120px;
+  }
+}

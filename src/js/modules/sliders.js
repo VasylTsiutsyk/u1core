@@ -148,6 +148,36 @@ function initSliders() {
       },
     },
   });
+
+  initSwiper('#swiperEffectiveness', {
+    modules: [Navigation, Pagination],
+    direction: 'horizontal',
+    speed: 800,
+    slidesPerView: 'auto',
+    spaceBetween: 16,
+    autoHeight: true,
+    pagination: {
+      el: '#swiperEffectivenessFraction',
+      type: 'bullets',
+      clickable: true,
+
+      renderBullet: function (index, className) {
+        return (
+          '<span class="' +
+          className +
+          '">' +
+          (index + 1) +
+          '<span></span>' +
+          '</span>'
+        );
+      },
+    },
+    breakpoints: {
+      992: {
+        direction: 'vertical',
+      },
+    },
+  });
 }
 
 export default initSliders;
