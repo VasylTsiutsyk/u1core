@@ -158,6 +158,10 @@ body {
   height: var(--card-icon-size);
   background-color: var(--color-basic-white-5);
 
+  &--transparent {
+    background-color: transparent;
+  }
+
   picture {
     display: contents;
   }

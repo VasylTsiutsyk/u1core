@@ -1,0 +1,25 @@
+@use '@styles/helpers' as *;
+
+/* Need Card */
+.need-card {
+  display: block;
+  overflow: hidden;
+  border: rem(1) solid var(--color-basic-white-10);
+  border-radius: rem(28);
+  padding: rem(32);
+  background-color: var(--color-basic-white-5);
+
+  &__icon {
+    &:not(:last-child) {
+      margin-block-end: fluid(32, 24);
+    }
+  }
+
+  &__title {
+    font-size: fluid(30, 24);
+
+    &:not(:last-child) {
+      margin-block-end: rem(28);
+    }
+  }
+}

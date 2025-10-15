@@ -59,4 +59,21 @@
     flex-wrap: wrap;
     gap: rem(12);
   }
+
+  &__need-cards {
+    display: grid;
+    gap: rem(28);
+    grid-template-columns: var(--grid-2);
+
+    @include respond-below(md) {
+      gap: rem(24);
+      grid-template-columns: var(--grid-1);
+    }
+
+    > li {
+      > .need-card {
+        min-height: 100%;
+      }
+    }
+  }
 }
