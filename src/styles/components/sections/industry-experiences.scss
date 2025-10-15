@@ -1,0 +1,30 @@
+@use '@styles/helpers' as *;
+
+/* Section Industry Experiences */
+.section-ie {
+  &__wrap {
+    padding-block: var(--section-py);
+  }
+
+  &__header {
+    &:not(:last-child) {
+      margin-block-end: fluid(64, 32);
+    }
+  }
+
+  &__cards {
+    display: grid;
+    gap: fluid(28, 16);
+    grid-template-columns: var(--grid-2);
+
+    @include respond-below(md) {
+      grid-template-columns: var(--grid-1);
+    }
+
+    > li {
+      > .ie-card {
+        min-height: 100%;
+      }
+    }
+  }
+}

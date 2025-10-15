@@ -146,3 +146,47 @@ body {
     }
   }
 }
+
+/* Card Icon */
+.card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: rem(1) solid var(--color-basic-white-5);
+  border-radius: rem(18);
+  width: var(--card-icon-size);
+  height: var(--card-icon-size);
+
+  picture {
+    display: contents;
+  }
+
+  img {
+    width: 50%;
+    height: 50%;
+    max-width: 50%;
+    max-height: 50%;
+    object-fit: contain;
+  }
+}
+
+/* UI Tag */
+.ui-tag {
+  display: inline-flex;
+  vertical-align: top;
+  overflow: hidden;
+  border: rem(1) solid var(--color-basic-white-10);
+  border-radius: rem(100);
+  min-height: rem(40);
+  padding: rem(8) rem(18);
+  background-color: var(--color-basic-white-10);
+  font-size: rem(14);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: var(--body-letter-spacing);
+  transition: border-color var(--transition-duration);
+
+  @include hover {
+    border-color: var(--color-basic-white-50);
+  }
+}

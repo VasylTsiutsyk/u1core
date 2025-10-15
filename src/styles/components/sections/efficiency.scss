@@ -1,0 +1,35 @@
+@use '@styles/helpers' as *;
+
+/* Section Efficiency */
+.section-efficiency {
+  &__wrap {
+    padding-block: var(--section-py);
+  }
+
+  &__header {
+    &:not(:last-child) {
+      margin-block-end: fluid(56, 32);
+    }
+  }
+
+  &__row {
+    --col-width: 100%;
+    --col-gap: 1rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    margin-inline: calc(var(--col-gap) / 2 * -1);
+    row-gap: var(--col-gap);
+
+    @include respond-above(md) {
+      --col-width: 50%;
+      --col-gap: 1.75rem;
+    }
+  }
+
+  &__col {
+    flex: 0 0 var(--col-width);
+    max-width: var(--col-width);
+    padding-inline: calc(var(--col-gap) / 2);
+  }
+}

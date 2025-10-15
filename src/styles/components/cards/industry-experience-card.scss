@@ -1,0 +1,58 @@
+@use '@styles/helpers' as *;
+
+/* Industry Experience Card */
+.ie-card {
+  --card-icon-size: #{rem(74)};
+
+  display: block;
+  overflow: hidden;
+  border: rem(1) solid var(--color-basic-white-10);
+  border-radius: rem(28);
+  padding: fluid(31, 28);
+  background-color: var(--color-basic-white-5);
+
+  &__row {
+    display: flex;
+    gap: rem(32);
+  }
+
+  &__icon {
+    flex-shrink: 0;
+  }
+
+  &__text {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: rem(12);
+
+    &:not(:last-child) {
+      @include respond-above(md) {
+        margin-block-end: rem(28);
+      }
+    }
+  }
+
+  &__title {
+    flex: 1 1 auto;
+    font-size: fluid(30, 20);
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(16);
+  }
+
+  &__body {
+    @include respond-below(md) {
+      display: none;
+    }
+  }
+}

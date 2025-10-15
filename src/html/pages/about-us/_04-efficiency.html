@@ -1,0 +1,64 @@
+<section class="section-efficiency" aria-labelledby="sectionEfficiencyTitle">
+  <div class="section-efficiency__container container">
+    <div class="section-efficiency__wrap">
+      <div class="section-efficiency__header">
+        <h2 class="section-efficiency__title" id="sectionEfficiencyTitle">
+          Our approach is built on values that drive efficiency.
+        </h2>
+      </div>
+
+      <div class="section-efficiency__body">
+        <div class="section-efficiency__row">
+          <div class="section-efficiency__col section__col--left">
+            <div class="section-efficiency__cards-wrap">
+              <ul class="section-efficiency__cards">
+                <li>
+                  <include
+                    src="@components/cards/_efficiency-card.html"
+                    locals='{
+                      "id": "01",
+                      "num": "01",
+                      "title": "SaaS web apps",
+                      "description": "We listen, engage stakeholders, review existing user flows, and conduct UX audits if needed. We identify user pain points and priorities upfront to secure an informed foundation."
+                    }'
+                  ></include>
+                </li>
+
+                <li>
+                  <include
+                    src="@components/cards/_efficiency-card.html"
+                    locals='{
+                      "id": "02",
+                      "num": "02",
+                      "title": "SaaS web apps",
+                      "description": "We listen, engage stakeholders, review existing user flows, and conduct UX audits if needed. We identify user pain points and priorities upfront to secure an informed foundation."
+                    }'
+                  ></include>
+                </li>
+
+                <li>
+                  <include
+                    src="@components/cards/_efficiency-card.html"
+                    locals='{
+                      "id": "03",
+                      "num": "03",
+                      "title": "SaaS web apps",
+                      "description": "We listen, engage stakeholders, review existing user flows, and conduct UX audits if needed. We identify user pain points and priorities upfront to secure an informed foundation."
+                    }'
+                  ></include>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="section-efficiency__col section__col--right">
+            <include
+              src="@components/cards/_quote-card.html"
+              locals='{ "bemClasses": "section-efficiency__quote-card" }'
+            ></include>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
