@@ -1,0 +1,35 @@
+@use '@styles/helpers' as *;
+
+/* Section Service Areas */
+.section-service-areas {
+  &__wrap {
+    padding-block: var(--section-py);
+  }
+
+  &__header {
+    &:not(:last-child) {
+      margin-block-end: fluid(64, 48);
+    }
+  }
+
+  &__accent-title {
+    &:not(:last-child) {
+      margin-block-end: fluid(24, 16);
+    }
+  }
+
+  &__cards {
+    display: grid;
+    gap: rem(28);
+    grid-template-columns: var(--grid-3);
+
+    @include respond-below(md) {
+      grid-template-columns: var(--grid-2);
+    }
+
+    @include respond-below(sm) {
+      grid-template-columns: var(--grid-1);
+      row-gap: rem(48);
+    }
+  }
+}

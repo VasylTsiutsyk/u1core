@@ -1,0 +1,42 @@
+<svg width="320" height="320" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="320" height="320" fill="#090909"/>
+<rect width="320" height="320" fill="white" fill-opacity="0.05"/>
+<rect x="17.2793" y="12.8" width="185.6" height="294.4" rx="7.68" fill="white" fill-opacity="0.1"/>
+<rect x="23.6797" y="39.6799" width="172.8" height="96.64" rx="5.12" fill="white" fill-opacity="0.05"/>
+<rect x="23.6797" y="19.2" width="172.8" height="15.36" rx="7.68" fill="white" fill-opacity="0.05"/>
+<circle cx="31.3602" cy="26.88" r="5.12" fill="white" fill-opacity="0.6"/>
+<circle cx="188.801" cy="26.88" r="3.84" fill="white" fill-opacity="0.2"/>
+<circle cx="178.561" cy="26.88" r="3.84" fill="white" fill-opacity="0.2"/>
+<circle cx="168.32" cy="26.88" r="3.84" fill="white" fill-opacity="0.2"/>
+<rect x="81.2793" y="66.5601" width="57.6" height="5.12" rx="2.56" fill="white" fill-opacity="0.2"/>
+<rect x="90.8809" y="74.24" width="38.4" height="5.12" rx="2.56" fill="white" fill-opacity="0.2"/>
+<rect x="95.6797" y="100.8" width="28.8" height="8.96" rx="4.48" fill="#FED500"/>
+<rect x="23.6797" y="149.12" width="172.8" height="23.04" rx="5.12" fill="white" fill-opacity="0.05"/>
+<rect x="23.6797" y="275.84" width="172.8" height="23.04" rx="5.12" fill="white" fill-opacity="0.05"/>
+<rect x="23.6797" y="182.4" width="54.08" height="37.76" rx="5.12" fill="white" fill-opacity="0.05"/>
+<rect x="23.6797" y="227.84" width="54.08" height="37.76" rx="5.12" fill="white" fill-opacity="0.05"/>
+<rect x="82.8809" y="182.4" width="54.4" height="37.76" rx="5.12" fill="white" fill-opacity="0.05"/>
+<rect x="82.8809" y="227.84" width="54.4" height="37.76" rx="5.12" fill="white" fill-opacity="0.05"/>
+<rect x="142.4" y="182.4" width="54.08" height="37.76" rx="5.12" fill="white" fill-opacity="0.05"/>
+<rect x="142.4" y="227.84" width="54.08" height="37.76" rx="5.12" fill="white" fill-opacity="0.05"/>
+<g clip-path="url(#clip0_11_54370)">
+<rect x="223.359" y="12.8" width="79.36" height="294.4" rx="7.68" fill="white" fill-opacity="0.1"/>
+<rect x="229.76" y="19.2" width="66.56" height="15.36" rx="7.68" fill="white" fill-opacity="0.05"/>
+<circle cx="237.44" cy="26.88" r="5.12" fill="white" fill-opacity="0.6"/>
+<circle cx="288.641" cy="26.88" r="3.84" fill="white" fill-opacity="0.2"/>
+<rect x="229.76" y="39.6799" width="66.56" height="68.8" rx="5.12" fill="white" fill-opacity="0.05"/>
+<rect x="229.76" y="116.16" width="66.56" height="12.8" rx="5.12" fill="white" fill-opacity="0.05"/>
+<rect x="229.76" y="134.08" width="66.56" height="46.4" rx="5.12" fill="white" fill-opacity="0.05"/>
+<rect x="229.76" y="185.6" width="66.56" height="46.4" rx="5.12" fill="white" fill-opacity="0.05"/>
+<rect x="229.76" y="237.12" width="66.56" height="46.4" rx="5.12" fill="white" fill-opacity="0.05"/>
+<rect x="229.76" y="288.64" width="66.56" height="46.4" rx="5.12" fill="white" fill-opacity="0.05"/>
+<rect x="245.76" y="58.8799" width="34.56" height="2.56" rx="1.28" fill="white" fill-opacity="0.2"/>
+<rect x="252.801" y="63.3601" width="20.48" height="2.56" rx="1.28" fill="white" fill-opacity="0.2"/>
+<rect x="248.641" y="80.3201" width="28.8" height="8.96" rx="4.48" fill="#FED500"/>
+</g>
+<defs>
+<clipPath id="clip0_11_54370">
+<rect x="223.359" y="12.8" width="79.36" height="294.4" rx="7.68" fill="white"/>
+</clipPath>
+</defs>
+</svg>

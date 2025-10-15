@@ -1,0 +1,63 @@
+<section
+  class="section-service-areas"
+  aria-labelledby="sectionOurServicesTitle"
+>
+  <div class="section-service-areas__container container">
+    <div class="section-service-areas__wrap">
+      <div class="section-service-areas__header">
+        <h2
+          class="section-service-areas__accent-title accent-title"
+          id="sectionOurServicesTitle"
+        >
+          OUR SERVICES
+        </h2>
+
+        <h3 class="section-service-areas__title title-h3">
+          We specialize in UX/UI design for startups and mid-sized businesses,
+          focusing on enhancing productivity, driving sales, and improving
+          decision-making with intuitive design.
+        </h3>
+      </div>
+
+      <div class="section-service-areas__body">
+        <ul class="section-service-areas__cards">
+          <li>
+            <include
+              src="@components/cards/_service-area-card.html"
+              locals='{
+                "id": "01",
+                "title": "SaaS web apps",
+                "description": "Human-centered. Business-aware. Impact-focused.",
+                "img": "@img/service/service-areas/01.svg"
+              }'
+            ></include>
+          </li>
+
+          <li>
+            <include
+              src="@components/cards/_service-area-card.html"
+              locals='{
+                "id": "02",
+                "title": "Mobile apps",
+                "description": "Data-backed creativity. Full-cycle execution.",
+                "img": "@img/service/service-areas/02.svg"
+              }'
+            ></include>
+          </li>
+
+          <li>
+            <include
+              src="@components/cards/_service-area-card.html"
+              locals='{
+                "id": "03",
+                "title": "SaaS web apps",
+                "description": "Built to scale. Engineered to perform.",
+                "img": "@img/service/service-areas/03.svg"
+              }'
+            ></include>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
