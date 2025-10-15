@@ -36,6 +36,11 @@
     overflow: hidden;
     border-radius: fluid(32, 24);
 
+    &--narrow {
+      max-width: rem(796);
+      margin-inline: auto;
+    }
+
     picture {
       display: contents;
     }
