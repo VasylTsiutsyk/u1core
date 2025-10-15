@@ -1,0 +1,7 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.66797 9.33333C6.66797 10.7478 7.22987 12.1044 8.23007 13.1046C9.23026 14.1048 10.5868 14.6667 12.0013 14.6667C13.4158 14.6667 14.7723 14.1048 15.7725 13.1046C16.7727 12.1044 17.3346 10.7478 17.3346 9.33333C17.3346 7.91885 16.7727 6.56229 15.7725 5.5621C14.7723 4.5619 13.4158 4 12.0013 4C10.5868 4 9.23026 4.5619 8.23007 5.5621C7.22987 6.56229 6.66797 7.91885 6.66797 9.33333Z" stroke="#FED500" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M4 28V25.3333C4 23.9188 4.5619 22.5623 5.5621 21.5621C6.56229 20.5619 7.91885 20 9.33333 20H14.6667C15.9467 20 17.12 20.4507 18.04 21.2013" stroke="#FED500" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M21.332 4.17285C22.4793 4.46659 23.4961 5.13379 24.2222 6.06927C24.9484 7.00474 25.3425 8.15529 25.3425 9.33952C25.3425 10.5237 24.9484 11.6743 24.2222 12.6098C23.4961 13.5452 22.4793 14.2124 21.332 14.5062" stroke="#FED500" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M21.332 25.333H29.332" stroke="#FED500" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M25.332 21.333V29.333" stroke="#FED500" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

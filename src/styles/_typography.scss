@@ -76,7 +76,7 @@ a[x-apple-data-detectors] {
 // Щоб збільшити область кліку (мін. 44px)
 a,
 button {
-  &:not(.menu__btn) {
+  &:not(.menu__btn, .workplace-product-card__toggle-btn) {
     &[aria-label] {
       position: relative;
 

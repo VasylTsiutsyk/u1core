@@ -1,0 +1,26 @@
+@use '@styles/helpers' as *;
+
+/* Section UX Intro */
+.section-ux-intro {
+  &__wrap {
+    padding-block: var(--section-py);
+  }
+
+  &__header {
+    &:not(:last-child) {
+      margin-block-end: rem(40);
+    }
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: rem(40);
+  }
+
+  &__body {
+    max-width: rem(796);
+  }
+}

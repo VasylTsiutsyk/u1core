@@ -16,6 +16,12 @@
     }
   }
 
+  &__accent-title {
+    &:not(:last-child) {
+      margin-block-end: fluid(24, 16);
+    }
+  }
+
   &__title {
     &:not(:last-child) {
       margin-block-end: rem(24);
@@ -27,6 +33,18 @@
   }
 
   &__list {
+    &.section-ecosystem__list--space-sm {
+      > li {
+        &:not(:last-child) {
+          margin-block-end: rem(10);
+
+          @include respond-below(md) {
+            margin-block-end: rem(16);
+          }
+        }
+      }
+    }
+
     > li {
       &:not(:last-child) {
         margin-block-end: fluid(64, 32);

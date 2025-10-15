@@ -195,3 +195,28 @@ body {
     border-color: var(--color-basic-white-50);
   }
 }
+
+/* Decor List */
+.decor-list {
+  list-style: none;
+  padding-left: 0.5em;
+
+  > li {
+    display: flex;
+    align-items: center;
+    gap: rem(12);
+
+    &::before {
+      content: var(--icon-magic-star);
+      font-family: var(--font-icons);
+      font-size: 80%;
+      font-weight: 400;
+      line-height: 1;
+      color: var(--color-primary);
+    }
+
+    &:not(:last-child) {
+      margin-block-end: rem(8);
+    }
+  }
+}

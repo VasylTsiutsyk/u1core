@@ -1,0 +1,113 @@
+@use '@styles/helpers' as *;
+
+/* Workplace Product Card */
+.workplace-product-card {
+  --card-px: #{fluid(28, 24)};
+  --card-py: #{fluid(28, 24)};
+  --card-icon-size: #{rem(32)};
+  --card-toggle-btn-size: #{rem(28)};
+
+  display: block;
+  overflow: hidden;
+  border: rem(1) solid var(--color-basic-white-10);
+  border-radius: rem(20);
+  background-color: var(--color-basic-white-10);
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: rem(16);
+    padding: var(--card-py) var(--card-px);
+
+    &[data-spoiler] {
+      cursor: pointer;
+
+      &._active {
+        .workplace-product-card__toggle-btn {
+          &::after {
+            transform: translate(-50%, -50%) rotate(0deg);
+          }
+        }
+      }
+    }
+  }
+
+  &__icon {
+    display: flex;
+    flex: 0 0 var(--card-icon-size);
+    align-items: center;
+    justify-content: center;
+    width: var(--card-icon-size);
+    height: var(--card-icon-size);
+
+    picture {
+      display: contents;
+    }
+
+    img {
+      width: 80%;
+      height: 80%;
+      max-width: 80%;
+      max-height: 80%;
+      object-fit: contain;
+    }
+  }
+
+  &__title {
+    flex: 1 1 auto;
+    min-width: 0;
+    font-size: rem(24);
+  }
+
+  &__toggle-btn {
+    position: relative;
+    flex: 0 0 var(--card-toggle-btn-size);
+    overflow: hidden;
+    border: rem(1) solid var(--color-basic-white-10);
+    border-radius: var(--card-toggle-btn-size);
+    width: var(--card-toggle-btn-size);
+    height: var(--card-toggle-btn-size);
+    background-color: var(--color-basic-white-10);
+    color: var(--color-basic-white-100);
+    transition: background-color var(--transition-duration);
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      border-radius: rem(2);
+      width: rem(9);
+      height: rem(2);
+      background-color: currentcolor;
+      transform: translate(-50%, -50%);
+      will-change: transform;
+      transition: transform var(--transition-duration);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    &:not(:disabled) {
+      cursor: pointer;
+
+      @include hover {
+        background-color: var(--color-basic-white-20);
+      }
+    }
+  }
+
+  &__body {
+    padding: 0  var(--card-px) var(--card-py);
+  }
+
+  &__decor-list {
+    color: var(--color-basic-white-80);
+
+    &:not(:last-child) {
+      margin-block-end: rem(24);
+    }
+  }
+}

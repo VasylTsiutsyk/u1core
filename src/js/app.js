@@ -18,6 +18,7 @@ import { initReviewsExpand } from './modules/reviews';
 import { initLenisInstances } from './modules/lenis';
 import { initEfficiencyCards } from './modules/efficiency-cards';
 import { initProgressRings } from './modules/progress-rings';
+import initSpoilers from './modules/spoilers';
 
 document.addEventListener('DOMContentLoaded', () => {
   // IS WEBP TEST
@@ -80,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // SPOILERS
   // import initSpoilers from './modules/spoilers';
-  // initSpoilers();
+  initSpoilers();
 
   // SLIDERS
   initSliders();
