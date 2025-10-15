@@ -1,0 +1,41 @@
+@use '@styles/helpers' as *;
+
+/* Progress Ring */
+.progress-ring {
+  --pr-border-width: #{rem(2)};
+  --pr-size: #{rem(20)};
+  --pr-track-color: var(--color-accent-yellow-8);
+  --pr-active-color: var(--color-primary);
+  --pr-thickness: 0;
+  --pr-p: 0;
+
+  position: relative;
+  border: var(--pr-thickness) solid transparent;
+  border-radius: var(--pr-size);
+  background:
+    radial-gradient(
+      farthest-side,
+      #0000 calc(100% - var(--pr-thickness)),
+      #000  calc(100% - var(--pr-thickness))
+    ) padding-box,
+    conic-gradient(
+      var(--pr-active-color) calc(var(--pr-p) * 1turn),
+      var(--pr-track-color) 0
+    ) border-box;
+  transform: rotate(-90deg);
+  will-change: background;
+  block-size: var(--pr-size);
+  inline-size: var(--pr-size);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: var(--pr-border-width);
+    border-radius: 50%;
+    background-color: var(--color-basic-black-100);
+  }
+
+  &__label {
+    @include sr-only;
+  }
+}

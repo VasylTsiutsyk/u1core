@@ -16,6 +16,8 @@ import { initAosAnimations, initGSAPAnimations } from './modules/animations';
 import { initIndustryCardsFollowPreview } from './modules/industries-preview';
 import { initReviewsExpand } from './modules/reviews';
 import { initLenisInstances } from './modules/lenis';
+import { initEfficiencyCards } from './modules/efficiency-cards';
+import { initProgressRings } from './modules/progress-rings';
 
 document.addEventListener('DOMContentLoaded', () => {
   // IS WEBP TEST
@@ -135,6 +137,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Section Reviews (Expand)
   initReviewsExpand();
+
+  // Efficiency Card
+  initEfficiencyCards();
+
+  // Progress Rings
+  initProgressRings();
 
   SELECTORS.BODY.classList.add(CLASSES.LOADED);
 });

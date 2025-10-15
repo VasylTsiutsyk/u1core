@@ -9,9 +9,9 @@
 
       <div class="section-efficiency__body">
         <div class="section-efficiency__row">
-          <div class="section-efficiency__col section__col--left">
+          <div class="section-efficiency__col">
             <div class="section-efficiency__cards-wrap">
-              <ul class="section-efficiency__cards">
+              <ul class="section-efficiency__cards" data-efficiency-cards>
                 <li>
                   <include
                     src="@components/cards/_efficiency-card.html"
@@ -51,7 +51,7 @@
             </div>
           </div>
 
-          <div class="section-efficiency__col section__col--right">
+          <div class="section-efficiency__col">
             <include
               src="@components/cards/_quote-card.html"
               locals='{ "bemClasses": "section-efficiency__quote-card" }'
