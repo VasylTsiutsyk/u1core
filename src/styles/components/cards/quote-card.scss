@@ -1,0 +1,40 @@
+@use '@styles/helpers' as *;
+
+/* Quote Card */
+.quote-card {
+  --card-ico-size: #{rem(32)};
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: rem(32);
+  overflow: hidden;
+  border: rem(1) solid var(--color-basic-white-5);
+  border-radius: rem(28);
+  padding: rem(28);
+  background-color: var(--color-basic-black-30);
+  backdrop-filter: blur(0);
+
+  &__ico {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(var(--card-ico-size) * 0.5);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--color-primary);
+    block-size: var(--card-ico-size);
+    inline-size: var(--card-ico-size);
+
+    &:not(:last-child) {
+      margin-block-end: rem(12);
+    }
+  }
+
+  &__description {
+    font-size: rem(18);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: var(--body-letter-spacing);
+  }
+}

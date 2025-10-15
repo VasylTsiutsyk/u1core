@@ -4,6 +4,26 @@
 .review-author {
   --author-img-size: 4rem;
 
+  &--rounded {
+    .review-author__img {
+      border-radius: var(--author-img-size);
+    }
+  }
+
+  &--sm {
+    --author-img-size: #{rem(62)};
+
+    .review-author__name {
+      &:not(:last-child) {
+        margin-block-end: rem(4);
+      }
+    }
+
+    .review-author__role {
+      font-size: rem(14);
+    }
+  }
+
   &__row {
     display: flex;
     align-items: center;

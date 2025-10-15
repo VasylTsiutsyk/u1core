@@ -42,27 +42,7 @@
   }
 
   &__img {
-    display: flex;
-    flex: 0 0 var(--card-img-size);
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border: var(--card-img-border-width) solid var(--card-img-border-color);
-    border-radius: var(--card-img-border-radius);
-    width: var(--card-img-size);
-    height: var(--card-img-size);
-
-    picture {
-      display: contents;
-    }
-
-    img {
-      width: 50%;
-      height: 50%;
-      max-width: 50%;
-      max-height: 50%;
-      object-fit: contain;
-    }
+    flex-shrink: 0;
   }
 
   &__text {

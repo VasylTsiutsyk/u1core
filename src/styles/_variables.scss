@@ -219,6 +219,7 @@
 
   /* Section */
   --section-py: #{fluid(100, 32)};
+  --card-icon-size: #{rem(74)};
 
   /* Grid */
   --grid-1: repeat(1, minmax(0, 1fr));
