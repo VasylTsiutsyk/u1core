@@ -1,0 +1,72 @@
+<section
+  class="section-project-scope"
+  aria-labelledby="sectionProjectScopeTitle"
+>
+  <h2 class="sr-only" id="sectionProjectScopeTitle">Project Scope</h2>
+
+  <div class="section-project-scope__container container">
+    <div class="section-project-scope__wrap">
+      <div class="section-project-scope__row">
+        <div
+          class="section-project-scope__col section-project-scope__col--left"
+        >
+          <include
+            src="@components/cards/_case-study-card.html"
+            locals='{ "id": "01" }'
+          ></include>
+        </div>
+
+        <div
+          class="section-project-scope__col section-project-scope__col--right"
+        >
+          <div class="section-project-scope__text">
+            <h3 class="section-project-scope__title">
+              The project scope included:
+            </h3>
+
+            <ul class="section-project-scope__cards">
+              <li>
+                <include
+                  src="@components/cards/_ecosystem-card.html"
+                  locals='{
+                    "id": "01",
+                    "img": "@img/service/project-scope/icon-01.svg",
+                    "title": "UX discovery",
+                    "description": "Conducted an in-depth analysis of user needs and pain points to guide the redesign process.",
+                    "parallax": "0"
+                  }'
+                ></include>
+              </li>
+
+              <li>
+                <include
+                  src="@components/cards/_ecosystem-card.html"
+                  locals='{
+                    "id": "02",
+                    "img": "@img/service/project-scope/icon-02.svg",
+                    "title": "Visual concept",
+                    "description": "Then, the team created visual designs that aligned  better with Clockwork`s brand and industry standards.",
+                    "parallax": "0"
+                  }'
+                ></include>
+              </li>
+
+              <li>
+                <include
+                  src="@components/cards/_ecosystem-card.html"
+                  locals='{
+                    "id": "03",
+                    "img": "@img/service/project-scope/icon-03.svg",
+                    "title": "Redesign and development",
+                    "description": "Redesigned the website and handled the Webflow development to ensure the site was fully responsive, visually appealing, and technically sound.",
+                    "parallax": "0"
+                  }'
+                ></include>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

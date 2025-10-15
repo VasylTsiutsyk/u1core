@@ -1,0 +1,36 @@
+@use '@styles/helpers' as *;
+
+/* Case Study Card */
+.case-study-card {
+  display: flex;
+  flex-direction: column;
+  gap: fluid(24, 16);
+
+  &__img {
+    position: relative;
+    overflow: hidden;
+    border: rem(1) solid var(--color-basic-white-10);
+    border-radius: rem(28);
+    padding-bottom: 77.96%;
+
+    picture {
+      display: contents;
+    }
+
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: fluid(24, 16);
+  }
+}
