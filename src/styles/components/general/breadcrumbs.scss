@@ -1,0 +1,43 @@
+@use '@styles/helpers' as *;
+
+/* Breadcrumbs */
+.breadcrumbs {
+  --breadcrumbs-gap: 0.5rem;
+
+  @include text-regular;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--breadcrumbs-gap);
+    list-style: none;
+    padding-left: 0;
+
+    > li {
+      &:not(:last-child) {
+        display: flex;
+        align-items: center;
+        gap: var(--breadcrumbs-gap);
+
+        &::after {
+          content: var(--icon-chevron-right);
+          font-family: var(--font-icons);
+          pointer-events: none;
+        }
+      }
+
+      > a {
+        transition: color var(--transition-duration);
+
+        @include hover {
+          color: var(--color-primary);
+        }
+      }
+
+      > span {
+        color: var(--color-basic-white-60);
+      }
+    }
+  }
+}
