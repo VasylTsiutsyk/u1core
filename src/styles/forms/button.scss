@@ -56,7 +56,8 @@
     }
 
     &:not(:disabled) {
-      &:focus-visible {
+      &:focus-visible,
+      &:focus {
         outline: none;
       }
     }
@@ -111,7 +112,8 @@
       --button-text-color: var(--color-accent-yellow-light);
     }
 
-    &._active {
+    &._active,
+    &[aria-selected='true'] {
       --button-border-color: var(--color-accent-yellow-15);
       --button-bg-color: var(--color-accent-yellow-15);
       --button-text-color: var(--color-accent-yellow-light);

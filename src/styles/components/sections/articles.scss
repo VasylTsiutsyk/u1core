@@ -3,18 +3,21 @@
 /* Section Articles */
 .section-articles {
   &__wrap {
-    padding-block: var(--section-py);
+    border-block-start: rem(1) solid var(--color-basic-white-5);
+    padding-block: rem(48) var(--section-py);
   }
 
   &__header {
     &:not(:last-child) {
-      margin-block-end: rem(42);
+      margin-block-end: fluid(42, 32);
     }
   }
 
   &__tabs {
     overflow: auto hidden;
     white-space: nowrap;
+
+    @include scrollbars(0.125rem, var(--scrollbar-thumb-color), var(--scrollbar-bg-color), 0.125rem);
 
     > li {
       display: inline-block;
@@ -28,13 +31,17 @@
 
   &__body {
     &:not(:last-child) {
-      margin-block-end: rem(88);
+      margin-block-end: fluid(88, 40);
     }
   }
 
   &__slider-navigation {
     max-width: fit-content;
     margin-inline: auto;
+  }
+
+  &__cards-wrap {
+    transition: transform var(--transition-duration);
   }
 
   &__cards {
@@ -44,6 +51,15 @@
     column-count: var(--cards-cols);
     column-gap: var(--cards-gap);
 
+    @include respond-below(md) {
+      --cards-cols: 2;
+    }
+
+    @include respond-below(sm) {
+      --cards-cols: 1;
+      --cards-gap: #{rem(32)};
+    }
+
     > li {
       break-inside: avoid;
 
@@ -51,5 +67,27 @@
         margin-block-end: var(--cards-gap);
       }
     }
+  }
+
+  &__panel {
+    &[data-ct-panel] {
+      &:not([hidden]) {
+        .section-articles__cards-wrap {
+          animation: tab-panel-anim 0.75s forwards;
+        }
+      }
+    }
+  }
+}
+
+@keyframes tab-panel-anim {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

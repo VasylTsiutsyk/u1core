@@ -21,6 +21,7 @@ import { initProgressRings } from './modules/progress-rings';
 import initSpoilers from './modules/spoilers';
 import { initSpotlightFollow } from './modules/spotlight-follow';
 import { initPartnershipsMap } from './modules/partnership-map';
+import initContentTabs from './modules/content-tabs';
 
 document.addEventListener('DOMContentLoaded', () => {
   // IS WEBP TEST
@@ -152,6 +153,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Partnerships Map
   initPartnershipsMap();
+
+  // Content Tabs
+  initContentTabs();
 
   SELECTORS.BODY.classList.add(CLASSES.LOADED);
 });
