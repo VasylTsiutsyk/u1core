@@ -1,0 +1,76 @@
+<section class="section-ma" aria-labelledby="sectionMainArticleTitle">
+  <div class="section-ma__container container">
+    <div class="section-ma__wrap">
+      <div class="section-ma__row">
+        <div class="section-ma__col section-ma__col--main">
+          <div class="section-ma__main">
+            <h1 class="section-ma__title" id="sectionMainArticleTitle">
+              <span class="text-gradient-gray">News & Articles</span>
+            </h1>
+
+            <include
+              src="@components/cards/_main-article-card.html"
+              locals='{ "bemClasses": "section-ma__card" }'
+            ></include>
+          </div>
+        </div>
+
+        <div class="section-ma__col section-ma__col--aside">
+          <div class="section-ma__description desc-text">
+            <p>
+              Take a look behind the scenes, and discover the untold stories
+              behind our projects, lessons learned, work culture, and business
+              curiosities
+            </p>
+          </div>
+
+          <ul class="section-ma__aside-articles">
+            <li>
+              <include
+                src="@components/cards/_aside-article-card.html"
+                locals='{
+                  "id": "01",
+                  "title": "What makes the best ux websites in 2025?",
+                  "img": "@img/blog/02.jpg"
+                }'
+              ></include>
+            </li>
+
+            <li>
+              <include
+                src="@components/cards/_aside-article-card.html"
+                locals='{
+                  "id": "02",
+                  "title": "Why information architecture is the ux superhero under cover",
+                  "img": "@img/blog/03.jpg"
+                }'
+              ></include>
+            </li>
+
+            <li>
+              <include
+                src="@components/cards/_aside-article-card.html"
+                locals='{
+                  "id": "03",
+                  "title": "Duo your product needs to succeed: market research vs ux",
+                  "img": "@img/blog/04.jpg"
+                }'
+              ></include>
+            </li>
+
+            <li>
+              <include
+                src="@components/cards/_aside-article-card.html"
+                locals='{
+                  "id": "04",
+                  "title": "Weekly design & tech digest | Week of september 15-19, 2025",
+                  "img": "@img/blog/05.jpg"
+                }'
+              ></include>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

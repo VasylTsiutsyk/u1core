@@ -1,0 +1,71 @@
+@use '@styles/helpers' as *;
+
+/* Main Article Card */
+.main-article-card {
+  --card-space-y: #{rem(16)};
+
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--card-space-y);
+
+  @include respond-below(md) {
+    --card-space-y: #{rem(18)};
+  }
+
+  &__img {
+    position: relative;
+    overflow: hidden;
+    border-radius: rem(12);
+    padding-bottom: 59.16%;
+
+    picture {
+      display: contents;
+    }
+
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__labels {
+    position: absolute;
+    left: rem(16);
+    right: rem(16);
+    top: rem(16);
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(8);
+
+    @include respond-above(md) {
+      display: none;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--card-space-y);
+  }
+
+  &__title {
+    font-size: fluid(30, 24);
+  }
+
+  &__footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: rem(12);
+  }
+
+  &__tags {
+    @include respond-below(md) {
+      display: none;
+    }
+  }
+}

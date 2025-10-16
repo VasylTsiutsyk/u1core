@@ -177,13 +177,17 @@ body {
 
 /* UI Tag */
 .ui-tag {
+  --tag-height: #{rem(40)};
+  --tag-py: #{rem(8)};
+  --tag-px: #{rem(18)};
+
   display: inline-flex;
   vertical-align: top;
   overflow: hidden;
   border: rem(1) solid var(--color-basic-white-10);
   border-radius: rem(100);
-  min-height: rem(40);
-  padding: rem(8) rem(18);
+  min-height: var(--tag-height);
+  padding: var(--tag-py) var(--tag-px);
   background-color: var(--color-basic-white-10);
   font-size: rem(14);
   font-weight: 500;
@@ -193,6 +197,17 @@ body {
 
   @include hover {
     border-color: var(--color-basic-white-50);
+  }
+
+  &--sm {
+    --tag-height: #{rem(32)};
+    --tag-py: #{rem(4)};
+    --tag-px: #{rem(12)};
+  }
+
+  &--dark {
+    border-color: var(--color-basic-white-20);
+    background-color: var(--color-basic-black-100);
   }
 }
 

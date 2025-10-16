@@ -24,6 +24,22 @@
     }
   }
 
+  &--xs {
+    --author-img-size: #{rem(40)};
+
+    .review-author__name {
+      font-size: rem(14);
+
+      &:not(:last-child) {
+        margin-block-end: rem(1);
+      }
+    }
+
+    .review-author__role {
+      font-size: rem(14);
+    }
+  }
+
   &__row {
     display: flex;
     align-items: center;

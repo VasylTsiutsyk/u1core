@@ -383,10 +383,11 @@ $map-for-directions: (
 }
 
 @mixin text-regular {
+  font-family: var(--body-font-family);
   font-size: var(--body-font-size);
   font-weight: var(--body-font-weight);
   line-height: 1.4;
-  letter-spacing: -0.005em;
+  letter-spacing: var(--body-letter-spacing);
 }
 
 @mixin text-sm {
