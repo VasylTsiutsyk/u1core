@@ -1,0 +1,55 @@
+@use '@styles/helpers' as *;
+
+/* Section Articles */
+.section-articles {
+  &__wrap {
+    padding-block: var(--section-py);
+  }
+
+  &__header {
+    &:not(:last-child) {
+      margin-block-end: rem(42);
+    }
+  }
+
+  &__tabs {
+    overflow: auto hidden;
+    white-space: nowrap;
+
+    > li {
+      display: inline-block;
+      vertical-align: top;
+
+      &:not(:last-child) {
+        margin-inline-end: rem(20);
+      }
+    }
+  }
+
+  &__body {
+    &:not(:last-child) {
+      margin-block-end: rem(88);
+    }
+  }
+
+  &__slider-navigation {
+    max-width: fit-content;
+    margin-inline: auto;
+  }
+
+  &__cards {
+    --cards-cols: 3;
+    --cards-gap: #{rem(28)};
+
+    column-count: var(--cards-cols);
+    column-gap: var(--cards-gap);
+
+    > li {
+      break-inside: avoid;
+
+      &:not(:last-child) {
+        margin-block-end: var(--cards-gap);
+      }
+    }
+  }
+}

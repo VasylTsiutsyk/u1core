@@ -88,6 +88,36 @@ body {
       }
     }
   }
+
+  &__pages-pagination {
+    display: flex;
+    align-items: center;
+    gap: rem(6);
+  }
+
+  &__dot {
+    --dot-size: #{rem(12)};
+
+    flex: 0 0 var(--dot-size);
+    border: none;
+    border-radius: var(--dot-size);
+    width: var(--dot-size);
+    height: var(--dot-size);
+    background-color: var(--color-basic-white-5);
+    transition: background-color var(--transition-duration);
+
+    &:not(:disabled) {
+      cursor: pointer;
+
+      @include hover {
+        background-color: var(--color-basic-white-20);
+      }
+
+      &._active {
+        background-color: var(--color-basic-white-60);
+      }
+    }
+  }
 }
 
 /* Accent Title */

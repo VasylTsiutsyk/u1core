@@ -44,6 +44,24 @@
     pointer-events: none;
   }
 
+  &[role='tab'] {
+    &.btn--gray {
+      &:not(:disabled) {
+        &:focus-visible {
+          --button-border-color: var(--color-accent-yellow-15);
+          --button-bg-color: var(--color-accent-yellow-15);
+          --button-text-color: var(--color-accent-yellow-light);
+        }
+      }
+    }
+
+    &:not(:disabled) {
+      &:focus-visible {
+        outline: none;
+      }
+    }
+  }
+
   &--icon {
     --button-border-radius: var(--button-height);
     --button-padding-x: 0.25rem;
@@ -82,15 +100,21 @@
     --button-text-color: var(--color-basic-white-100);
 
     @include hover {
-      --button-border-color: var(--color-primary);
-      --button-bg-color: var(--color-basic-white-5);
-      --button-text-color: var(--color-primary);
+      --button-border-color: var(--color-accent-yellow-15);
+      --button-bg-color: var(--color-accent-yellow-15);
+      --button-text-color: var(--color-accent-yellow-light);
     }
 
     &:active {
-      --button-border-color: var(--color-primary);
-      --button-bg-color: var(--color-basic-white-5);
-      --button-text-color: var(--color-primary);
+      --button-border-color: var(--color-accent-yellow-15);
+      --button-bg-color: var(--color-accent-yellow-15);
+      --button-text-color: var(--color-accent-yellow-light);
+    }
+
+    &._active {
+      --button-border-color: var(--color-accent-yellow-15);
+      --button-bg-color: var(--color-accent-yellow-15);
+      --button-text-color: var(--color-accent-yellow-light);
     }
   }
 

@@ -18,7 +18,8 @@
     --footer-py: #{rem(40)};
   }
 
-  &--shine {
+  &.footer--shine {
+    z-index: initial;
     overflow: visible;
 
     &::after {

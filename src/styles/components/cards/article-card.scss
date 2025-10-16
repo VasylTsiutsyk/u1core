@@ -1,0 +1,50 @@
+@use '@styles/helpers' as *;
+
+/* Article Card */
+.article-card {
+  --card-space-y: #{rem(18)};
+
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--card-space-y);
+
+  &__img {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: rem(12);
+
+    picture {
+      display: contents;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__tags {
+    --offset: 1rem;
+
+    position: absolute;
+    z-index: 9;
+    left: var(--offset);
+    right: var(--offset);
+    top: var(--offset);
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(8);
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--card-space-y);
+  }
+
+  &__title {
+    font-size: rem(20);
+  }
+}
