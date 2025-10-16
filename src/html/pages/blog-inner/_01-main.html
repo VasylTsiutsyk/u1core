@@ -1,4 +1,4 @@
-<section class="section-bp" aria-labelledby="sectionBlogPostTitle" data-blog>
+<section class="section-bp" aria-labelledby="sectionBlogPostTitle">
   <div class="section-bp__wrap">
     <div class="section-bp__top bp-top">
       <div class="bp-top__container container">
@@ -81,26 +81,29 @@
       <div class="bp-bottom__container container">
         <div class="bp-bottom__row">
           <div class="bp-bottom__col bp-bottom__col--aside sticky-el">
-            <div class="bp-bottom__aside">
-              <ul class="bp-bottom__menu" data-blog-menu>
+            <div
+              class="bp-bottom__aside"
+              data-toc
+              data-toc-scope=".bp-text"
+              data-toc-headings="h3"
+            >
+              <ul class="bp-bottom__menu" data-toc-list>
                 <li>
-                  <a href="#part01" data-blog-menu-link>Key Takeaways</a>
+                  <a href="#part01" data-toc-link>Key Takeaways</a>
                 </li>
 
                 <li>
-                  <a href="#part02" data-blog-menu-link>
+                  <a href="#part02" data-toc-link>
                     State of Adoption in AI Product Design
                   </a>
                 </li>
 
                 <li>
-                  <a href="#part03" data-blog-menu-link>
-                    AI Product Design Tools
-                  </a>
+                  <a href="#part03" data-toc-link> AI Product Design Tools </a>
                 </li>
 
                 <li>
-                  <a href="#part04" data-blog-menu-link>Too Much Automation</a>
+                  <a href="#part04" data-toc-link>Too Much Automation</a>
                 </li>
               </ul>
             </div>
@@ -108,143 +111,10 @@
 
           <div class="bp-bottom__col bp-bottom__col--main">
             <div class="bp-bottom__main">
-              <div class="bp-text">
-                <h3>Key Takeaways</h3>
-
-                <ul>
-                  <li>
-                    Businesses across industries are rapidly adopting AI, with
-                    <strong>80%</strong> already integrating it into workflows
-                    and <strong>52% </strong> using AI-powered tools for
-                    creative tasks.
-                  </li>
-
-                  <li>
-                    Success with AI product development requires
-                    <strong>strategy, ethics, and the right team setup.</strong>
-                  </li>
-
-                  <li>
-                    Artificial intelligence is a powerful assistant, but it
-                    can’t replace human insight.
-                  </li>
-                </ul>
-
-                <h3>State of Adoption in AI Product Design</h3>
-
-                <p>
-                  The future of AI in design looks exciting. We’ll see more
-                  generative design, where AI quickly produces many design
-                  options to explore. AI co-creation is also on the rise, with
-                  humans and AI working together in real time to build better
-                  products. And with autonomous systems, AI will start to adapt
-                  and improve designs on its own, with little to no manual
-                  input.
-                </p>
-
-                <p>
-                  The shift to AI product design is already happening — and the
-                  proof is in the numbers:
-                </p>
-
-                <ul>
-                  <li>
-                    80% of business leaders say AI is already integrated into
-                    their operations. AI has moved from boardroom theory to
-                    everyday workflows.
-                  </li>
-
-                  <li>
-                    61% of organizations are rethinking their data and analytics
-                    operations due to AI adoption. As AI becomes more embedded
-                    in workflows, companies are restructuring how they collect,
-                    manage, and use data to support smarter product design.
-                  </li>
-
-                  <li>
-                    52% of businesses use generative AI product design tools for
-                    creative tasks like design and content. It’s not just for
-                    tech teams — designers and marketers love it too.
-                  </li>
-                </ul>
-
-                <p>
-                  <img
-                    src="@img/blog-inner/02.jpg"
-                    alt=""
-                    width="721"
-                    height="400"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </p>
-
-                <include
-                  src="@components/cards/_insight-card.html"
-                  locals="{}"
-                ></include>
-
-                <h3>AI Product Design Tools</h3>
-
-                <p>
-                  AI tools are now a key part of product design — they can
-                  collect data, analyze user behavior, and support better design
-                  decisions. Below is a list of the top 10 AI tools for product
-                  design, with details on what they do, how much they cost, and
-                  how well they fit business needs.
-                </p>
-
-                <h3>Too Much Automation</h3>
-
-                <p>
-                  <a href="#">IKEA’s AI-designed furniture</a>
-                  speed up production, but some critics felt the results lacked
-                  personality and warmth.
-                </p>
-
-                <include
-                  src="@components/cards/_quote-card.html"
-                  locals='{
-                    "bemClasses": "",
-                    "modeClasses": ""
-                  }'
-                ></include>
-
-                <ul>
-                  <li>
-                    <img
-                      src="@img/blog-inner/03.jpg"
-                      alt=""
-                      width="721"
-                      height="400"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </li>
-
-                  <li>
-                    <img
-                      src="@img/blog-inner/04.jpg"
-                      alt=""
-                      width="347"
-                      height="400"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </li>
-
-                  <li>
-                    <img
-                      src="@img/blog-inner/05.jpg"
-                      alt=""
-                      width="347"
-                      height="400"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </li>
-                </ul>
-              </div>
+              <include
+                src="@components/general/_blog-post-content-text.html"
+                locals="{}"
+              ></include>
             </div>
           </div>
         </div>

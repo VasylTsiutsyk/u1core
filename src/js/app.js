@@ -22,6 +22,7 @@ import initSpoilers from './modules/spoilers';
 import { initSpotlightFollow } from './modules/spotlight-follow';
 import { initPartnershipsMap } from './modules/partnership-map';
 import initContentTabs from './modules/content-tabs';
+import initTOC from './modules/content-table';
 
 document.addEventListener('DOMContentLoaded', () => {
   // IS WEBP TEST
@@ -156,6 +157,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Content Tabs
   initContentTabs();
+
+  // Post Content Table
+  initTOC();
 
   SELECTORS.BODY.classList.add(CLASSES.LOADED);
 });

@@ -2,18 +2,89 @@
 
 /* Quote Card */
 .quote-card {
+  --card-border-radius: #{rem(28)};
+  --card-px: #{rem(28)};
+  --card-py: #{rem(28)};
+  --card-gap: #{rem(32)};
   --card-ico-size: #{rem(32)};
+  --card-bg-color: var(--color-basic-black-30);
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: rem(32);
-  overflow: hidden;
-  border: rem(1) solid var(--color-basic-white-5);
-  border-radius: rem(28);
-  padding: rem(28);
-  background-color: var(--color-basic-black-30);
-  backdrop-filter: blur(0);
+  position: relative;
+
+  &--shine {
+    --card-decor-blur-size: 12vw;
+    --card-bg-color: var(--color-basic-black-50);
+
+    @include respond-below(md) {
+      --card-decor-blur-size: 40vw;
+    }
+
+    &::after,
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      border-radius: var(--card-decor-blur-size);
+      width: var(--card-decor-blur-size);
+      height: var(--card-decor-blur-size);
+      filter: blur(9.375rem);
+      pointer-events: none;
+    }
+
+    &::before {
+      left: 0;
+      bottom: 0;
+      background-color: var(--color-primary);
+      opacity: 0.4;
+    }
+
+    &::after {
+      right: 0;
+      top: 0;
+      background: var(--color-basic-white-100);
+      opacity: 0.2;
+    }
+
+    .quote-card__inner {
+      backdrop-filter: blur(4.75rem);
+    }
+  }
+
+  &--lg {
+    --card-border-radius: #{fluid(42, 28)};
+    --card-px: #{fluid(64, 32)};
+    --card-py: #{fluid(64, 32)};
+    --card-gap: #{fluid(40, 32)};
+    --card-ico-size: #{fluid(48, 32)};
+
+    .quote-card__ico {
+      &:not(:last-child) {
+        @include respond-above(md) {
+          margin-block-end: rem(24);
+        }
+      }
+    }
+
+    .quote-card__description {
+      @include respond-above(md) {
+        font-size: rem(20);
+      }
+    }
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 9;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--card-gap);
+    overflow: hidden;
+    border: rem(1) solid var(--color-basic-white-5);
+    border-radius: var(--card-border-radius);
+    padding: var(--card-py) var(--card-py);
+    background-color: var(--card-bg-color);
+  }
 
   &__ico {
     display: flex;

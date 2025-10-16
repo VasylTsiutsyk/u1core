@@ -1,0 +1,54 @@
+@use '@styles/helpers' as *;
+
+/* Insight Card */
+.insight-card {
+  --card-border-radius: #{fluid(42, 28)};
+  --card-px: #{fluid(64, 32)};
+  --card-py: #{fluid(64, 32)};
+  --card-gap: #{fluid(24, 20)};
+  --card-bg-color: var(--color-basic-black-50);
+  --card-decor-blur-size: 12vw;
+
+  position: relative;
+
+  @include respond-below(md) {
+    --card-decor-blur-size: 40vw;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    border-radius: var(--card-decor-blur-size);
+    width: var(--card-decor-blur-size);
+    height: var(--card-decor-blur-size);
+    filter: blur(9.375rem);
+    pointer-events: none;
+  }
+
+  &::before {
+    left: 0;
+    bottom: 0;
+    background-color: var(--color-primary);
+    opacity: 0.4;
+  }
+
+  &::after {
+    right: 0;
+    top: 0;
+    background: var(--color-basic-white-100);
+    opacity: 0.2;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-py) var(--card-px);
+    background-color: var(--card-bg-color);
+    backdrop-filter: blur(4.75rem);
+    row-gap: var(--card-gap);
+  }
+}

@@ -56,6 +56,12 @@
 
   &__aside-articles {
     > li {
+      &:first-child {
+        > .aside-article-card {
+          padding-block-start: 0;
+        }
+      }
+
       &:not(:last-child) {
         border-block-end: rem(1) solid var(--color-basic-white-5);
       }

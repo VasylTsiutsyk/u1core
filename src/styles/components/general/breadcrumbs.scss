@@ -4,6 +4,12 @@
 .breadcrumbs {
   --breadcrumbs-gap: 0.5rem;
 
+  @include respond-below(md) {
+    --breadcrumbs-gap: 0.375rem;
+
+    font-size: rem(14);
+  }
+
   @include text-regular;
 
   &__list {
