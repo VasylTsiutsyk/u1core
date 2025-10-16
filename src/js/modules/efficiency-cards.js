@@ -9,31 +9,40 @@ export function initEfficiencyCards({
     const cards = Array.from(list.querySelectorAll(cardSelector));
     if (!cards.length) return;
 
-    const first = cards[0];
+    let current =
+      cards.find(c => c.classList.contains(activeClass)) || cards[0];
 
     const setActive = card => {
-      cards.forEach(c => {
-        c.classList.remove(activeClass);
-        c.removeAttribute('aria-current');
-      });
+      if (!card || card === current) return;
+      current.classList.remove(activeClass);
+      current.removeAttribute('aria-current');
 
-      card.classList.add(activeClass);
-      card.setAttribute('aria-current', 'true');
+      current = card;
+      current.classList.add(activeClass);
+      current.setAttribute('aria-current', 'true');
     };
 
-    const initial = cards.find(c => c.classList.contains(activeClass)) || first;
-    setActive(initial);
-
-    cards.forEach(card => {
-      card.addEventListener('mouseenter', () => setActive(card));
-      card.addEventListener('focusin', () => setActive(card));
-      card.addEventListener('click', () => setActive(card));
+    cards.forEach(c => {
+      c.classList.remove(activeClass);
+      c.removeAttribute('aria-current');
     });
 
-    list.addEventListener('mouseleave', () => setActive(first));
+    current.classList.add(activeClass);
+    current.setAttribute('aria-current', 'true');
 
-    list.addEventListener('focusout', e => {
-      if (!list.contains(e.relatedTarget)) setActive(first);
+    list.addEventListener('click', e => {
+      const card = e.target.closest(cardSelector);
+      if (!card || !list.contains(card)) return;
+      setActive(card);
+    });
+
+    list.addEventListener('keydown', e => {
+      const card = e.target.closest(cardSelector);
+      if (!card) return;
+      if (e.key === 'Enter' || e.key === ' ' || e.code === 'Space') {
+        e.preventDefault();
+        setActive(card);
+      }
     });
   });
 }

@@ -3,13 +3,16 @@
 /* Efficiency Card */
 .efficiency-card {
   display: flex;
-
-  // overflow: hidden;
+  overflow: hidden;
   border: rem(1) solid var(--color-basic-white-5);
   border-radius: rem(24);
 
   @include respond-below(md) {
     flex-direction: column-reverse;
+  }
+
+  &[data-efficiency-card] {
+    cursor: pointer;
   }
 
   &._active {

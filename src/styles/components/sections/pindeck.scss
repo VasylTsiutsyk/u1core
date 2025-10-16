@@ -1,7 +1,7 @@
 @use '@styles/helpers' as *;
 
-/* Section Ecosystem */
-.section-ecosystem {
+/* Section Pindeck */
+.section-pindeck {
   &__wrap {
     padding-block: var(--section-py);
   }
@@ -33,7 +33,7 @@
   }
 
   &__list {
-    &.section-ecosystem__list--space-sm {
+    &.section-pindeck__list--space-sm {
       > li {
         &:not(:last-child) {
           margin-block-end: rem(10);

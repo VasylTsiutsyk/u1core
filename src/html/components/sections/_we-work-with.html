@@ -1,17 +1,21 @@
-<section class="section-ecosystem" aria-labelledby="sectionWeWorkWithTitle">
-  <div class="section-ecosystem__container container">
-    <div class="section-ecosystem__wrap">
-      <div class="section-ecosystem__grid">
-        <div class="section-ecosystem__col">
-          <div class="section-ecosystem__text">
+<section
+  class="section-pindeck"
+  aria-labelledby="sectionWeWorkWithTitle"
+  data-pindeck
+>
+  <div class="section-pindeck__container container">
+    <div class="section-pindeck__wrap">
+      <div class="section-pindeck__grid">
+        <div class="section-pindeck__col">
+          <div class="section-pindeck__text" data-pindeck-aside>
             <h2
-              class="section-ecosystem__title title-h3"
+              class="section-pindeck__title title-h3"
               id="sectionWeWorkWithTitle"
             >
               We work with:
             </h2>
 
-            <div class="section-ecosystem__description desc-text">
+            <div class="section-pindeck__description desc-text">
               <p>
                 Empowering growth, innovation, and success through tailored
                 design and development solutions.
@@ -20,10 +24,10 @@
           </div>
         </div>
 
-        <div class="section-ecostystem__col">
-          <div class="section-ecosystem__stack">
-            <ul class="section-ecosystem__list">
-              <li>
+        <div class="section-pindeck__col">
+          <div class="section-pindeck__stack" data-pindeck-stack>
+            <ul class="section-pindeck__list">
+              <li data-pindeck-card>
                 <include
                   src="@components/cards/_ecosystem-card.html"
                   locals='{
@@ -35,7 +39,7 @@
                 ></include>
               </li>
 
-              <li>
+              <li data-pindeck-card>
                 <include
                   src="@components/cards/_ecosystem-card.html"
                   locals='{
@@ -47,7 +51,7 @@
                 ></include>
               </li>
 
-              <li>
+              <li data-pindeck-card>
                 <include
                   src="@components/cards/_ecosystem-card.html"
                   locals='{
