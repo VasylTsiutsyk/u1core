@@ -347,7 +347,7 @@
   --icon-alert-circle: '\f167';
 
   /* Header */
-  --header-height: 3rem;
+  --header-height: #{rem(101)};
 
   /* Full Calendar */
   --fc-button-border-color: var(--color-primary);

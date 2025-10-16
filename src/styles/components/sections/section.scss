@@ -81,6 +81,8 @@
     position: relative;
 
     &--vertical {
+      --transition: 3s;
+
       @include respond-above(md) {
         padding-left: rem(56);
       }
@@ -117,7 +119,7 @@
           &-active {
             span {
               &::after {
-                animation: anim-height 1s forwards linear;
+                animation: anim-height var(--transition) forwards linear;
               }
             }
           }
@@ -133,7 +135,7 @@
           &.swiper-pagination-bullet-active {
             span {
               &::after {
-                animation: anim-width 1s forwards linear;
+                animation: anim-width var(--transition) forwards linear;
               }
             }
           }

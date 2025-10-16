@@ -6,7 +6,7 @@
 // npm i swiper
 
 import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -150,12 +150,15 @@ function initSliders() {
   });
 
   initSwiper('#swiperEffectiveness', {
-    modules: [Navigation, Pagination],
+    modules: [Navigation, Pagination, Autoplay],
     direction: 'horizontal',
     speed: 800,
     slidesPerView: 'auto',
     spaceBetween: 16,
     autoHeight: true,
+    autoplay: {
+      delay: 3000,
+    },
     pagination: {
       el: '#swiperEffectivenessFraction',
       type: 'bullets',
