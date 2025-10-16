@@ -40,6 +40,12 @@
       pointer-events: none;
     }
 
+    .swiper {
+      .swiper-wrapper {
+        transition-timing-function: linear !important;
+      }
+    }
+
     .swiper-slide {
       width: auto;
 

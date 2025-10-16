@@ -23,11 +23,12 @@ export function initHeroOverlap({
   mm.add(desktopMq, () => {
     const pinST = ScrollTrigger.create({
       trigger: hero,
-      start: 'top top',
+      start: '-15% 0%',
       end: () => `+=${pinRatio * 100}%`,
       pin: img,
       pinSpacing: false,
       invalidateOnRefresh: true,
+      markers: false,
     });
 
     gsap.to([title, desc, cta], {
@@ -48,7 +49,10 @@ export function initHeroOverlap({
       duration: 0.7,
       stagger: 0.08,
       ease: 'power2.out',
-      scrollTrigger: { trigger: hero, start: 'top 75%' },
+      scrollTrigger: {
+        trigger: hero,
+        start: 'top 75%',
+      },
     });
 
     return () => {

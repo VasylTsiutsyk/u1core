@@ -23,6 +23,46 @@
       overflow: visible;
     }
   }
+
+  &__blurs {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    &::after {
+      --size: 35.42vw;
+
+      content: '';
+      position: absolute;
+      z-index: -1;
+      left: 50%;
+      top: 0;
+      border-radius: var(--size);
+      width: var(--size);
+      height: var(--size);
+      background-color: var(--color-primary);
+      opacity: 0.25;
+      filter: blur(175px);
+      transform: translate(-50%, -40%);
+      pointer-events: none;
+      transition:
+        visibility var(--transition-duration),
+        opacity var(--transition-duration);
+
+      @include respond-below(md) {
+        --size: 50vw;
+
+        opacity: 0.5;
+        transform: translate(-50%, -20%);
+      }
+    }
+  }
+
+  main,
+  footer {
+    position: relative;
+    z-index: 9;
+  }
 }
 
 /* Container */

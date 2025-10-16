@@ -105,13 +105,16 @@ function initSliders() {
 
   // Case Spotlight
   initSwiper('#swiperPartners', {
-    modules: [Navigation, Pagination],
+    modules: [Navigation, Pagination, Autoplay],
     direction: 'horizontal',
-    speed: 800,
+    speed: 6000,
     slidesPerView: 'auto',
     spaceBetween: 60,
     centeredSlides: true,
     loop: true,
+    autoplay: {
+      delay: 1,
+    },
   });
 
   // Result Facts

@@ -15,51 +15,13 @@
     background-color var(--transition-duration),
     transform var(--transition-duration);
 
-  &::after {
-    --size: 35.42vw;
-
-    content: '';
-    position: absolute;
-    z-index: -1;
-    left: 50%;
-    top: 0;
-    border-radius: var(--size);
-    width: var(--size);
-    height: var(--size);
-    background-color: var(--color-primary);
-    opacity: 0.25;
-    filter: blur(175px);
-    transform: translate(-50%, -40%);
-    pointer-events: none;
-    transition:
-      visibility var(--transition-duration),
-      opacity var(--transition-duration);
-
-    @include respond-below(md) {
-      // --size: 128.2vw;
-
-      --size: 50vw;
-
-      opacity: 0.5;
-      transform: translate(-50%, -20%);
-    }
-  }
-
   &._scrolled {
     background-color: var(--color-basic-black-100);
-
-    &::after {
-      @include hide;
-    }
   }
 
   &._hidden {
     box-shadow: none;
     transform: translateY(calc(var(--header-promo-height) * -1));
-
-    &::after {
-      @include hide;
-    }
   }
 
   &__bottom {
@@ -123,6 +85,22 @@
 }
 
 .header-top {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    width: 12%;
+    height: 100%;
+    background-color: var(--color-primary);
+    filter: blur(3rem);
+    transform: translate(-50%, 50%);
+    pointer-events: none;
+  }
+
   &__wrap {
     position: relative;
     z-index: 9;
