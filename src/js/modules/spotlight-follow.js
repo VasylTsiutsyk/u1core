@@ -2,7 +2,9 @@
 export function initSpotlightFollow({
   wrapperSelector = '[data-spotlight]',
   veilSelector = '[data-spotlight-veil]',
-  radius = 140,
+  radius = 140, // радіус прозорого центру
+  returnDuration = 450, // тривалість повернення в центр, мс
+  ease = t => 1 - Math.pow(1 - t, 3), // easeOutCubic
 } = {}) {
   const areas = document.querySelectorAll(wrapperSelector);
   if (!areas.length) return;
@@ -16,29 +18,87 @@ export function initSpotlightFollow({
 
     area.style.setProperty('--r', `${radius}px`);
 
-    let raf = null;
+    let lastX = null;
+    let lastY = null;
+
+    let moveRaf = null;
+
+    let returnRaf = null;
+    let returnStart = 0;
+
+    const centerTo = () => {
+      const rect = area.getBoundingClientRect();
+      return { cx: rect.width / 2, cy: rect.height / 2 };
+    };
+
+    const setPos = (x, y) => {
+      area.style.setProperty('--x', `${x}px`);
+      area.style.setProperty('--y', `${y}px`);
+      lastX = x;
+      lastY = y;
+    };
+
+    {
+      const { cx, cy } = centerTo();
+      setPos(cx, cy);
+    }
+
+    const cancelReturn = () => {
+      if (returnRaf) {
+        cancelAnimationFrame(returnRaf);
+        returnRaf = null;
+      }
+    };
+
     const move = e => {
-      if (raf) return;
-      raf = requestAnimationFrame(() => {
+      cancelReturn();
+      if (moveRaf) return;
+
+      moveRaf = requestAnimationFrame(() => {
         const rect = area.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
-        const cx = Math.max(0, Math.min(x, rect.width));
-        const cy = Math.max(0, Math.min(y, rect.height));
-        area.style.setProperty('--x', `${cx}px`);
-        area.style.setProperty('--y', `${cy}px`);
-        raf = null;
+        const nx = Math.max(0, Math.min(x, rect.width));
+        const ny = Math.max(0, Math.min(y, rect.height));
+        setPos(nx, ny);
+
+        moveRaf = null;
       });
     };
 
     const leave = () => {
-      const rect = area.getBoundingClientRect();
-      area.style.setProperty('--x', `${rect.width / 2}px`);
-      area.style.setProperty('--y', `${rect.height / 2}px`);
+      cancelReturn();
+      const { cx, cy } = centerTo();
+      const sx = lastX ?? cx;
+      const sy = lastY ?? cy;
+      const dx = cx - sx;
+      const dy = cy - sy;
+
+      returnStart = performance.now();
+
+      const step = now => {
+        const t = Math.min(1, (now - returnStart) / returnDuration);
+        const k = ease(t);
+        setPos(sx + dx * k, sy + dy * k);
+
+        if (t < 1) {
+          returnRaf = requestAnimationFrame(step);
+        } else {
+          returnRaf = null;
+        }
+      };
+
+      returnRaf = requestAnimationFrame(step);
+    };
+
+    const enter = e => {
+      cancelReturn();
+      move(e);
     };
 
     area.addEventListener('mousemove', move);
+    area.addEventListener('mouseenter', enter);
     area.addEventListener('mouseleave', leave);
   });
 }

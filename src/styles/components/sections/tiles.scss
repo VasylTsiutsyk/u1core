@@ -2,6 +2,9 @@
 
 /* Section Tiles */
 .section-tiles {
+  position: relative;
+  overflow: hidden;
+
   &__wrap {
     padding-block: var(--section-py);
   }
@@ -49,7 +52,7 @@
     gap: var(--cards-gap);
     grid-template-columns: var(--cards-cols);
     min-width: rem(1140);
-    padding-block-end: var(--cards-offset);
+    padding-block: fluid(64, 48) var(--cards-offset);
 
     > li {
       &:nth-child(5n - 5),
