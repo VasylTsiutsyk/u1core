@@ -11,8 +11,26 @@
   width: var(--location-size);
   height: var(--location-size);
   padding: fluid(4, 2);
-  background-color: var(--color-basic-white-10);
-  backdrop-filter: blur(3.5px);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-basic-white-10);
+    pointer-events: none;
+    transition: background-color var(--transition-duration);
+    backdrop-filter: blur(3.5px);
+  }
+
+  &[data-partnerships-map-pin] {
+    cursor: pointer;
+
+    @include hover {
+      &::after {
+        background-color: var(--color-basic-white-20);
+      }
+    }
+  }
 
   &--lb {
     border-bottom-left-radius: 0;
@@ -31,6 +49,8 @@
   }
 
   &__img {
+    position: relative;
+    z-index: 9;
     flex: 1 1 auto;
     overflow: hidden;
     border-radius: 50%;

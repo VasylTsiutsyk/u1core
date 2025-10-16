@@ -20,6 +20,7 @@ import { initEfficiencyCards } from './modules/efficiency-cards';
 import { initProgressRings } from './modules/progress-rings';
 import initSpoilers from './modules/spoilers';
 import { initSpotlightFollow } from './modules/spotlight-follow';
+import { initPartnershipsMap } from './modules/partnership-map';
 
 document.addEventListener('DOMContentLoaded', () => {
   // IS WEBP TEST
@@ -148,6 +149,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Spotlight Follow
   initSpotlightFollow();
+
+  // Partnerships Map
+  initPartnershipsMap();
 
   SELECTORS.BODY.classList.add(CLASSES.LOADED);
 });

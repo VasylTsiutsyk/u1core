@@ -1,0 +1,101 @@
+@use '@styles/helpers' as *;
+
+/* Partnerships Map */
+.partnerships-map {
+  position: relative;
+
+  @include respond-below(md) {
+    padding-bottom: rem(72);
+  }
+
+  &__field {
+    position: relative;
+  }
+
+  &__img {
+    display: block;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  &__location {
+    position: absolute;
+    z-index: 9;
+
+    &--01 {
+      left: 5.25%;
+      top: 13.5%;
+    }
+
+    &--02 {
+      left: 9%;
+      top: 32%;
+    }
+
+    &--03 {
+      left: 21.5%;
+      top: 32.5%;
+    }
+
+    &--04 {
+      left: 30.5%;
+      top: 6%;
+    }
+
+    &--05 {
+      left: 27.75%;
+      top: 35.5%;
+    }
+
+    &--06 {
+      left: 27.75%;
+      bottom: 29%;
+    }
+
+    &--07 {
+      left: 35%;
+      bottom: 26%;
+    }
+
+    &--08 {
+      left: 44%;
+      bottom: 42.5%;
+    }
+
+    &--09 {
+      left: 47.25%;
+      bottom: 32.5%;
+    }
+
+    &--10 {
+      right: 40%;
+      bottom: 26%;
+    }
+
+    &--11 {
+      right: 15.5%;
+      bottom: 12.5%;
+    }
+  }
+
+  &__card {
+    position: absolute;
+    z-index: 29;
+    left: 0;
+    bottom: 0;
+    transition:
+      visibility var(--transition-duration),
+      opacity var(--transition-duration);
+
+    @include hide;
+
+    &._visible {
+      @include show;
+    }
+  }
+}
