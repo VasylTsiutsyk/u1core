@@ -1,0 +1,64 @@
+@use '@styles/helpers' as *;
+
+/* Section Other Cases */
+.section-other-cases {
+  --section-img-offset: #{rem(200)};
+
+  position: relative;
+  overflow: hidden;
+
+  &__wrap {
+    padding-block: fluid(40, 32) fluid(64, 32);
+  }
+
+  &__container {
+    @include respond-below(md) {
+      padding-inline: var(--container-padding);
+    }
+  }
+
+  &__top {
+    &:not(:last-child) {
+      @include respond-below(md) {
+        margin-block-end: rem(24);
+      }
+    }
+  }
+
+  &__middle {
+    &:not(:last-child) {
+      @include respond-below(md) {
+        margin-block-end: rem(24);
+      }
+    }
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: var(--grid-2);
+    row-gap: rem(24);
+
+    @include respond-above(md) {
+      padding-top: rem(200);
+      margin-block-start: rem(-60);
+    }
+
+    @include respond-below(md) {
+      grid-template-columns: var(--grid-1);
+    }
+
+    > li {
+      &:nth-child(even) {
+        @include respond-above(md) {
+          margin-top: calc(var(--section-img-offset) * -1);
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    @include respond-above(md) {
+      display: none;
+    }
+  }
+}

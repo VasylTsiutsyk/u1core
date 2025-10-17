@@ -1,0 +1,63 @@
+<section class="section-other-cases" aria-labelledby="sectionOtherCasesTitle">
+  <div class="section-other-cases__wrap">
+    <div class="section-other-cases__top">
+      <div class="section-other-cases__container container">
+        <h2 class="section-other-cases__title" id="sectionOtherCasesTitle">
+          Other cases
+        </h2>
+      </div>
+    </div>
+
+    <div class="section-other-cases__middle">
+      <div class="section-other-cases__container">
+        <ul class="section-other-cases__cards">
+          <li>
+            <include
+              src="@components/cards/_project-card.html"
+              locals='{
+                "id": "01",
+                "bemClasses": "",
+                "modeClasses": "project-card--img-ratio",
+                "title": "HamsterHub",
+                "type": "Product design",
+                "img": "@img/cases-inner/11.jpg",
+                "width": "864",
+                "height": "660",
+                "description": "Every business begins with a strong online presence. U1CORE helps you launch with impact, delivering high-quality, market-ready designs that drive growth and long-term success."
+
+              }'
+            ></include>
+          </li>
+
+          <li>
+            <include
+              src="@components/cards/_project-card.html"
+              locals='{
+                "id": "02",
+                "bemClasses": "",
+                "modeClasses": "project-card--img-ratio-lg project-card--img-rounded-lt",
+                "title": "OROSWAP",
+                "type": "Website design, Development",
+                "img": "@img/cases-inner/12.jpg",
+                "width": "864",
+                "height": "860",
+                "description": "Every business begins with a strong online presence. U1CORE helps you launch with impact, delivering high-quality, market-ready designs that drive growth and long-term success."
+              }'
+            ></include>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-other-cases__bottom">
+      <div class="section-other-cases__container contanier">
+        <div class="section-other-cases__btn-box">
+          <a href="#" class="btn btn--primary">
+            <span class="btn__text">View all projects</span>
+            <i class="icon-chevron-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
