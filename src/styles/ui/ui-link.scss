@@ -1,0 +1,11 @@
+@use '@styles/helpers' as *;
+
+/* UI Link */
+.ui-link {
+  text-decoration: underline;
+  color: var(--color-primary);
+
+  @include hover {
+    text-decoration: none;
+  }
+}

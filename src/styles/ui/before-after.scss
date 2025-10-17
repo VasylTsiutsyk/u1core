@@ -1,0 +1,98 @@
+@use '@styles/helpers' as *;
+
+/* Before After */
+.ba {
+  --ba-thumb-size: #{rem(80)};
+  --ba-aspect: 16 / 9;
+  --ba-transition: 0.5s;
+  --pos: 50%;
+
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--border-radius-28);
+  background-color: var(--color-basic-black-100);
+
+  &.is-dragging {
+    --ba-transition: 0s;
+  }
+
+  &__overlay,
+  &__handle,
+  &__bar,
+  &__thumb {
+    transition:
+      inline-size var(--ba-transition),
+      left var(--ba-transition),
+      transform var(--ba-transition);
+  }
+
+  &__media {
+    position: relative;
+    user-select: none;
+    aspect-ratio: var(--ba-aspect, 16 / 9);
+    block-size: auto;
+    inline-size: 100%;
+  }
+
+  &__img {
+    position: absolute;
+    display: block;
+    object-fit: cover;
+    block-size: 100%;
+    inline-size: 100%;
+
+    &--before {
+      object-position: left;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    inline-size: var(--pos);
+  }
+
+  &__handle {
+    position: absolute;
+    z-index: 5;
+    display: grid;
+    place-items: center;
+    transform: translateX(-50%);
+    cursor: ew-resize;
+    inline-size: var(--ba-thumb-size);
+    inset-block: 0;
+    inset-inline-start: var(--pos);
+  }
+
+  &__bar {
+    position: absolute;
+    background-color: var(--color-primary);
+    transform: translateX(-50%);
+    inline-size: rem(4);
+    inset-block: 0;
+    inset-inline-start: 50%;
+  }
+
+  &__thumb {
+    position: relative;
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: var(--ba-thumb-size);
+    background: var(--color-primary);
+    font-size: rem(20);
+    font-weight: 500;
+    text-align: center;
+    color: var(--color-basic-black-100);
+    block-size: var(--ba-thumb-size);
+    inline-size: var(--ba-thumb-size);
+  }
+
+  &__caption {
+    @include sr-only;
+  }
+}

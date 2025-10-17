@@ -23,6 +23,7 @@ import { initSpotlightFollow } from './modules/spotlight-follow';
 import { initPartnershipsMap } from './modules/partnership-map';
 import initContentTabs from './modules/content-tabs';
 import initTOC from './modules/content-table';
+import { initBeforeAfter } from './modules/before-after';
 
 document.addEventListener('DOMContentLoaded', () => {
   // IS WEBP TEST
@@ -160,6 +161,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Post Content Table
   initTOC();
+
+  // Before-After Slider
+  initBeforeAfter();
 
   SELECTORS.BODY.classList.add(CLASSES.LOADED);
 });
