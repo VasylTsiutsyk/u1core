@@ -47,6 +47,19 @@
             <ul class="menu__list">
               <li>
                 <a href="/service">Services</a>
+
+                <button
+                  class="menu__arrow"
+                  aria-label="Expand Submenu"
+                  data-menu-arrow
+                ></button>
+
+                <!-- <include
+                  src="html/layout/_header-menu-sublist.html"
+                  locals='{
+                    "bemClasses": "menu__sublist"
+                  }'
+                ></include> -->
               </li>
 
               <li>
@@ -59,24 +72,6 @@
 
               <li>
                 <a href="/careers">Careers</a>
-
-                <button
-                  class="menu__arrow"
-                  aria-label="Expand Submenu"
-                  data-menu-arrow
-                ></button>
-
-                <div class="menu__sublist">
-                  <ul class="menu__sublist-inner">
-                    <li>
-                      <a href="#">Item</a>
-                    </li>
-
-                    <li>
-                      <a href="#">Item</a>
-                    </li>
-                  </ul>
-                </div>
               </li>
             </ul>
           </nav>
