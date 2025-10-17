@@ -90,6 +90,14 @@
   &--xl {
     max-width: var(--container-xl);
   }
+
+  &--fluid {
+    --container: 100%;
+
+    @include respond-above(2xl) {
+      --container-padding: #{rem(32)};
+    }
+  }
 }
 
 /* Section offset, immit container */

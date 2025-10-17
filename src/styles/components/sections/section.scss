@@ -30,6 +30,14 @@
     }
   }
 
+  &--no-spaced {
+    --section-py: 0;
+  }
+
+  &--cd-group {
+    --section-py: #{fluid(80, 64)};
+  }
+
   &__wrap {
     position: relative;
     z-index: 9;
@@ -185,6 +193,12 @@
           }
         }
       }
+    }
+  }
+
+  &__group {
+    &:not(:last-child) {
+      margin-block-end: fluid(64, 48);
     }
   }
 }
