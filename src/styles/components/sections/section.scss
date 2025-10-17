@@ -34,6 +34,10 @@
     --section-py: 0;
   }
 
+  &--space-sm {
+    --section-py: #{fluid(40, 32)};
+  }
+
   &--cd-group {
     --section-py: #{fluid(80, 64)};
   }
@@ -82,6 +86,24 @@
       > .need-card {
         min-height: 100%;
       }
+    }
+  }
+
+  &__timeline-cards {
+    display: grid;
+    gap: fluid(28, 24);
+    grid-template-columns: var(--grid-3);
+
+    @include respond-below(md) {
+      grid-template-columns: var(--grid-2);
+    }
+
+    @include respond-below(sm) {
+      grid-template-columns: var(--grid-1);
+    }
+
+    &:not(:last-child) {
+      margin-block-end: fluid(56, 32);
     }
   }
 

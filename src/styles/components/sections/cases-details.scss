@@ -210,6 +210,10 @@
     justify-content: space-between;
     gap: 1rem;
 
+    &--vertical {
+      flex-direction: column;
+    }
+
     &:not(:first-child) {
       padding-block-start: rem(16);
     }
@@ -222,6 +226,12 @@
 
   &__label {
     color: var(--color-basic-white-30);
+
+    &--decored {
+      color: var(--color-primary);
+
+      @include title-h2;
+    }
   }
 
   &__value {

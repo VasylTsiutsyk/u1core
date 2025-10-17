@@ -1,0 +1,53 @@
+<section class="section section--space-sm" aria-labelledby="sectionTitle">
+  <h2 class="sr-only" id="sectionTitle">Project Timeline</h2>
+
+  <div class="section__container container">
+    <div class="section__wrap">
+      <ul class="section__timeline-cards">
+        <li>
+          <include
+            src="@components/cards/_need-card.html"
+            locals='{
+              "id": "01",
+              "img": "@img/cases-inner/timeline-01.svg",
+              "title": "Discovery",
+              "time": "5 days",
+              "description": "We work with startups at various stages, from seed funding to Series B. We understand that speed is crucial in the early phases, and we offer the expertise and resources to quickly transform."
+            }'
+          ></include>
+        </li>
+
+        <li>
+          <include
+            src="@components/cards/_need-card.html"
+            locals='{
+              "id": "02",
+              "img": "@img/cases-inner/timeline-02.svg",
+              "title": "Design",
+              "time": "80 days",
+              "description": "We work with startups at various stages, from seed funding to Series B. We understand that speed is crucial in the early phases, and we offer the expertise and resources to quickly transform."
+            }'
+          ></include>
+        </li>
+
+        <li>
+          <include
+            src="@components/cards/_need-card.html"
+            locals='{
+              "id": "03",
+              "img": "@img/cases-inner/timeline-03.svg",
+              "title": "Development",
+              "time": "10 days",
+              "description": "We work with startups at various stages, from seed funding to Series B. We understand that speed is crucial in the early phases, and we offer the expertise and resources to quickly transform."
+            }'
+          ></include>
+        </li>
+      </ul>
+
+      <include
+        src="@components/general/_project-timeline.html"
+        locals="{}"
+      ></include>
+    </div>
+  </div>
+</section>

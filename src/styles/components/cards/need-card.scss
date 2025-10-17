@@ -9,6 +9,14 @@
   padding: rem(32);
   background-color: var(--color-basic-white-5);
 
+  &:has(.need-card__time) {
+    .need-card__title {
+      &:not(:last-child) {
+        margin-block-end: rem(8);
+      }
+    }
+  }
+
   &__icon {
     &:not(:last-child) {
       margin-block-end: fluid(32, 24);
@@ -20,6 +28,17 @@
 
     &:not(:last-child) {
       margin-block-end: rem(28);
+    }
+  }
+
+  &__time {
+    font-size: fluid(24, 18);
+    font-weight: var(--display-font-weight);
+    line-height: var(--display-line-height);
+    color: var(--color-basic-white-50);
+
+    &:not(:last-child) {
+      margin-block-end: fluid(28, 16);
     }
   }
 }

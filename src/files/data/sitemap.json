@@ -32,7 +32,12 @@
   {
     "url": "/cases.html",
     "title": "Cases",
-    "status": "in progress"
+    "status": "done"
+  },
+  {
+    "url": "/cases-inner.html",
+    "title": "Cases",
+    "status": "done"
   },
   {
     "url": "/privacy-policy.html",
