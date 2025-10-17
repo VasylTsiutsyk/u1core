@@ -86,6 +86,50 @@
     background-color: var(--card-bg-color);
   }
 
+  &__row {
+    --col-width: 100%;
+    --col-gap: 1rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-inline: calc(var(--col-gap) / 2 * -1);
+    row-gap: var(--col-gap);
+
+    @include respond-above(md) {
+      --col-width: 50%;
+      --col-gap: 2rem;
+    }
+
+    @include respond-above(2xl) {
+      --col-gap: 4rem;
+    }
+  }
+
+  &__col {
+    flex: 0 0 var(--col-width);
+    max-width: var(--col-width);
+    padding-inline: calc(var(--col-gap) / 2);
+
+    &--text {
+      @include respond-above(md) {
+        --col-width: 54%;
+      }
+    }
+
+    &--media {
+      @include respond-above(md) {
+        --col-width: 46%;
+      }
+    }
+  }
+
+  &__review-badge {
+    &:not(:last-child) {
+      margin-block-end: rem(24);
+    }
+  }
+
   &__ico {
     display: flex;
     align-items: center;
@@ -102,10 +146,18 @@
     }
   }
 
+  &__text {
+
+  }
+
   &__description {
     font-size: rem(18);
     font-weight: 500;
     line-height: 1.4;
     letter-spacing: var(--body-letter-spacing);
+
+    &:not(:last-child) {
+      margin-block-end: var(--card-gap);
+    }
   }
 }

@@ -1,0 +1,27 @@
+@use '@styles/helpers' as *;
+
+/* Btn Play */
+.btn-play {
+  --btn-size: #{rem(64)};
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: none;
+  border-radius: var(--btn-size);
+  width: var(--btn-size);
+  height: var(--btn-size);
+  background-color: var(--color-basic-white-10);
+  color: var(--color-white);
+  transition: background-color var(--transition-duration);
+  backdrop-filter: blur(1.5rem);
+
+  &:not(:disabled) {
+    cursor: pointer;
+
+    @include hover {
+      background-color: var(--color-basic-white-5);
+    }
+  }
+}

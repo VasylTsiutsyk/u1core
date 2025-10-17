@@ -176,6 +176,17 @@
   }
 }
 
+/* Description Text */
 .desc-text {
   color: var(--color-basic-white-60);
+
+  @include text-regular;
+
+  &--white {
+    color: var(--color-basic-white-100);
+  }
+
+  *:not(:last-child) {
+    margin-block-end: 1em;
+  }
 }

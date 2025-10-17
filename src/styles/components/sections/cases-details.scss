@@ -1,0 +1,132 @@
+@use '@styles/helpers' as *;
+
+/* Section Cases Details */
+.section-cases-details {}
+
+.cd-top {
+  position: relative;
+  overflow: hidden;
+
+  &__wrap {
+    padding-block: fluid(48, 32) rem(64);
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: rem(24);
+  }
+
+  &__col {
+    &--text {
+      max-width: rem(796);
+    }
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-block-end: fluid(32, 16);
+    }
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(8) fluid(24, 8);
+  }
+}
+
+.cd-middle {
+  position: relative;
+  overflow: hidden;
+
+  &__img {
+    picture {
+      display: contents;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.cd-bottom {
+  position: relative;
+  overflow: hidden;
+
+  &__wrap {
+    padding-block: fluid(66, 40) fluid(48, 32);
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: rem(40) rem(24);
+  }
+
+  &__col {
+    @include respond-below(md) {
+      flex: 0 0 100%;
+    }
+
+    &--main {
+      max-width: rem(796);
+    }
+  }
+
+  &__title {
+    color: var(--color-basic-white-50);
+
+    &:not(:last-child) {
+      border-block-end: rem(1) solid var(--color-basic-white-5);
+      margin-block-end: fluid(32, 24);
+      padding-block-end: fluid(32, 24);
+    }
+
+    strong {
+      font-weight: inherit;
+      color: var(--color-basic-white-100);
+    }
+  }
+
+  &__metas {
+    &:not(:last-child) {
+      margin-block-end: fluid(120, 40);
+    }
+  }
+
+  &__review-badge {
+    @include respond-below(md) {
+      max-width: fit-content;
+      margin-inline: auto;
+    }
+  }
+}
+
+.cd-bottom-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: rem(12);
+  color: var(--color-basic-white-30);
+
+  @include text-regular;
+
+  &__value {
+    font-weight: 500;
+
+    @include when-is(a) {
+      text-decoration: underline;
+      color: var(--color-primary);
+
+      @include hover {
+        text-decoration: none;
+      }
+    }
+  }
+}

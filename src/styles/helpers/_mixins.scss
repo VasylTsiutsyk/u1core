@@ -381,25 +381,3 @@ $map-for-directions: (
   font-weight: var(--h4-font-weight);
   line-height: var(--h4-line-height);
 }
-
-@mixin text-regular {
-  font-family: var(--body-font-family);
-  font-size: var(--body-font-size);
-  font-weight: var(--body-font-weight);
-  line-height: 1.4;
-  letter-spacing: var(--body-letter-spacing);
-}
-
-@mixin text-sm {
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1.4;
-  letter-spacing: -0.005em;
-}
-
-@mixin text-lg {
-  font-size: var(--text-lg-font-size);
-  font-weight: 500;
-  line-height: 1.4;
-  letter-spacing: -0.005em;
-}

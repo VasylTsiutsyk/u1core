@@ -1,0 +1,62 @@
+<article class="quote-card quote-card--lg quote-card--shine">
+  <div class="quote-card__inner">
+    <div class="quote-card__row">
+      <div class="quote-card__col quote-card__col--text">
+        <div class="quote-card__text">
+          <include
+            src="@components/general/_review-badge.html"
+            locals='{
+              "bemClasses": "quote-card__review-badge",
+              "modeClasses": "review-badge--clutch",
+              "rating": "5.0",
+              "logo": "@img/cases-inner/review-badge-logo-02.svg"
+            }'
+          ></include>
+
+          <blockquote class="quote-card__description">
+            <p>
+              “AI gives us a powerful opportunity to design more inclusive,
+              intuitive products — but only if we build it responsibly. When we
+              prioritize transparency, fairness, and ethical data use from the
+              start, we don’t just avoid risk — we create experiences people can
+              genuinely trust and feel good about.”
+            </p>
+          </blockquote>
+
+          <include
+            src="@components/ui/_author-badge.html"
+            locals='{
+              "id": "01",
+              "bemClasses": "quote-card__author",
+              "modeClasses": "author-badge--rounded author-badge--sm",
+              "img": "@img/cases-inner/review-author-01.jpg",
+              "name": "Dan Leitao",
+              "role": "CEO at GummyAlt"
+            }'
+          ></include>
+        </div>
+      </div>
+
+      <div class="quote-card__col quote-card__col--media">
+        <figure class="quote-card__video-block video-block">
+          <img
+            src="@img/cases-inner/02.jpg"
+            alt=""
+            width="464"
+            height="261"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <button
+            role="button"
+            class="video-block__btn-play btn-play"
+            aria-label="Play Video"
+          >
+            <i class="icon-play" aria-hidden="true"></i>
+          </button>
+        </figure>
+      </div>
+    </div>
+  </div>
+</article>

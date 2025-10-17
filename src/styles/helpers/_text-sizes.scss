@@ -1,0 +1,79 @@
+@use 'sass:map';
+@use 'sass:meta';
+
+$font-families: (
+  body: var(--body-font-family),
+  heading: var(--display-font-family)
+);
+$font-sizes: (
+  body: var(--body-font-size),
+  sm:   var(--text-sm-font-size),
+  lg:   var(--text-lg-font-size)
+);
+$line-heights: (
+  body: var(--body-line-height),
+  sm:   var(--text-sm-line-height, var(--body-line-height)),
+  lg:   var(--text-lg-line-height, var(--body-line-height))
+);
+$letter-spacings: (
+  body: var(--body-letter-spacing),
+  sm:   var(--text-sm-letter-spacing, var(--body-letter-spacing)),
+  lg:   var(--text-lg-letter-spacing, var(--body-letter-spacing))
+);
+$weights: (
+  regular: var(--body-font-weight, 400),
+  medium:   500,
+  semibold: 600,
+  bold:     700
+);
+
+@function token($map, $key, $fallback: null) {
+  @return if(map.has-key($map, $key), map.get($map, $key), $fallback);
+}
+
+/// @param $size   body|sm|lg|<custom>
+/// @param $weight regular|medium|bold|<number>
+/// @param $family body|heading|<custom>
+/// @param $lh     null => бере з токенів
+/// @param $ls     null => бере з токенів
+///
+@mixin text(
+  $size: body,
+  $weight: regular,
+  $family: body,
+  $lh: null,
+  $ls: null
+) {
+  font-family: token($font-families, $family, var(--body-font-family));
+  font-size: token($font-sizes, $size, var(--body-font-size));
+  font-weight: if(meta.type-of($weight) == 'number', $weight, token($weights, $weight, 400));
+  -webkit-font-smoothing: antialiased;
+  line-height: if($lh == null, token($line-heights, $size, var(--body-line-height)), $lh);
+  letter-spacing: if($ls == null, token($letter-spacings, $size, var(--body-letter-spacing)), $ls);
+  text-rendering: optimizelegibility;
+  font-synthesis-weight: none;
+}
+
+@mixin text-regular {
+  @include text(body, regular);
+}
+
+@mixin text-regular-medium {
+  @include text(body, medium);
+}
+
+@mixin text-sm {
+  @include text(sm, regular);
+}
+
+@mixin text-sm-medium {
+  @include text(sm, medium);
+}
+
+@mixin text-lg {
+  @include text(lg, regular);
+}
+
+@mixin text-lg-medium {
+  @include text(lg, medium);
+}

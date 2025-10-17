@@ -1,7 +1,7 @@
 <template
   src="html/templates/main/main.html"
   locals='{
-		"title": "Cases | U1Core", 
+		"title": "Cases Inner | U1Core", 
 		"lang": "en",
 		"preloader": {
 			"enable": "false",
@@ -22,7 +22,13 @@
   <!-- Main Content -->
   <block name="main">
     <!-- Section 01: Main (done) -->
-    <include src="html/pages/cases/_01-main.html" locals="{}"></include>
+    <include src="html/pages/cases-inner/_01-main.html" locals="{}"></include>
+
+    <!-- Section 02: Video Quote (in progress) -->
+    <include
+      src="html/pages/cases-inner/_02-video-quote.html"
+      locals="{}"
+    ></include>
 
     <!-- Section 02: Discuss (done) -->
     <include

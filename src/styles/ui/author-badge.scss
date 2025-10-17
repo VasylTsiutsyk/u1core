@@ -1,0 +1,88 @@
+@use '@styles/helpers' as *;
+
+/* Author Badge */
+.author-badge {
+  --author-img-size: 4rem;
+
+  &--rounded {
+    .author-badge__img {
+      border-radius: var(--author-img-size);
+    }
+  }
+
+  &--sm {
+    --author-img-size: #{rem(62)};
+
+    .author-badge__name {
+      &:not(:last-child) {
+        margin-block-end: rem(4);
+      }
+    }
+
+    .author-badge__role {
+      font-size: rem(14);
+    }
+  }
+
+  &--xs {
+    --author-img-size: #{rem(40)};
+
+    .author-badge__name {
+      font-size: rem(14);
+
+      &:not(:last-child) {
+        margin-block-end: rem(1);
+      }
+    }
+
+    .author-badge__role {
+      font-size: rem(14);
+    }
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: rem(16);
+  }
+
+  &__img {
+    flex: 0 0 var(--author-img-size);
+    overflow: hidden;
+    border-radius: rem(18);
+    width: var(--author-img-size);
+    height: var(--author-img-size);
+
+    picture {
+      display: contents;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__text {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  &__name {
+    font-size: rem(18);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: var(--body-letter-spacing);
+
+    &:not(:last-child) {
+      margin-block-end: rem(8);
+    }
+  }
+
+  &__role {
+    color: var(--color-basic-white-60);
+  }
+}
