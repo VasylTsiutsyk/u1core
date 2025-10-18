@@ -56,11 +56,15 @@
 
         <div class="soc-proof-slide__author-btn-wrap">
           <include
-            src="@components/general/_review-author.html"
-            locals='{ 
-            "bemClasses": "soc-proof-slide__review-author",
-            "modeClasses": ""
-          }'
+            src="@components/ui/_author-badge.html"
+            locals='{
+              "id": "",
+              "bemClasses": "soc-proof-slide__review-author",
+              "modeClasses": "",
+              "img": "@img/industries/soc-proof/industries.jpg",
+              "name": "John Doe",
+              "role": "Head of Marketing"
+            }'
           ></include>
 
           <a href="#" class="btn btn--primary">

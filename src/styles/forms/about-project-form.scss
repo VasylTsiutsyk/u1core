@@ -64,4 +64,10 @@
       }
     }
   }
+
+  &__btn-box {
+    > .btn {
+      min-width: rem(140);
+    }
+  }
 }
