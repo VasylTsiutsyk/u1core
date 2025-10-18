@@ -1,12 +1,16 @@
 <article class="[[bemClasses]] review-card [[modeClasses]]">
-  <if condition="'[[imgAuthor]]' !== ''">
+  <if condition="'[[authorImg]]' !== ''">
     <div class="review-card__text review-card-text">
       <div class="review-card-text__header">
         <include
-          src="@components/general/_review-author.html"
+          src="@components/ui/_author-badge.html"
           locals='{ 
+            "id": "[[id]]",
             "bemClasses": "review-card__author",
-            "modeClasses": "review-author--round review-author--sm"
+            "modeClasses": "author-badge--rounded author-badge--sm",
+            "img": "[[authorImg]]",
+            "name": "[[authorName]]",
+            "role": "[[authorRole]]"
           }'
         ></include>
       </div>
@@ -45,15 +49,17 @@
         />
       </figure>
 
-      <figure class="review-card-media__company">
-        <img src="[[companyImg]]" alt="" loading="lazy" decoding="async" />
-      </figure>
+      <if condition="'[[companyImg]]' !== ''">
+        <figure class="review-card-media__company">
+          <img src="[[companyImg]]" alt="" loading="lazy" decoding="async" />
+        </figure>
+      </if>
 
       <div class="review-card-media__text">
         <div class="review-card-media__info">
-          <div class="review-card-media__name">[[name]]</div>
+          <div class="review-card-media__name">[[authorName]]</div>
 
-          <div class="review-card-media__role">[[role]]</div>
+          <div class="review-card-media__role">[[authorRole]]</div>
         </div>
 
         <button class="review-card-media__btn-play">

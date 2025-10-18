@@ -50,6 +50,18 @@
   &__company {
     position: absolute;
     z-index: 9;
+    left: fluid(30, 24);
+    top: fluid(30, 24);
+    overflow: hidden;
+    border-radius: rem(13);
+    padding: rem(12) rem(14);
+    background-color: var(--color-basic-black-40);
+
+    img {
+      display: block;
+      max-height: rem(22);
+      object-fit: contain;
+    }
   }
 
   &__text {

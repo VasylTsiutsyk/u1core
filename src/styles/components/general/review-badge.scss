@@ -2,7 +2,7 @@
 
 /* Review Badge */
 .review-badge {
-  --badge-arrow-size: #{rem(30)};
+  --badge-arrow-size: #{fluid(30, 24)};
 
   &__btn {
     display: inline-flex;
@@ -10,8 +10,8 @@
     vertical-align: top;
     border: rem(1) solid var(--color-basic-white-10);
     border-radius: rem(50);
-    min-height: rem(54);
-    padding: rem(8) rem(13) rem(8) rem(21);
+    min-height: fluid(54, 48);
+    padding: fluid(8, 6) rem(13) fluid(8, 6) rem(21);
     background-color: var(--color-basic-white-5);
     color: var(--color-basic-white-100);
     transition: border-color var(--transition-duration);
@@ -57,7 +57,10 @@
 
     img {
       vertical-align: top;
+      width: auto;
+      height: fluid(18, 16);
       min-height: 100%;
+      max-width: 100%;
       object-fit: contain;
     }
   }
@@ -66,7 +69,7 @@
     display: flex;
     align-items: center;
     gap: rem(6);
-    font-size: rem(20);
+    font-size: fluid(20, 18);
     font-weight: 600;
     line-height: 1.55;
     letter-spacing: -0.005em;
