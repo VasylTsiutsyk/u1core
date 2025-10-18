@@ -5,40 +5,55 @@
   --card-border-width: #{rem(1)};
   --card-px: #{fluid(80, 24)};
   --card-py: #{fluid(72, 40)};
-  --card-bg-color: var(--color-basic-black-100);
+  --card-bg-color: var(--color-basic-black-50);
+  --card-bd-filter: blur(4.75rem);
+  --card-decor-blur-size: 18.75vw;
 
   position: relative;
   display: block;
-  overflow: hidden;
   border-radius: rem(42);
-  backdrop-filter: blur(4.75rem);
 
-  &::after {
+  @include respond-below(md) {
+    --card-decor-blur-size: 40vw;
+  }
+
+  &::after,
+  &::before {
     content: '';
     position: absolute;
-    inset: 0;
-    border: var(--card-border-width) solid transparent;
-    border-radius: inherit;
-    background:
-      linear-gradient(to right, var(--card-bg-color), var(--card-bg-color)) content-box,
-      conic-gradient(
-        from var(--angle),
-        var(--color-primary) 0deg,
-        var(--color-basic-white-5) 45deg,
-        var(--color-basic-white-5) 90deg,
-        var(--color-white) 135deg,
-        var(--color-basic-white-5) 180deg,
-        var(--color-basic-white-5) 220deg,
-        var(--color-primary) 360deg
-      )
-      border-box;
+    z-index: -1;
+    border-radius: var(--card-decor-blur-size);
+    width: var(--card-decor-blur-size);
+    height: var(--card-decor-blur-size);
+    filter: blur(9.375rem);
     pointer-events: none;
+  }
+
+  &::before {
+    left: 0;
+    bottom: 0;
+    background-color: var(--color-primary);
+    opacity: 0.4;
+  }
+
+  &::after {
+    right: 0;
+    top: 0;
+    background: var(--color-basic-white-100);
+    opacity: 0.2;
+    transform: translate(15%, -30%);
   }
 
   &__inner {
     position: relative;
     z-index: 9;
+    overflow: hidden;
+    border: rem(1) solid transparent;
+    border-radius: inherit;
     padding: var(--card-py) var(--card-px);
+    background-clip: padding-box;
+    background-color: var(--card-bg-color);
+    backdrop-filter: var(--card-bd-filter);
   }
 
   &__row {
@@ -69,7 +84,6 @@
 
   &__description {
     font-size: fluid(16, 14);
-    color: var(--color-basic-white-60);
 
     &:not(:last-child) {
       margin-block-end: rem(26);

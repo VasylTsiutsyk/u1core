@@ -11,6 +11,10 @@
     flex-direction: column-reverse;
   }
 
+  &[data-service-card] {
+    cursor: pointer;
+  }
+
   &._active {
     .ext-service-card__header {
       @include respond-above(md) {
