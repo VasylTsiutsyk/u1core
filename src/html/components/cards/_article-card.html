@@ -24,10 +24,13 @@
     </h3>
 
     <include
-      src="@components/general/_review-author.html"
+      src="@components/ui/_author-badge.html"
       locals='{
         "bemClasses": "article-card__author",
-        "modeClasses": "review-author--rounded review-author--xs"
+        "modeClasses": "author-badge--xs author-badge--rounded",
+        "img": "[[authorImg]]",
+        "name": "[[authorName]]",
+        "role": "[[authorRole]]"
       }'
     ></include>
   </div>

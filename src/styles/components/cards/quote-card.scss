@@ -10,6 +10,8 @@
   --card-bg-color: var(--color-basic-black-30);
 
   position: relative;
+  display: flex;
+  flex-direction: column;
 
   &--shine {
     --card-decor-blur-size: 12vw;
@@ -76,6 +78,7 @@
     position: relative;
     z-index: 9;
     display: flex;
+    flex: 1 1 auto;
     flex-direction: column;
     justify-content: space-between;
     gap: var(--card-gap);
