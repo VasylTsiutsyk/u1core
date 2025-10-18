@@ -1,0 +1,65 @@
+<div class="modal">
+  <div
+    class="modal__container"
+    role="dialog"
+    aria-modal="true"
+    data-modal-id="modalContactUs"
+  >
+    <button class="modal__close" aria-label="Close Modal">
+      <i class="icon-close" aria-hidden="true"></i>
+    </button>
+
+    <div class="modal__content">
+      <section
+        class="section-discuss section-discuss--no-spaced"
+        aria-labelledby="sectionDiscussTitle"
+      >
+        <div class="section-discuss__container">
+          <div class="section-discuss__wrap">
+            <div class="section-discuss__body">
+              <div class="section-discuss__row">
+                <div class="section-discuss__col section-discuss__col--aside">
+                  <include
+                    src="@components/cards/_book-call-card.html"
+                    locals='{ "classes": "section-discuss__book-call-card" }'
+                  ></include>
+                </div>
+
+                <div class="section-discuss__col section-discuss__col--main">
+                  <include
+                    src="@components/forms/_about-project-form.html"
+                    locals='{ "classes": "section-discuss__about-project-form" }'
+                  ></include>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div
+    class="modal__container"
+    role="dialog"
+    aria-modal="true"
+    data-modal-id="modalAppointment"
+  >
+    <button class="modal__close" aria-label="Close Modal">
+      <i class="icon-close" aria-hidden="true"></i>
+    </button>
+
+    <div class="modal__content">
+      <section class="section section--no-spaced">
+        <div class="section__container">
+          <div class="section__wrap">
+            <include
+              src="@components/cards/_appointment-card.html"
+              locals="{}"
+            ></include>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

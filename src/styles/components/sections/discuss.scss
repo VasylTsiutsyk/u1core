@@ -2,6 +2,10 @@
 
 /* Section Discuss */
 .section-discuss {
+  &--no-spaced {
+    --section-py: 0;
+  }
+
   &__wrap {
     padding-block: var(--section-py);
   }

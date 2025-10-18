@@ -120,11 +120,17 @@
   }
 
   &__calendar {
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
     border-radius: var(--card-border-radius);
     min-height: 100%;
     padding: var(--card-py) var(--card-px);
     background-color: var(--color-basic-white-100);
     color: var(--color-basic-black-100);
+
+    .fc {
+      flex: 1 1 auto;
+    }
   }
 }

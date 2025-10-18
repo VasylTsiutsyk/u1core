@@ -22,6 +22,30 @@
 
           <div class="section__body">
             <ol class="pages-list"></ol>
+
+            <h2 class="section-title">Modals</h2>
+
+            <ol class="pages-list">
+              <li>
+                <button
+                  class="btn btn--primary"
+                  data-modal-target="modalContactUs"
+                >
+                  <span class="btn__text">Contact Us</span>
+                  <i class="icon-chevron-right" aria-hidden="true"></i>
+                </button>
+              </li>
+
+              <li>
+                <button
+                  class="btn btn--primary"
+                  data-modal-target="modalAppointment"
+                >
+                  <span class="btn__text">Appointment</span>
+                  <i class="icon-chevron-right" aria-hidden="true"></i>
+                </button>
+              </li>
+            </ol>
           </div>
         </div>
       </div>
@@ -44,5 +68,9 @@
         container.append(li);
       });
     </script>
+  </block>
+
+  <block name="popup">
+    <include src="html/layout/_modals.html" locals="{}"></include>
   </block>
 </template>

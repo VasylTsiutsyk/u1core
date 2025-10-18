@@ -25,6 +25,7 @@ import initContentTabs from './modules/content-tabs';
 import initTOC from './modules/content-table';
 import { initBeforeAfter } from './modules/before-after';
 import initAsideVideo from './modules/aside-video';
+import Modal from './modules/modal';
 
 document.addEventListener('DOMContentLoaded', () => {
   // IS WEBP TEST
@@ -66,10 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // TABS
   // import initTabs from './modules/tabs';
   // initTabs();
-
-  // MODALS
-  // import Modal from './modules/modal';
-  // new Modal();
 
   // GOOGLE MAPS
   // import initMaps from './modules/map';
@@ -168,6 +165,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Before-After Slider
   initBeforeAfter();
+
+  // MODALS
+  new Modal({
+    isOpen: () => {
+      initCalendars();
+    },
+  });
 
   SELECTORS.BODY.classList.add(CLASSES.LOADED);
 });
