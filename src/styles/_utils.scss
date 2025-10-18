@@ -45,7 +45,7 @@
     pointer-events: none;
     transition:
       visibility var(--transition-duration),
-      opacity var(--transition-duration);
+      opacity var(--transition-duration) 0.1s;
 
     &--01 {
       left: 50%;
@@ -103,6 +103,10 @@
       bottom: 15.5%;
       opacity: 0.35;
       transform: translateX(0%);
+    }
+
+    &:not(.aos-animate) {
+      opacity: 0;
     }
   }
 
