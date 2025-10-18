@@ -10,6 +10,10 @@
   align-items: center;
   gap: var(--soc-gap);
 
+  &--centered {
+    justify-content: center;
+  }
+
   > li {
     > a {
       display: flex;

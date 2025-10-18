@@ -54,12 +54,12 @@
                   data-menu-arrow
                 ></button>
 
-                <!-- <include
+                <include
                   src="html/layout/_header-menu-sublist.html"
                   locals='{
                     "bemClasses": "menu__sublist"
                   }'
-                ></include> -->
+                ></include>
               </li>
 
               <li>
@@ -74,6 +74,18 @@
                 <a href="/careers">Careers</a>
               </li>
             </ul>
+
+            <div class="menu__btn-box">
+              <a href="/contact-us" class="btn btn--primary">
+                <span class="btn__text">Contact us</span>
+                <i class="icon-chevron-right" aria-hidden="true"></i>
+              </a>
+
+              <include
+                src="@components/general/_soc.html"
+                locals='{ "classes": "menu__soc soc--centered" }'
+              ></include>
+            </div>
           </nav>
         </div>
 
