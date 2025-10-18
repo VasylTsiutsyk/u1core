@@ -24,6 +24,7 @@ import { initPartnershipsMap } from './modules/partnership-map';
 import initContentTabs from './modules/content-tabs';
 import initTOC from './modules/content-table';
 import { initBeforeAfter } from './modules/before-after';
+import initAsideVideo from './modules/aside-video';
 
 document.addEventListener('DOMContentLoaded', () => {
   // IS WEBP TEST
@@ -120,6 +121,9 @@ document.addEventListener('DOMContentLoaded', () => {
     isScrolled: true,
     isHidden: true,
   });
+
+  // Aside Video
+  initAsideVideo();
 
   // Copyright
   initCopyright();
