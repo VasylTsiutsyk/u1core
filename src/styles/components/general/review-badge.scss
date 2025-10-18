@@ -44,7 +44,9 @@
 
   &__logo {
     display: flex;
+    flex-direction: column;
     align-self: stretch;
+    justify-content: center;
     max-width: rem(124);
 
     &:not(:last-child) {
@@ -58,9 +60,9 @@
     img {
       vertical-align: top;
       width: auto;
-      height: fluid(18, 16);
-      min-height: 100%;
+      min-height: fluid(18, 16);
       max-width: 100%;
+      max-height: fluid(26, 20);
       object-fit: contain;
     }
   }
