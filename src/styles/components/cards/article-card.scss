@@ -45,6 +45,10 @@
   }
 
   &__title {
+    font-family: var(--body-font-family);
     font-size: rem(20);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: var(--body-letter-spacing);
   }
 }
