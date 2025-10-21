@@ -12,7 +12,15 @@
     </figure>
 
     <div class="benefit-card__text">
-      <h3 id="benefitCard[[id]]Title" class="benefit-card__title">[[title]]</h3>
+      <h3 id="benefitCard[[id]]Title" class="benefit-card__title">
+        <span>[[title]]</span>
+        <if condition="'[[hasTooltip]]' === 'true'">
+          <button
+            type="button"
+            data-tippy="We offer a 14-day trial with a money-back guarantee. Pay 50%, see results in 10 days, request adjustments if needed. If unsatisfied, discontinue before final delivery for refund."
+          ></button>
+        </if>
+      </h3>
 
       <div class="benefit-card__description">
         <p>[[description]]</p>

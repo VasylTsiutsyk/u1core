@@ -26,6 +26,7 @@ import initTOC from './modules/content-table';
 import { initBeforeAfter } from './modules/before-after';
 import initAsideVideo from './modules/aside-video';
 import Modal from './modules/modal';
+import initTooltips from './modules/tooltip';
 
 document.addEventListener('DOMContentLoaded', () => {
   // IS WEBP TEST
@@ -172,6 +173,9 @@ document.addEventListener('DOMContentLoaded', () => {
       initCalendars();
     },
   });
+
+  // Tooltip
+  initTooltips();
 
   SELECTORS.BODY.classList.add(CLASSES.LOADED);
 });

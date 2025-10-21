@@ -1,0 +1,29 @@
+@use '@styles/helpers' as *;
+
+[data-tippy] {
+  --btn-size: #{rem(32)};
+
+  display: inline-block;
+  border: none;
+  width: var(--btn-size);
+  height: var(--btn-size);
+  background: transparent url('@img/icons/question-info.svg') no-repeat center / 85% auto;
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+.tippy-box {
+  &[data-theme~='light-border'] {
+    border-radius: rem(24);
+    background-color: var(--color-basic-black-100);
+    color: var(--color-white);
+
+    @include text-regular;
+  }
+
+  .tippy-content {
+    padding: rem(18);
+  }
+}
