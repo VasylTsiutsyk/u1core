@@ -2,12 +2,29 @@
 
 /* Money Back Guarantee */
 .mbg-card {
+  --card-border-radius: var(--border-radius-28);
+  --card-bg-color: var(--color-basic-black-20);
+  --card-text-color: var(--color-basic-white-100);
+  --card-bd-filter: blur(0);
+
   position: relative;
   overflow: hidden;
-  border-radius: var(--border-radius-28);
-  padding: rem(206) rem(24) rem(42);
-  background: url('@img/industries/money-back-guarantee/bg.svg') no-repeat center / cover;
+  border: rem(1) solid transparent;
+  border-radius: var(--card-border-radius);
   text-align: center;
+
+  @include hover {
+    .mbg-card__blur {
+      &::before,
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  @include respond-below(md) {
+    --card-border-radius: var(--border-radius-32);
+  }
 
   &::after {
     content: '';
@@ -15,6 +32,54 @@
     inset: 0;
     background: url('@img/industries/money-back-guarantee/deocr.svg') no-repeat center top 10% / 36% auto;
     pointer-events: none;
+
+    @include respond-below(md) {
+      background-size: 75% auto;
+    }
+  }
+
+  &__blur {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+
+    &::before,
+    &::after {
+      --size: 54.4vw;
+
+      content: '';
+      position: absolute;
+      bottom: 0;
+      border-radius: var(--size);
+      width: var(--size);
+      height: calc(var(--size) * 0.7872);
+      background-color: var(--color-primary);
+      opacity: 0.7;
+      filter: blur(9.375rem);
+      transition: opacity var(--transition-duration);
+    }
+
+    &::before {
+      left: 0;
+      transform: translateX(-50%) translateY(100%);
+    }
+
+    &::after {
+      right: 0;
+      transform: translateX(50%) translateY(100%);
+    }
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 9;
+    overflow: hidden;
+    border-radius: var(--card-border-radius);
+    padding: fluid(206, 176) rem(24) fluid(42, 32);
+    background-color: var(--card-bg-color);
+    color: var(--card-text-color);
+    backdrop-filter: var(--card-bd-filter);
   }
 
   &__content {
@@ -25,6 +90,8 @@
   }
 
   &__badge {
+    --badge-icon-size: #{rem(24)};
+
     display: inline-flex;
     align-items: center;
     gap: rem(8);
@@ -35,13 +102,26 @@
     @include text-sm;
 
     &:not(:last-child) {
-      margin-block-end: rem(24);
+      margin-block-end: fluid(24, 14);
+    }
+
+    picture {
+      display: contents;
+    }
+
+    img {
+      flex: 0 0 var(--badge-icon-size);
+      width: var(--badge-icon-size);
+      height: var(--badge-icon-size);
+      object-fit: contain;
     }
   }
 
   &__title {
+    font-size: fluid(42, 30);
+
     &:not(:last-child) {
-      margin-block-end: rem(16);
+      margin-block-end: fluid(16, 14);
     }
   }
 
