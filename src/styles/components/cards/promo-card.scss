@@ -5,13 +5,28 @@
   --card-border-width: #{rem(1)};
   --card-px: #{fluid(80, 24)};
   --card-py: #{fluid(72, 40)};
-  --card-bg-color: var(--color-basic-black-50);
+  --card-bg-color: var(--color-basic-black-80);
   --card-bd-filter: blur(4.75rem);
   --card-decor-blur-size: 18.75vw;
+  --panel-glow: var(--color-primary);
 
   position: relative;
   display: block;
+  border: rem(1) solid transparent;
   border-radius: rem(42);
+  background:
+    linear-gradient(180deg, var(--color-basic-black-10), var(--color-basic-black-10)) padding-box,
+    radial-gradient(
+      220% 180% at 0% 100%,
+      color-mix(in oklab, var(--panel-glow) 80%, transparent),
+      color-mix(in oklab, var(--panel-glow) 20%, transparent) 25%,
+      transparent 60%
+    ) border-box,
+    radial-gradient(
+      220% 180% at 100% 0%,
+      color-mix(in oklab, var(--color-basic-white-100) 65%, transparent),
+      transparent 60%
+    ) border-box;
 
   @include respond-below(md) {
     --card-decor-blur-size: 40vw;
@@ -31,7 +46,7 @@
 
   &::before {
     left: 0;
-    bottom: 0;
+    bottom: -30%;
     background-color: var(--color-primary);
     opacity: 0.4;
   }
@@ -39,8 +54,8 @@
   &::after {
     right: 0;
     top: 0;
-    background: var(--color-basic-white-100);
-    opacity: 0.2;
+    background-color: var(--color-basic-white-100);
+    opacity: 0.35;
     transform: translate(15%, -30%);
   }
 
@@ -48,12 +63,14 @@
     position: relative;
     z-index: 9;
     overflow: hidden;
-    border: rem(1) solid transparent;
     border-radius: inherit;
     padding: var(--card-py) var(--card-px);
-    background-clip: padding-box;
     background-color: var(--card-bg-color);
     backdrop-filter: var(--card-bd-filter);
+
+    @include respond-below(md) {
+      padding-block-end: rem(24);
+    }
   }
 
   &__row {
@@ -77,6 +94,10 @@
   }
 
   &__title {
+    @include respond-below(md) {
+      font-family: var(--body-font-family);
+    }
+
     &:not(:last-child) {
       margin-block-end: rem(20);
     }
@@ -87,6 +108,10 @@
 
     &:not(:last-child) {
       margin-block-end: rem(26);
+
+      @include respond-below(md) {
+        margin-block-end: rem(62);
+      }
     }
   }
 
