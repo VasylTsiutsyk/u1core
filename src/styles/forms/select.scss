@@ -120,6 +120,7 @@
 
       &--dropdown,
       &[aria-expanded] {
+        z-index: 99;
         margin-top: rem(6);
         border: var(--select-border-width) solid var(--select-dropdown-border-color) !important;
         border-radius: var(--select-dropdown-border-radius);
