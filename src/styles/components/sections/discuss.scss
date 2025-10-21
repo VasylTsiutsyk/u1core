@@ -11,6 +11,10 @@
   }
 
   &__header {
+    @include respond-below(md) {
+      display: none;
+    }
+
     &:not(:last-child) {
       margin-block-end: fluid(64, 32);
     }
