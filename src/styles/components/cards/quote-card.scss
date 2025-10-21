@@ -8,14 +8,27 @@
   --card-gap: #{rem(32)};
   --card-ico-size: #{rem(32)};
   --card-bg-color: var(--color-basic-black-30);
+  --card-bd-filter: blur(4.75rem);
+  --card-glow: var(--color-primary);
 
   position: relative;
   display: flex;
   flex-direction: column;
+  border-radius: var(--card-border-radius);
 
   &--shine {
     --card-decor-blur-size: 12vw;
     --card-bg-color: var(--color-basic-black-50);
+
+    border: rem(1) solid transparent;
+    background:
+      linear-gradient(180deg, var(--color-basic-black-80), var(--color-basic-black-80)) padding-box,
+      radial-gradient(
+        220% 180% at 0% 100%,
+        color-mix(in oklab, var(--card-glow) 80%, transparent),
+        color-mix(in oklab, var(--card-glow) 20%, transparent) 25%,
+        transparent 60%
+      ) border-box;
 
     @include respond-below(md) {
       --card-decor-blur-size: 40vw;
@@ -48,7 +61,7 @@
     }
 
     .quote-card__inner {
-      backdrop-filter: blur(4.75rem);
+      backdrop-filter: var(--card-bd-filter);
     }
   }
 
@@ -84,7 +97,7 @@
     gap: var(--card-gap);
     overflow: hidden;
     border: rem(1) solid var(--color-basic-white-5);
-    border-radius: var(--card-border-radius);
+    border-radius: inherit;
     padding: var(--card-py) var(--card-py);
     background-color: var(--card-bg-color);
   }
