@@ -22,8 +22,6 @@
   line-height: 1.2;
   text-align: center;
   color: var(--btn-text-color);
-  opacity: 0;
-  visibility: hidden;
   transform: translate(var(--px, 0), var(--py, 0)) translate(-50%, -50%);
   will-change: transform, opacity;
   pointer-events: none;
@@ -34,6 +32,8 @@
   @include respond-below(md) {
     display: none;
   }
+
+  @include hide;
 
   &::after {
     content: '';
