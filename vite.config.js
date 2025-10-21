@@ -105,6 +105,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
           ...ignoredFiles.map(file => `**/${file}/**`),
         ],
       },
+      path: '/u1core/',
     },
     plugins: [
       // Робота з HTML

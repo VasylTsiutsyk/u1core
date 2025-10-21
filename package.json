@@ -30,6 +30,7 @@
     "autoprefixer": "latest",
     "cssnano": "latest",
     "fontmin": "latest",
+    "gh-pages": "^6.3.0",
     "glob": "latest",
     "gsap": "^3.13.0",
     "html2canvas": "latest",
