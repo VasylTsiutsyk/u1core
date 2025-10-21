@@ -23,12 +23,16 @@ function initSliders() {
   // Swiper Team
   // --------------------------------------------------------------------
   initSwiper('#swiperTeam', {
+    modules: [Autoplay],
     direction: 'horizontal',
-    speed: 800,
+    speed: 6000,
     slidesPerView: 1.75,
     spaceBetween: 28,
     centeredSlides: true,
     loop: true,
+    autoplay: {
+      delay: 1,
+    },
     breakpoints: {
       560: {
         slidesPerView: 2.75,

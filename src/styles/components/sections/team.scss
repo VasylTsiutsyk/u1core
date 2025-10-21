@@ -39,5 +39,11 @@
       right: 0;
       background-image: linear-gradient(to left, rgb(0 0 0 / 85%), transparent 100%);
     }
+
+    .swiper {
+      .swiper-wrapper {
+        transition-timing-function: linear !important;
+      }
+    }
   }
 }
