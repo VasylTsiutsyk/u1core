@@ -10,6 +10,8 @@
   }
 
   &__title {
+    position: relative;
+    z-index: 9;
     text-align: center;
 
     &:not(:last-child) {
@@ -18,6 +20,8 @@
   }
 
   &__description {
+    position: relative;
+    z-index: 9;
     max-width: rem(600);
     text-align: center;
     margin-inline: auto;
@@ -82,6 +86,8 @@
     padding-block: fluid(64, 48) var(--cards-offset);
 
     > li {
+      transform: translateY(0);
+
       &:nth-child(5n - 5),
       &:nth-child(5n - 2),
       &:nth-child(5n - 4) {
@@ -100,15 +106,13 @@
         circle at var(--x) var(--y),
         transparent 0,
         transparent var(--r),
-        var(--color-basic-black-100) 60%
+        var(--color-basic-black-100) 30%
       ),
       radial-gradient(
         180px 180px at var(--x) var(--y),
         rgb(255 216 79 / 18%),
         rgb(255 216 79 / 0%) 100%
       );
-
-    /* додаткове “гасіння” усього поля, щоб у центрі реально було світліше */
     mix-blend-mode: normal;
     will-change: background;
     pointer-events: none;
