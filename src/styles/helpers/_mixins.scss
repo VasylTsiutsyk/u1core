@@ -163,6 +163,19 @@ $max-width-container: var(--container); // Content max width
   }
 }
 
+@mixin no-scrollbar {
+  // For Internet Explorer and Edge
+  -ms-overflow-style: none;
+
+  // For Firefox
+  scrollbar-width: none;
+
+  // For Chrome, Safari, and Opera
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 // Triangle
 @mixin triangle($color, $direction, $size: 6px, $position: absolute, $round: false) {
   width: 0;
