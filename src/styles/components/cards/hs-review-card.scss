@@ -10,8 +10,16 @@
   color: var(--color-basic-white-50);
   transition: background-color var(--transition-duration);
 
-  @include hover {
-    background-color: var(--color-basic-white-10);
+  &:not(:disabled) {
+    cursor: pointer;
+
+    @include hover {
+      background-color: var(--color-basic-white-10);
+
+      .hs-review-card__rating {
+        color: var(--color-basic-white-100);
+      }
+    }
   }
 
   &__row {
@@ -24,6 +32,10 @@
     max-width: rem(40);
     max-height: rem(40);
 
+    picture {
+      display: contents;
+    }
+
     img {
       object-fit: contain;
     }
@@ -35,17 +47,16 @@
   }
 
   &__rating {
+    font-size: fluid(12, 10);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: rem(1);
+    white-space: nowrap;
+    color: var(--color-white-40);
+    transition: color var(--transition-duration);
+
     &:not(:last-child) {
       margin-block-end: rem(4);
-    }
-
-    img {
-      display: block;
-      width: auto;
-      height: auto;
-      max-width: 100%;
-      max-height: fluid(12, 8);
-      object-fit: contain;
     }
   }
 

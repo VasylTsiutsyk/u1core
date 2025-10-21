@@ -1,7 +1,7 @@
 @use '@styles/helpers' as *;
 
 [data-tippy] {
-  --btn-size: #{rem(32)};
+  --btn-size: #{fluid(32, 24)};
 
   display: inline-block;
   border: none;
