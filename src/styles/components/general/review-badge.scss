@@ -4,6 +4,25 @@
 .review-badge {
   --badge-arrow-size: #{fluid(30, 24)};
 
+  &--labelled {
+    .review-badge__btn {
+      border: none;
+      border-radius: rem(24);
+      min-height: rem(73);
+      padding: rem(18.75) rem(24);
+    }
+
+    .review-badge__logo {
+      &:not(:last-child) {
+        margin-inline-end: rem(16);
+
+        @include respond-below(md) {
+          margin-inline-end: rem(8);
+        }
+      }
+    }
+  }
+
   &__btn {
     display: inline-flex;
     align-items: center;
@@ -15,6 +34,10 @@
     background-color: var(--color-basic-white-5);
     color: var(--color-basic-white-100);
     transition: border-color var(--transition-duration);
+
+    &:not(:last-child) {
+      margin-block-end: rem(8);
+    }
 
     &:not(:disabled) {
       cursor: pointer;
@@ -68,23 +91,55 @@
   }
 
   &__rating {
-    display: flex;
-    align-items: center;
-    gap: rem(6);
-    font-size: fluid(20, 18);
-    font-weight: 600;
-    line-height: 1.55;
-    letter-spacing: -0.005em;
-
     &:not(:last-child) {
       margin-inline-end: rem(18);
     }
+  }
+
+  &__label {
+    display: block;
+    text-align: center;
+    color: var(--color-basic-white-60);
+
+    @include text-regular;
+  }
+}
+
+/* Review Badge Rating */
+.review-badge-rating {
+  display: flex;
+  align-items: center;
+  gap: rem(6);
+  font-size: fluid(20, 18);
+  font-weight: 600;
+  line-height: 1.55;
+  letter-spacing: var(--body-letter-spacing);
+
+  &--lg {
+    gap: rem(4) rem(24);
+    font-size: rem(30);
+
+    @include respond-below(md) {
+      gap: rem(4) rem(16);
+      font-size: rem(18);
+    }
+
+    .review-badge-rating__stars {
+      i {
+        @include respond-below(md) {
+          font-size: 80%;
+        }
+      }
+    }
+  }
+
+  &__stars {
+    margin-block-start: rem(-1);
 
     i {
       font-size: 70%;
       line-height: 1;
       color: var(--color-primary);
-      margin-block-start: -5%;
     }
   }
 }

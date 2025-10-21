@@ -102,8 +102,16 @@
 
   &__review-badge {
     @include respond-below(md) {
+      min-width: rem(281);
       max-width: fit-content;
       margin-inline: auto;
+    }
+
+    .review-badge__btn {
+      @include respond-below(md) {
+        justify-content: center;
+        min-width: 100%;
+      }
     }
   }
 }

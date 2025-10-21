@@ -157,6 +157,36 @@ h6,
   --font-size: #{rem(12)};
 }
 
+/* Title H3 */
 .title-h3 {
   font-size: fluid(42, 30);
+}
+
+/* Decor Link */
+.decor-link {
+  --link-decor-size: #{rem(6)};
+
+  display: inline-flex;
+  gap: rem(2);
+  font-size: rem(16);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: var(--body-letter-spacing);
+  text-decoration: underline;
+  color: var(--color-primary);
+
+  @include hover {
+    text-decoration: none;
+  }
+
+  &::after {
+    content: '';
+    display: inline-block;
+    border: solid var(--color-primary);
+    border-width: rem(1.2) rem(1.2) 0 0;
+    border-radius: rem(1.2);
+    width: var(--link-decor-size);
+    height: var(--link-decor-size);
+    margin-block-start: rem(2);
+  }
 }
