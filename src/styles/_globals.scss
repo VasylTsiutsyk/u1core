@@ -12,6 +12,10 @@ body {
   line-height: var(--body-line-height);
   color: var(--body-text-color);
 
+  &.is-sphere-cursor {
+    cursor: none;
+  }
+
   &:has(.preloader) {
     overflow: hidden;
   }

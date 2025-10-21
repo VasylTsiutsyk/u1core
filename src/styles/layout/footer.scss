@@ -41,7 +41,7 @@
   }
 
   &__wrap {
-    padding-block: var(--footer-py);
+    padding-block: var(--footer-py) 0;
   }
 }
 
@@ -150,7 +150,7 @@
 /* Footer Bottom */
 .footer-bottom {
   border-block-start: rem(1) solid var(--color-basic-white-10);
-  padding-block-start: var(--footer-group-py);
+  padding-block: var(--footer-group-py) var(--footer-py);
 
   &__row {
     display: flex;

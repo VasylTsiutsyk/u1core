@@ -27,6 +27,7 @@ import { initBeforeAfter } from './modules/before-after';
 import initAsideVideo from './modules/aside-video';
 import Modal from './modules/modal';
 import initTooltips from './modules/tooltip';
+import { initFooterBottomSphere } from './modules/scroll-sphere';
 
 document.addEventListener('DOMContentLoaded', () => {
   // IS WEBP TEST
@@ -176,6 +177,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Tooltip
   initTooltips();
+
+  // Scroll To Top Sphere
+  initFooterBottomSphere();
 
   SELECTORS.BODY.classList.add(CLASSES.LOADED);
 });
