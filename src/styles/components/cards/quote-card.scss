@@ -67,8 +67,8 @@
 
   &--lg {
     --card-border-radius: #{fluid(42, 28)};
-    --card-px: #{fluid(64, 32)};
-    --card-py: #{fluid(64, 32)};
+    --card-px: #{fluid(64, 28)};
+    --card-py: #{fluid(64, 28)};
     --card-gap: #{fluid(40, 32)};
     --card-ico-size: #{fluid(48, 32)};
 
@@ -83,6 +83,10 @@
     .quote-card__description {
       @include respond-above(md) {
         font-size: rem(20);
+      }
+
+      @include respond-below(md) {
+        font-size: rem(16);
       }
     }
   }
@@ -104,10 +108,10 @@
 
   &__row {
     --col-width: 100%;
-    --col-gap: 1rem;
+    --col-gap: #{rem(40)};
 
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
     align-items: center;
     margin-inline: calc(var(--col-gap) / 2 * -1);
     row-gap: var(--col-gap);

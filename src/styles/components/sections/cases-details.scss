@@ -145,6 +145,10 @@
   overflow: hidden;
   border-radius: var(--border-radius-28);
 
+  @include respond-below(md) {
+    border-radius: 0;
+  }
+
   picture {
     display: contents;
   }
@@ -279,6 +283,11 @@
     display: grid;
     gap: rem(32);
     grid-template-columns: var(--grid-2);
+
+    @include respond-below(md) {
+      gap: rem(28);
+      grid-template-columns: var(--grid-1);
+    }
   }
 
   &__col {

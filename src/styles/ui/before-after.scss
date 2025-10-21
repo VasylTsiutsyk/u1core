@@ -13,6 +13,12 @@
   border-radius: var(--border-radius-28);
   background-color: var(--color-basic-black-100);
 
+  @include respond-below(md) {
+    --ba-thumb-size: #{rem(48)};
+
+    border-radius: 0;
+  }
+
   &.is-dragging {
     --ba-transition: 0s;
   }
@@ -73,6 +79,10 @@
     inline-size: rem(4);
     inset-block: 0;
     inset-inline-start: 50%;
+
+    @include respond-below(md) {
+      inline-size: rem(2);
+    }
   }
 
   &__thumb {
@@ -90,6 +100,11 @@
     color: var(--color-basic-black-100);
     block-size: var(--ba-thumb-size);
     inline-size: var(--ba-thumb-size);
+
+    @include respond-below(md) {
+      font-size: rem(12);
+      font-weight: 600;
+    }
   }
 
   &__caption {

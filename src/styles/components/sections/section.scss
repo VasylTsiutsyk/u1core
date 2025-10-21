@@ -42,6 +42,14 @@
     --section-py: #{fluid(80, 64)};
   }
 
+  &--video-quote {
+    .section__wrap {
+      @include respond-below(md) {
+        --section-py: #{rem(64)};
+      }
+    }
+  }
+
   &__wrap {
     position: relative;
     z-index: 9;
@@ -221,6 +229,18 @@
   &__group {
     &:not(:last-child) {
       margin-block-end: fluid(64, 48);
+    }
+  }
+
+  &__cd-img {
+    @include respond-below(md) {
+      margin-inline: calc(var(--container-padding) * -1);
+    }
+  }
+
+  &__ba {
+    @include respond-below(md) {
+      margin-inline: calc(var(--container-padding) * -1);
     }
   }
 }
