@@ -4,6 +4,11 @@
 .section-partners {
   --section-slider-height: #{rem(36)};
 
+  position: relative;
+  z-index: 9;
+  background-color: var(--body-bg-color);
+  color: var(--body-text-color);
+
   @include respond-below(md) {
     --section-slider-height: #{rem(28)};
   }

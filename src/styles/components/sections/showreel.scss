@@ -13,10 +13,13 @@
     position: relative;
     overflow: hidden;
     border-radius: var(--border-radius-24);
-    min-height: 100svh;
     padding-bottom: 58.6735%;
     transform-origin: center center;
     will-change: transform;
+
+    @include respond-above(md) {
+      min-height: 100svh;
+    }
 
     video {
       position: absolute;

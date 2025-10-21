@@ -3,13 +3,7 @@
 /* Section Home Hero */
 .home-hero {
   &__wrap {
-    padding-block: fluid(68, 48) rem(71, 24);
-  }
-
-  &__header {
-    &:not(:last-child) {
-      margin-block-end: fluid(26, 18);
-    }
+    padding-block-start: fluid(68, 48);
   }
 
   &__img {
@@ -17,14 +11,8 @@
     max-width: fluid(400, 240);
     margin-inline: auto;
 
-    &::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 35%;
-      background: linear-gradient(0deg, #090909 45%, rgb(9 9 9 / 0%) 100%);
+    picture {
+      display: contents;
     }
 
     img {
@@ -33,12 +21,20 @@
     }
   }
 
-  &__title {
+  &__text {
     position: relative;
-    z-index: 9;
-    max-width: rem(892);
-    text-align: center;
-    margin-inline: auto;
+    padding-block-end: fluid(71, 24);
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: -20%;
+      bottom: 0;
+      width: 100%;
+      background-image: linear-gradient(0deg, var(--body-bg-color) 0%, var(--body-bg-color) 84%, transparent 100%);
+      pointer-events: none;
+    }
 
     &:not(:first-child) {
       margin-block-start: rem(-48);
@@ -49,7 +45,27 @@
     }
   }
 
+  &__header {
+    position: relative;
+    z-index: 9;
+
+    &:not(:last-child) {
+      margin-block-end: fluid(26, 18);
+    }
+  }
+
+  &__title {
+    position: relative;
+    z-index: 9;
+    max-width: rem(892);
+    text-align: center;
+    margin-inline: auto;
+  }
+
   &__body {
+    position: relative;
+    z-index: 9;
+
     &:not(:last-child) {
       margin-block-end: rem(28);
     }
@@ -64,6 +80,11 @@
     @include respond-below(md) {
       font-size: rem(14);
     }
+  }
+
+  &__footer {
+    position: relative;
+    z-index: 9;
   }
 
   &__btn-box {

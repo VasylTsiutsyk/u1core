@@ -22,25 +22,23 @@ export function initShowreelScale({
 
   // reduced motion
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    gsap.set(target, { clearProps: 'transform' });
+    gsap.set(target, { clearProps: 'transform, will-change' });
     return;
   }
 
   const mm = gsap.matchMedia();
 
-  const build = initialScale => {
+  mm.add('(min-width: 992px)', () => {
     const totalPercent = (holdRatio + animRatio) * 100;
 
     gsap.set(target, {
-      scale: initialScale,
+      scale: startScaleDesktop,
       transformOrigin: 'center center',
       willChange: 'transform',
     });
 
     const tl = gsap.timeline({
-      defaults: {
-        ease: 'none',
-      },
+      defaults: { ease: 'none' },
       scrollTrigger: {
         trigger: section,
         start,
@@ -52,21 +50,20 @@ export function initShowreelScale({
     });
 
     tl.to({}, { duration: holdRatio });
+    tl.to(target, { scale: 1, duration: animRatio });
 
-    tl.to(target, {
-      scale: 1,
-      duration: animRatio,
-    });
-  };
-
-  // desktop
-  mm.add('(min-width: 992px)', () => build(startScaleDesktop));
-
-  // mobile / tablet
-  mm.add('(max-width: 991.98px)', () => build(startScaleMobile));
-
-  window.addEventListener('load', () => ScrollTrigger.refresh(), {
-    once: true,
+    return () => gsap.set(target, { clearProps: 'transform, will-change' });
   });
-  window.addEventListener('resize', () => ScrollTrigger.refresh());
+
+  const debouncedRefresh = (() => {
+    let t;
+    return () => {
+      clearTimeout(t);
+      t = setTimeout(() => ScrollTrigger.refresh(), 150);
+    };
+  })();
+
+  window.addEventListener('load', debouncedRefresh, { once: true });
+  window.addEventListener('resize', debouncedRefresh);
+  window.addEventListener('orientationchange', debouncedRefresh);
 }
