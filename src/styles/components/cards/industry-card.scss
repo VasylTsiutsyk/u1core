@@ -3,9 +3,20 @@
 /* Industry Card */
 .industry-card {
   position: relative;
+  text-shadow: 0 0 0.25rem var(--color-basic-black-100);
   padding-block: fluid(24, 16);
 
   &._active {
+    z-index: 9;
+
+    .industry-card__info {
+      z-index: 9;
+    }
+
+    .industry-card__btn-box {
+      z-index: 9;
+    }
+
     .industry-card__img {
       opacity: 1;
       visibility: visible;
@@ -37,7 +48,7 @@
 
     @include respond-above(md) {
       position: absolute;
-      z-index: 19;
+      z-index: 8;
       left: 0;
       top: 0;
       transform: translate3d(var(--px, 0), var(--py, 0), 0) translate(-50%, -50%);
@@ -65,6 +76,7 @@
   }
 
   &__info {
+    position: relative;
     display: flex;
     flex: 1 1 auto;
     align-items: center;
@@ -89,5 +101,9 @@
     font-weight: 500;
     line-height: 1.4;
     color: var(--color-basic-white-60);
+  }
+
+  &__btn-box {
+    position: relative;
   }
 }
