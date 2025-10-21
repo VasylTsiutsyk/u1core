@@ -3,12 +3,14 @@
 /* Appointment Card */
 .appointment-card {
   --card-border-width: #{rem(1)};
-  --card-border-color: rgb(255 230 103 / 0%);
+  --card-border-color: transparent;
   --card-border-radius: #{rem(42)};
   --card-px: #{fluid(64, 24)};
   --card-py: #{fluid(80, 40)};
   --card-bg-color: var(--color-basic-black-50);
   --card-img-size: #{rem(120)};
+  --card-bd-filter: blur(4.75rem);
+  --card-glow: var(--color-primary);
 
   display: block;
   overflow: hidden;
@@ -16,8 +18,16 @@
   @include respond-above(md) {
     border: var(--card-border-width) solid var(--card-border-color);
     border-radius: var(--card-border-radius);
+    background:
+      linear-gradient(180deg, var(--color-basic-black-90), var(--color-basic-black-90)) padding-box,
+      radial-gradient(
+        220% 180% at 0% 100%,
+        color-mix(in oklab, var(--card-glow) 80%, transparent),
+        color-mix(in oklab, var(--card-glow) 20%, transparent) 25%,
+        transparent 60%
+      ) border-box;
     background-color: var(--card-bg-color);
-    backdrop-filter: blur(4.5rem);
+    backdrop-filter: var(--card-bd-filter);
   }
 
   @include respond-below(md) {
@@ -27,6 +37,8 @@
   &__row {
     --col-width: 100%;
 
+    position: relative;
+    z-index: 9;
     display: flex;
     flex-wrap: wrap;
 
@@ -54,6 +66,19 @@
     @include respond-below(md) {
       border: var(--card-border-width) solid var(--card-border-color);
       border-radius: var(--card-border-radius);
+      background:
+        linear-gradient(180deg, var(--color-basic-black-90), var(--color-basic-black-90)) padding-box,
+        radial-gradient(
+          220% 180% at 0% 100%,
+          color-mix(in oklab, var(--card-glow) 80%, transparent),
+          color-mix(in oklab, var(--card-glow) 20%, transparent) 25%,
+          transparent 60%
+        ) border-box,
+        radial-gradient(
+          220% 180% at 100% 0%,
+          color-mix(in oklab, var(--color-basic-white-100) 65%, transparent),
+          transparent 60%
+        ) border-box;
       background-color: var(--card-bg-color);
       backdrop-filter: blur(4.5rem);
     }
@@ -87,11 +112,16 @@
     line-height: 1.1;
 
     @include respond-below(md) {
+      font-family: var(--body-font-family);
       line-height: 1.2;
     }
 
     &:not(:last-child) {
       margin-block-end: rem(24);
+
+      @include respond-below(md) {
+        margin-block-end: rem(20);
+      }
     }
   }
 
