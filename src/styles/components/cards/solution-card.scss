@@ -44,6 +44,10 @@
     border: rem(1) solid var(--color-basic-white-10);
     border-radius: var(--border-radius-28);
 
+    picture {
+      display: contents;
+    }
+
     img {
       display: block;
       width: 100%;

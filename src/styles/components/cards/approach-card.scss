@@ -42,6 +42,10 @@
       margin-inline-start: auto;
     }
 
+    picture {
+      display: contents;
+    }
+
     img {
       display: block;
       width: 100%;

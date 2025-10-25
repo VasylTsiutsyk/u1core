@@ -60,6 +60,11 @@
   }
 
   &__img {
+    picture {
+      display: contents;
+    }
+
+
     img {
       display: block;
       width: 100%;

@@ -171,6 +171,10 @@ body {
     width: var(--set-img-size);
     height: var(--set-img-size);
 
+    picture {
+      display: contents;
+    }
+
     img {
       display: block;
       width: 100%;

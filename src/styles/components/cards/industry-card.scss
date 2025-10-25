@@ -65,6 +65,10 @@
       max-width: var(--img-width);
     }
 
+    picture {
+      display: contents;
+    }
+
     img {
       position: absolute;
       left: 0;

@@ -37,6 +37,10 @@
     border-radius: rem(20);
     padding-bottom: 127.78%;
 
+    picture {
+      display: contents;
+    }
+
     img {
       position: absolute;
       left: 0;

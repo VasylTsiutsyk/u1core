@@ -128,6 +128,10 @@
       max-width: rem(120);
     }
 
+    picture {
+      display: contents;
+    }
+
     img {
       vertical-align: top;
       object-fit: contain;

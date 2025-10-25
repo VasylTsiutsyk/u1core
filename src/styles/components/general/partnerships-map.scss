@@ -15,6 +15,10 @@
   &__img {
     display: block;
 
+    picture {
+      display: contents;
+    }
+
     img {
       display: block;
       width: 100%;

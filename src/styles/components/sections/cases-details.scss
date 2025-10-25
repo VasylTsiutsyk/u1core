@@ -302,6 +302,10 @@
     border-radius: var(--border-radius-16);
     height: 100%;
 
+    picture {
+      display: contents;
+    }
+
     img {
       display: block;
       width: 100%;
