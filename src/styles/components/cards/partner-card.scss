@@ -19,6 +19,10 @@
   &__img {
     height: var(--card-height);
 
+    picture {
+      display: contents;
+    }
+
     img {
       display: block;
       width: auto;
