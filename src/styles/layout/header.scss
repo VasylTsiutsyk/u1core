@@ -124,9 +124,12 @@
 
     span {
       min-width: 0;
+
+      @include text-truncate;
     }
 
     i {
+      flex-shrink: 0;
       min-width: 0;
       color: var(--color-primary);
     }
