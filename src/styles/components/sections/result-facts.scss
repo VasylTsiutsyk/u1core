@@ -50,6 +50,20 @@
     @include respond-below(md) {
       padding-bottom: rem(80);
     }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 35%;
+      height: 35%;
+      background-color: var(--color-primary);
+      opacity: 0.4;
+      filter: blur(9.375rem);
+      transform: translate(-50%, -40%);
+      pointer-events: none;
+    }
   }
 
   &__slider-navigation {
@@ -145,10 +159,11 @@
   position: relative;
   overflow: hidden;
   padding: rem(12);
-  background-color: var(--color-basic-black-100);
   color: var(--color-basic-white-100);
 
   &__row {
+    position: relative;
+    z-index: 9;
     display: flex;
     gap: rem(24);
   }

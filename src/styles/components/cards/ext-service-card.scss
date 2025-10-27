@@ -2,6 +2,9 @@
 
 /* Extended Service Card */
 .ext-service-card {
+  --card-glow: var(--color-primary);
+
+  position: relative;
   display: flex;
   overflow: hidden;
   border: rem(1) solid var(--color-basic-white-5);
@@ -11,28 +14,54 @@
     flex-direction: column-reverse;
   }
 
-  &[data-service-card] {
-    cursor: pointer;
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: rem(1) solid transparent;
+    border-radius: inherit;
+    background:
+      linear-gradient(180deg, var(--color-basic-black-90), var(--color-basic-black-90)) padding-box,
+      radial-gradient(
+        220% 180% at 0% 100%,
+        color-mix(in oklab, var(--card-glow) 80%, transparent),
+        color-mix(in oklab, var(--card-glow) 20%, transparent) 25%,
+        transparent 60%
+      ) border-box;
+    pointer-events: none;
+    transition:
+      visibility var(--transition-duration),
+      opacity var(--transition-duration);
+
+    @include hide;
   }
 
-  &._active {
-    .ext-service-card__header {
-      @include respond-above(md) {
-        grid-template-columns: 0fr;
+  &[data-service-card] {
+    cursor: pointer;
+
+    &._active {
+      &::after {
+        @include show;
       }
 
-      @include respond-below(md) {
-        grid-template-rows: 0fr;
-      }
-    }
+      .ext-service-card__header {
+        @include respond-above(md) {
+          grid-template-columns: 0fr;
+        }
 
-    .ext-service-card__body {
-      @include respond-above(md) {
-        grid-template-columns: 1fr;
+        @include respond-below(md) {
+          grid-template-rows: 0fr;
+        }
       }
 
-      @include respond-below(md) {
-        grid-template-rows: 1fr;
+      .ext-service-card__body {
+        @include respond-above(md) {
+          grid-template-columns: 1fr;
+        }
+
+        @include respond-below(md) {
+          grid-template-rows: 1fr;
+        }
       }
     }
   }
@@ -64,6 +93,8 @@
   }
 
   &__body {
+    position: relative;
+    z-index: 9;
     display: grid;
     flex: 1 1 auto;
 
