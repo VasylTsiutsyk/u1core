@@ -196,7 +196,7 @@
   --input-padding-x: #{rem(20)};
   --input-padding-y: 0.875rem;
   --input-font-size: 1rem;
-  --input-font-weight: 400;
+  --input-font-weight: var(--body-font-weight);
   --input-line-height: 1;
   --input-letter-spacing: -0.005em;
   --input-bg-color: var(--color-basic-white-5);
@@ -212,7 +212,7 @@
   --select-padding-x: #{rem(20)};
   --select-padding-y: 0.5rem;
   --select-font-size: 1rem;
-  --select-font-weight: 400;
+  --select-font-weight: var(--body-font-weight);
   --select-line-height: 1.4;
   --select-letter-spacing: #{rem(-0.08)};
   --select-bg-color: var(--color-basic-white-5);

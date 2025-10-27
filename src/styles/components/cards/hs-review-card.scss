@@ -10,6 +10,27 @@
   color: var(--color-basic-white-50);
   transition: background-color var(--transition-duration);
 
+  &--interact {
+    padding: fluid(26, 16) fluid(20, 12);
+
+    @include hover {
+      .hs-review-card__text {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hs-review-card__img {
+      margin-inline: auto;
+    }
+
+    .hs-review-card__text {
+      display: grid;
+      flex-grow: 0;
+      grid-template-columns: 0fr;
+      transition: grid-template-columns var(--transition-duration);
+    }
+  }
+
   &:not(:disabled) {
     cursor: pointer;
 
@@ -25,7 +46,6 @@
   &__row {
     display: flex;
     align-items: center;
-    gap: rem(14);
   }
 
   &__img {
@@ -44,6 +64,14 @@
   &__text {
     flex: 1 1 auto;
     min-width: 0;
+  }
+
+  &__text-inner {
+    overflow: hidden;
+  }
+
+  &__text-pad {
+    padding-inline-start: rem(14);
   }
 
   &__rating {

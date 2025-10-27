@@ -69,6 +69,10 @@
     transform: translateY(1rem);
   }
 
+  &._scroll-end {
+    --btn-text-color: var(--color-basic-white-100);
+  }
+
   &:not(:disabled) {
     cursor: pointer;
 

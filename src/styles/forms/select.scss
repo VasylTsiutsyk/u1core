@@ -107,6 +107,7 @@
       font-weight: var(--select-font-weight);
       line-height: var(--select-line-height);
       transition: border-color var(--transition-duration);
+      padding-block-start: calc((var(--select-height) - var(--select-font-size) * var(--select-line-height) - rem(10)) / 2);
       padding-inline-start: calc(var(--select-padding-x) - rem(5));
 
       @include hover {
