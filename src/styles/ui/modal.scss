@@ -68,6 +68,16 @@
     &.modal-open {
       display: inline-block;
     }
+
+    &--sm {
+      width: rem(600);
+      padding: fluid(48, 16) fluid(64, 16);
+
+      @include respond-below(sm) {
+        width: calc(100% - var(--container-padding) * 2);
+        padding-block-start: rem(56);
+      }
+    }
   }
 
   &__close {

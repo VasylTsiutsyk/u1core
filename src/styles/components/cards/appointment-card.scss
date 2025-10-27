@@ -36,6 +36,7 @@
 
   &--no-framed {
     @include respond-above(md) {
+      overflow: visible;
       border: none;
       border-radius: 0;
       background: none;
@@ -73,6 +74,12 @@
   &__col {
     flex: 0 0 var(--col-width);
     max-width: var(--col-width);
+
+    &--fluid {
+      @include respond-above(md) {
+        --col-width: 100%;
+      }
+    }
   }
 
   &__text {
@@ -100,6 +107,11 @@
         ) border-box;
       background-color: var(--card-bg-color);
       backdrop-filter: blur(4.5rem);
+    }
+
+    &--no-spaced {
+      overflow: visible;
+      padding: 0;
     }
   }
 
@@ -154,6 +166,10 @@
 
     &:not(:last-child) {
       margin-block-end: rem(26);
+    }
+
+    > *:not(:last-child) {
+      margin-block-end: 1em;
     }
   }
 
