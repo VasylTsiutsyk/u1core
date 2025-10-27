@@ -19,7 +19,21 @@ function initSwiper(selector, config) {
   return new Swiper(el, config);
 }
 
+// Swiper Header Banner
 function initSliders() {
+  initSwiper('#swiperHeaderBanner', {
+    modules: [Autoplay],
+    direction: 'vertical',
+    speed: 1000,
+    slidesPerView: 'auto',
+    spaceBetween: 28,
+    loop: true,
+    autoHeight: true,
+    autoplay: {
+      delay: 3000,
+    },
+  });
+
   // Swiper Team
   // --------------------------------------------------------------------
   initSwiper('#swiperTeam', {

@@ -1,15 +1,8 @@
 <header class="header [[classes]]">
-  <div class="header__top header-top">
-    <div class="header-top__container container">
-      <div class="header-top__wrap">
-        <div class="header-top__promo">
-          <i class="icon-shield-outline" aria-hidden="true"></i>
-          <span>14-Day Money-Back Guarantee</span>
-          <i class="icon-arrow-right" aria-hidden="true"></i>
-        </div>
-      </div>
-    </div>
-  </div>
+  <include
+    src="html/layout/_header-top.html"
+    locals='{ "bemClasses": "header__top" }'
+  ></include>
 
   <div class="header__bottom">
     <div class="header__container container">
