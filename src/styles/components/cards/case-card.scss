@@ -12,18 +12,35 @@
     --card-img-border-radius: var(--border-radius-20);
   }
 
-  @include hover {
-    --card-img-border-color: var(--color-basic-white-40);
+  &__inner {
+    display: block;
 
-    .case-card__img {
-      img {
-        transform: scale(1.1);
+    @include hover {
+      --card-img-border-color: var(--color-basic-white-40);
+
+      .case-card__img {
+        img {
+          transform: scale(1.1);
+        }
+      }
+
+      .case-card__tags {
+        @include respond-above(md) {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
     }
   }
 
-  &__inner {
+  &__img-wrap {
+    position: relative;
     display: block;
+    overflow: hidden;
+
+    &:not(:last-child) {
+      margin-block-end: 0.75rem;
+    }
   }
 
   &__img {
@@ -36,7 +53,9 @@
     transition: border-color var(--transition-duration);
 
     &:not(:last-child) {
-      margin-block-end: 0.75rem;
+      @include respond-below(md) {
+        margin-block-end: rem(16);
+      }
     }
 
     picture {
@@ -53,6 +72,25 @@
       object-fit: cover;
       will-change: transform;
       transition: transform var(--transition-duration-slow);
+    }
+  }
+
+  &__tags {
+    --tags-offset: #{rem(16)};
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(8);
+
+    @include respond-above(md) {
+      position: absolute;
+      left: var(--tags-offset);
+      bottom: var(--tags-offset);
+      opacity: 0;
+      transform: translateY(200%);
+      transition:
+        transform var(--transition-duration),
+        opacity var(--transition-duration);
     }
   }
 

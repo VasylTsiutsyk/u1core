@@ -172,6 +172,10 @@
               --select-checkmark-bg-color: var(--color-basic-white-100);
 
               color: var(--color-basis-white-100);
+
+              &::before {
+                background: var(--color-basic-white-100) url('@img/icons/checkmark.svg') no-repeat center / 70% auto;
+              }
             }
           }
 
