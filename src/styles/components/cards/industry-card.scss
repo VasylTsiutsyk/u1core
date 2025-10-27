@@ -2,11 +2,15 @@
 
 /* Industry Card */
 .industry-card {
+  --card-icon-size: 0;
+
   position: relative;
   text-shadow: 0 0 0.25rem var(--color-basic-black-100);
   padding-block: fluid(24, 16);
 
   &._active {
+    --card-icon-size: #{rem(28)};
+
     z-index: 9;
 
     .industry-card__info {
@@ -31,7 +35,7 @@
   }
 
   &__img {
-    --img-width: 30vw;
+    --img-width: #{fluid(548, 428)};
     --px: 0;
     --py: 0;
     --scale: 0.96;
@@ -42,9 +46,6 @@
     width: var(--img-width);
     height: calc(var(--img-width) * 0.6125);
     pointer-events: none;
-    transition:
-      visibility var(--transition-duration),
-      opacity var(--transition-duration);
 
     @include respond-above(md) {
       position: absolute;
@@ -90,6 +91,27 @@
     @include respond-below(md) {
       flex-direction: column;
       align-items: stretch;
+    }
+  }
+
+  &__icon {
+    flex: 0 0 var(--card-icon-size);
+    overflow: hidden;
+    width: var(--card-icon-size);
+    height: var(--card-icon-size);
+    transition:
+      flex-basis var(--transition-duration),
+      width var(--transition-duration);
+
+    picture {
+      display: contents;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      object-fit: contain;
     }
   }
 

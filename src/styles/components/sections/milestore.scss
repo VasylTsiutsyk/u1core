@@ -39,7 +39,7 @@
     }
 
     &--num {
-      max-width: rem(386);
+      max-width: fit-content;
     }
   }
 
@@ -57,11 +57,21 @@
   }
 
   &__num {
-    img {
-      display: block;
-      width: 100%;
-      height: auto;
-      object-fit: contain;
+    position: relative;
+    display: block;
+    max-width: fit-content;
+    background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-accent-yellow-15) 100%);
+    -webkit-background-clip: text;
+    font-size: fluid(220, 196);
+    font-weight: 400;
+    line-height: 0.8;
+    -webkit-text-stroke: rem(3) transparent;
+    color: var(--body-bg-color);
+    margin-inline-start: auto;
+
+    @include respond-below(md) {
+      font-size: rem(196);
+      line-height: 0.85;
     }
   }
 }

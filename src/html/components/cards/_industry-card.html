@@ -1,15 +1,31 @@
 <article class="industry-card" data-industry-card>
   <div class="industry-card__row">
     <figure class="industry-card__img" data-industry-card-img>
-      <img src="[[img]]" alt="" width="549" height="336" loading="lazy" />
+      <img
+        src="[[img]]"
+        alt=""
+        width="549"
+        height="336"
+        loading="lazy"
+        decoding="async"
+      />
     </figure>
 
     <div class="industry-card__info">
-      <h3 class="industry-card__title">
-        <if condition="'[[icon]]' !== ''">
-          <i class="[[icon]]" aria-hidden="true"></i>
-        </if>
+      <if condition="'[[icon]]' !== ''">
+        <figure class="industry-card__icon">
+          <img
+            src="[[icon]]"
+            alt=""
+            width="28"
+            height="28"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+      </if>
 
+      <h3 class="industry-card__title">
         <span>[[title]]</span>
       </h3>
 
