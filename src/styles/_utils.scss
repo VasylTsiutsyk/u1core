@@ -163,13 +163,6 @@
   }
 }
 
-/* Focus State */
-:focus-visible {
-  outline: rem(2) dashed var(--color-primary);
-  outline-offset: rem(4);
-  transition-duration: 0s !important;
-}
-
 /* Hiding class, making content visible only to screen readers but not visually */
 /* "sr" meaning "screen-reader" */
 .sr-only:not(:focus, :active) {
