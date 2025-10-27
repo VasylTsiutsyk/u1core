@@ -40,18 +40,23 @@
   }
 
   &__controls {
-    display: grid;
-    flex: 0 0 60%;
+    display: flex;
+    flex-wrap: wrap;
     gap: fluid(24, 16);
-    grid-template-columns: var(--grid-3);
 
-    @include respond-below(md) {
+    @include respond-below(xs) {
       flex: 0 0 100%;
-      grid-template-columns: var(--grid-2);
+      flex-direction: column;
     }
+  }
 
-    @include respond-below(sm) {
-      grid-template-columns: var(--grid-1);
+  &__control {
+    min-width: fluid(240, 180);
+    max-width: fluid(240, 180);
+
+    @include respond-below(xs) {
+      min-width: 100%;
+      max-width: 100%;
     }
   }
 

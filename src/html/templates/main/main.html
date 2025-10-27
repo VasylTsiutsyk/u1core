@@ -16,14 +16,16 @@
 
   <body>
     <div class="wrapper">
-      <div class="wrapper__blurs" aria-hidden="true">
-        <span class="wrapper__blur wrapper__blur--01" data-aos></span>
-        <span class="wrapper__blur wrapper__blur--02" data-aos></span>
-        <span class="wrapper__blur wrapper__blur--03" data-aos></span>
-        <span class="wrapper__blur wrapper__blur--04" data-aos></span>
-        <span class="wrapper__blur wrapper__blur--05" data-aos></span>
-        <span class="wrapper__blur wrapper__blur--06" data-aos></span>
-      </div>
+      <if condition="'[[blurs]]' !== 'false'">
+        <div class="wrapper__blurs" aria-hidden="true">
+          <span class="wrapper__blur wrapper__blur--01" data-aos></span>
+          <span class="wrapper__blur wrapper__blur--02" data-aos></span>
+          <span class="wrapper__blur wrapper__blur--03" data-aos></span>
+          <span class="wrapper__blur wrapper__blur--04" data-aos></span>
+          <span class="wrapper__blur wrapper__blur--05" data-aos></span>
+          <span class="wrapper__blur wrapper__blur--06" data-aos></span>
+        </div>
+      </if>
 
       <block name="header"></block>
 

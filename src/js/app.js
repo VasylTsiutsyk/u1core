@@ -39,61 +39,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // HEADER MOBILE MENU
   initMenu();
 
-  // Copyright
-  // import initCopyright from './modules/copyright';
-  // initCopyright();
-
-  // Input Password
-  // import initPasswordInputs from './modules/input-password';
-  // initPasswordInputs();
-
-  // Scroll To Links (without hash)
-  // import initScrollToLinks from './modules/scroll-to';
-  // initScrollToLinks();
-
-  // TIME COUNT
-  // initTimeCount();
-
-  // RANGE INPUT
-  // import initRangeInputs from './modules/range';
-  // initRangeInputs();
-
-  // DYNAMIC ADAPT
-  // import DynamicAdapt from './modules/dynamic-adapt';
-  // new DynamicAdapt().init();
-
-  // SELECTS
-  // import initSelects from './modules/selects';
-  // initSelects();
-
-  // TABS
-  // import initTabs from './modules/tabs';
-  // initTabs();
-
-  // GOOGLE MAPS
-  // import initMaps from './modules/map';
-  // initMaps();
-
   // ACCORDIONS
   initAccordions('.accordion', {
     showOnlyOne: true,
     closeOnClickOutside: true,
   });
 
-  // TOGGLES
-  // import initToggles from './modules/toggle';
-  // initToggles();
-
   // SPOILERS
-  // import initSpoilers from './modules/spoilers';
   initSpoilers();
 
   // SLIDERS
   initSliders();
-
-  // TOOLTIPS
-  // import initTooltips from './modules/tooltip';
-  // initTooltips();
 
   // LENIS (Smooth Scrolling)
   initLenisInstances();
@@ -105,14 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // ANIMATIONS
   initAosAnimations();
   initGSAPAnimations();
-
-  // IMG PARALLAX
-  // import initImgParallax from './modules/img-parallax';
-  // initImgParallax();
-
-  // DARK THEME
-  // import initDarkTheme from './modules/dark-theme';
-  // initDarkTheme();
 
   // HEADER SCROLLED STATE
   initHeader({

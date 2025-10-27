@@ -32,6 +32,19 @@ function initSelects() {
 
     // optionally save the instance for later use (destroy, update etc.)
     select._choicesInstance = choices;
+
+    select.addEventListener('showDropdown', () => {
+      const ddScroll = select
+        .closest('.choices')
+        ?.querySelector('.choices__list--dropdown .choices__list');
+
+      if (ddScroll) {
+        ddScroll.setAttribute('data-lenis-prevent', '');
+
+        ddScroll.style.overscrollBehavior = 'contain';
+        ddScroll.style.webkitOverflowScrolling = 'touch';
+      }
+    });
   });
 }
 
