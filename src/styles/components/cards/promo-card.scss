@@ -5,8 +5,8 @@
   --card-border-width: #{rem(1)};
   --card-px: #{fluid(80, 24)};
   --card-py: #{fluid(72, 40)};
-  --card-bg-color: var(--color-basic-black-80);
-  --card-bd-filter: blur(4.75rem);
+  --card-bg-color: var(--color-basic-black-95);
+  --card-bd-filter: blur(0.25rem);
   --card-decor-blur-size: 18.75vw;
   --card-glow: var(--color-primary);
 
@@ -15,48 +15,37 @@
   border: rem(1) solid transparent;
   border-radius: rem(42);
   background:
-    linear-gradient(180deg, var(--color-basic-black-10), var(--color-basic-black-10)) padding-box,
+    linear-gradient(180deg, var(--card-bg-color), var(--card-bg-color)) padding-box,
     radial-gradient(
       220% 180% at 0% 100%,
       color-mix(in oklab, var(--card-glow) 80%, transparent),
-      color-mix(in oklab, var(--card-glow) 20%, transparent) 25%,
+      color-mix(in oklab, var(--card-glow) 2%, transparent) 25%,
       transparent 60%
     ) border-box,
     radial-gradient(
       220% 180% at 100% 0%,
-      color-mix(in oklab, var(--color-basic-white-100) 65%, transparent),
-      transparent 60%
+      color-mix(in oklab, var(--color-basic-white-100) 25%, transparent),
+      transparent 40%
     ) border-box;
+  backdrop-filter: var(--card-bd-filter);
 
   @include respond-below(md) {
     --card-decor-blur-size: 40vw;
   }
 
-  &::after,
   &::before {
     content: '';
     position: absolute;
     z-index: -1;
+    left: -5%;
+    bottom: -10%;
     border-radius: var(--card-decor-blur-size);
     width: var(--card-decor-blur-size);
     height: var(--card-decor-blur-size);
+    background-color: var(--color-primary);
+    opacity: 0.3;
     filter: blur(9.375rem);
     pointer-events: none;
-  }
-
-  &::before {
-    left: 0;
-    bottom: -30%;
-    background-color: var(--color-primary);
-    opacity: 0.4;
-  }
-
-  &::after {
-    right: 0;
-    top: 0;
-    background-color: var(--color-basic-white-100);
-    opacity: 0.2;
-    transform: translate(15%, -30%);
   }
 
   &__inner {
@@ -65,11 +54,24 @@
     overflow: hidden;
     border-radius: inherit;
     padding: var(--card-py) var(--card-px);
-    background-color: var(--card-bg-color);
-    backdrop-filter: var(--card-bd-filter);
 
     @include respond-below(md) {
       padding-block-end: rem(24);
+    }
+
+    &::after {
+      --card-decor-blur-size: 3vw;
+
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: var(--card-decor-blur-size);
+      height: var(--card-decor-blur-size);
+      background-color: var(--color-basic-white-100);
+      opacity: 0.3;
+      filter: blur(4rem);
+      pointer-events: none;
     }
   }
 

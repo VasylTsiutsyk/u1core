@@ -124,7 +124,11 @@
   }
 
   &__type {
+    font-family: var(--body-font-family);
     font-size: fluid(20, 16);
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: -0.005em;
   }
 
   &__description {
