@@ -22,8 +22,10 @@
     }
 
     .industry-card__img {
-      opacity: 1;
-      visibility: visible;
+      &:not(.is-hidden) {
+        opacity: 1;
+        visibility: visible;
+      }
     }
   }
 
@@ -31,6 +33,7 @@
     position: relative;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: rem(24);
   }
 
@@ -66,6 +69,14 @@
       max-width: var(--img-width);
     }
 
+    &.is-hidden {
+      transition:
+        visibility 0.15s,
+        opacity 0.15s;
+
+      @include hide;
+    }
+
     picture {
       display: contents;
     }
@@ -83,7 +94,6 @@
   &__info {
     position: relative;
     display: flex;
-    flex: 1 1 auto;
     align-items: center;
     gap: fluid(12, 8);
     min-width: 0;
