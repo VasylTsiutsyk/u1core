@@ -2,8 +2,14 @@
 
 /* Section Home Hero */
 .home-hero {
+  --section-pt: #{fluid(68, 48)};
+  --section-pb: #{fluid(71, 24)};
+
   &__wrap {
-    padding-block-start: fluid(68, 48);
+    padding-block-start: var(--section-pt);
+
+    @include respond-above(md) {
+    }
   }
 
   &__img {
@@ -23,7 +29,7 @@
 
   &__text {
     position: relative;
-    padding-block-end: fluid(71, 24);
+    padding-block-end: var(--section-pb);
 
     &::after {
       content: '';

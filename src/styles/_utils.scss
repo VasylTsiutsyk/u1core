@@ -48,9 +48,11 @@
       opacity var(--transition-duration) 0.1s;
 
     &--01 {
+      --size: 39.35vw;
+
       left: 50%;
       top: 0;
-      transform: translate(-50%, -40%);
+      transform: translate(-50%, -78%);
 
       @include respond-below(md) {
         --size: 50vw;
