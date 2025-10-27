@@ -3,12 +3,16 @@
 /* Section Home Hero */
 .home-hero {
   --section-pt: #{fluid(68, 48)};
-  --section-pb: #{fluid(71, 24)};
+  --section-pb: #{fluid(60, 24)};
+  --section-slider-height: #{rem(36)};
 
   &__wrap {
     padding-block-start: var(--section-pt);
 
     @include respond-above(md) {
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100svh - var(--header-height));
     }
   }
 
@@ -29,6 +33,9 @@
 
   &__text {
     position: relative;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
     padding-block-end: var(--section-pb);
 
     &::after {
@@ -91,11 +98,81 @@
   &__footer {
     position: relative;
     z-index: 9;
+
+    &:not(:last-child) {
+      margin-block-end: fluid(142, 48);
+    }
   }
 
   &__btn-box {
     display: flex;
     justify-content: center;
     gap: rem(12);
+  }
+
+  &__partners {
+    position: relative;
+    z-index: 9;
+
+    &:not(:first-child) {
+      margin-block-start: auto;
+    }
+  }
+}
+
+.hero-partners {
+  &__header {
+    &:not(:last-child) {
+      margin-block-end: rem(28);
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: rem(20);
+    font-family: var(--body-font-family);
+    text-align: center;
+
+    @include text-sm;
+
+    &::after,
+    &::before {
+      content: '';
+      flex: 1 1 auto;
+      height: rem(1);
+      background-color: var(--color-basic-white-5);
+      pointer-events: none;
+    }
+  }
+
+  &__slider-wrap {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 9;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--color-basic-black-100) 0%, transparent 20%, transparent 80%, var(--color-basic-black-100) 100%);
+      pointer-events: none;
+    }
+
+    .swiper {
+      .swiper-wrapper {
+        transition-timing-function: linear !important;
+      }
+    }
+
+    .swiper-slide {
+      width: auto;
+
+      .partner-card {
+        height: var(--section-slider-height);
+      }
+    }
   }
 }
