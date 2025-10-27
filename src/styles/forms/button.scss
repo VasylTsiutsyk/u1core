@@ -4,12 +4,10 @@
 .btn {
   position: relative;
   display: inline-flex;
+  column-gap: var(--button-gap-x);
   align-items: center;
   justify-content: center;
-  gap: rem(8);
   vertical-align: top;
-
-  // overflow: hidden;
   outline: none;
   border: var(--button-border-width) var(--button-border-style) var(--button-border-color);
   border-radius: var(--button-border-radius);
@@ -118,6 +116,39 @@
       --button-bg-color: var(--color-accent-yellow-15);
       --button-text-color: var(--color-accent-yellow-light);
     }
+  }
+
+  &--yellow {
+    --button-border-color: var(--color-accent-yellow-15);
+    --button-bg-color: var(--color-accent-yellow-8);
+    --button-text-color: var(--color-accent-yellow-light);
+
+    @include hover {
+      --button-border-color: var(--color-accent-yellow-15);
+      --button-bg-color: var(--color-accent-yellow-8);
+      --button-text-color: var(--color-accent-yellow-light);
+    }
+
+    &:active {
+      --button-border-color: var(--color-accent-yellow-15);
+      --button-bg-color: var(--color-accent-yellow-8);
+      --button-text-color: var(--color-accent-yellow-light);
+    }
+
+    &._active,
+    &[aria-selected='true'] {
+      --button-border-color: var(--color-accent-yellow-15);
+      --button-bg-color: var(--color-accent-yellow-8);
+      --button-text-color: var(--color-accent-yellow-light);
+    }
+  }
+
+  &--header {
+    --button-gap-x: #{rem(6)};
+    --button-border-radius: #{rem(32)};
+    --button-height: #{rem(38)};
+    --button-padding-x: #{rem(15)};
+    --button-font-size: #{rem(14)};
   }
 
   &--sm {
