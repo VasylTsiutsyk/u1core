@@ -173,8 +173,6 @@
     }
 
     &:focus {
-      outline: rem(2) dashed var(--color-primary);
-      outline-offset: rem(4);
     }
 
     &:active {
