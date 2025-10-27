@@ -140,6 +140,7 @@ body {
   --set-img-border-width: #{fluid(5, 3)};
 
   display: inline-flex;
+  vertical-align: middle;
 
   > li {
     position: relative;
