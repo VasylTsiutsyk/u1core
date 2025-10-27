@@ -58,6 +58,7 @@
     &[data-type*='select-one'] {
       &::after {
         content: var(--select-arrow-icon);
+        right: rem(24);
         margin-top: 0;
         border: none;
         width: auto;
@@ -116,7 +117,7 @@
     &__list {
       padding-inline-end: rem(2);
 
-      @include scrollbars(rem(20), var(--color-basic-white-50), var(--scrollbar-bg-color), rem(2));
+      @include scrollbars(rem(2), var(--color-basic-white-50), var(--scrollbar-bg-color), rem(2));
 
       &--dropdown,
       &[aria-expanded] {
