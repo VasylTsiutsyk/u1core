@@ -459,7 +459,7 @@
       width: 100%;
       background: linear-gradient(0deg, rgb(14 14 14 / 90%) 0%, rgb(9 9 9 / 90%) 82.94%);
       color: var(--color-basic-white-100);
-      transform: translateX(-50%);
+      transform: translateY(-1px) translateX(-50%);
       transition: var(--transition-duration);
       backdrop-filter: blur(6.25rem);
 
