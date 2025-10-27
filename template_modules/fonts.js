@@ -24,6 +24,22 @@ const iconsCSSFile = 'src/styles/fonts/iconfont.css';
 const iconsPreviewFiles = globSync('src/assets/svgicons/preview/*.*');
 const iconsFiles = globSync('src/assets/svgicons/*.svg');
 
+// ===== Helpers for Variable fonts =====
+const VAR_DEFAULTS = {
+  weight: '100 1000',
+  stretch: '75% 125%',
+};
+
+function rangesForFamily(baseName) {
+  const n = baseName.toLowerCase().replace(/\s+/g, '');
+  return VAR_DEFAULTS;
+}
+
+function isVariableFontFilename(name) {
+  const n = name.toLowerCase();
+  return /(variable|vf)\.woff2$/.test(n) || /variable/.test(n) || /-vf/.test(n);
+}
+
 // Обробка шрифтів
 function fontWork() {
   const fontsFiles = globSync('src/assets/fonts/*.{otf,ttf}', { posix: true });
@@ -42,7 +58,6 @@ function fontWork() {
       if (err) {
         throw err;
       }
-
       fontHtmlCss();
     });
   } else {
@@ -56,15 +71,13 @@ const fontHtmlCss = () => {
 
   if (fontsFiles.length) {
     // Змінні
-    let newFileOnly;
+    const emittedFiles = new Set();
     let linksToFonts = ``;
     let fontsStyles = ``;
-    let counter = {
-      all: 0,
-    };
+    let counter = { all: 0 };
 
     fontsFiles.forEach(fontsFile => {
-      // Ім'я файлу
+      // Ім'я файлу без розширення
       const fontFileName = fontsFile
         .replace(new RegExp(' ', 'g'), '-')
         .split('/')
@@ -73,12 +86,65 @@ const fontHtmlCss = () => {
         .slice(0, -1)
         .join('.');
 
-      // Якщо шрифт не був оброблений раніше
-      if (newFileOnly !== fontFileName) {
-        const lowerName = fontFileName.toLowerCase();
+      if (emittedFiles.has(fontFileName)) {
+        counter.all++;
+        return;
+      }
 
-        const fontStyle = /italic/.test(lowerName) ? 'italic' : 'normal';
+      const lowerName = fontFileName.toLowerCase();
+      const isVariable = isVariableFontFilename(`${fontFileName}.woff2`);
 
+      // Визначаємо стиль (italic/normal) по імені
+      const isItalic = /italic/.test(lowerName);
+      const fontStyle = isVariable
+        ? isItalic
+          ? 'italic'
+          : 'normal'
+        : /italic/.test(lowerName)
+          ? 'italic'
+          : 'normal';
+
+      // Побудова базової назви шрифту (font-family)
+      // Прибираємо хвости типу 'Italic', вагу та 'Variable'/'VF'
+      const weightKeys = [
+        'extralight',
+        'ultralight',
+        'semibold',
+        'demibold',
+        'extrabold',
+        'ultrabold',
+        'extrablack',
+        'ultrablack',
+        'hairline',
+        'regular',
+        'normal',
+        'medium',
+        'bold',
+        'black',
+        'heavy',
+        'thin',
+        'light',
+        'semi',
+        'demi',
+      ].sort((a, b) => b.length - a.length);
+
+      let baseName = fontFileName;
+      baseName = baseName.replace(/italic$/i, '');
+      baseName = baseName.replace(/(variable|vf)$/i, '');
+      for (const key of weightKeys) {
+        baseName = baseName.replace(new RegExp(key + '$', 'i'), '');
+      }
+      baseName = baseName.replace(/[-_]+$/, '');
+
+      // Формування посилань на шрифт (preload)
+      linksToFonts += `<link rel="preload" href="@fonts/${fontFileName}.woff2" as="font" type="font/woff2" crossorigin="anonymous">\n`;
+
+      if (isVariable) {
+        // === Variable font ===
+        const { weight, stretch } = rangesForFamily(baseName);
+        fontsStyles += `@font-face {\n  font-family: '${baseName}';\n  src: url("@fonts/${fontFileName}.woff2") format("woff2-variations");\n  font-weight: ${weight};\n  font-stretch: ${stretch};\n  font-style: ${fontStyle};\n  font-display: swap;\n}\n`;
+      } else {
+        // === Static font ===
         // Мапа для перетворення назв ваги в числові значення
         const fontWeightMap = {
           thin: 100,
@@ -102,49 +168,21 @@ const fontHtmlCss = () => {
           ultrablack: 950,
         };
 
-        // Знаходимо першу відповідність ваги (довші ключі шукаємо першими)
         let fontWeight = 400;
-
-        const weightKeys = Object.keys(fontWeightMap).sort(
+        const wKeys = Object.keys(fontWeightMap).sort(
           (a, b) => b.length - a.length
         );
-
-        for (const key of weightKeys) {
+        for (const key of wKeys) {
           if (lowerName.includes(key)) {
             fontWeight = fontWeightMap[key];
             break;
           }
         }
 
-        // Побудова базової назви шрифту (font-family)
-        // Видаляємо хвостові підрядки 'Italic' та ключ ваги
-        let baseName = fontFileName;
-        if (fontStyle === 'italic') {
-          baseName = baseName.replace(/italic$/i, '');
-        }
-
-        for (const key of weightKeys) {
-          baseName = baseName.replace(new RegExp(key + '$', 'i'), '');
-        }
-
-        // Видаляємо зайві дефіси або підкреслення насамкінець
-        baseName = baseName.replace(/[-_]+$/, '');
-
-        // Формування посилань на шрифт
-        linksToFonts += `<link rel="preload" href="@fonts/${fontFileName}.woff2" as="font" type="font/woff2" crossorigin="anonymous">\n`;
-
-        // Формування стилів для шрифтів
-        fontsStyles += `@font-face {
-  font-family: ${baseName};
-  src: url("@fonts/${fontFileName}.woff2") format("woff2");
-  font-weight: ${fontWeight};
-  font-style: ${fontStyle};
-  font-display: swap;
-}\n`;
-
-        // Оновлюємо ім'я обробленого файлу
-        newFileOnly = fontFileName;
+        fontsStyles += `@font-face {\n  font-family: ${baseName};\n  src: url("@fonts/${fontFileName}.woff2") format("woff2");\n  font-weight: ${fontWeight};\n  font-style: ${fontStyle};\n  font-display: swap;\n}\n`;
       }
+
+      emittedFiles.add(fontFileName);
       counter.all++;
     });
 
