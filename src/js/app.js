@@ -117,11 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBeforeAfter();
 
   // MODALS
-  new Modal({
-    isOpen: () => {
-      initCalendars();
-    },
-  });
+  new Modal();
 
   // Tooltip
   initTooltips();

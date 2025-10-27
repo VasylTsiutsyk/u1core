@@ -34,6 +34,25 @@
     --card-img-size: #{rem(80)};
   }
 
+  &--no-framed {
+    @include respond-above(md) {
+      border: none;
+      border-radius: 0;
+      background: none;
+    }
+
+    .appointment-card__text {
+      @include respond-below(md) {
+        border: none;
+        border-radius: 0;
+        background: none;
+        backdrop-filter: none;
+        padding-block: rem(12);
+        padding-inline: 0;
+      }
+    }
+  }
+
   &__row {
     --col-width: 100%;
 
@@ -159,8 +178,31 @@
     background-color: var(--color-basic-white-100);
     color: var(--color-basic-black-100);
 
+    @include respond-below(md) {
+      border-radius: rem(24);
+      padding: rem(16);
+    }
+
     .fc {
       flex: 1 1 auto;
+
+      table {
+        @include respond-below(md) {
+          font-size: rem(14);
+        }
+      }
+
+      .fc-toolbar-title {
+        @include respond-below(md) {
+          font-size: rem(18);
+        }
+      }
+
+      .fc-view-harness {
+        @include respond-below(md) {
+          min-height: 12rem;
+        }
+      }
     }
   }
 }

@@ -825,16 +825,25 @@
 
   &__body {
     &:not(:last-child) {
-      border-block-end: rem(1) solid var(--color-basic-white-10);
       margin-block-end: fluid(24, 16);
-      padding-block-end: fluid(24, 16);
     }
   }
 
   &__group {
     &:not(:last-child) {
-      border-block-end: rem(1) solid var(--color-basic-white-5);
-      padding-block-end: rem(16);
+      @include respond-below(md) {
+        border-block-end: rem(1) solid var(--color-basic-white-5);
+        padding-block-end: rem(16);
+      }
+    }
+  }
+
+  &__footer {
+    &:not(:first-child) {
+      @include respond-above(md) {
+        border-block-start: rem(1) solid var(--color-basic-white-10);
+        padding-block-start: rem(14);
+      }
     }
   }
 }
@@ -911,13 +920,26 @@
   }
 }
 
+/* Menu Promo Card */
 .menu-promo-card {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border-radius: rem(15);
-  padding: rem(10);
-  background-color: var(--color-basic-white-5);
+
+  &__inner {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: rem(15);
+    padding: rem(10);
+    background-color: var(--color-basic-white-5);
+    transition: background-color var(--transition-duration);
+
+    @include hover {
+      background-color: var(--color-basic-white-10);
+    }
+  }
 
   &__img {
     position: relative;
