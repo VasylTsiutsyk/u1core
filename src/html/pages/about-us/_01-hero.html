@@ -3,22 +3,33 @@
     <div class="vertical-hero__wrap">
       <div class="vertical-hero__text">
         <h2
-          class="vertical-hero__title text-gradient-gray"
+          class="vertical-hero__title"
           id="sectionAboutHeroTitle"
+          data-aos="fade-up"
         >
-          We are a team <br />
-          that builds successful <br />
-          Go-To-Market solutions.
+          <span class="text-gradient-gray">
+            We are a team <br />
+            that builds successful <br />
+            Go-To-Market solutions.
+          </span>
         </h2>
 
-        <div class="vertical-hero__description desc-text">
+        <div
+          class="vertical-hero__description desc-text"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
           <p>
             Developing customized Go-To-Market strategies that drive product
             success and accelerate growth in competitive markets.
           </p>
         </div>
 
-        <div class="vertical-hero__btn-box">
+        <div
+          class="vertical-hero__btn-box"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           <a href="#" class="btn btn--primary">
             <span class="btn__text">Join our team</span>
             <i class="icon-chevron-right" aria-hidden="true"></i>
@@ -26,12 +37,17 @@
         </div>
       </div>
 
-      <figure class="vertical-hero__img">
+      <figure
+        class="vertical-hero__img"
+        data-aos="fade-up"
+        data-aos-delay="300"
+      >
         <img
           src="@img/about-us/hero/team.jpg"
           alt=""
           width="1208"
           height="698"
+          fetchpriority="high"
         />
       </figure>
     </div>
