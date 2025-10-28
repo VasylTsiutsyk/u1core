@@ -1,0 +1,16 @@
+@use '@styles/helpers' as *;
+
+.fancybox__dialog {
+  .fancybox__container {
+    --fancybox-backdrop-bg: var(--color-basic-black-90);
+    --f-html-bg: var(--color-basic-black-60);
+    --f-html-color: var(--color-basic-white-100);
+    --f-video-bg: var(--color-basic-black-60);
+
+    .f-html {
+      border-radius: var(--border-radius-24);
+      padding: rem(12);
+      backdrop-filter: blur(4.5rem);
+    }
+  }
+}

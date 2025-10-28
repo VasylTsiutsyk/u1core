@@ -28,6 +28,7 @@ import initAsideVideo from './modules/aside-video';
 import Modal from './modules/modal';
 import initTooltips from './modules/tooltip';
 import { initFooterBottomSphere } from './modules/scroll-sphere';
+import initFancyboxes from './modules/fancybox';
 
 document.addEventListener('DOMContentLoaded', () => {
   // IS WEBP TEST
@@ -124,6 +125,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Scroll To Top Sphere
   initFooterBottomSphere();
+
+  // Fancybox
+  initFancyboxes();
 
   SELECTORS.BODY.classList.add(CLASSES.LOADED);
 });
