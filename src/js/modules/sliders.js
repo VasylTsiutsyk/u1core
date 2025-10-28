@@ -103,12 +103,14 @@ function initSliders() {
   });
 
   // Case Spotlight
-  initSwiper('#swiperCaseSpotlight', {
+  const sliderCaseSpotlight = initSwiper('#swiperCaseSpotlight', {
     modules: [Navigation, Pagination],
     direction: 'horizontal',
     speed: 800,
-    slidesPerView: 'auto',
+    slidesPerView: 1,
     spaceBetween: 24,
+    loop: true,
+    centeredSlides: true,
     navigation: {
       prevEl: '#swiperCaseSpotlightPrev',
       nextEl: '#swiperCaseSpotlightNext',
@@ -117,9 +119,21 @@ function initSliders() {
       el: '#swiperCaseSpotlightPagination',
       clickable: true,
     },
+    breakpoints: {
+      992: {
+        slidesPerView: 'auto',
+      },
+    },
   });
 
-  // Case Spotlight
+  if (window.matchMedia('(min-width: 992px) and (pointer: fine)').matches) {
+    bindSwiperDirection(
+      sliderCaseSpotlight,
+      document.querySelector('.section-cs')
+    );
+  }
+
+  // Case Partners
   initSwiper('#swiperPartners', {
     modules: [Navigation, Pagination, Autoplay],
     direction: 'horizontal',
@@ -250,4 +264,31 @@ function playChart(chart) {
     const label = bar.querySelector('[data-chart-label]');
     if (label) animateNumber(label, percent, 900);
   });
+}
+
+function bindSwiperDirection(
+  swiper,
+  sectionEl,
+  {
+    attr = 'data-swiper-dir',
+    nextClass = 'is-next',
+    prevClass = 'is-prev',
+  } = {}
+) {
+  const setDir = dir => {
+    sectionEl?.setAttribute(attr, dir);
+    sectionEl?.classList.toggle(nextClass, dir === 'next');
+    sectionEl?.classList.toggle(prevClass, dir === 'prev');
+  };
+
+  swiper.on('slideNextTransitionStart', () => setDir('next'));
+  swiper.on('slidePrevTransitionStart', () => setDir('prev'));
+
+  swiper.on('sliderMove', () => {
+    const diff = swiper.touches?.diff || 0;
+    if (diff === 0) return;
+    setDir(diff < 0 ? 'next' : 'prev');
+  });
+
+  swiper.on('afterInit', () => setDir('next'));
 }
