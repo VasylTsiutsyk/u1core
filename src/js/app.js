@@ -32,6 +32,7 @@ import initFancyboxes from './modules/fancybox';
 import { initReviewBadgesBlock } from './modules/review-badges-block';
 import { initCurveOnScroll } from './modules/curve-on-scroll';
 import { initProjectCardFollowBtn } from './modules/project-card-follow-btn';
+import { initScrollToEl } from './modules/scroll-to-lenis';
 
 document.addEventListener('DOMContentLoaded', () => {
   // IS WEBP TEST
@@ -138,6 +139,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Project Card Follow Btn
   initProjectCardFollowBtn();
+
+  // Scroll To El
+  initScrollToEl();
 
   SELECTORS.BODY.classList.add(CLASSES.LOADED);
 });
