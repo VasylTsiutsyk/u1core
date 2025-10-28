@@ -1,0 +1,58 @@
+@use '@styles/helpers' as *;
+
+/* Title Tier */
+.title-tier {
+  --tier-letter-size: #{fluid(40, 32)};
+  --tier-img-size: #{fluid(40, 32)};
+
+  display: inline-flex;
+  gap: fluid(12, 8);
+  vertical-align: middle;
+  overflow: hidden;
+  border-radius: var(--border-radius-16);
+  padding: rem(4);
+  background-color: var(--color-basic-white-5);
+  padding-inline-end: fluid(15, 8);
+
+  @include respond-below(md) {
+    border-radius: var(--border-radius-12);
+  }
+
+  &__letter {
+    display: flex;
+    flex: 0 0 var(--tier-letter-size);
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: var(--border-radius-12);
+    width: var(--tier-letter-size);
+    height: var(--tier-letter-size);
+    min-width: 0;
+    background-color: var(--color-red-light);
+    font-size: rem(18);
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--color-basic-black-100);
+
+    @include respond-below(md) {
+      border-radius: var(--border-radius-8);
+    }
+  }
+
+  &__img {
+    display: flex;
+    flex: 0 0 var(--tier-img-size);
+    align-items: center;
+    justify-content: center;
+    width: var(--tier-img-size);
+    height: var(--tier-img-size);
+    min-width: 0;
+    padding: rem(8);
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+  }
+}
