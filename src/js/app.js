@@ -30,6 +30,7 @@ import initTooltips from './modules/tooltip';
 import { initFooterBottomSphere } from './modules/scroll-sphere';
 import initFancyboxes from './modules/fancybox';
 import { initReviewBadgesBlock } from './modules/review-badges-block';
+import { initCurveOnScroll } from './modules/curve-on-scroll';
 
 document.addEventListener('DOMContentLoaded', () => {
   // IS WEBP TEST
@@ -128,6 +129,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Review Badges Block
   initReviewBadgesBlock();
+
+  initCurveOnScroll({
+    trigger: document.querySelector('.section-milestone'),
+    maxBend: 360,
+  });
 
   SELECTORS.BODY.classList.add(CLASSES.LOADED);
 });
