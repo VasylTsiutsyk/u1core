@@ -168,6 +168,7 @@ function initSliders() {
     },
   });
 
+  // Effectiveness
   initSwiper('#swiperEffectiveness', {
     modules: [Navigation, Pagination, Autoplay],
     direction: 'horizontal',
@@ -199,6 +200,14 @@ function initSliders() {
         direction: 'vertical',
       },
     },
+  });
+
+  // Flow
+  initSwiper('#swiperFlow', {
+    direction: 'horizontal',
+    speed: 800,
+    slidesPerView: 'auto',
+    spaceBetween: 0,
   });
 }
 

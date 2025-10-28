@@ -1,0 +1,78 @@
+<section class="section-flow" aria-labelledby="sectionFlowTitle">
+  <div class="section-flow__container container">
+    <div class="section-flow__wrap">
+      <div class="section-flow__header">
+        <div class="section-flow__info">
+          <h2 class="section-flow__title title-h3" id="sectionFlowTitle">
+            Begin your journey towards product success
+            <strong>right here</strong>
+          </h2>
+
+          <div class="section-flow__desc-text desc-text">
+            <p>Receive a free quote and recommendations for your project.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-flow__body">
+        <div class="section-flow__slider-wrap">
+          <div id="swiperFlow" class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <include
+                  src="@components/cards/_flow-card.html"
+                  locals='{
+                    "id": "01",
+                    "num": "01",
+                    "title": "Get in touch",
+                    "icon": "@img/home/flow/01.svg",
+                    "modeClasses": "_active"
+                  }'
+                ></include>
+              </div>
+
+              <div class="swiper-slide">
+                <include
+                  src="@components/cards/_flow-card.html"
+                  locals='{
+                    "id": "02",
+                    "num": "02",
+                    "title": "Meet us online",
+                    "icon": "@img/home/flow/02.svg",
+                    "modeClasses": ""
+                  }'
+                ></include>
+              </div>
+
+              <div class="swiper-slide">
+                <include
+                  src="@components/cards/_flow-card.html"
+                  locals='{
+                    "id": "03",
+                    "num": "03",
+                    "title": "Free estimation",
+                    "icon": "@img/home/flow/03.svg",
+                    "modeClasses": ""
+                  }'
+                ></include>
+              </div>
+
+              <div class="swiper-slide">
+                <include
+                  src="@components/cards/_flow-card.html"
+                  locals='{
+                    "id": "04",
+                    "num": "04",
+                    "title": "Work together",
+                    "icon": "@img/home/flow/04.svg",
+                    "modeClasses": ""
+                  }'
+                ></include>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
