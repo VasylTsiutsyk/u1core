@@ -9,7 +9,7 @@ export function initProjectCardFollowBtn() {
   const cards = document.querySelectorAll('.project-card');
   if (!cards.length) return;
 
-  const LERP = 0.15; // плавність доганяння
+  const LERP = 0.1; // плавність доганяння
   const clamp = (v, min, max) => (v < min ? min : v > max ? max : v);
 
   const getLocalXY = (e, el) => {

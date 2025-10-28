@@ -6,46 +6,55 @@
 
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   border-radius: var(--location-size);
-  width: var(--location-size);
-  height: var(--location-size);
-  padding: fluid(4, 2);
-
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-color: var(--color-basic-white-10);
-    pointer-events: none;
-    transition: background-color var(--transition-duration);
-    backdrop-filter: blur(3.5px);
-  }
 
   &[data-partnerships-map-pin] {
     cursor: pointer;
 
     @include hover {
-      &::after {
+      .partnerships-map-location__inner {
         background-color: var(--color-basic-white-20);
+        scale: 1.1;
       }
     }
   }
 
   &--lb {
     border-bottom-left-radius: 0;
+    transform-origin: left bottom;
   }
 
   &--lt {
     border-top-left-radius: 0;
+    transform-origin: left top;
   }
 
   &--rt {
     border-top-right-radius: 0;
+    transform-origin: right top;
   }
 
   &--rb {
     border-bottom-right-radius: 0;
+    transform-origin: right bottom;
+  }
+
+  &__inner {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: inherit;
+    width: var(--location-size);
+    height: var(--location-size);
+    padding: fluid(4, 2);
+    background-color: var(--color-basic-white-10);
+    transform-origin: inherit;
+    will-change: transform, background-color;
+    transition:
+      scale var(--transition-duration),
+      background-color var(--transition-duration);
+    backdrop-filter: blur(3.5px);
   }
 
   &__img {
