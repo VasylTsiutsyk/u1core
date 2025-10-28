@@ -275,6 +275,8 @@ function bindSwiperDirection(
     prevClass = 'is-prev',
   } = {}
 ) {
+  if (!swiper || !sectionEl) return;
+
   const setDir = dir => {
     sectionEl?.setAttribute(attr, dir);
     sectionEl?.classList.toggle(nextClass, dir === 'next');

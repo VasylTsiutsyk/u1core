@@ -3,14 +3,21 @@
     <div class="vertical-hero__wrap">
       <div class="vertical-hero__text">
         <h2
-          class="vertical-hero__title text-gradient-gray"
+          class="vertical-hero__title"
           id="sectionAboutHeroTitle"
+          data-aos="fade-up"
         >
-          Your trusted <br />
-          UX/UI design partner
+          <span class="text-gradient-gray">
+            Your trusted <br />
+            UX/UI design partner
+          </span>
         </h2>
 
-        <div class="vertical-hero__description desc-text">
+        <div
+          class="vertical-hero__description desc-text"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
           <p>
             We collaborate with digital product companies to help them grow,
             scale from seed to Series D, and retain customers with our expertise
@@ -18,7 +25,11 @@
           </p>
         </div>
 
-        <div class="vertical-hero__btn-box">
+        <div
+          class="vertical-hero__btn-box"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           <a href="#" class="btn btn--primary">
             <span class="btn__text">Get in touch</span>
             <i class="icon-chevron-right" aria-hidden="true"></i>
@@ -26,8 +37,18 @@
         </div>
       </div>
 
-      <figure class="vertical-hero__img vertical-hero__img--narrow">
-        <img src="@img/service/hero/01.png" alt="" width="796" height="400" />
+      <figure
+        class="vertical-hero__img vertical-hero__img--narrow"
+        data-aos="fade-up"
+        data-aos-delay="300"
+      >
+        <img
+          src="@img/service/hero/01.png"
+          alt=""
+          width="796"
+          height="400"
+          fetchpriority="high"
+        />
       </figure>
     </div>
   </div>
