@@ -2,6 +2,50 @@
 @use '@styles/helpers' as *;
 
 .select {
+  &.select--secondary {
+    .choices {
+      &__list {
+        &--dropdown,
+        &[aria-expanded] {
+          border-radius: rem(14);
+          padding: rem(20);
+          background-color: var(--color-basic-white-10);
+          backdrop-filter: blur(4.75rem);
+
+          .choices__item {
+            border-radius: 0;
+            padding: rem(12) 0;
+            font-size: rem(16);
+            font-weight: var(--body-font-weight);
+            line-height: 1.4;
+            letter-spacing: var(--body-letter-spacing);
+            color: var(--color-basic-white-100);
+
+            &::before {
+              display: none;
+            }
+
+            &--selectable {
+              &.is-highlighted {
+                background-color: transparent;
+                color: var(--color-basic-white-70);
+              }
+
+              &.is-selected {
+                color: var(--color-basic-white-70);
+              }
+            }
+
+            &:not(:last-child) {
+              border-block-end: rem(1) solid var(--color-basic-white-10);
+              margin-block-end: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
   &--rounded {
     --select-border-radius: #{rem(50)};
   }
