@@ -20,8 +20,6 @@ function initBackTop(btn) {
 
     btn.style.setProperty('--p', (progress * 100).toFixed(2));
 
-    console.log(progress);
-
     if (progress > 0.975) {
       btn.classList.add('_scroll-end');
     } else {
