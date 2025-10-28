@@ -31,6 +31,7 @@ import { initFooterBottomSphere } from './modules/scroll-sphere';
 import initFancyboxes from './modules/fancybox';
 import { initReviewBadgesBlock } from './modules/review-badges-block';
 import { initCurveOnScroll } from './modules/curve-on-scroll';
+import { initProjectCardFollowBtn } from './modules/project-card-follow-btn';
 
 document.addEventListener('DOMContentLoaded', () => {
   // IS WEBP TEST
@@ -134,6 +135,9 @@ document.addEventListener('DOMContentLoaded', () => {
     trigger: document.querySelector('.section-milestone'),
     maxBend: 360,
   });
+
+  // Project Card Follow Btn
+  initProjectCardFollowBtn();
 
   SELECTORS.BODY.classList.add(CLASSES.LOADED);
 });

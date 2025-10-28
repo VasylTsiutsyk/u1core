@@ -143,6 +143,31 @@
     }
   }
 
+  &--white {
+    --button-border-color: var(--color-basic-white-100);
+    --button-bg-color: var(--color-basic-white-100);
+    --button-text-color: var(--color-basic-black-100);
+
+    @include hover {
+      --button-border-color: var(--color-basic-white-100);
+      --button-bg-color: var(--color-basic-white-100);
+      --button-text-color: var(--color-basic-black-100);
+    }
+
+    &:active {
+      --button-border-color: var(--color-basic-white-100);
+      --button-bg-color: var(--color-basic-white-100);
+      --button-text-color: var(--color-basic-black-100);
+    }
+
+    &._active,
+    &[aria-selected='true'] {
+      --button-border-color: var(--color-basic-white-100);
+      --button-bg-color: var(--color-basic-white-100);
+      --button-text-color: var(--color-basic-black-100);
+    }
+  }
+
   &--header {
     --button-gap-x: #{rem(6)};
     --button-border-radius: #{rem(32)};
@@ -153,6 +178,12 @@
 
   &--sm {
     --button-height: #{rem(40)};
+  }
+
+  &--xs {
+    --button-height: #{rem(36)};
+    --button-font-size: #{rem(14)};
+    --button-padding-x: #{rem(20)};
   }
 
   &__text {
