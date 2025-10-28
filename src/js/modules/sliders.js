@@ -2,8 +2,6 @@
 
 // ===== SLIDER ===== //
 // DOC: https://swiperjs.com/
-// HTML: s-swip
-// npm i swiper
 
 import Swiper from 'swiper';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
@@ -12,7 +10,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-function initSwiper(selector, config) {
+export function initSwiper(selector, config) {
   const el = document.querySelector(selector);
   if (!el) return;
 

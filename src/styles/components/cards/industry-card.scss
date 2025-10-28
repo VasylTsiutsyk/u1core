@@ -99,6 +99,7 @@
     min-width: 0;
 
     @include respond-below(md) {
+      flex: 1 1 auto;
       flex-direction: column;
       align-items: stretch;
     }
@@ -112,6 +113,10 @@
     transition:
       flex-basis var(--transition-duration),
       width var(--transition-duration);
+
+    @include respond-below(md) {
+      display: none;
+    }
 
     picture {
       display: contents;

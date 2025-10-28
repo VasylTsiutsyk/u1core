@@ -4,6 +4,8 @@
 .review-badge {
   --badge-arrow-size: #{fluid(30, 24)};
 
+  min-width: 0;
+
   &--labelled {
     .review-badge__btn {
       border: none;
@@ -25,10 +27,13 @@
 
   &__btn {
     display: inline-flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     vertical-align: top;
+    overflow: hidden;
     border: rem(1) solid var(--color-basic-white-10);
     border-radius: rem(50);
+    min-width: 0;
     min-height: fluid(54, 48);
     padding: fluid(8, 6) rem(13) fluid(8, 6) rem(21);
     background-color: var(--color-basic-white-5);
@@ -46,6 +51,12 @@
         border-color: var(--color-basic-white-20);
       }
     }
+  }
+
+  &__btn-row {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
   }
 
   &__arrow {
@@ -85,12 +96,15 @@
       width: auto;
       min-height: fluid(18, 16);
       max-width: 100%;
-      max-height: fluid(26, 20);
+      max-height: fluid(28, 20);
       object-fit: contain;
     }
   }
 
   &__rating {
+    flex: 1 1 auto;
+    min-width: 0;
+
     &:not(:last-child) {
       margin-inline-end: rem(18);
     }

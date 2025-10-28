@@ -1,0 +1,64 @@
+@use '@styles/helpers' as *;
+
+/* Review Badges Block */
+.review-badges-block {
+  --block-gap-x: #{rem(20)};
+  --block-gap-y: #{rem(16)};
+
+  &._active {
+    .review-badges-block__extra {
+      grid-template-columns: 1fr;
+      opacity: 1;
+    }
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--block-gap-y) var(--block-gap-x);
+
+    @include respond-above(2xl) {
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__main {
+    min-width: 0;
+  }
+
+  &__extra {
+    display: grid;
+    grid-template-columns: 0fr;
+    opacity: 0;
+    transition:
+      grid-template-columns 0.5s,
+      opacity 0.5s;
+
+    @include respond-below(md) {
+      display: none;
+    }
+  }
+
+  &__extra-inner {
+    overflow: hidden;
+  }
+
+  &__extra-pad {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: var(--block-gap-y) var(--block-gap-x);
+
+    .review-badge {
+      flex-shrink: 0;
+
+      &__logo {
+        flex-shrink: 0;
+      }
+
+      &__btn {
+        flex-wrap: nowrap;
+        text-wrap: nowrap;
+      }
+    }
+  }
+}

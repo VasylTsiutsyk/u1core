@@ -1,55 +1,59 @@
 <div class="[[bemClasses]] review-badge [[modeClasses]]">
-  <a
-    href="#"
-    target="_blank"
-    rel="nofollow noopener"
+  <div
     aria-label="Read [[rating]] rating on Clutch (opens in a new tab)"
     class="review-badge__btn"
   >
-    <figure class="review-badge__logo">
-      <img
-        src="[[logo]]"
-        alt=""
-        width="64"
-        height="30"
-        loading="lazy"
-        decoding="async"
-      />
-    </figure>
+    <a
+      href="#"
+      target="_blank"
+      rel="nofollow noopener"
+      class="review-badge__btn-row"
+    >
+      <figure class="review-badge__logo">
+        <img
+          src="[[logo]]"
+          alt=""
+          width="64"
+          height="30"
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
 
-    <if condition="'[[label]]' !== ''">
-      <span
-        class="review-badge__rating review-badge-rating review-badge-rating--lg"
-      >
-        <span class="review-badge-rating__value">[[rating]]</span>
+      <if condition="'[[label]]' !== ''">
+        <span
+          class="review-badge__rating review-badge-rating review-badge-rating--lg"
+        >
+          <span class="review-badge-rating__value">[[rating]]</span>
 
-        <div class="review-badge-rating__stars">
-          <i class="icon-rating-star" aria-hidden="true"></i>
+          <div class="review-badge-rating__stars">
+            <i class="icon-rating-star" aria-hidden="true"></i>
 
-          <i class="icon-rating-star" aria-hidden="true"></i>
-          <i class="icon-rating-star" aria-hidden="true"></i>
-          <i class="icon-rating-star" aria-hidden="true"></i>
-          <i class="icon-rating-star" aria-hidden="true"></i>
+            <i class="icon-rating-star" aria-hidden="true"></i>
+            <i class="icon-rating-star" aria-hidden="true"></i>
+            <i class="icon-rating-star" aria-hidden="true"></i>
+            <i class="icon-rating-star" aria-hidden="true"></i>
+          </div>
+        </span>
+      </if>
+
+      <if condition="'[[label]]' === ''">
+        <span class="review-badge__rating review-badge-rating">
+          <span class="review-badge-rating__value">[[rating]]</span>
+
+          <div class="review-badge-rating__stars">
+            <i class="icon-rating-star" aria-hidden="true"></i>
+          </div>
+        </span>
+      </if>
+
+      <if condition="'[[label]]' === ''">
+        <div class="review-badge__arrow" aria-hidden="true">
+          <i class="icon-chevron-right"></i>
         </div>
-      </span>
-    </if>
-
-    <if condition="'[[label]]' === ''">
-      <span class="review-badge__rating review-badge-rating">
-        <span class="review-badge-rating__value">[[rating]]</span>
-
-        <div class="review-badge-rating__stars">
-          <i class="icon-rating-star" aria-hidden="true"></i>
-        </div>
-      </span>
-    </if>
-
-    <if condition="'[[label]]' === ''">
-      <div class="review-badge__arrow" aria-hidden="true">
-        <i class="icon-chevron-right"></i>
-      </div>
-    </if>
-  </a>
+      </if>
+    </a>
+  </div>
 
   <if condition="'[[label]]' !== ''">
     <span class="review-badge__label">[[label]]</span>

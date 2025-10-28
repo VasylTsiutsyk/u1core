@@ -29,6 +29,7 @@ import Modal from './modules/modal';
 import initTooltips from './modules/tooltip';
 import { initFooterBottomSphere } from './modules/scroll-sphere';
 import initFancyboxes from './modules/fancybox';
+import { initReviewBadgesBlock } from './modules/review-badges-block';
 
 document.addEventListener('DOMContentLoaded', () => {
   // IS WEBP TEST
@@ -54,10 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // LENIS (Smooth Scrolling)
   initLenisInstances();
-
-  // FancyBox
-  // import { initFancyboxes } './modules/fancybox';
-  // initFancyboxes();
 
   // ANIMATIONS
   initAosAnimations();
@@ -128,6 +125,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Fancybox
   initFancyboxes();
+
+  // Review Badges Block
+  initReviewBadgesBlock();
 
   SELECTORS.BODY.classList.add(CLASSES.LOADED);
 });
