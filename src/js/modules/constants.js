@@ -21,3 +21,9 @@ export const CLASSES = {
   COLLAPSED: '_collapsed',
   EXPANDED: '_expanded',
 };
+
+// Media Queries
+export const MQ = {
+  desktop: '(hover: hover) and (pointer: fine)',
+  touch: '(hover: none) and (pointer: coarse)',
+};

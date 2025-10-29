@@ -4,7 +4,6 @@ import animateValue from './animate-value';
 import { initServices } from './services';
 import { initShowreelScale } from './showreel-scale';
 import { initHeroOverlap } from './hero-overlap';
-import { initPinnedStacks } from './pinned-stacks';
 
 // ==================== ANIMATIONS ==================== //
 // AOS: https://michalsnik.github.io/aos/
@@ -35,13 +34,13 @@ function initAosAnimations() {
 // GSAP
 // -----------------------------------------------------------------------------
 function initGSAPAnimations() {
+  // Hero Overlap
   initHeroOverlap();
 
+  // Showreel
   initShowreelScale();
 
-  // Pinned Stacks
-  initPinnedStacks();
-
+  // Services
   initServices();
 }
 

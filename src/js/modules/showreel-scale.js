@@ -2,12 +2,12 @@
 
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger.js';
+import { MQ } from './constants';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function initShowreelScale({
   startScaleDesktop = 1.5,
-  startScaleMobile = 1.25,
   start = 'top top',
   holdRatio = 0.25,
   animRatio = 1,
@@ -28,7 +28,7 @@ export function initShowreelScale({
 
   const mm = gsap.matchMedia();
 
-  mm.add('(min-width: 992px)', () => {
+  mm.add(MQ.desktop, () => {
     const totalPercent = (holdRatio + animRatio) * 100;
 
     gsap.set(target, {

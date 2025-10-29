@@ -1,13 +1,13 @@
 // hero-overlap.js
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger.js';
+import { MQ } from './constants';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function initHeroOverlap({
   pinRatio = 1.2, // 1.2 = 120% висоти вʼюпорта
   scrub = 0.6,
-  desktopMq = '(min-width: 992px)',
 } = {}) {
   const hero = document.querySelector('.home-hero');
   if (!hero) return;
@@ -20,7 +20,7 @@ export function initHeroOverlap({
   const mm = gsap.matchMedia();
 
   // ===== Desktop (з pin)
-  mm.add(desktopMq, () => {
+  mm.add(MQ.desktop, () => {
     const pinST = ScrollTrigger.create({
       trigger: hero,
       start: '-15% 0%',
@@ -62,7 +62,7 @@ export function initHeroOverlap({
   });
 
   // ===== Mobile/Tablet (без pin)
-  mm.add('(max-width: 991.98px)', () => {
+  mm.add(MQ.touch, () => {
     gsap.from([title, desc, cta], {
       autoAlpha: 0,
       y: 20,
@@ -79,5 +79,6 @@ export function initHeroOverlap({
   window.addEventListener('load', () => ScrollTrigger.refresh(), {
     once: true,
   });
+
   window.addEventListener('resize', () => ScrollTrigger.refresh());
 }

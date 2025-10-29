@@ -2,6 +2,9 @@
 
 /* Section Pindeck */
 .section-pindeck {
+  position: relative;
+  overflow: hidden;
+
   &__wrap {
     padding-block: var(--section-py);
   }

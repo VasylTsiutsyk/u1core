@@ -7,9 +7,22 @@
 
   &__wrap {
     padding-block: var(--section-pt) var(--section-pb);
+
+    @include respond-above(md) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100svh;
+    }
   }
 
   &__header {
+    &.section-solutions__header--space-lg {
+      &:not(:last-child) {
+        margin-block-end: fluid(64, 32);
+      }
+    }
+
     &:not(:last-child) {
       margin-block-end: rem(28);
     }
@@ -19,6 +32,26 @@
     > li {
       &:not(:last-child) {
         margin-block-end: fluid(64, 48);
+      }
+    }
+  }
+
+  &__slider-wrap {
+    .swiper-wrapper {
+      @include respond-below(md) {
+        display: block;
+        width: auto;
+        height: auto;
+        transform: none;
+        transition: none;
+      }
+
+      .swiper-slide {
+        &:not(:last-child) {
+          @include respond-below(md) {
+            margin-block-end: rem(48);
+          }
+        }
       }
     }
   }

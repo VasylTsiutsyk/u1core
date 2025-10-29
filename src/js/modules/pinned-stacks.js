@@ -1,12 +1,12 @@
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { MQ } from './constants';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function initPinnedStacks({
   ns = 'pindeck',
   stickyOffset = 180,
-  breakpoint = 992,
   revealOffset = '85%',
 } = {}) {
   const roots = document.querySelectorAll(`[data-${ns}]`);
@@ -37,7 +37,10 @@ export function initPinnedStacks({
           y: 18,
           duration: 0.5,
           ease: 'power2.out',
-          scrollTrigger: { trigger: card, start: `top ${revealOffset}` },
+          scrollTrigger: {
+            trigger: card,
+            start: `top ${revealOffset}`,
+          },
         });
       });
     };
@@ -67,7 +70,7 @@ export function initPinnedStacks({
       };
     };
 
-    mm.add(`(min-width: ${breakpoint}px)`, () => {
+    mm.add(MQ.desktop, () => {
       const text = root.querySelector(selAside);
       const stack = root.querySelector(selStack);
 
@@ -77,6 +80,7 @@ export function initPinnedStacks({
       if (text && stack) {
         triggers.push(
           ScrollTrigger.create({
+            id: 'pinnedStacks',
             trigger: root,
             start: `top top+=${stickyOffset}`,
             end: () =>
@@ -84,6 +88,7 @@ export function initPinnedStacks({
             pin: text,
             pinSpacing: false,
             invalidateOnRefresh: true,
+            refreshPriority: 1,
           })
         );
       }
@@ -95,11 +100,6 @@ export function initPinnedStacks({
         triggers.forEach(t => t && t.kill());
         observers.disconnect();
       };
-    });
-
-    mm.add(`(max-width: ${breakpoint - 0.02}px)`, () => {
-      setupReveal();
-      return () => {};
     });
   });
 }

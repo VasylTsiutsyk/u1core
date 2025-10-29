@@ -16,6 +16,18 @@
     }
   }
 
+  &__review-badge {
+    max-width: fit-content;
+
+    &:not(:last-child) {
+      margin-block-end: rem(26);
+
+      @include respond-below(md) {
+        margin-block-end: rem(40);
+      }
+    }
+  }
+
   &__review-badges-block {
     max-width: fit-content;
 

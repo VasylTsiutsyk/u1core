@@ -1,5 +1,6 @@
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger.js';
+import { MQ } from './constants';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,7 +17,7 @@ export function initServices() {
 
   const mq = gsap.matchMedia();
 
-  mq.add('(min-width: 992px)', () => {
+  mq.add(MQ.desktop, () => {
     let scrollIndex = 0;
     let hoverLock = false;
 

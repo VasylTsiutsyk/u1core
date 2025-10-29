@@ -1,47 +1,57 @@
-<section class="section-solutions" aria-labelledby="sectionSolutionsTitle">
-  <div class="section-solutions__container container">
+<section
+  class="section-solutions"
+  aria-labelledby="sectionSolutionsTitle"
+  data-vertical-stack
+>
+  <div class="section-solutions__container container" data-vertical-stack-pin>
     <div class="section-solutions__wrap">
-      <div class="section-solutions__header">
+      <div
+        class="section-solutions__header section-solutions__header--space-lg"
+      >
         <h2 class="section-solutions__title h3" id="sectionSolutionsTitle">
           Share your Web3 project, and we’ll create a solution.
         </h2>
       </div>
 
       <div class="section-solutions__body">
-        <ul class="section-solutions__cards">
-          <li>
-            <include
-              src="@components/cards/_solution-card.html"
-              locals='{ 
-                "id": "01",
-                "title": "Product design for Web3 (UX/UI)",
-                "img": "@img/industries/solutions/01.jpg"
-              }'
-            ></include>
-          </li>
+        <div class="section-solutions__slider-wrap">
+          <div class="swiper" data-vertical-stack-slider>
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <include
+                  src="@components/cards/_solution-card.html"
+                  locals='{ 
+                    "id": "01",
+                    "title": "Product design for Web3 (UX/UI)",
+                    "img": "@img/industries/solutions/01.jpg"
+                  }'
+                ></include>
+              </div>
 
-          <li>
-            <include
-              src="@components/cards/_solution-card.html"
-              locals='{ 
-                "id": "02",
-                "title": "Product design for Web3 (UX/UI)",
-                "img": "@img/industries/solutions/02.jpg"
-              }'
-            ></include>
-          </li>
+              <div class="swiper-slide">
+                <include
+                  src="@components/cards/_solution-card.html"
+                  locals='{ 
+                    "id": "02",
+                    "title": "Product design for Web3 (UX/UI)",
+                    "img": "@img/industries/solutions/02.jpg"
+                  }'
+                ></include>
+              </div>
 
-          <li>
-            <include
-              src="@components/cards/_solution-card.html"
-              locals='{ 
-                "id": "03",
-                "title": "Product design for Web3 (UX/UI)",
-                "img": "@img/industries/solutions/03.jpg"
-              }'
-            ></include>
-          </li>
-        </ul>
+              <div class="swiper-slide">
+                <include
+                  src="@components/cards/_solution-card.html"
+                  locals='{ 
+                    "id": "03",
+                    "title": "Product design for Web3 (UX/UI)",
+                    "img": "@img/industries/solutions/03.jpg"
+                  }'
+                ></include>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -33,13 +33,15 @@ import { initReviewBadgesBlock } from './modules/review-badges-block';
 import { initCurveOnScroll } from './modules/curve-on-scroll';
 import { initProjectCardFollowBtn } from './modules/project-card-follow-btn';
 import { initScrollToEl } from './modules/scroll-to-lenis';
+import { initVerticalSwiperScroll } from './modules/vertical-slider-scroll';
+import { initPinnedStacks } from './modules/pinned-stacks';
 
 document.addEventListener('DOMContentLoaded', () => {
   // IS WEBP TEST
   isWebp();
 
   // IS MOBILE TEST
-  isMobile();
+  const IS_MOBILE = isMobile();
 
   // HEADER MOBILE MENU
   initMenu();
@@ -82,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Scroll To Top
   initScrollToTopBtns();
 
+  // Project Type Cards
   initProjectTypeCards();
 
   // Show More
@@ -132,6 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Review Badges Block
   initReviewBadgesBlock();
 
+  // Curve Animation (Graph Lines)
   initCurveOnScroll({
     trigger: document.querySelector('.section-milestone'),
     maxBend: 360,
@@ -142,6 +146,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Scroll To El
   initScrollToEl();
+
+  if (!IS_MOBILE) {
+    // Vertical Stack Cards (Solutions)
+    initVerticalSwiperScroll();
+
+    // Pinned Stacks
+    initPinnedStacks();
+  }
 
   SELECTORS.BODY.classList.add(CLASSES.LOADED);
 });
