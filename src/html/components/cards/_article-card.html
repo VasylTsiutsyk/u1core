@@ -1,37 +1,40 @@
 <article class="article-card" aria-labelledby="articleCard[[id]]Title">
-  <figure class="article-card__img">
-    <img
-      src="[[img]]"
-      alt="[[title]]"
-      width="[[width]]"
-      height="[[height]]"
-      loading="lazy"
-      decoding="async"
-    />
+  <a href="#" class="article-card__inner">
+    <figure class="article-card__img">
+      <img
+        src="[[img]]"
+        alt="[[title]]"
+        width="[[width]]"
+        height="[[height]]"
+        loading="lazy"
+        decoding="async"
+      />
 
-    <ul class="article-card__tags">
-      <li>
-        <a href="#" class="ui-tag ui-tag--sm ui-tag--dark">[[tag]]</a>
-      </li>
-    </ul>
-  </figure>
+      <ul class="article-card__tags">
+        <li>
+          <span class="ui-tag ui-tag--sm ui-tag--dark">[[tag]]</span>
+        </li>
+      </ul>
+    </figure>
 
-  <div class="article-card__text">
-    <h3 id="articleCard[[id]]Title" class="article-card__title">
-      <a href="#" class="article-card__title-link">
-        <span class="text-gradient-gray">[[title]]</span>
-      </a>
-    </h3>
+    <div class="article-card__text">
+      <h3
+        id="articleCard[[id]]Title"
+        class="article-card__title text-gradient-gray"
+      >
+        <span>[[title]]</span>
+      </h3>
 
-    <include
-      src="@components/ui/_author-badge.html"
-      locals='{
-        "bemClasses": "article-card__author",
-        "modeClasses": "author-badge--xs author-badge--rounded",
-        "img": "[[authorImg]]",
-        "name": "[[authorName]]",
-        "role": "[[authorRole]]"
-      }'
-    ></include>
-  </div>
+      <include
+        src="@components/ui/_author-badge.html"
+        locals='{
+          "bemClasses": "article-card__author",
+          "modeClasses": "author-badge--xs author-badge--rounded",
+          "img": "[[authorImg]]",
+          "name": "[[authorName]]",
+          "role": "[[authorRole]]"
+        }'
+      ></include>
+    </div>
+  </a>
 </article>

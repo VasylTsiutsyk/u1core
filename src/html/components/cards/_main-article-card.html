@@ -1,49 +1,51 @@
 <article class="[[bemClasses]] main-article-card">
-  <figure class="main-article-card__img">
-    <img
-      src="@img/blog/01.jpg"
-      alt=""
-      width="693"
-      height="410"
-      loading="eager"
-      decoding="sync"
-    />
+  <a href="#" class="main-article-card__inner">
+    <figure class="main-article-card__img">
+      <img
+        src="@img/blog/01.jpg"
+        alt=""
+        width="693"
+        height="410"
+        loading="eager"
+        decoding="sync"
+      />
 
-    <ul class="main-article-card__labels">
-      <li>
-        <a href="#" class="ui-tag ui-tag--sm ui-tag--dark">Articles</a>
-      </li>
-    </ul>
-  </figure>
-
-  <div class="main-article-card__text">
-    <div class="main-article-card__header">
-      <h3 class="main-article-card__title">
-        <span class="text-gradient-gray">
-          Al Product Design in 2025: Tools & Strategies for Business Leaders
-        </span>
-      </h3>
-    </div>
-
-    <div class="main-article-card__footer">
-      <include
-        src="@components/ui/_author-badge.html"
-        locals='{
-          "bemClasses": "main-article-card__author",
-          "modeClasses": "author-badge--xs author-badge--rounded",
-          "img": "@img/about-us/efficiency/quote-author.jpg",
-          "name": "Taras Oliinyk",
-          "role": "CEO/Founder of U1CORE"
-        }'
-      ></include>
-
-      <ul class="main-article-card__tags">
+      <ul class="main-article-card__labels">
         <li>
-          <a href="#" class="main-article-card__tag ui-tag ui-tag--sm">
-            <span class="btn__text">Atricles</span>
-          </a>
+          <span class="ui-tag ui-tag--sm ui-tag--dark">Articles</span>
         </li>
       </ul>
+    </figure>
+
+    <div class="main-article-card__text">
+      <div class="main-article-card__header">
+        <h3 class="main-article-card__title text-gradient-gray">
+          <span>
+            Al Product Design in 2025: Tools & Strategies for Business Leaders
+          </span>
+        </h3>
+      </div>
+
+      <div class="main-article-card__footer">
+        <include
+          src="@components/ui/_author-badge.html"
+          locals='{
+            "bemClasses": "main-article-card__author",
+            "modeClasses": "author-badge--xs author-badge--rounded",
+            "img": "@img/about-us/efficiency/quote-author.jpg",
+            "name": "Taras Oliinyk",
+            "role": "CEO/Founder of U1CORE"
+          }'
+        ></include>
+
+        <ul class="main-article-card__tags">
+          <li>
+            <span class="main-article-card__tag ui-tag ui-tag--sm">
+              Atricles
+            </span>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
+  </a>
 </article>

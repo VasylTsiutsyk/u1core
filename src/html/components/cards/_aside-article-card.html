@@ -2,40 +2,41 @@
   class="aside-article-card"
   aria-labelledby="asideArticleCard[[id]]Title"
 >
-  <div class="aside-article-card__row">
-    <a href="#" class="aside-article-card__img-wrap">
-      <figure class="aside-article-card__img">
-        <img
-          src="[[img]]"
-          alt="[[title]] Illustration"
-          width="160"
-          height="120"
-          loading="lazy"
-          decoding="async"
-        />
-      </figure>
-    </a>
+  <a href="#" class="aside-article-card__inner">
+    <div class="aside-article-card__row">
+      <div class="aside-article-card__img-wrap">
+        <figure class="aside-article-card__img">
+          <img
+            src="[[img]]"
+            alt="[[title]] Illustration"
+            width="160"
+            height="120"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+      </div>
 
-    <div class="aside-article-card__text">
-      <h4 class="aside-article-card__title" id="asideArticleCard[[id]]Title">
-        <a href="#">[[title]]</a>
-      </h4>
+      <div class="aside-article-card__text">
+        <h4 class="aside-article-card__title" id="asideArticleCard[[id]]Title">
+          <span>[[title]]</span>
+        </h4>
 
-      <ul class="aside-article-card__tags">
-        <li>
-          <a href="#" class="ui-tag ui-tag--sm">News</a>
-        </li>
-      </ul>
+        <ul class="aside-article-card__tags">
+          <li>
+            <span class="ui-tag ui-tag--sm">News</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="aside-article-card__btn-box">
+        <span
+          class="aside-article-card__btn btn btn--icon btn--sm btn--gray"
+          aria-label="Read more about [[title]]"
+        >
+          <i class="icon-chevron-right" aria-hidden="true"></i>
+        </span>
+      </div>
     </div>
-
-    <div class="aside-article-card__btn-box">
-      <a
-        href="#"
-        class="aside-article-card__btn btn btn--icon btn--sm btn--gray"
-        aria-label="Read more about [[title]]"
-      >
-        <i class="icon-chevron-right" aria-hidden="true"></i>
-      </a>
-    </div>
-  </div>
+  </a>
 </article>
