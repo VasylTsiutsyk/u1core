@@ -1,4 +1,4 @@
-import { CLASSES } from './constants';
+import { CLASSES } from '../constants';
 
 export function initEfficiencyCards({
   listSelector = '[data-efficiency-cards]',

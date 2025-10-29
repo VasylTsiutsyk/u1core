@@ -1,8 +1,5 @@
 // js/modules/sliders.js
 
-// ===== SLIDER ===== //
-// DOC: https://swiperjs.com/
-
 import Swiper from 'swiper';
 import { Autoplay, EffectCards, Navigation, Pagination } from 'swiper/modules';
 

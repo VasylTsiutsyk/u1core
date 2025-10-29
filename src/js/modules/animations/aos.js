@@ -1,13 +1,6 @@
 // js/modules/animations.js
 
 import animateValue from './animate-value';
-import { initServices } from './services';
-import { initShowreelScale } from './showreel-scale';
-import { initHeroOverlap } from './hero-overlap';
-
-// ==================== ANIMATIONS ==================== //
-// AOS: https://michalsnik.github.io/aos/
-// GSAP: https://gsap.com/
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -31,17 +24,4 @@ function initAosAnimations() {
   });
 }
 
-// GSAP
-// -----------------------------------------------------------------------------
-function initGSAPAnimations() {
-  // Hero Overlap
-  initHeroOverlap();
-
-  // Showreel
-  initShowreelScale();
-
-  // Services
-  initServices();
-}
-
-export { initAosAnimations, initGSAPAnimations };
+export { initAosAnimations };

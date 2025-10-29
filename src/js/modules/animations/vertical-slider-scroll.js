@@ -2,7 +2,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Swiper from 'swiper';
 import 'swiper/css';
-import { MQ } from './constants';
+import { MQ } from '../constants';
 
 gsap.registerPlugin(ScrollTrigger);
 

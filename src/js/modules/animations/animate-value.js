@@ -1,8 +1,5 @@
 // js/modules/animate-value.js
 
-// ======================== Animate Value ======================== //
-// Animate digital value on scroll (Using AOS)
-
 function animateValue(el, end, duration = 1000) {
   const start = 0;
   let startTs = null;

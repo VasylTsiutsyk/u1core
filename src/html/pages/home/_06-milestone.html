@@ -38,16 +38,24 @@
 
                 <rect x="1.5" y="1.5" width="5" height="5" stroke="#090909" />
 
-                <path opacity="0.3" d="M409 6L409 236" stroke="#FED500" />
+                <g data-curve-axis>
+                  <path
+                    opacity="0.3"
+                    d="M409 6L409 236"
+                    stroke="#FED500"
+                    data-curve-axis-line
+                  />
 
-                <rect
-                  x="409"
-                  y="2"
-                  width="2.82845"
-                  height="2.82845"
-                  transform="rotate(45 409 2)"
-                  fill="#FED500"
-                />
+                  <rect
+                    x="409"
+                    y="2"
+                    width="2.82845"
+                    height="2.82845"
+                    transform="rotate(45 409 2)"
+                    fill="#FED500"
+                    data-curve-axis-dot
+                  />
+                </g>
 
                 <path
                   d="M4 4C4 4 409 3.99992 409 236"
@@ -61,6 +69,7 @@
                   transform="translate(405 232)"
                   fill="white"
                 />
+
                 <rect
                   x="406.5"
                   y="233.5"

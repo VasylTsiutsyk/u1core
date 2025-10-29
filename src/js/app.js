@@ -4,37 +4,46 @@
 import { SELECTORS, CLASSES } from './modules/constants';
 import { isWebp, isMobile } from './modules/functions';
 import { initMenu, initHeader } from './modules/menu';
+
 import initSelects from './modules/selects';
+import initCalendars from './modules/calendar';
+
 import initCopyright from './modules/copyright';
+import initAccordions from './modules/accordion';
+import initSpoilers from './modules/spoilers';
+import initSliders from './modules/sliders';
+import initTooltips from './modules/tooltip';
+import Modal from './modules/modal';
+import initContentTabs from './modules/content-tabs';
+import { initBeforeAfter } from './modules/before-after';
+import { initScrollToEl } from './modules/scroll-to-lenis';
+
 import initScrollToTopBtns from './modules/scroll-to-top';
 import initProjectTypeCards from './modules/project-card';
-import initAccordions from './modules/accordion';
-import initSliders from './modules/sliders';
-import { showMore } from './modules/show-more';
-import initCalendars from './modules/calendar';
-import { initAosAnimations, initGSAPAnimations } from './modules/animations';
-import { initIndustryCardsFollowPreview } from './modules/industries-preview';
 import { initReviewsExpand } from './modules/reviews';
-import { initLenisInstances } from './modules/lenis';
-import { initEfficiencyCards } from './modules/efficiency-cards';
-import { initProgressRings } from './modules/progress-rings';
-import initSpoilers from './modules/spoilers';
-import { initSpotlightFollow } from './modules/spotlight-follow';
-import { initPartnershipsMap } from './modules/partnership-map';
-import initContentTabs from './modules/content-tabs';
-import initTOC from './modules/content-table';
-import { initBeforeAfter } from './modules/before-after';
-import initAsideVideo from './modules/aside-video';
-import Modal from './modules/modal';
-import initTooltips from './modules/tooltip';
-import { initFooterBottomSphere } from './modules/scroll-sphere';
-import initFancyboxes from './modules/fancybox';
+import { showMore } from './modules/show-more';
 import { initReviewBadgesBlock } from './modules/review-badges-block';
-import { initCurveOnScroll } from './modules/curve-on-scroll';
-import { initProjectCardFollowBtn } from './modules/project-card-follow-btn';
-import { initScrollToEl } from './modules/scroll-to-lenis';
-import { initVerticalSwiperScroll } from './modules/vertical-slider-scroll';
-import { initPinnedStacks } from './modules/pinned-stacks';
+import initTOC from './modules/content-table';
+import initAsideVideo from './modules/aside-video';
+import { initPartnershipsMap } from './modules/partnership-map';
+
+import {
+  initProgressRings,
+  initVerticalSwiperScroll,
+  initProjectCardFollowBtn,
+  initHeroOverlap,
+  initServices,
+  initCurveOnScroll,
+  initSpotlightFollow,
+  initPinnedStacks,
+  initEfficiencyCards,
+  initIndustryCardsFollowPreview,
+  initFooterBottomSphere,
+  initAosAnimations,
+  initLenisInstances,
+  initFancyboxes,
+  initShowreelScale,
+} from './modules/animations';
 
 document.addEventListener('DOMContentLoaded', () => {
   // IS WEBP TEST
@@ -63,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ANIMATIONS
   initAosAnimations();
-  initGSAPAnimations();
 
   // HEADER SCROLLED STATE
   initHeader({
@@ -83,6 +91,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Scroll To Top
   initScrollToTopBtns();
+
+  // Hero Overlap
+  initHeroOverlap();
+
+  // Showreel
+  initShowreelScale();
+
+  // Services
+  initServices();
 
   // Project Type Cards
   initProjectTypeCards();

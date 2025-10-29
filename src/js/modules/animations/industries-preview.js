@@ -1,4 +1,4 @@
-import { CLASSES } from './constants';
+import { CLASSES } from '../constants';
 
 export function initIndustryCardsFollowPreview() {
   if (window.matchMedia('(pointer: coarse)').matches) return;

@@ -1,7 +1,7 @@
 // hero-overlap.js
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger.js';
-import { MQ } from './constants';
+import { MQ } from '../constants';
 
 gsap.registerPlugin(ScrollTrigger);
 

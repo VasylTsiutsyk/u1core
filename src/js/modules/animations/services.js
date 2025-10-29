@@ -1,10 +1,10 @@
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger.js';
-import { MQ } from './constants';
+import { MQ } from '../constants';
 
 gsap.registerPlugin(ScrollTrigger);
 
-import { CLASSES } from './constants';
+import { CLASSES } from '../constants';
 
 export function initServices() {
   const section = document.querySelector('[data-services]');

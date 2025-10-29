@@ -1,6 +1,6 @@
 // project-card-follow-btn.js
 
-import { CLASSES } from './constants';
+import { CLASSES } from '../constants';
 
 export function initProjectCardFollowBtn() {
   // вимикаємо на тачах

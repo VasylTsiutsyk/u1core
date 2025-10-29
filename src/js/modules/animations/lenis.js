@@ -5,7 +5,7 @@
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
 
-function initLenisInstances() {
+export function initLenisInstances() {
   const lenis = new Lenis();
 
   // lenis.on('scroll', e => {
@@ -19,5 +19,3 @@ function initLenisInstances() {
 
   requestAnimationFrame(raf);
 }
-
-export { initLenisInstances };

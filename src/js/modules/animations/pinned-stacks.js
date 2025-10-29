@@ -1,6 +1,6 @@
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { MQ } from './constants';
+import { MQ } from '../constants';
 
 gsap.registerPlugin(ScrollTrigger);
 
