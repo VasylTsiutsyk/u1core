@@ -40,14 +40,12 @@
             class="section-recognition__media"
             aria-labelledby="recognition-title"
           >
-            <img
-              src="@img/home/recognition/badges.png"
-              alt="Clutch awards"
-              width="399"
-              height="120"
-              loading="lazy"
-              decoding="async"
-            />
+            <include
+              src="@components/sliders/_stacked-cards.html"
+              locals='{ 
+                "bemClasses": "section-recognition__stacked-cards"
+              }'
+            ></include>
 
             <figcaption
               class="section-recognition__rating recognition-rating"

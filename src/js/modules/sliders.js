@@ -4,11 +4,12 @@
 // DOC: https://swiperjs.com/
 
 import Swiper from 'swiper';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, EffectCards, Navigation, Pagination } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import 'swiper/css/effect-cards';
 
 export function initSwiper(selector, config) {
   const el = document.querySelector(selector);
@@ -222,6 +223,25 @@ function initSliders() {
     speed: 800,
     slidesPerView: 'auto',
     spaceBetween: 0,
+  });
+
+  // Stacked Cards
+  initSwiper('#swiperStackedCards', {
+    modules: [Autoplay, EffectCards],
+    direction: 'horizontal',
+    speed: 800,
+    effect: 'cards',
+    loop: true,
+    grabCursor: true,
+    cardsEffect: {
+      perSlideOffset: 16,
+      perSlideRotate: 0,
+      slideShadows: false,
+      rotate: false,
+    },
+    autoplay: {
+      delay: 3000,
+    },
   });
 }
 

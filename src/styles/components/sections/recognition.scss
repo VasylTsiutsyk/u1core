@@ -27,6 +27,7 @@
 
   &__col {
     flex: 0 0 var(--col-width);
+    min-width: 0;
     max-width: var(--col-width);
     padding-inline: calc(var(--col-gap) / 2);
 
@@ -63,16 +64,9 @@
     }
   }
 
-  &__media {
-    img {
-      display: block;
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-
-      &:not(:last-child) {
-        margin-block-end: rem(28);
-      }
+  &__stacked-cards {
+    &:not(:last-child) {
+      margin-block-end: rem(28);
     }
   }
 }
