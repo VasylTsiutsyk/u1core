@@ -2,12 +2,10 @@
 
 /* Progress Ring */
 .progress-ring {
-  --pr-border-width: #{rem(2)};
   --pr-size: #{rem(20)};
   --pr-track-color: var(--color-accent-yellow-8);
   --pr-active-color: var(--color-primary);
-  --pr-thickness: 0;
-  --pr-p: 0;
+  --pr-thickness: #{rem(2)};
 
   position: relative;
   border: var(--pr-thickness) solid transparent;
@@ -19,7 +17,7 @@
       #000  calc(100% - var(--pr-thickness))
     ) padding-box,
     conic-gradient(
-      var(--pr-active-color) calc(var(--pr-p) * 1turn),
+      var(--pr-active-color) calc(var(--data-progress) * 1turn),
       var(--pr-track-color) 0
     ) border-box;
   transform: rotate(-90deg);
@@ -30,7 +28,7 @@
   &::after {
     content: '';
     position: absolute;
-    inset: var(--pr-border-width);
+    inset: 0;
     border-radius: 50%;
     background-color: var(--color-basic-black-100);
   }

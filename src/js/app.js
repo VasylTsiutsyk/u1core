@@ -28,7 +28,6 @@ import initAsideVideo from './modules/aside-video';
 import { initPartnershipsMap } from './modules/partnership-map';
 
 import {
-  initProgressRings,
   initVerticalSwiperScroll,
   initProjectCardFollowBtn,
   initHeroOverlap,
@@ -118,9 +117,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Efficiency Card
   initEfficiencyCards();
-
-  // Progress Rings
-  initProgressRings();
 
   // Spotlight Follow
   initSpotlightFollow();

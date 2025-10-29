@@ -11,7 +11,6 @@ import { initFooterBottomSphere } from './scroll-sphere';
 import { initAosAnimations } from './aos';
 import { initLenisInstances } from './lenis';
 import { initFancyboxes } from './fancybox';
-import { initProgressRings } from './progress-rings';
 import { initShowreelScale } from '../showreel-scale';
 
 export {
@@ -28,6 +27,5 @@ export {
   initAosAnimations,
   initLenisInstances,
   initFancyboxes,
-  initProgressRings,
   initShowreelScale,
 };
