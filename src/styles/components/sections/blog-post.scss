@@ -146,6 +146,7 @@
   }
 
   &__menu {
+    position: relative;
     color: var(--color-basic-white-60);
 
     > li {
@@ -162,36 +163,27 @@
 
         @include hover {
           color: var(--color-basic-white-100);
-
-          &::before {
-            top: 0;
-            bottom: 0;
-          }
-        }
-
-        &::before {
-          content: '';
-          position: absolute;
-          left: 0;
-          top: 50%;
-          bottom: 50%;
-          width: rem(1);
-          background-color: var(--color-primary);
-          pointer-events: none;
-          transition:
-            top var(--transition-duration),
-            bottom var(--transition-duration);
         }
 
         &._active {
           color: var(--color-basic-white-100);
-
-          &::before {
-            top: 0;
-            bottom: 0;
-          }
         }
       }
+    }
+
+    .toc-indicator {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: rem(1);
+      height: var(--h, 0);
+      background-color: var(--color-primary);
+      transform: translateY(var(--y, 0));
+      will-change: transform, height;
+      pointer-events: none;
+      transition:
+        transform var(--transition-duration),
+        height var(--transition-duration);
     }
   }
 }
