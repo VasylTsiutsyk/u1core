@@ -20,8 +20,21 @@ export function initBeforeAfter({
       0,
       Math.min(100, Number(root.dataset.baDefault ?? 50))
     );
+
     let pos = defPct / 100;
     let rect = track.getBoundingClientRect();
+
+    let sizeRaf = 0;
+
+    const setSizeVar = () => {
+      if (sizeRaf) cancelAnimationFrame(sizeRaf);
+
+      sizeRaf = requestAnimationFrame(() => {
+        rect = track.getBoundingClientRect();
+        const size = vertical ? rect.height : rect.width;
+        root.style.setProperty('--width', `${Math.round(size)}px`);
+      });
+    };
 
     const limits = () => {
       const hRect = handle.getBoundingClientRect();
@@ -56,6 +69,7 @@ export function initBeforeAfter({
     const start = e => {
       e.preventDefault();
       rect = track.getBoundingClientRect();
+      setSizeVar(); // оновити --width перед драгом
       setPos(ratioFromEvent(e), { animate: false });
 
       const move = ev => setPos(ratioFromEvent(ev), { animate: false });
@@ -85,10 +99,24 @@ export function initBeforeAfter({
       setPos(defPct / 100, { animate: true });
     });
 
-    const ro = new ResizeObserver(() => setPos(pos));
+    const ro = new ResizeObserver(() => {
+      setSizeVar();
+      setPos(pos);
+    });
+
     ro.observe(track);
     ro.observe(handle);
 
+    window.addEventListener(
+      'resize',
+      () => {
+        setSizeVar();
+        setPos(pos);
+      },
+      { passive: true }
+    );
+
+    setSizeVar();
     setPos(defPct / 100);
   });
 }

@@ -6,6 +6,7 @@
   --ba-aspect: 16 / 9;
   --ba-transition: 0.5s;
   --pos: 50%;
+  --width: 100%;
 
   position: relative;
   display: block;
@@ -49,7 +50,9 @@
     inline-size: 100%;
 
     &--before {
+      max-width: none;
       object-position: left;
+      inline-size: var(--width);
     }
   }
 
