@@ -10,24 +10,31 @@ function initTOCItem(root) {
   const scope = document.querySelector(scopeSel);
   if (!scope) return;
 
+  // 0) колекція заголовків
   const headings = Array.from(scope.querySelectorAll(headingsSel)).filter(
     h => h.id
   );
-  list.innerHTML = '';
+  if (!headings.length) return;
 
-  // 1) build list
+  const headingIds = new Set(headings.map(h => h.id));
+
+  // 1) БІЛЬШ НЕ СТВОРЮЄМО ЛІНКИ — беремо вже наявні
+  //    Підійдуть як [data-toc-link], так і звичайні <a href="#id">
+  const anchors = Array.from(
+    list.querySelectorAll('[data-toc-link], a[href^="#"]')
+  );
+
   const linkMap = new Map(); // id -> <a>
-  for (const h of headings) {
-    const li = document.createElement('li');
-    const a = document.createElement('a');
-    a.href = `#${encodeURIComponent(h.id)}`;
-    a.textContent = h.textContent.trim();
-    a.setAttribute('data-toc-link', '');
-    a.setAttribute('data-target', `#${h.id}`);
-    li.appendChild(a);
-    list.appendChild(li);
-    linkMap.set(h.id, a);
+  for (const a of anchors) {
+    const selector = a.getAttribute('data-target') || a.getAttribute('href');
+    if (!selector || !selector.startsWith('#')) continue;
+    const id = decodeURIComponent(selector.slice(1));
+    if (!headingIds.has(id)) continue; // ігноруємо лінки без відповідного заголовка
+    linkMap.set(id, a);
+    // гарантуємо наявність атрибуту для делегації кліків
+    if (!a.hasAttribute('data-toc-link')) a.setAttribute('data-toc-link', '');
   }
+
   if (!linkMap.size) return;
 
   // 2) single indicator
@@ -82,8 +89,7 @@ function initTOCItem(root) {
   const armLock = id => {
     lockId = id;
     clearTimeout(lockTimer);
-    lockTimer = setTimeout(() => (lockId = null), 2000); // фолбек на випадок довгого скролу
-    // якщо є підтримка scrollend — розлочимо автоматично
+    lockTimer = setTimeout(() => (lockId = null), 2000);
     if ('onscrollend' in window) {
       const fn = () => {
         lockId = null;
@@ -93,21 +99,22 @@ function initTOCItem(root) {
     }
   };
 
-  // 3) clicks
+  // 3) clicks (делегуємо: і [data-toc-link], і звич. <a href="#...">)
   root.addEventListener('click', e => {
-    const a = e.target.closest('[data-toc-link]');
-    if (!a) return;
+    const a = e.target.closest('[data-toc-link], a[href^="#"]');
+    if (!a || !list.contains(a)) return;
     const selector = a.getAttribute('data-target') || a.getAttribute('href');
     if (!selector || !selector.startsWith('#')) return;
 
     e.preventDefault();
     const id = decodeURIComponent(selector.slice(1));
-    armLock(id); // <— фіксуємось на цілі
-    setActiveUI(id); // одразу переносимо індикатор до цілі
-    smoothScrollToId(id); // і скролимо туди
+    if (!linkMap.has(id)) return;
+    armLock(id);
+    setActiveUI(id);
+    smoothScrollToId(id);
   });
 
-  // 4) IO — активний пункт (ігноруємо, поки є lockId і це не наша ціль)
+  // 4) IO — активний пункт (ігноруємо, поки є lockId; пропускаємо заголовки без лінка)
   const io = new IntersectionObserver(
     entries => {
       let best = null;
@@ -119,9 +126,10 @@ function initTOCItem(root) {
       if (!best) return;
 
       const id = best.target.id;
-      if (lockId && id !== lockId) return; // ігнор проміжних заголовків
+      if (!linkMap.has(id)) return; // тільки ті, що присутні в меню
+      if (lockId && id !== lockId) return;
       setActiveUI(id);
-      if (lockId && id === lockId) lockId = null; // ціль досягнена — розлочити
+      if (lockId && id === lockId) lockId = null;
     },
     {
       root: null,
@@ -130,19 +138,25 @@ function initTOCItem(root) {
     }
   );
 
+  // Спостерігаємо всі наявні заголовки (або можна звузити лише до тих, що у linkMap)
   headings.forEach(h => io.observe(h));
 
   // 5) initial
   const initialId = location.hash && decodeURIComponent(location.hash.slice(1));
-  if (initialId && document.getElementById(initialId)) {
+  const firstLinkedId = linkMap.keys().next().value || headings[0].id;
+
+  if (
+    initialId &&
+    document.getElementById(initialId) &&
+    linkMap.has(initialId)
+  ) {
     setTimeout(() => {
       setActiveUI(initialId);
       smoothScrollToId(initialId);
     }, 0);
   } else {
-    const firstId = headings[0].id;
-    setActiveUI(firstId);
-    moveIndicatorToLink(linkMap.get(firstId));
+    setActiveUI(firstLinkedId);
+    moveIndicatorToLink(linkMap.get(firstLinkedId));
   }
 
   // 6) resize

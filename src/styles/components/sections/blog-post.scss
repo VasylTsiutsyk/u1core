@@ -318,7 +318,7 @@
     border-spacing: 0;
     min-width: rem(720);
     font-size: rem(14);
-    font-weight: 500;
+    font-weight: var(--body-font-weight);
     line-height: 1.4;
     letter-spacing: var(--body-letter-spacing);
 
@@ -329,6 +329,7 @@
     thead {
       th {
         background-color: var(--color-accent-yellow-8);
+        font-weight: 400;
 
         &:first-child {
           border-top-left-radius: var(--text-table-border-radius);
