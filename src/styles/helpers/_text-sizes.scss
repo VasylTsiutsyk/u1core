@@ -21,8 +21,8 @@ $letter-spacings: (
   lg:   var(--text-lg-letter-spacing, var(--body-letter-spacing))
 );
 $weights: (
-  regular: var(--body-font-weight, 400),
-  medium:   500,
+  regular: var(--body-font-weight, 300),
+  medium:   400,
   semibold: 600,
   bold:     700
 );
