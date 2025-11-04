@@ -1,8 +1,8 @@
 function initTOCItem(root) {
   const scopeSel = root.dataset.tocScope || 'body';
-  const headingsSel = root.dataset.tocHeadings || 'h3';
+  const headingsSel = root.dataset.tocHeadings || 'h2';
   const activeClass = root.dataset.tocActiveClass || '_active';
-  const offset = parseInt(root.dataset.tocOffset || '0', 10);
+  const offset = parseInt(root.dataset.tocOffset || '0', 12);
 
   const list = root.querySelector('[data-toc-list]');
   if (!list) return;
@@ -10,43 +10,125 @@ function initTOCItem(root) {
   const scope = document.querySelector(scopeSel);
   if (!scope) return;
 
-  // 0) колекція заголовків
-  const headings = Array.from(scope.querySelectorAll(headingsSel)).filter(
-    h => h.id
-  );
-  if (!headings.length) return;
+  // ——— helpers ———
+  const translitMap = {
+    а: 'a',
+    б: 'b',
+    в: 'v',
+    г: 'h',
+    ґ: 'g',
+    д: 'd',
+    е: 'e',
+    є: 'ye',
+    ж: 'zh',
+    з: 'z',
+    и: 'y',
+    і: 'i',
+    ї: 'yi',
+    й: 'i',
+    к: 'k',
+    л: 'l',
+    м: 'm',
+    н: 'n',
+    о: 'o',
+    п: 'p',
+    р: 'r',
+    с: 's',
+    т: 't',
+    у: 'u',
+    ф: 'f',
+    х: 'kh',
+    ц: 'ts',
+    ч: 'ch',
+    ш: 'sh',
+    щ: 'shch',
+    ь: '',
+    ю: 'yu',
+    я: 'ya',
+    ы: 'y',
+    э: 'e',
+    ё: 'yo',
+  };
 
-  const headingIds = new Set(headings.map(h => h.id));
+  const translit = s =>
+    String(s || '').replace(/[\u0400-\u04FF]/g, ch => {
+      const low = ch.toLowerCase();
+      const t = translitMap[low] ?? '';
+      return ch === low ? t : t.charAt(0).toUpperCase() + t.slice(1);
+    });
 
-  // 1) БІЛЬШ НЕ СТВОРЮЄМО ЛІНКИ — беремо вже наявні
-  //    Підійдуть як [data-toc-link], так і звичайні <a href="#id">
-  const anchors = Array.from(
-    list.querySelectorAll('[data-toc-link], a[href^="#"]')
-  );
+  const slugify = (text, fallback = 'section') => {
+    let s = String(text || '').trim() || fallback;
+    s = translit(s)
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-+|-+$/g, '');
+    return s || fallback;
+  };
 
-  const linkMap = new Map(); // id -> <a>
-  for (const a of anchors) {
-    const selector = a.getAttribute('data-target') || a.getAttribute('href');
-    if (!selector || !selector.startsWith('#')) continue;
-    const id = decodeURIComponent(selector.slice(1));
-    if (!headingIds.has(id)) continue; // ігноруємо лінки без відповідного заголовка
-    linkMap.set(id, a);
-    // гарантуємо наявність атрибуту для делегації кліків
-    if (!a.hasAttribute('data-toc-link')) a.setAttribute('data-toc-link', '');
+  const makeUniqueId = base => {
+    let id = base || 'section',
+      i = 2;
+    while (document.getElementById(id)) id = `${base}-${i++}`;
+    return id;
+  };
+
+  function setHashSilently(id, replace = true) {
+    const url = new URL(window.location.href);
+
+    url.hash = id;
+    history[replace ? 'replaceState' : 'pushState'](history.state, '', url);
   }
 
-  if (!linkMap.size) return;
+  // ——— headings: skip any with class ———
+  const query = `:is(${headingsSel}):not([class])`;
+  const headings = Array.from(scope.querySelectorAll(query));
+  if (!headings.length) return;
 
-  // 2) single indicator
-  let indicator = list.querySelector('.toc-indicator');
+  // ensure id + data-slug
+  headings.forEach((h, idx) => {
+    if (!h.id) {
+      const base = slugify(
+        h.dataset.slug || h.textContent,
+        `section-${idx + 1}`
+      );
+      h.id = makeUniqueId(base);
+      h.dataset.slug = h.id;
+    } else {
+      h.dataset.slug = h.id;
+    }
+  });
+
+  // ——— build list ———
+  list.innerHTML = '';
+  const linkMap = new Map();
+  for (const h of headings) {
+    const id = h.id;
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = `#${encodeURIComponent(id)}`;
+    a.textContent = (h.textContent || '').trim();
+    a.setAttribute('data-toc-link', '');
+    a.setAttribute('data-target', `#${id}`);
+    a.setAttribute('role', 'link');
+    li.appendChild(a);
+    list.appendChild(li);
+    linkMap.set(id, a);
+  }
+
+  // ——— indicator (data-attr) ———
+  let indicator = list.querySelector('[data-toc-indicator]');
   if (!indicator) {
     indicator = document.createElement('span');
-    indicator.className = 'toc-indicator';
+    indicator.setAttribute('data-toc-indicator', '');
     indicator.setAttribute('aria-hidden', 'true');
     list.appendChild(indicator);
   }
 
-  // move indicator to link
   let raf = 0;
   const moveIndicatorToLink = link => {
     if (!link) return;
@@ -60,13 +142,12 @@ function initTOCItem(root) {
     });
   };
 
-  // UI state
   const setActiveUI = id => {
     linkMap.forEach((link, key) => {
       const isActive = key === id;
       link.classList.toggle(activeClass, isActive);
       if (isActive) {
-        link.setAttribute('aria-current', 'true');
+        link.setAttribute('aria-current', 'location');
         moveIndicatorToLink(link);
       } else {
         link.removeAttribute('aria-current');
@@ -74,48 +155,45 @@ function initTOCItem(root) {
     });
   };
 
-  // smooth scroll (native)
-  const smoothScrollToId = id => {
+  // smooth scroll (offset-aware or use CSS scroll-margin-top)
+  function smoothScrollToId(id) {
     const el = document.getElementById(id);
     if (!el) return;
-    const top =
-      el.getBoundingClientRect().top + window.pageYOffset - offset - 100;
-    window.scrollTo({ top, behavior: 'smooth' });
-  };
 
-  // —— LOCK проти «ступінчастості» під час скролу
-  let lockId = null;
-  let lockTimer = 0;
-  const armLock = id => {
-    lockId = id;
-    clearTimeout(lockTimer);
-    lockTimer = setTimeout(() => (lockId = null), 2000);
-    if ('onscrollend' in window) {
-      const fn = () => {
-        lockId = null;
-        window.removeEventListener('scrollend', fn);
-      };
-      window.addEventListener('scrollend', fn, { once: true });
+    const prefersReduce = window.matchMedia?.(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
+
+    setHashSilently(id, true);
+
+    if (offset) {
+      const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top, behavior: prefersReduce ? 'auto' : 'smooth' });
+    } else {
+      el.scrollIntoView({
+        behavior: prefersReduce ? 'auto' : 'smooth',
+        block: 'start',
+        inline: 'nearest',
+      });
     }
-  };
+  }
 
-  // 3) clicks (делегуємо: і [data-toc-link], і звич. <a href="#...">)
+  // clicks
   root.addEventListener('click', e => {
-    const a = e.target.closest('[data-toc-link], a[href^="#"]');
+    const a = e.target.closest('[data-toc-link]');
     if (!a || !list.contains(a)) return;
+
     const selector = a.getAttribute('data-target') || a.getAttribute('href');
     if (!selector || !selector.startsWith('#')) return;
 
     e.preventDefault();
+
     const id = decodeURIComponent(selector.slice(1));
-    if (!linkMap.has(id)) return;
-    armLock(id);
-    setActiveUI(id);
     smoothScrollToId(id);
   });
 
-  // 4) IO — активний пункт (ігноруємо, поки є lockId; пропускаємо заголовки без лінка)
-  const io = new IntersectionObserver(
+  // observer
+  const observer = new IntersectionObserver(
     entries => {
       let best = null;
       for (const entry of entries) {
@@ -124,12 +202,8 @@ function initTOCItem(root) {
           best = entry;
       }
       if (!best) return;
-
       const id = best.target.id;
-      if (!linkMap.has(id)) return; // тільки ті, що присутні в меню
-      if (lockId && id !== lockId) return;
-      setActiveUI(id);
-      if (lockId && id === lockId) lockId = null;
+      if (linkMap.has(id)) setActiveUI(id);
     },
     {
       root: null,
@@ -137,41 +211,67 @@ function initTOCItem(root) {
       threshold: [0.1, 0.25, 0.5, 0.75, 1],
     }
   );
+  headings.forEach(h => observer.observe(h));
 
-  // Спостерігаємо всі наявні заголовки (або можна звузити лише до тих, що у linkMap)
-  headings.forEach(h => io.observe(h));
-
-  // 5) initial
-  const initialId = location.hash && decodeURIComponent(location.hash.slice(1));
-  const firstLinkedId = linkMap.keys().next().value || headings[0].id;
-
-  if (
-    initialId &&
-    document.getElementById(initialId) &&
-    linkMap.has(initialId)
-  ) {
-    setTimeout(() => {
-      setActiveUI(initialId);
-      smoothScrollToId(initialId);
-    }, 0);
-  } else {
-    setActiveUI(firstLinkedId);
-    moveIndicatorToLink(linkMap.get(firstLinkedId));
-  }
-
-  // 6) resize
-  const onResize = () => {
+  // indicator recalcs
+  const ro = new ResizeObserver(() => {
     const current =
       list.querySelector(`[data-toc-link].${activeClass}`) ||
-      list.querySelector('[data-toc-link][aria-current="true"]');
+      list.querySelector('[data-toc-link][aria-current="location"]');
     if (current) moveIndicatorToLink(current);
+  });
+
+  ro.observe(list);
+
+  list.addEventListener(
+    'scroll',
+    () => {
+      const current =
+        list.querySelector(`[data-toc-link].${activeClass}`) ||
+        list.querySelector('[data-toc-link][aria-current="location"]');
+      if (current) moveIndicatorToLink(current);
+    },
+    { passive: true }
+  );
+
+  document.fonts?.ready?.then(() => {
+    const current =
+      list.querySelector(`[data-toc-link].${activeClass}`) ||
+      list.querySelector('[data-toc-link][aria-current="location"]');
+
+    if (current) moveIndicatorToLink(current);
+  });
+
+  // initial
+  const firstId = linkMap.keys().next().value;
+  if (location.hash) {
+    const id = decodeURIComponent(location.hash.slice(1));
+    if (document.getElementById(id) && linkMap.has(id)) {
+      setTimeout(() => {
+        setActiveUI(id);
+        moveIndicatorToLink(linkMap.get(id));
+      }, 0);
+    } else if (firstId) {
+      setActiveUI(firstId);
+      moveIndicatorToLink(linkMap.get(firstId));
+    }
+  } else if (firstId) {
+    setActiveUI(firstId);
+    moveIndicatorToLink(linkMap.get(firstId));
+  }
+
+  // optional destroy
+  return () => {
+    observer.disconnect();
+    ro.disconnect();
+    list.removeEventListener('scroll', moveIndicatorToLink);
   };
-  window.addEventListener('resize', onResize, { passive: true });
 }
 
 function init() {
-  const list = document.querySelectorAll('[data-toc]');
-  if (!list) return;
-  [...list].forEach(initTOCItem);
+  const items = document.querySelectorAll('[data-toc]');
+  if (!items.length) return;
+
+  [...items].forEach(initTOCItem);
 }
 export default init;
