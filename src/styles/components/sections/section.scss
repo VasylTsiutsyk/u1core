@@ -98,20 +98,29 @@
   }
 
   &__timeline-cards {
-    display: grid;
-    gap: fluid(28, 24);
-    grid-template-columns: var(--grid-3);
+    --col-width: 100%;
+    --col-gap: #{fluid(28, 24)};
 
-    @include respond-below(md) {
-      grid-template-columns: var(--grid-2);
+    display: flex;
+    flex-wrap: wrap;
+    margin-inline: calc(var(--col-gap) / 2 * -1);
+    row-gap: var(--col-gap);
+
+    @include respond-above(sm) {
+      --col-width: 50%;
     }
 
-    @include respond-below(sm) {
-      grid-template-columns: var(--grid-1);
+    @include respond-above(md) {
+      --col-width: 33.33%;
     }
 
     &:not(:last-child) {
       margin-block-end: fluid(56, 32);
+    }
+
+    > li {
+      flex: 1 0 var(--col-width);
+      padding-inline: calc(var(--col-gap) / 2);
     }
   }
 
