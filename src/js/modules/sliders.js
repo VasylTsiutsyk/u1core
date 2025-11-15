@@ -251,35 +251,54 @@ function animateNumber(el, to, duration = 800) {
   function frame(t) {
     const p = Math.min(1, (t - start) / duration);
     const val = Math.round(from + (to - from) * p);
-    el.textContent = `${val}%`;
+    el.textContent = String(val);
     if (p < 1) requestAnimationFrame(frame);
   }
 
   requestAnimationFrame(frame);
 }
 
+function getChartBars(chart) {
+  return chart.querySelectorAll('[data-chart-bar]');
+}
+
+function getChartMaxValue(chart) {
+  let max = 0;
+
+  getChartBars(chart).forEach(bar => {
+    const value = parseFloat(bar.dataset.chartValue || '0');
+    if (value > max) max = value;
+  });
+
+  return max || 1;
+}
+
 function resetChart(chart) {
-  chart.querySelectorAll('[data-chart-bar]').forEach(bar => {
+  getChartBars(chart).forEach(bar => {
     bar.style.height = '0%';
   });
 
   chart
-    .querySelectorAll('[data-chart-label]')
-    .forEach(lbl => (lbl.textContent = '0%'));
+    .querySelectorAll('[data-chart-value-label]')
+    .forEach(lbl => (lbl.textContent = '0'));
 }
 
 function playChart(chart) {
-  const bars = chart.querySelectorAll('[data-chart-bar]');
+  const bars = getChartBars(chart);
+  const maxValue = getChartMaxValue(chart);
+
   bars.forEach(bar => {
-    const percent = parseFloat(bar.dataset.percent || '0');
+    const value = parseFloat(bar.dataset.chartValue || '0');
+    const heightPercent = (value / maxValue) * 100;
+
     bar.style.height = '0%';
 
     requestAnimationFrame(() => {
-      bar.style.height = percent + '%';
+      bar.style.height = heightPercent + '%';
     });
 
-    const label = bar.querySelector('[data-chart-label]');
-    if (label) animateNumber(label, percent, 900);
+    const label = bar.querySelector('[data-chart-value-label]');
+    if (label) animateNumber(label, value, 900);
   });
 }
 

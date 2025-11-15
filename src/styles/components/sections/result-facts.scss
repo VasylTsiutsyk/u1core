@@ -160,6 +160,7 @@
   overflow: hidden;
   padding: rem(12);
   color: var(--color-basic-white-100);
+  padding-block-start: rem(24);
 
   &__row {
     position: relative;
@@ -234,5 +235,7 @@
     width: 100%;
     text-align: center;
     transform: translateY(-120%);
+
+    @include text-truncate;
   }
 }
