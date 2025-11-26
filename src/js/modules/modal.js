@@ -8,6 +8,13 @@ class Modal {
     const defaultOptions = {
       isOpen: () => {},
       isClose: () => {},
+      // NEW: мапа хешів → data-modal-id
+      hashModals: {
+        '#contacts': 'contacts',
+        '#book-a-call': 'book-a-call',
+      },
+      // NEW: чи реагувати на location.hash / hashchange
+      useHashNavigation: true,
     };
 
     this.options = {
@@ -30,6 +37,10 @@ class Modal {
       'textarea',
       '[tabindex]',
     ];
+
+    // NEW: окреме поле для мапи хешів
+    this.hashModals = this.options.hashModals || {};
+
     this.events();
   }
 
@@ -49,6 +60,9 @@ class Modal {
           this.open();
           return;
         }
+
+        // NEW: обробка всіх <a> з хешем (#contacts, #book-a-call, ...).
+        this.handleHashLinkClick(e);
 
         if (
           e.target.closest('.modal__close') ||
@@ -79,7 +93,65 @@ class Modal {
           this.close();
         }
       });
+
+      // NEW: відкривати модалку, якщо вже є hash у URL
+      if (
+        this.options.useHashNavigation &&
+        this.hashModals &&
+        Object.keys(this.hashModals).length
+      ) {
+        this.handleHashChange(window.location.hash);
+
+        window.addEventListener('hashchange', () => {
+          this.handleHashChange(window.location.hash);
+        });
+      }
     }
+  }
+
+  // NEW: клік по посиланню з хешем
+  handleHashLinkClick(e) {
+    if (!this.hashModals || !Object.keys(this.hashModals).length) return;
+
+    const link = e.target.closest('a[href*="#"]');
+    if (!link) return;
+
+    const href = link.getAttribute('href');
+    if (!href) return;
+
+    const url = new URL(href, window.location.href);
+    const hash = url.hash;
+
+    if (!hash || !this.hashModals[hash]) return;
+
+    e.preventDefault();
+
+    const target = this.hashModals[hash];
+
+    // опційно синхронізуємо URL з hash (історія / back-forward)
+    if (this.options.useHashNavigation && window.location.hash !== hash) {
+      history.pushState(null, '', hash);
+    }
+
+    // якщо вже щось відкрите — закриємо перед відкриттям нового
+    if (this.isOpen && this.modalContainer) {
+      this.close();
+    }
+
+    this.show(target);
+  }
+
+  // NEW: реакція на зміну hash у URL
+  handleHashChange(hash) {
+    if (!hash || !this.hashModals || !this.hashModals[hash]) return;
+
+    const target = this.hashModals[hash];
+
+    if (this.isOpen && this.modalContainer) {
+      this.close();
+    }
+
+    this.show(target);
   }
 
   open() {
@@ -146,8 +218,8 @@ class Modal {
     const focusable = this.modalContainer.querySelectorAll(this.focusElements);
 
     if (this.isOpen) {
-      focusable[0].focus();
-    } else {
+      focusable[0]?.focus();
+    } else if (this.previousActiveElement) {
       this.previousActiveElement.focus();
     }
   }

@@ -134,7 +134,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initBeforeAfter();
 
   // MODALS
-  new Modal();
+  new Modal({
+    hashModals: {
+      '#contacts': 'modalContactUs',
+      '#book-a-call': 'modalAppointment',
+    },
+  });
 
   // Tooltip
   initTooltips();
