@@ -15,8 +15,8 @@ export function initSwiper(selector, config) {
   return new Swiper(el, config);
 }
 
-// Swiper Header Banner
 function initSliders() {
+  // Swiper Header Banner
   initSwiper('#swiperHeaderBanner', {
     modules: [Autoplay],
     direction: 'vertical',
@@ -263,6 +263,15 @@ function getChartBars(chart) {
 }
 
 function getChartMaxValue(chart) {
+  const explicitMax = chart.dataset.chartMax;
+
+  if (explicitMax !== undefined && explicitMax !== '') {
+    const manualMax = parseFloat(explicitMax);
+    if (!Number.isNaN(manualMax) && manualMax > 0) {
+      return manualMax;
+    }
+  }
+
   let max = 0;
 
   getChartBars(chart).forEach(bar => {
