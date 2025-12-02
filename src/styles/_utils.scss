@@ -28,6 +28,7 @@
   &__blurs {
     position: absolute;
     inset: 0;
+    min-height: 500svh;
     pointer-events: none;
   }
 
