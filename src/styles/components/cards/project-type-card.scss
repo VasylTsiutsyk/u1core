@@ -210,7 +210,6 @@
 
   &__description {
     @include text-regular;
-    @include text-shorten(5);
 
     &:not(:last-child) {
       margin-block-end: fluid(28, 24);
