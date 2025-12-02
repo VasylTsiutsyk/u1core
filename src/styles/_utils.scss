@@ -28,7 +28,9 @@
   &__blurs {
     position: absolute;
     inset: 0;
-    min-height: 500svh;
+    width: 100%;
+    height: 100%;
+    min-height: rem(80000);
     pointer-events: none;
   }
 
@@ -47,6 +49,12 @@
     transition:
       visibility var(--transition-duration),
       opacity var(--transition-duration) 0.1s;
+
+    &[data-aos] {
+      &:not(.aos-animate) {
+        opacity: 0;
+      }
+    }
 
     &--01 {
       --size: 39.35vw;
@@ -106,10 +114,6 @@
       bottom: 15.5%;
       opacity: 0.35;
       transform: translateX(0%);
-    }
-
-    &:not(.aos-animate) {
-      opacity: 0;
     }
   }
 
