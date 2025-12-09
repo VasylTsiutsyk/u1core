@@ -75,7 +75,7 @@
   }
 
   &__cards {
-    --cards-cols: var(--grid-5);
+    --cards-cols: var(--grid-7);
     --cards-gap: #{rem(32)};
     --cards-offset: 2rem;
 
@@ -88,9 +88,9 @@
     > li {
       transform: translateY(0);
 
-      &:nth-child(5n - 5),
-      &:nth-child(5n - 2),
-      &:nth-child(5n - 4) {
+      &:nth-child(7n - 5),
+      &:nth-child(7n - 3),
+      &:nth-child(7n - 1) {
         transform: translateY(var(--cards-offset));
       }
     }
