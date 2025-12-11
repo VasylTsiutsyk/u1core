@@ -62,12 +62,12 @@
   }
 
   &__cards-wrap {
-    display: flex;
-    justify-content: center;
     overflow: auto hidden;
 
     @include respond-below(md) {
       position: relative;
+      display: flex;
+      justify-content: center;
       max-height: rem(400);
     }
 
